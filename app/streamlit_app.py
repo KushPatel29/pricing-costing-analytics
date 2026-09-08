@@ -372,6 +372,13 @@ source = st.radio(
 
 df_cost = df_export = None
 other_sheets = {}
+# The sheet names are only collected on the upload path, but the download at the
+# bottom writes with them on BOTH paths — so the sample flow, which is the one a
+# visitor lands on, raised NameError: cost_sheet_name the moment they clicked
+# download. Defaulted here to the same values the upload inputs start with;
+# that branch overwrites them when a file is actually supplied.
+cost_sheet_name = "Cost Sheet"
+export_sheet_name = "AllProducts"
 
 if source == SOURCE_SAMPLE:
     st.info(

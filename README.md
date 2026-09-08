@@ -1,7 +1,7 @@
 # Cost-to-Price Calculator
 
 [![CI](https://github.com/KushPatel29/cost-to-price-calculator/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/cost-to-price-calculator/actions/workflows/ci.yml)
-![tests](https://img.shields.io/badge/tests-64-brightgreen)
+![tests](https://img.shields.io/badge/tests-67-brightgreen)
 ![python](https://img.shields.io/badge/python-3.12-blue)
 
 **Live app:** [cost-to-price-calculator.streamlit.app](https://cost-to-price-calculator.streamlit.app/)
@@ -78,7 +78,7 @@ use, and a test asserting `85` and `0.85` give the same answer.
 at all. My own test caught this while I was writing it; rather than paper over
 it, the convention is now stated in the code and pinned by a test.
 
-**64 tests** over unit conversion, freight lanes, recovery, margin, the full
+**67 tests** over unit conversion, freight lanes, recovery, margin, the full
 stack, and the generated sample sheets.
 
 ---

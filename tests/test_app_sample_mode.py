@@ -96,3 +96,40 @@ class TestSampleData:
         first, _ = generate(items=30, seed=613)
         second, _ = generate(items=30, seed=613)
         assert first.equals(second)
+
+
+class TestEveryNameTheDownloadNeedsExistsOnBothPaths:
+    """The download at the bottom runs for sample data too.
+
+    `cost_sheet_name` and `export_sheet_name` were collected by text inputs that
+    only render on the upload path, then used unconditionally when writing the
+    workbook. So the sample flow — the one a visitor lands on, and the only one
+    they can use without files of their own — raised
+    `NameError: name 'cost_sheet_name' is not defined` the moment they clicked
+    download. Static parsing catches it: the names are read at module level, so
+    every read must have an assignment that is not nested inside the upload
+    branch.
+    """
+
+    @staticmethod
+    def _unconditional_assignments(source: str) -> set[str]:
+        """Names assigned at module level, outside any if/else or with block."""
+        tree = ast.parse(source)
+        assigned = set()
+        for node in tree.body:  # module level only — not inside a branch
+            if isinstance(node, ast.Assign):
+                for target in node.targets:
+                    for name in ast.walk(target):
+                        if isinstance(name, ast.Name):
+                            assigned.add(name.id)
+        return assigned
+
+    @pytest.mark.parametrize("name", ["cost_sheet_name", "export_sheet_name", "other_sheets"])
+    def test_the_download_names_are_assigned_outside_the_upload_branch(self, name):
+        assert name in APP_SOURCE, f"{name} is no longer used by the app"
+        assigned = self._unconditional_assignments(APP_SOURCE)
+        assert name in assigned, (
+            f"{name} is only assigned inside a branch, so the sample-data path "
+            f"reaches the download with it undefined — that is a NameError in "
+            f"front of every visitor who does not upload their own files."
+        )

@@ -29,6 +29,7 @@ from __future__ import annotations
 import argparse
 import filecmp
 import json
+import re
 import shutil
 import sys
 import tempfile
@@ -771,6 +772,25 @@ def build(out_dir: Path, data_root: Path) -> dict[str, int]:
             "pages": len(PAGES), "visuals": visual_count}
 
 
+# The one line in the project that cannot be the same on two machines. The
+# model reads CSVs off disk through an absolute path, so the committed file
+# names whichever machine generated it -- and a byte-for-byte gate over it can
+# only ever pass there. Everything else in the project is machine-independent
+# and is still compared byte for byte;
+# tests/test_powerbi_model.py::test_only_the_data_path_varies_between_machines
+# regenerates against a different root and asserts that this exemption covers
+# exactly one line of one file, so it cannot quietly widen.
+DATA_PATH_LINE = re.compile(r'^expression DataPath = ".*?" meta', re.MULTILINE)
+
+
+def _comparable(path: Path) -> str:
+    """A file's contents with the machine-specific data root normalised out."""
+    text = path.read_text(encoding="utf-8")
+    if path.name == "expressions.tmdl":
+        return DATA_PATH_LINE.sub('expression DataPath = "<data root>" meta', text)
+    return text
+
+
 def differences(left: Path, right: Path) -> list[str]:
     """Every path under `left` whose file differs from `right`, or is missing."""
     out = []
@@ -785,6 +805,9 @@ def differences(left: Path, right: Path) -> list[str]:
         other = right / relative
         if not other.exists():
             out.append(f"missing: {relative}")
+        elif path.name == "expressions.tmdl":
+            if _comparable(path) != _comparable(other):
+                out.append(f"differs: {relative}")
         elif not filecmp.cmp(path, other, shallow=False):
             out.append(f"differs: {relative}")
     for path in sorted(right.rglob("*")):

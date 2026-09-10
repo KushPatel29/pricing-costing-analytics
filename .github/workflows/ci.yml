@@ -47,8 +47,25 @@ jobs:
       - name: Sample workbooks write
         run: python -m seed.generate_sheets
 
+      # `tee` and an explicit PIPESTATUS, so the step still fails on a red test.
+      # The job summary is the point: an Actions log needs repository access to
+      # read, and a public portfolio repo whose CI says only "exit code 1" is a
+      # badge with nothing behind it.
       - name: pytest
-        run: python -m pytest -q
+        run: |
+          set -o pipefail
+          python -m pytest -q --tb=short 2>&1 | tee pytest.log
+
+      - name: Report the failures where they can be read
+        if: failure()
+        run: |
+          {
+            echo "### pytest"
+            echo ""
+            echo '```'
+            tail -120 pytest.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
 
       # The PBIP is generated from powerbi/model_spec.py and report_spec.py.
       # A hand-edit to the committed project has to fail here rather than

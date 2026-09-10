@@ -15,6 +15,7 @@ None of that is visible in a diff, so it is asserted here instead.
 from __future__ import annotations
 
 import re
+import shutil
 from pathlib import Path
 
 import pandas as pd
@@ -85,6 +86,37 @@ def test_the_committed_project_matches_the_spec(tmp_path):
         + "\n  ".join(drift[:20])
         + "\n\nrun: python -m powerbi.build_pbip"
     )
+
+
+def test_only_the_data_path_varies_between_machines(tmp_path):
+    """
+    The model reads its CSVs through an absolute path, so one line of the
+    committed project names the machine that generated it. `differences()`
+    normalises that line -- and this is what stops the exemption widening into
+    "expressions.tmdl is not checked".
+
+    Regenerating against a different data root has to produce a project that is
+    identical everywhere else. If it does not, something else in the generator
+    has picked up an absolute path and a clone will be broken in a way nobody
+    notices until Desktop cannot find a table.
+    """
+    fake_root = tmp_path / "elsewhere"
+    for directory in ("data", "output"):
+        shutil.copytree(ROOT / directory, fake_root / directory)
+
+    out_dir = tmp_path / "project"
+    build_pbip.build(out_dir, fake_root)
+    assert not build_pbip.differences(out_dir, PBIP), (
+        "regenerating against a different data root changed more than the data "
+        "path; the committed project is not portable"
+    )
+
+    # And the exemption really is only that line: without normalising, the
+    # expressions file does differ.
+    generated = out_dir / "PricingAnalytics.SemanticModel" / "definition" / "expressions.tmdl"
+    committed = PBIP / "PricingAnalytics.SemanticModel" / "definition" / "expressions.tmdl"
+    assert generated.read_text(encoding="utf-8") != committed.read_text(encoding="utf-8")
+    assert str(fake_root) in generated.read_text(encoding="utf-8")
 
 
 # --------------------------------------------------------------------------

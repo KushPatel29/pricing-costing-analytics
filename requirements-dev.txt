@@ -1,0 +1,17 @@
+# What the build and the tests need, and the deployed app does not.
+#
+# Kept out of requirements.txt on purpose. Streamlit Community Cloud installs
+# that file to run the app, and a dependency with no wheel for whatever Python
+# the deployment is on fails the whole build -- which would be a live app taken
+# down by a package it never imports. duckdb is only reachable from
+# engine/run_sql.py, which runs here and in CI.
+duckdb==1.5.4
+
+pytest>=8
+ruff>=0.6
+
+# The Power BI tests validate every generated file against the published JSON
+# schema it names. Without these two they skip loudly rather than failing, so
+# they are a dev dependency and not a silent one.
+jsonschema>=4.23
+referencing>=0.35

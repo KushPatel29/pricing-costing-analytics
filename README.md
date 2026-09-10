@@ -524,7 +524,7 @@ looking right.
 ```bash
 python -m venv .venv && .venv/Scripts/activate     # Windows
 python -m venv .venv && source .venv/bin/activate  # macOS / Linux
-pip install -r requirements.txt
+pip install -r requirements.txt -r requirements-dev.txt
 
 python -m seed.generate_market
 python -m seed.generate_erp

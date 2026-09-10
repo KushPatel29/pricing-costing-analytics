@@ -18,7 +18,7 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: python -m pip install --upgrade pip
-      - run: pip install -r requirements.txt pytest ruff jsonschema referencing openpyxl
+      - run: pip install -r requirements.txt -r requirements-dev.txt
 
       - name: ruff
         run: ruff check app costing docs engine powerbi pricing seed tests

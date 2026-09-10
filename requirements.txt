@@ -4,7 +4,7 @@ numpy>=1.26
 plotly==6.9.0
 openpyxl==3.1.5
 xlsxwriter==3.2.0
-# The SQL marts. engine/run_sql.py runs them in DuckDB and a test holds the
-# result to the pandas implementation, so this is a runtime dependency of
-# the build rather than a developer convenience.
-duckdb==1.5.4
+
+# The build and the tests need more than this: see requirements-dev.txt.
+# This file is what Streamlit Community Cloud installs to run the app, so it
+# holds only what the app itself imports.

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 764" width="1280" height="764" role="img" aria-label="Layout of the Exceptions and alerts page: 10 visuals on a 1280 by 720 canvas">
+  <rect width="1280" height="764" fill="#0c0c0f"/>
+  <text x="20" y="27" fill="#f2f2f4" font-size="15" font-weight="700">Exceptions and alerts</text>
+  <text x="1260" y="27" fill="#7d7d85" font-size="11.5" text-anchor="end">page 17 of 19 · 10 visuals · bar, card, column, donut, slicer, table</text>
+  <g transform="translate(0 44)">
+  <g><rect x="20" y="20" width="300" height="118" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="20" y="20" width="4" height="118" rx="2" fill="#3987e5"/>
+  <text x="34" y="41" fill="#f2f2f4" font-size="12.5" font-weight="600">Exceptions</text>
+  <text x="34" y="57" fill="#3987e5" font-size="10.5" letter-spacing="0.06em">CARD</text>
+  <text x="34" y="75" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Exceptions]</text>
+  </g>
+  <g><rect x="330" y="20" width="296" height="118" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="330" y="20" width="4" height="118" rx="2" fill="#3987e5"/>
+  <text x="344" y="41" fill="#f2f2f4" font-size="12.5" font-weight="600">Red exceptions</text>
+  <text x="344" y="57" fill="#3987e5" font-size="10.5" letter-spacing="0.06em">CARD</text>
+  <text x="344" y="75" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Red exceptions]</text>
+  </g>
+  <g><rect x="634" y="20" width="300" height="118" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="634" y="20" width="4" height="118" rx="2" fill="#3987e5"/>
+  <text x="648" y="41" fill="#f2f2f4" font-size="12.5" font-weight="600">Exception margin at risk</text>
+  <text x="648" y="57" fill="#3987e5" font-size="10.5" letter-spacing="0.06em">CARD</text>
+  <text x="648" y="75" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Exception margin at risk]</text>
+  </g>
+  <g><rect x="942" y="20" width="318" height="118" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="942" y="20" width="4" height="118" rx="2" fill="#3987e5"/>
+  <text x="956" y="41" fill="#f2f2f4" font-size="12.5" font-weight="600">Exception margin %</text>
+  <text x="956" y="57" fill="#3987e5" font-size="10.5" letter-spacing="0.06em">CARD</text>
+  <text x="956" y="75" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Exception margin %]</text>
+  </g>
+  <g><rect x="20" y="152" width="400" height="272" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="20" y="152" width="4" height="272" rx="2" fill="#c98500"/>
+  <text x="34" y="173" fill="#f2f2f4" font-size="12.5" font-weight="600">Red, amber, green</text>
+  <text x="34" y="189" fill="#c98500" font-size="10.5" letter-spacing="0.06em">COLUMN</text>
+  <text x="34" y="207" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">guardrail_exceptions[alert]</text>
+  <text x="34" y="222" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Exceptions]</text>
+  </g>
+  <g><rect x="434" y="152" width="400" height="272" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="434" y="152" width="4" height="272" rx="2" fill="#c98500"/>
+  <text x="448" y="173" fill="#f2f2f4" font-size="12.5" font-weight="600">Money at risk by rule</text>
+  <text x="448" y="189" fill="#c98500" font-size="10.5" letter-spacing="0.06em">BAR</text>
+  <text x="448" y="207" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">guardrail_exceptions[code]</text>
+  <text x="448" y="222" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Exception margin at risk]</text>
+  </g>
+  <g><rect x="848" y="152" width="412" height="272" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="848" y="152" width="4" height="272" rx="2" fill="#d95926"/>
+  <text x="862" y="173" fill="#f2f2f4" font-size="12.5" font-weight="600">Which segments carry it</text>
+  <text x="862" y="189" fill="#d95926" font-size="10.5" letter-spacing="0.06em">DONUT</text>
+  <text x="862" y="207" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">dim_customer[segment]</text>
+  <text x="862" y="222" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Exception margin at risk]</text>
+  </g>
+  <g><rect x="20" y="442" width="1030" height="258" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="20" y="442" width="4" height="258" rx="2" fill="#7d7d85"/>
+  <text x="34" y="463" fill="#f2f2f4" font-size="12.5" font-weight="600">The exception report</text>
+  <text x="34" y="479" fill="#7d7d85" font-size="10.5" letter-spacing="0.06em">TABLE</text>
+  <text x="34" y="497" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">guardrail_exceptions[alert]</text>
+  <text x="34" y="512" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">guardrail_exceptions[code]</text>
+  <text x="34" y="527" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">dim_product[description]</text>
+  <text x="34" y="542" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">dim_customer[customer_name]</text>
+  <text x="34" y="557" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Exception margin %]</text>
+  <text x="34" y="572" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Exception margin at risk]</text>
+  <text x="34" y="587" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">guardrail_exceptions[action]</text>
+  </g>
+  <g><rect x="1064" y="442" width="196" height="76" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="1064" y="442" width="4" height="76" rx="2" fill="#d55181"/>
+  <text x="1078" y="463" fill="#f2f2f4" font-size="12.5" font-weight="600">Alert</text>
+  <text x="1078" y="479" fill="#d55181" font-size="10.5" letter-spacing="0.06em">SLICER</text>
+  <text x="1078" y="497" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">guardrail_exceptions[alert]</text>
+  </g>
+  <g><rect x="1064" y="528" width="196" height="76" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="1064" y="528" width="4" height="76" rx="2" fill="#d55181"/>
+  <text x="1078" y="549" fill="#f2f2f4" font-size="12.5" font-weight="600">Category</text>
+  <text x="1078" y="565" fill="#d55181" font-size="10.5" letter-spacing="0.06em">SLICER</text>
+  <text x="1078" y="583" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">dim_product[category]</text>
+  </g>
+  </g>
+  <text x="20" y="756" fill="#7d7d85" font-size="10">Layout generated from powerbi/report_spec.py — not a screenshot of Power BI Desktop.</text>
+</svg>

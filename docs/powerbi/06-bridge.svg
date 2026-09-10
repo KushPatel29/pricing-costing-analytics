@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 764" width="1280" height="764" role="img" aria-label="Layout of the Margin bridge page: 9 visuals on a 1280 by 720 canvas">
+  <rect width="1280" height="764" fill="#0c0c0f"/>
+  <text x="20" y="27" fill="#f2f2f4" font-size="15" font-weight="700">Margin bridge</text>
+  <text x="1260" y="27" fill="#7d7d85" font-size="11.5" text-anchor="end">page 6 of 19 · 9 visuals · card, line, slicer, table, waterfall</text>
+  <g transform="translate(0 44)">
+  <g><rect x="20" y="20" width="300" height="118" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="20" y="20" width="4" height="118" rx="2" fill="#3987e5"/>
+  <text x="34" y="41" fill="#f2f2f4" font-size="12.5" font-weight="600">Pocket margin $</text>
+  <text x="34" y="57" fill="#3987e5" font-size="10.5" letter-spacing="0.06em">CARD</text>
+  <text x="34" y="75" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Pocket margin $]</text>
+  </g>
+  <g><rect x="330" y="20" width="296" height="118" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="330" y="20" width="4" height="118" rx="2" fill="#3987e5"/>
+  <text x="344" y="41" fill="#f2f2f4" font-size="12.5" font-weight="600">Pocket margin $ LY</text>
+  <text x="344" y="57" fill="#3987e5" font-size="10.5" letter-spacing="0.06em">CARD</text>
+  <text x="344" y="75" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Pocket margin $ LY]</text>
+  </g>
+  <g><rect x="634" y="20" width="300" height="118" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="634" y="20" width="4" height="118" rx="2" fill="#3987e5"/>
+  <text x="648" y="41" fill="#f2f2f4" font-size="12.5" font-weight="600">Pocket margin YoY pts</text>
+  <text x="648" y="57" fill="#3987e5" font-size="10.5" letter-spacing="0.06em">CARD</text>
+  <text x="648" y="75" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Pocket margin YoY pts]</text>
+  </g>
+  <g><rect x="942" y="20" width="318" height="118" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="942" y="20" width="4" height="118" rx="2" fill="#3987e5"/>
+  <text x="956" y="41" fill="#f2f2f4" font-size="12.5" font-weight="600">Pocket revenue YoY %</text>
+  <text x="956" y="57" fill="#3987e5" font-size="10.5" letter-spacing="0.06em">CARD</text>
+  <text x="956" y="75" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Pocket revenue YoY %]</text>
+  </g>
+  <g><rect x="20" y="152" width="1240" height="288" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="20" y="152" width="4" height="288" rx="2" fill="#d95926"/>
+  <text x="34" y="173" fill="#f2f2f4" font-size="12.5" font-weight="600">Price, cost, volume, mix, launches and losses</text>
+  <text x="34" y="189" fill="#d95926" font-size="10.5" letter-spacing="0.06em">WATERFALL</text>
+  <text x="34" y="207" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">margin_bridge_effects[effect]</text>
+  <text x="34" y="222" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Bridge amount]</text>
+  </g>
+  <g><rect x="20" y="448" width="500" height="252" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="20" y="448" width="4" height="252" rx="2" fill="#7d7d85"/>
+  <text x="34" y="469" fill="#f2f2f4" font-size="12.5" font-weight="600">The numbers</text>
+  <text x="34" y="485" fill="#7d7d85" font-size="10.5" letter-spacing="0.06em">TABLE</text>
+  <text x="34" y="503" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">margin_bridge_effects[effect]</text>
+  <text x="34" y="518" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Bridge amount]</text>
+  <text x="34" y="533" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">margin_bridge_effects[pct_of_prior]</text>
+  </g>
+  <g><rect x="534" y="446" width="530" height="252" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="534" y="446" width="4" height="252" rx="2" fill="#199e70"/>
+  <text x="548" y="467" fill="#f2f2f4" font-size="12.5" font-weight="600">This year against last</text>
+  <text x="548" y="483" fill="#199e70" font-size="10.5" letter-spacing="0.06em">LINE</text>
+  <text x="548" y="501" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">dim_month[month_name]</text>
+  <text x="548" y="516" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Pocket margin $]</text>
+  <text x="548" y="531" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Pocket margin $ LY]</text>
+  </g>
+  <g><rect x="1068" y="446" width="192" height="76" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="1068" y="446" width="4" height="76" rx="2" fill="#d55181"/>
+  <text x="1082" y="467" fill="#f2f2f4" font-size="12.5" font-weight="600">Comparison</text>
+  <text x="1082" y="483" fill="#d55181" font-size="10.5" letter-spacing="0.06em">SLICER</text>
+  <text x="1082" y="501" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">margin_bridge_effects[compariso…</text>
+  </g>
+  <g><rect x="1068" y="532" width="192" height="76" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="1068" y="532" width="4" height="76" rx="2" fill="#d55181"/>
+  <text x="1082" y="553" fill="#f2f2f4" font-size="12.5" font-weight="600">Category</text>
+  <text x="1082" y="569" fill="#d55181" font-size="10.5" letter-spacing="0.06em">SLICER</text>
+  <text x="1082" y="587" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">dim_product[category]</text>
+  </g>
+  </g>
+  <text x="20" y="756" fill="#7d7d85" font-size="10">Layout generated from powerbi/report_spec.py — not a screenshot of Power BI Desktop.</text>
+</svg>

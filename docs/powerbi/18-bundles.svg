@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 764" width="1280" height="764" role="img" aria-label="Layout of the Bundles page: 9 visuals on a 1280 by 720 canvas">
+  <rect width="1280" height="764" fill="#0c0c0f"/>
+  <text x="20" y="27" fill="#f2f2f4" font-size="15" font-weight="700">Bundles</text>
+  <text x="1260" y="27" fill="#7d7d85" font-size="11.5" text-anchor="end">page 18 of 19 · 9 visuals · bar, card, scatter, slicer, table</text>
+  <g transform="translate(0 44)">
+  <g><rect x="20" y="20" width="300" height="118" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="20" y="20" width="4" height="118" rx="2" fill="#3987e5"/>
+  <text x="34" y="41" fill="#f2f2f4" font-size="12.5" font-weight="600">Bundles considered</text>
+  <text x="34" y="57" fill="#3987e5" font-size="10.5" letter-spacing="0.06em">CARD</text>
+  <text x="34" y="75" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Bundles considered]</text>
+  </g>
+  <g><rect x="330" y="20" width="296" height="118" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="330" y="20" width="4" height="118" rx="2" fill="#3987e5"/>
+  <text x="344" y="41" fill="#f2f2f4" font-size="12.5" font-weight="600">Incremental margin</text>
+  <text x="344" y="57" fill="#3987e5" font-size="10.5" letter-spacing="0.06em">CARD</text>
+  <text x="344" y="75" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Incremental margin]</text>
+  </g>
+  <g><rect x="634" y="20" width="300" height="118" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="634" y="20" width="4" height="118" rx="2" fill="#3987e5"/>
+  <text x="648" y="41" fill="#f2f2f4" font-size="12.5" font-weight="600">Break-even cannibalisation</text>
+  <text x="648" y="57" fill="#3987e5" font-size="10.5" letter-spacing="0.06em">CARD</text>
+  <text x="648" y="75" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Break-even cannibalisation]</text>
+  </g>
+  <g><rect x="942" y="20" width="318" height="118" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="942" y="20" width="4" height="118" rx="2" fill="#3987e5"/>
+  <text x="956" y="41" fill="#f2f2f4" font-size="12.5" font-weight="600">Cannibalisation headroom</text>
+  <text x="956" y="57" fill="#3987e5" font-size="10.5" letter-spacing="0.06em">CARD</text>
+  <text x="956" y="75" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Cannibalisation headroom]</text>
+  </g>
+  <g><rect x="20" y="152" width="620" height="272" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="20" y="152" width="4" height="272" rx="2" fill="#c98500"/>
+  <text x="34" y="173" fill="#f2f2f4" font-size="12.5" font-weight="600">What each candidate is worth</text>
+  <text x="34" y="189" fill="#c98500" font-size="10.5" letter-spacing="0.06em">BAR</text>
+  <text x="34" y="207" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">bundle_candidates[bundle_id]</text>
+  <text x="34" y="222" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Incremental margin]</text>
+  </g>
+  <g><rect x="654" y="152" width="606" height="272" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="654" y="152" width="4" height="272" rx="2" fill="#9085e9"/>
+  <text x="668" y="173" fill="#f2f2f4" font-size="12.5" font-weight="600">How much room each bundle has</text>
+  <text x="668" y="189" fill="#9085e9" font-size="10.5" letter-spacing="0.06em">SCATTER</text>
+  <text x="668" y="207" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Break-even cannibalisation]</text>
+  <text x="668" y="222" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">bundle_candidates[bundle_id]</text>
+  <text x="668" y="237" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Incremental margin]</text>
+  <text x="668" y="252" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Cannibalisation headroom]</text>
+  </g>
+  <g><rect x="20" y="442" width="1030" height="258" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="20" y="442" width="4" height="258" rx="2" fill="#7d7d85"/>
+  <text x="34" y="463" fill="#f2f2f4" font-size="12.5" font-weight="600">The candidates</text>
+  <text x="34" y="479" fill="#7d7d85" font-size="10.5" letter-spacing="0.06em">TABLE</text>
+  <text x="34" y="497" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">bundle_candidates[name_a]</text>
+  <text x="34" y="512" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">bundle_candidates[name_b]</text>
+  <text x="34" y="527" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Standalone margin %]</text>
+  <text x="34" y="542" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Bundle margin %]</text>
+  <text x="34" y="557" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Break-even cannibalisation]</text>
+  <text x="34" y="572" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Incremental margin]</text>
+  <text x="34" y="587" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">bundle_candidates[verdict]</text>
+  </g>
+  <g><rect x="1064" y="442" width="196" height="76" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="1064" y="442" width="4" height="76" rx="2" fill="#d55181"/>
+  <text x="1078" y="463" fill="#f2f2f4" font-size="12.5" font-weight="600">Verdict</text>
+  <text x="1078" y="479" fill="#d55181" font-size="10.5" letter-spacing="0.06em">SLICER</text>
+  <text x="1078" y="497" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">bundle_candidates[verdict]</text>
+  </g>
+  <g><rect x="1064" y="528" width="196" height="76" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
+  <rect x="1064" y="528" width="4" height="76" rx="2" fill="#d55181"/>
+  <text x="1078" y="549" fill="#f2f2f4" font-size="12.5" font-weight="600">Category</text>
+  <text x="1078" y="565" fill="#d55181" font-size="10.5" letter-spacing="0.06em">SLICER</text>
+  <text x="1078" y="583" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">bundle_candidates[category_a]</text>
+  </g>
+  </g>
+  <text x="20" y="756" fill="#7d7d85" font-size="10">Layout generated from powerbi/report_spec.py — not a screenshot of Power BI Desktop.</text>
+</svg>

@@ -81,6 +81,15 @@ jobs:
       - name: Power BI project matches its spec
         run: python -m powerbi.build_pbip --check
 
+      # Both of these are generated from the same specs the project is built
+      # from, so a drift here means a document is describing something that no
+      # longer exists -- which is the one failure mode a reader cannot detect.
+      - name: Metric reference matches the model
+        run: python -m docs.build_metrics --check
+
+      - name: Report wireframes match the report spec
+        run: python -m powerbi.render_layouts --check
+
       - name: Data dictionary matches the CSVs
         run: |
           set -o pipefail

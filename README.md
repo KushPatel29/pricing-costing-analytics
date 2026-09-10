@@ -1,23 +1,30 @@
-# Pricing and Costing Analytics
+# Pricing & Costing Analytics
 
-[![CI](https://github.com/KushPatel29/cost-to-price-calculator/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/cost-to-price-calculator/actions/workflows/ci.yml)
+[![CI](https://github.com/KushPatel29/pricing-costing-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/pricing-costing-analytics/actions/workflows/ci.yml)
 ![Tests](https://img.shields.io/badge/tests-2455%20passing-3B8C6E)
-![python](https://img.shields.io/badge/python-3.12-blue)
-![streamlit](https://img.shields.io/badge/streamlit-1.60-ff4b4b)
+![Python](https://img.shields.io/badge/python-3.12-blue)
+![Streamlit](https://img.shields.io/badge/streamlit-1.60-ff4b4b)
+![Power BI](https://img.shields.io/badge/Power%20BI-PBIP%20%2F%20TMDL-F2C811)
 
 **Live app:** [cost-to-price-calculator.streamlit.app](https://cost-to-price-calculator.streamlit.app/)
+· **[Metric reference](docs/METRICS.md)**
+· **[Data dictionary](docs/DATA_DICTIONARY.md)**
+· **[Report layouts](docs/powerbi/)**
 
-A pricing analyst's working set for a multi-category B2B wholesale distributor:
-seventeen Streamlit pages, a Power BI project of nineteen pages and 191 visuals,
-and three complete fiscal years of generated market, transaction, cost and ERP
-data underneath both.
+A pricing analyst's whole job for a multi-category B2B wholesale distributor,
+from a vendor invoice to a decision somebody has to defend on Monday.
+**Seventeen Streamlit pages**, a **generated nineteen-page Power BI project**,
+**six SQL marts** that check the Python, and three complete fiscal years of
+market, transaction, cost and ERP data underneath all of it.
 
-It started as one tool — walk a product from a vendor invoice to a selling
-price, and push the result back into the ERP's price list. That tool is still
-here, unchanged in what it does. Everything around it is the rest of the job:
-what the market charges, what the customer actually pays after every deduction,
-how much volume moves when the price does, which of last year's margin miss was
-price rather than mix, and what to do about any of it on Monday.
+![Executive summary](docs/screenshots/01-executive-summary.png)
+
+It started as one tool — walk a product from a vendor invoice to a selling price
+and push the result back into the ERP's price list. That tool is still here,
+unchanged in what it does. Everything around it is the rest of the job: what the
+market charges, what the customer actually pays after every deduction, how much
+volume moves when the price does, which of last year's margin miss was price
+rather than mix, and what to do about any of it.
 
 ```bash
 pip install -r requirements.txt
@@ -26,7 +33,22 @@ streamlit run app/streamlit_app.py
 
 It opens on generated data, so there is nothing to prepare.
 
-![Executive summary](docs/screenshots/01-executive-summary.png)
+---
+
+## Contents
+
+| | |
+|---|---|
+| [The business](#the-business) | Who Meridian Supply Co is, and where the numbers land |
+| [The cost stack](#the-cost-stack) | The floor every price is built from |
+| [The pricing stack](#the-pricing-stack) | Twelve tested modules, and what each decides |
+| [The data](#the-data) | Generated to be *recoverable*, plus an ERP extract with real defects |
+| [The SQL layer](#the-sql-layer) | Six marts, computed twice, held to 1e-8 |
+| [The app](#the-app) | Seventeen pages, dark, validated palette |
+| [The dashboard](#the-dashboard) | Nineteen pages, generated from spec, with layouts you can read |
+| [Metrics](#metrics) | Every number, with its definition |
+| [Running it](#running-it) | Five commands |
+| [What is checked](#what-is-checked) | 2,455 tests, and the defects they were written after |
 
 ---
 
@@ -39,18 +61,19 @@ four brand tiers, 150 customers across eight segments from marketplace sellers
 to government and education, twelve salespeople, five competitors, six inbound
 lanes from ocean LCL to domestic FTL.
 
-Where the numbers land on the generated book:
+Where the numbers land on the generated book (FY2026):
 
-| | |
-|---|---:|
-| Pocket revenue | $183.2M |
-| Pocket margin | 24.7% |
-| Revenue leakage | 18.2% of list |
-| Price-band realisation opportunity | $6.5M |
-| Margin at risk on guardrail breaches | $3.0M |
-| Purchase price variance (FY2026) | −$0.7M |
-| Data quality score | 98.52% |
-| Recommended actions worth | $2.65M of annual margin |
+| | | |
+|---|---:|---|
+| Pocket revenue | **$183.2M** | after every discount, rebate, term and delivery cost |
+| Pocket margin | **24.7%** | on pocket, not on list |
+| Revenue leakage | **18.2%** | share of list that never arrives — $2.2M a point |
+| Realisation opportunity | **$6.5M** | moving every below-median line to its product's own median |
+| Margin at risk | **$3.0M** | extended margin on 1,301 guardrail breaches |
+| Purchase price variance | **−$0.7M** | actual input cost against the standard frozen that July |
+| Average pass-through | **0.61** | share of an input-cost move that reached the realised price |
+| Data quality score | **98.52%** | row-weighted over twelve rules and 157,746 row-checks |
+| Recommended actions worth | **$2.65M** | of annual gross margin, across 240 products |
 
 ---
 
@@ -79,21 +102,36 @@ $11.11.
 **Margin is a fraction of price, not of cost.** At a 25% margin a $10 cost
 prices at `10 / 0.75 = $13.33`, not `10 × 1.25 = $12.50`. Using markup where
 margin is meant underprices every item, and it never announces itself — the tool
-keeps working, the gross margin just comes in light.
+keeps working, the gross margin just comes in light. There is a page in the app
+for exactly this argument, because in practice the disagreement is never about
+the arithmetic. It is about which of the two somebody meant by "we work on 30".
 
-There is a page in the app for exactly this argument, because in practice the
-disagreement is never about the arithmetic. It is about which of the two
-somebody meant by "we work on 30".
+![Cost-to-price calculator](docs/screenshots/09-cost-to-price-calculator.png)
 
 ---
 
 ## The pricing stack
 
 Cost tells you the floor. It tells you nothing about the price. `pricing/` is
-twelve modules of pure functions — lists and floats in, dicts out — that answer
-the rest. Every one is importable without Streamlit and tested without it.
+**twelve modules of pure functions** — lists and floats in, dicts out — every one
+importable without Streamlit and tested without it.
 
-### The price waterfall — `pricing/waterfall.py`
+| Module | Decides |
+|---|---|
+| `waterfall.py` | List → invoice → net → pocket, and which deduction costs the most |
+| `elasticity.py` | How much volume moves when price does, and the optimal price |
+| `competitive.py` | Where we sit against the market, and how much of a cost move reached it |
+| `variance.py` | Standard-costing variances, and the margin bridge that sums exactly |
+| `unit_economics.py` | Contribution, markup vs margin, cost to serve, break-even |
+| `scenario.py` | Best/base/worst, tornado, sensitivity grid, break-even inputs |
+| `forecast.py` | Six methods, chosen by rolling-origin backtest |
+| `bundles.py` | Whether a bundle survives its own cannibalisation |
+| `segmentation.py` | Price bands, and willingness to pay from won *and lost* quotes |
+| `guardrails.py` | Floor, target, stretch, and who signs for the gap |
+| `quality.py` | Twelve rules, and a reconciliation that balances |
+| `recommend.py` | One ordered action per product, with the reason |
+
+### The price waterfall
 
 The headline discount is never the whole discount. A customer quoted "8% off
 list" also takes a quarterly rebate, an early-payment term, freight we absorb
@@ -108,11 +146,9 @@ list price
   − final cost                → pocket margin   (what we actually earn)
 ```
 
-![Price waterfall](docs/screenshots/06-price-waterfall.png)
-
 On the generated book that gap runs to **18.2% of list**. Margin is expressed on
 pocket, not on list, because a margin quoted on list is the number that lets a
-deal look healthy while losing money: at 20% leakage a 15%-on-list margin is
+deal look healthy while losing money: at 18% leakage a 15%-on-list margin is
 under 6% on what we keep.
 
 Discounts are additive on list, not compounding — 10% then 5% is 15% off, not
@@ -126,7 +162,9 @@ absolute value is added on top of the total it summarises and the chart closes
 at roughly twice the real figure — drawn, rescaled, and wrong with nothing
 raised anywhere.
 
-### Elasticity and the optimal price — `pricing/elasticity.py`
+![Price waterfall](docs/screenshots/06-price-waterfall.png)
+
+### Elasticity and the optimal price
 
 `ln(q) = a + e·ln(p)`, whose slope *is* the elasticity, because the derivative
 of a log is a percentage change. Fitted on list price, with promotional months
@@ -147,7 +185,9 @@ Three things the module refuses to do:
   `m` needs volume up by `d/(m−d)` just to stand still. Five points off a 30%
   margin needs +20% volume; off a 15% margin it needs +50%.
 
-### Competitive position and pass-through — `pricing/competitive.py`
+![Elasticity and optimal price](docs/screenshots/07-elasticity.png)
+
+### Competitive position and pass-through
 
 A price index is our price over the market's, times 100. The two ways it lies
 are both about what "the market" means: an unweighted mean gives a discount
@@ -162,128 +202,54 @@ price it is an outcome. The gap between them is the share of an announced
 increase that discounting handed straight back.
 
 It is estimated on **quarterly** changes, because that is how often prices are
-reviewed. Differencing monthly between two reviews measures customer mix: on
-this data the monthly fit explained 7% of the variation and the quarterly fit
-59%, and the monthly coefficient for the one index whose price barely tracks it
-came out at −2.15 — a number that says the seller cut price into a rising
-market, and means only that there was nothing to fit.
+reviewed. Differencing monthly between two reviews measures customer mix: the
+monthly fit explained 7% of the variation and the quarterly fit 59%, and the
+monthly coefficient for the one index whose price barely tracks it came out at
+−2.15 — a number that says the seller cut price into a rising market, and means
+only that there was nothing to fit.
 
-### Unit economics and break-even — `pricing/unit_economics.py`
+### Unit economics, scenarios and forecasting
 
-Contribution, contribution per unit, cost to serve, markup against margin, and
-break-even in both units and revenue. The break-even curve is a volume grid with
-fixed, variable and total cost against revenue, which is the chart everyone
-draws on a whiteboard and almost nobody has to hand.
+Contribution, cost to serve, markup against margin, and break-even in both units
+and revenue, with a volume grid of fixed, variable and total cost against
+revenue — the chart everyone draws on a whiteboard and almost nobody has to
+hand. Operating leverage comes out of the same numbers and is why two products
+at the same margin are not the same product.
 
-Operating leverage comes out of the same numbers and is the reason two products
-at the same margin are not the same product: the one carrying more fixed cost
-gains more on the way up and loses more on the way down.
+Scenarios give best, base and worst; a tornado ranking each input by how far
+moving it alone moves operating profit; a two-input sensitivity grid; and the
+value at which each input drives profit through zero. The three-point case says
+out loud that it is every assumption at its own end at once — a stress test, not
+an interval.
 
-### Cost variance and the margin bridge — `pricing/variance.py`
+Forecasting picks per measure by **rolling-origin backtest** rather than by
+whichever method fit the history best, scores on WAPE rather than MAPE (MAPE
+divides by the actual, so one small month dominates), and takes its interval
+from backtest residuals rather than assuming one.
 
-Standard costing variances — purchase price, yield, labour rate and efficiency,
-overhead spending and volume — all signed the same way: **positive is
-unfavourable**. That one convention is what makes a variance pack readable by
-someone who did not build it.
+![Unit economics and break-even](docs/screenshots/08-unit-economics.png)
 
-The margin bridge decomposes a year-on-year move into **price, cost, volume,
-mix, new products and lost products**, and the six sum to the actual change
-exactly — the residual is reported so you can check, and a test asserts it stays
-at float-noise scale. Products present in only one year are pulled out before the
-price/volume/mix split runs: there is no prior price to compare a launch
-against, and folding it into "volume" is how a launch flatters a bridge.
+### Guardrails and recommendations
 
-### Scenarios — `pricing/scenario.py`
+The floor is on **pocket** price, not list — a rule saying "no more than 15% off
+list" says nothing about rebates, freight or terms, which is where the margin
+actually goes. Approval tiers are on the **gap to target margin**, not on the
+discount: two deals at 10% off are not the same deal when one product carries 38
+points of margin and the other 19.
 
-Best, base and worst; a tornado ranking each input by how far moving it alone
-moves operating profit; a two-input sensitivity grid; and the value at which each
-input drives profit through zero, with a stated reason where it never does.
+The exception scan ranks by margin at risk and colours by *when the money
+moves*: red is margin leaving on today's invoices, amber is a price off its
+position, green is a leading indicator with nothing lost yet. Ranking by dollars
+inside a colour is what makes the list workable; colouring by dollars would put
+a large stale listing above a small loss-making one, which is the wrong morning.
 
-The three-point case says out loud that it is every assumption at its own end at
-once — a stress test, not an interval. Presenting three numbers as though the
-middle one were a forecast is the failure this is written against.
-
-### Forecasting — `pricing/forecast.py`
-
-Six methods, chosen per measure by **rolling-origin backtest** rather than by
-whichever fit the history best. WAPE rather than MAPE, because MAPE divides by
-the actual and a single small month can dominate the average. The interval is
-empirical, taken from backtest residuals, rather than assumed normal.
-
-### Bundles — `pricing/bundles.py`
-
-A bundle at 12% off that sells 400 units looks like a win until you ask how many
-of those 400 customers were going to buy every component anyway. Setting
-incremental margin to zero and solving for the cannibalisation rate gives
-
-```
-c* = bundle margin / standalone margin
-```
-
-so a bundle keeping 80% of standalone margin survives up to 80%
-cannibalisation, and one discounted to 55% dies above 55%. That turns "is this
-bundle a good idea" into a question about the customer base, which somebody in
-sales can actually answer.
-
-### Guardrails — `pricing/guardrails.py`
-
-The part that has to survive contact with a salesperson at ten to five on a
-Friday. The floor is on **pocket** price, not list — a rule saying "no more than
-15% off list" says nothing about rebates, freight or terms, which is where the
-margin actually goes. Approval tiers are on the **gap to target margin**, not on
-the discount: two deals at 10% off are not the same deal when one product carries
-38 points of margin and the other 19.
-
-The exception scan ranks by margin at risk and colours by *when the money moves*:
-red is margin leaving on today's invoices, amber is a price off its position,
-green is a leading indicator with nothing lost yet. Ranking by dollars inside a
-colour is what makes the list workable; colouring by dollars would put a large
-stale listing above a small loss-making one, which is the wrong morning.
-
-### Price bands and willingness to pay — `pricing/segmentation.py`
-
-The spread of pocket prices one product achieves across its customers is the
-*price band*, and its width is the most reliable margin opportunity in any book
-of business. The realisation gap values moving every below-median line up to its
-own product's volume-weighted median — a price half that product's volume
-already pays — which is the conservative version that survives a room containing
-the salespeople who own those accounts. Volume-weighted in **both**
-implementations: the SQL one used a plain `PERCENTILE_CONT` and sat five percent
-away from the Python one, under the same column name, with a comment calling the
-difference deliberate.
-
-Willingness to pay comes from won and lost quotes, because transaction data
-contains no losses at all and a curve fitted to it is fitted entirely to prices
-customers accepted. A logistic on the ratio of our quote to the competing one,
-solved by Newton–Raphson in about forty lines, returns the ratio at which we win
-half the time.
-
-### Data quality and reconciliation — `pricing/quality.py`
-
-Twelve rules across the six quality dimensions — completeness, validity,
-consistency, uniqueness, timeliness, accuracy — run against the raw ERP extract
-rather than against the clean tables, which is the only way either of them means
-anything. The score is **row-weighted**: twelve rules over wildly different row
-counts average to a number that flatters whichever rule ran over the smallest
-table.
-
-The reconciliation walks the extract total down to the staged total with every
-exclusion named, and balances to $0.00. A staging step that drops rows without
-saying so is how a dashboard ends up 3% below the general ledger and nobody can
-say which 3%.
-
-### Recommendations — `pricing/recommend.py`
-
-Six ordered actions — fix cost, discontinue, increase, discount, bundle,
-maintain — each with the price it implies, what it is worth, the confidence
-behind it and a rationale in the words an analyst would use in the meeting. On
-the generated book: 130 increases worth $2.6M, 79 maintains, 16 items that
-cannot be priced at all until costing maintains a standard cost for them, 14
-bundle candidates and one exit.
-
-"Maintain" is a real answer here, not a fallthrough. An item priced above the
+The output is not an elasticity — it is a sentence. Six ordered actions across
+240 products, worth **$2.65M** of annual gross margin: 130 increases worth
+$2.6M, 79 maintains, 16 items that cannot be priced at all until costing
+maintains a standard cost for them, 14 bundle candidates and one exit.
+"Maintain" is a real answer here, not a fallthrough — an item priced above the
 market on demand inelastic enough that coming back would cost more volume than
-it buys gets a *defend the premium* rationale, not a discount.
+it buys gets a *defend the premium* rationale.
 
 ![Recommendations](docs/screenshots/02-recommendations.png)
 
@@ -332,8 +298,8 @@ sellable rates, postings dated after the extract, and missing districts.
 Every one of the twelve quality rules finds something, which is the point: a
 quality page where every check is green has not been tested, it has been fitted.
 `engine/stage_erp.py` stages the extract, runs the rules, and reconciles — the
-staged total is $182,476,467.15 against an extract of $183,875,376.15, with all
-four exclusions named and $0.00 unexplained.
+staged total is **$182,476,467.15** against an extract of **$183,875,376.15**,
+with all four exclusions named and **$0.00 unexplained**.
 
 ![Data quality and reconciliation](docs/screenshots/04-data-quality.png)
 
@@ -362,43 +328,27 @@ deliberately, so finding them is a real test of the code.
   137 distinct names — four separate items all called "27in Monitor - Value" —
   which merges rows in any cut keyed on the product and puts two identical
   entries in a dropdown.
-- Quotes are won and lost on a logistic in price ratio with a **segment-specific
-  sensitivity**.
 
 `tests/test_generated_data.py` takes those relationships back out through the
 real analysis code. Estimated category elasticities preserve the seeded ordering
-at a rank correlation of **0.95** across eight categories (Consumer Electronics
+at a **rank correlation of 0.95** across eight categories (Consumer Electronics
 most elastic, Pet Supplies least); the recovered segment price sensitivities
-preserve theirs; all eight pass-through estimates are usable and land in the
-0.32–0.64 band the indices were seeded across, every one of them attenuated
-toward zero, which is what a regression on a noisy realisation of a decision
+preserve theirs; all eight pass-through estimates are usable, land in the
+0.32–0.64 band the indices were seeded across, and every one is attenuated
+toward zero — which is what a regression on a noisy realisation of a decision
 does.
 
-Every table and every column is listed in
-[`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md), which is generated from the
-CSVs and checked in CI — a hand-maintained data dictionary is wrong within two
-commits and then actively misleading, because a reader trusts it more than the
-file.
-
 Everything is reproducible from a fixed seed and reads neither the clock nor the
-network.
-
-```bash
-python -m seed.generate_market            # data/
-python -m seed.generate_erp               # raw/
-python -m engine.build_pricing_analytics  # output/
-python -m engine.stage_erp                # output/ quality, reconciliation
-python -m engine.run_sql                  # output/ the SQL marts
-python -m seed.generate_sheets            # sample_data/*.xlsx
-```
+network. Every table and column is in
+[`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md), generated from the CSVs and
+checked in CI.
 
 **One catalogue, four consumers.** Item code 20017 is the same product in the
 cost sheet, in `data/dim_product.csv`, in the ERP extract and in the Power BI
 model. That took a defect to get right: the panel used to ride the shared random
 stream, downstream of customer generation, so the cost sheet — which rebuilds it
 alone — landed on a different draw. Codes matched, descriptions matched, and the
-costs were quietly unrelated. Both the catalogue and the panel now have their own
-derived streams, and a test compares the workbook against the model.
+costs were quietly unrelated.
 
 ---
 
@@ -406,10 +356,13 @@ derived streams, and a test compares the workbook against the model.
 
 `sql/pricing_marts.sql` computes six of the marts a second time in DuckDB —
 waterfall, profitability with `GROUPING SETS`, a **volume-weighted percentile**
-for the price bands (DuckDB has none, so it accumulates weight in price order
-and takes the lowest price whose running weight has reached the target), a
-monthly trend with `LAG` at one and twelve months, margin concentration with a
-running share, and the exception list.
+for the price bands, a monthly trend with `LAG` at one and twelve months, margin
+concentration with a running share, and the exception list.
+
+DuckDB has no weighted percentile, so the mart builds one: accumulate weight in
+price order, then take the lowest price whose running weight has reached the
+target. `MIN(...) FILTER (...)` is exact rather than approximate there, because
+running weight is monotone in price order.
 
 Two implementations that agree are worth more than one that is merely asserted.
 `tests/test_sql_matches_python.py` holds every mart to the pandas version at a
@@ -417,6 +370,10 @@ Two implementations that agree are worth more than one that is merely asserted.
 numbers in different orders and differ in the last bits of a float, so an
 absolute threshold is a number tuned to one dataset that fails on the next
 regeneration for a reason nobody can act on.
+
+That gate is what caught the price-band median being **five percent** apart
+between the two, under the same column name, with a comment calling the
+divergence deliberate.
 
 Every mart also ends on a **total order** — one no two rows can tie on — because
 these CSVs are committed and the same query returned a different first row on
@@ -435,18 +392,20 @@ Seventeen pages behind `st.navigation`, grouped the way the work is.
 | Data | Data quality and reconciliation | Whether any of the rest can be trusted |
 | Cost | Cost and variance analysis | Purchase price, yield, labour and overhead against standard |
 | | Unit economics and break-even | Contribution, markup against margin, break-even volume |
-| | Cost-to-price calculator | The original tool: reprice a book, push it back to the ERP |
+| | Cost-to-price calculator | The original tool: reprice a book, hand it back as a price list |
 | Market | Market and competitor benchmarking | Our price against the market, and cost pass-through |
 | | Price bands and willingness to pay | What customers pay for the same thing, and what they'd have paid |
-| Profitability | Profitability and segmentation | Profit by product, customer, region, channel and salesperson — eleven cuts |
+| Profitability | Profitability and segmentation | Profit by product, customer, region, channel, salesperson — eleven cuts |
 | | Price waterfall | List to pocket, and which deduction costs the most |
-| | Margin bridge | Price, cost, volume, mix, launches and losses |
+| | Margin bridge | Price, cost, volume, mix, launches and losses — summing exactly |
 | Modelling | Pricing simulator | Move six assumptions and watch the operating profit |
 | | Elasticity and optimal price | Price response, and the volume a cut has to find |
 | | Forecast against actual | Six methods, chosen by backtest, with an empirical interval |
 | | Bundles and ladders | Bundle economics judged on incremental margin |
 | Execution | Deal guardrails | Floor, target and stretch, and who signs for the gap |
 | | Promotions and price-list operations | Which mechanic paid, and what has gone stale |
+
+![Profitability and segmentation](docs/screenshots/05-profitability.png)
 
 Charts use one fixed categorical palette, assigned by slot and never cycled. The
 app is dark, and the palette is the **dark steps** of the same eight hues —
@@ -463,37 +422,66 @@ palette on it. It has to be config rather than CSS because `st.dataframe`
 renders to a canvas from the theme object in JavaScript — no stylesheet reaches
 inside it, and getting that wrong leaves every table a white block in a dark app.
 
-![Profitability and segmentation](docs/screenshots/05-profitability.png)
+![Pricing simulator](docs/screenshots/03-pricing-simulator.png)
 
 Every view is executed headlessly in CI by `tests/test_app_views_render.py`.
-That gate found eight pages that raised on load the first time it ran — four
-selecting a column before renaming it into existence, one indexing on a
-description that is not unique, one merging text against integers, and two
-loaders — none of which any of the maths tests could see. It has since caught two more
-that only show on screen: Streamlit reads `$...$` as inline maths, so the
-executive paragraph carrying three amounts lost every dollar sign and set the
-words between them in a maths font; and a generated sentence said "1 small
-items lose money", which tells the reader it was generated and makes them
-discount everything else in it.
+That gate found **eight pages that raised on load** the first time it ran, and
+has since caught two more that only show on screen — all listed under
+[what is checked](#what-is-checked).
 
-![Pricing simulator](docs/screenshots/03-pricing-simulator.png)
+Screenshots here are captured by `docs/capture_screenshots.py`, which drives
+Chrome over the DevTools protocol and waits for Streamlit to actually stop
+running. `chrome --headless --screenshot` fires when its *virtual* clock runs
+out, and virtual time races ahead of real time, so it photographs an empty page
+with the spinner still going — for whichever pages happen to be slow that run.
 
 ---
 
 ## The dashboard
 
 `powerbi/pbip/PricingAnalytics.pbip` — PBIR format, so the report is one JSON
-file per visual and the model is TMDL, both reviewable in a diff. **Nineteen
-pages, 191 visuals, 52 tables, 209 measures, 22 relationships**, plus six
-parameter tables. See
-[`powerbi/pbip/OPEN_ME_FIRST.md`](powerbi/pbip/OPEN_ME_FIRST.md).
+file per visual and the model is TMDL, both reviewable in a diff.
 
-It is **generated**, from `powerbi/model_spec.py` and `powerbi/report_spec.py`.
-Typing a hundred and ninety visual JSON files by hand is how a report ends up
-carrying three different `visualContainer` schema versions and a property name
-Desktop silently drops on the next save. CI runs
-`python -m powerbi.build_pbip --check`, which regenerates into a temp directory
-and fails on any difference.
+| | |
+|---:|---|
+| **19** | report pages |
+| **191** | visuals |
+| **51** | tables, plus a measures table |
+| **209** | measures across 21 display folders |
+| **22** | relationships, all single-direction many-to-one |
+| **6** | parameter tables — 4 what-if, 2 field parameters |
+| **34** | tables unrelated on purpose, each with the reason in the spec |
+
+See [`powerbi/pbip/OPEN_ME_FIRST.md`](powerbi/pbip/OPEN_ME_FIRST.md) to open it.
+
+### What each page looks like
+
+Nobody has opened this project in Power BI Desktop, so there are no screenshots
+of it and this README does not pretend otherwise. What can be shown honestly is
+the **layout** — every visual's type, position, title and bound fields, rendered
+by `powerbi/render_layouts.py` from the same spec `build_pbip` generates the
+report from. A wireframe that disagrees with the report is impossible, because
+they are the same data, and CI fails if they drift.
+
+![What-if simulator layout](docs/powerbi/10-scenario.svg)
+
+| | | |
+|---|---|---|
+| [1 Executive summary](docs/powerbi/01-summary.svg) | [2 Price waterfall](docs/powerbi/02-waterfall.svg) | [3 Competitive position](docs/powerbi/03-competitive.svg) |
+| [4 Elasticity](docs/powerbi/04-elasticity.svg) | [5 Cost variance](docs/powerbi/05-cost.svg) | [6 Margin bridge](docs/powerbi/06-bridge.svg) |
+| [7 Price bands and WTP](docs/powerbi/07-bands.svg) | [8 Deal guardrails](docs/powerbi/08-guardrails.svg) | [9 Unit economics](docs/powerbi/09-unit_economics.svg) |
+| [10 What-if simulator](docs/powerbi/10-scenario.svg) | [11 Forecast vs actual](docs/powerbi/11-forecast.svg) | [12 Profitability](docs/powerbi/12-profitability.svg) |
+| [13 Discount and promotion](docs/powerbi/13-discount.svg) | [14 Cost elements](docs/powerbi/14-cost_elements.svg) | [15 Pricing operations](docs/powerbi/15-operations.svg) |
+| [16 Data quality](docs/powerbi/16-quality.svg) | [17 Exceptions and alerts](docs/powerbi/17-exceptions.svg) | [18 Bundles](docs/powerbi/18-bundles.svg) |
+| [19 Recommendations](docs/powerbi/19-recommendations.svg) | | |
+
+### It is generated, not typed
+
+From `powerbi/model_spec.py` and `powerbi/report_spec.py`. Typing a hundred and
+ninety visual JSON files by hand is how a report ends up carrying three
+different `visualContainer` schema versions and a property name Desktop silently
+drops on the next save. CI runs `python -m powerbi.build_pbip --check`, which
+regenerates into a temp directory and fails on any difference.
 
 Four things in it are worth the name "advanced":
 
@@ -510,17 +498,11 @@ Four things in it are worth the name "advanced":
 - **A real matrix**, with Rows, Columns and Values, for the segment-by-category
   profitability grid and the discount-to-margin cross-tab. A matrix with no
   Columns role is a table with extra chrome.
-- **Deliberate disconnection.** Thirty-six tables are unrelated on purpose,
-  each with the reason written into the spec beside it, because a disconnected
-  table is usually a modelling mistake and these are not. Two more were dropped
+- **Deliberate disconnection.** Thirty-four tables are unrelated on purpose,
+  each with the reason written into the spec beside it. Two more were dropped
   from the model altogether: `executive_summary` and `waterfall_monthly` are
   pre-aggregated, a pre-aggregated row does not respond to a slicer, and one
-  sitting beside a card that does is a second number waiting to disagree with
-  the first.
-- **Every table earns its place**, asserted by a test that follows measure
-  references through and fails on any table no visual reaches. It found four,
-  including a bundles analysis with no page to show it and a competitor
-  dimension that answered "who is the market?" and was never asked.
+  sitting beside a card that does is a second number waiting to disagree.
 
 Nothing is computed twice: a measure either aggregates a column the Python
 engine already produced or divides two such aggregates. A DAX expression
@@ -528,8 +510,10 @@ re-deriving "pocket margin" from list price and seven deduction columns would be
 a second implementation of a definition that already has tests, and the two
 drift the moment either is edited.
 
-Power BI fails **silently** on a report definition, so the tests check the things
-it will not tell you about:
+### What the tests check, because Power BI will not
+
+Power BI fails **silently** on a report definition, so the tests check the
+things it does not report:
 
 - every measure names only columns that exist, in tables that are in the model;
 - every visual binds a field that exists, with `queryRef` and `nativeQueryRef`
@@ -551,15 +535,39 @@ it will not tell you about:
   filter rather than a clipped one. Two of them did;
 - every slicer reaches something on its own page, following measure references
   through, because a what-if slicer reaches the page only that way;
+- every table in the model is reached by some visual — the check that found four
+  dead ones, including a bundles analysis with no page to show it;
 - every visual carries alt text that names a field it actually binds;
 - every file validates against the published JSON schema it names, and those
-  schemas set `additionalProperties: false`, which is what catches a typo;
-- every table in the model is reached by some visual, following measures
-  through — the check that found the four dead ones.
+  schemas set `additionalProperties: false`, which is what catches a typo.
 
-**Not verified:** nobody has opened the project in Power BI Desktop and looked at
-it. Everything above is structural, and structural validity is not the same as
-looking right.
+**Not verified:** nobody has opened the project in Power BI Desktop and looked
+at it. Everything above is structural, and structural validity is not the same
+as looking right.
+
+---
+
+## Metrics
+
+Every number this project publishes, with its definition, is in
+**[`docs/METRICS.md`](docs/METRICS.md)** — generated from the model spec and
+checked in CI, so a measure renamed in the model is renamed there in the same
+commit.
+
+It opens with the **seven conventions**: the decisions that change a number
+rather than its presentation, each with two defensible readings, each
+implemented one way and pinned by a test.
+
+1. Margin is on **pocket** price, not list or invoice.
+2. Discounts are **additive** on list, not compounding.
+3. Margin is a fraction of **price**; markup is a fraction of cost.
+4. Positive variance is **unfavourable**, for all six.
+5. Percentiles are **volume-weighted**.
+6. A subtotal bar moves a waterfall by **nothing**.
+7. An optimal price that **exists** is not necessarily **actionable**.
+
+Then all 209 measures, grouped as they appear in the Power BI field list, with
+their DAX and what each group is for.
 
 ---
 
@@ -569,30 +577,66 @@ looking right.
 python -m venv .venv && .venv/Scripts/activate     # Windows
 python -m venv .venv && source .venv/bin/activate  # macOS / Linux
 pip install -r requirements.txt -r requirements-dev.txt
+```
 
-python -m seed.generate_market
-python -m seed.generate_erp
-python -m engine.build_pricing_analytics
-python -m engine.stage_erp
+Everything below is deterministic from a fixed seed and rebuilds the committed
+files identically:
+
+```bash
+python -m seed.generate_market            # data/
+python -m seed.generate_erp               # raw/
+python -m engine.build_pricing_analytics  # output/
+python -m engine.stage_erp                # output/ quality, reconciliation
+python -m engine.run_sql                  # output/ the SQL marts
 streamlit run app/streamlit_app.py
 ```
+
+Regenerating the documents and the dashboard:
+
+```bash
+python -m docs.build_dictionary     # docs/DATA_DICTIONARY.md
+python -m docs.build_metrics        # docs/METRICS.md
+python -m powerbi.render_layouts    # docs/powerbi/*.svg
+python -m powerbi.build_pbip        # powerbi/pbip/
+python -m seed.generate_sheets      # sample_data/*.xlsx
+```
+
+Each of those takes `--check`, and CI runs all of them that way.
+
+---
+
+## What is checked
 
 ```bash
 pytest -q
 ```
 
-2,455 tests. The ones worth reading are the convention tests — additive versus
-compounding discounts, margin on pocket versus on list, which side of a variance
-is unfavourable, whether a subtotal bar moves a waterfall, whether a negative
-amount reads `-$32k` or `$-32k` — because those are where two defensible
-readings exist and only one is implemented.
+**2,455 tests.** The ones worth reading are the convention tests — additive
+versus compounding discounts, margin on pocket versus on list, which side of a
+variance is unfavourable, whether a subtotal bar moves a waterfall, whether a
+negative amount reads `-$32k` or `$-32k` — because those are where two
+defensible readings exist and only one is implemented.
 
-Screenshots in this README are captured by `docs/capture_screenshots.py`, which
-drives Chrome over the DevTools protocol and waits for Streamlit to actually
-stop running. `chrome --headless --screenshot` fires when its *virtual* clock
-runs out, and virtual time races ahead of real time, so it photographs an empty
-page with the spinner still going — for whichever pages happen to be slow that
-day.
+The rest exist because of specific defects. A review pass over the finished
+project found ten more, and not one of them raised:
+
+| Where | What |
+|---|---|
+| Executive summary | Two KPI cards were three-year totals in a row of single-year cards, stamped with the single year |
+| Landing page | A point of leakage quoted as a three-year average, two inches under the same sentence for one year |
+| SQL | The price-band mart took an unweighted percentile while Python weighted by volume — 5% apart, same column names |
+| Profitability | No product and no customer cut, while three surfaces said "profit by product, customer, …" |
+| Catalogue | 240 products shared 137 descriptions; four items were all called "27in Monitor - Value" |
+| Recommendations | Streamlit reads `$…$` as inline maths, so a paragraph with three amounts lost every dollar sign |
+| Recommendations | A generated sentence read "1 small items lose money" |
+| Everywhere | Negative amounts read `$-32k`; on a page of variances, that is most of the page |
+| Charts | Direct labels ran off the plot, reliably clipping the longest bar |
+| Dashboard | Four model tables no visual reached, and a page named "Price bands" that never drew a band |
+
+Earlier gates caught eight Streamlit pages that raised on load, two Power BI
+slicers eight pixels tall, two SQL marts with no deterministic row order, a
+`DataPath` that made the drift gate pass only on the machine that generated it,
+and pinned dependency versions that nothing here had ever run on.
 
 ---
 

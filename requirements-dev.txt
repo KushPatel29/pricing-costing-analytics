@@ -7,11 +7,16 @@
 # engine/run_sql.py, which runs here and in CI.
 duckdb==1.5.4
 
-pytest>=8
-ruff>=0.6
+pytest==9.1.1
+ruff==0.15.21
 
 # The Power BI tests validate every generated file against the published JSON
 # schema it names. Without these two they skip loudly rather than failing, so
 # they are a dev dependency and not a silent one.
-jsonschema>=4.23
-referencing>=0.35
+jsonschema==4.26.0
+referencing==0.37.0
+
+# Deliberately NOT here: scipy. `Series.corr(method="spearman")` pulls it in,
+# and three recoverability tests used to pass locally on somebody else's
+# transitive install and fail in CI. Spearman is Pearson on the ranks; see
+# tests/test_generated_data.py::spearman.

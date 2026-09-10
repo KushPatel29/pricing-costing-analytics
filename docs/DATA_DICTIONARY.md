@@ -22,11 +22,11 @@ Five competitors, each with a positioning multiplier and a share of the catalogu
 
 | Column | Type | Example |
 |---|---|---|
-| `competitor_id` | str | C1 |
-| `competitor_name` | str | Atlas Wholesale Group |
-| `positioning` | str | Mainstream |
-| `price_multiplier` | float64 | 1.005 |
-| `catalogue_coverage` | float64 | 0.72 |
+| `competitor_id` | text | C1 |
+| `competitor_name` | text | Atlas Wholesale Group |
+| `positioning` | text | Mainstream |
+| `price_multiplier` | decimal | 1.005 |
+| `catalogue_coverage` | decimal | 0.72 |
 
 ### `dim_cost_element`
 
@@ -36,10 +36,10 @@ The eight elements the cost stack is built from, and whether each behaves as a v
 
 | Column | Type | Example |
 |---|---|---|
-| `cost_element` | str | Goods |
-| `behaviour` | str | Variable |
-| `owner` | str | Merchandising |
-| `sort_order` | int64 | 0 |
+| `cost_element` | text | Goods |
+| `behaviour` | text | Variable |
+| `owner` | text | Merchandising |
+| `sort_order` | integer | 0 |
 
 ### `dim_customer`
 
@@ -49,20 +49,20 @@ The customer base, with everything that drives its deductions: segment, channel,
 
 | Column | Type | Example |
 |---|---|---|
-| `customer_id` | str | CU2000 |
-| `customer_name` | str | Sunshine Table |
-| `segment` | str | Independent Retailer |
-| `channel` | str | Retail |
-| `region` | str | Southwest |
-| `tier` | str | D |
-| `price_list` | str | List |
-| `payment_terms` | str | Net 45 |
-| `range_breadth` | int64 | 7 |
-| `volume_weight` | float64 | 0.4527 |
-| `price_sensitivity` | float64 | 8.075 |
-| `avg_drop_size_units` | float64 | 576.1 |
-| `salesperson_id` | str | SP103 |
-| `salesperson` | str | Tom Beauchemin |
+| `customer_id` | text | CU2000 |
+| `customer_name` | text | Sunshine Table |
+| `segment` | text | Independent Retailer |
+| `channel` | text | Retail |
+| `region` | text | Southwest |
+| `tier` | text | D |
+| `price_list` | text | List |
+| `payment_terms` | text | Net 45 |
+| `range_breadth` | integer | 7 |
+| `volume_weight` | decimal | 0.4527 |
+| `price_sensitivity` | decimal | 8.075 |
+| `avg_drop_size_units` | decimal | 576.1 |
+| `salesperson_id` | text | SP103 |
+| `salesperson` | text | Tom Beauchemin |
 
 ### `dim_date`
 
@@ -72,20 +72,20 @@ Daily date table with a July-to-June fiscal calendar.
 
 | Column | Type | Example |
 |---|---|---|
-| `date` | str | 2023-07-01 |
-| `year` | int64 | 2023 |
-| `month` | str | 2023-07-01 |
-| `month_name` | str | Jul 2023 |
-| `month_short` | str | Jul |
-| `month_number` | int64 | 7 |
-| `quarter` | str | 2023 Q3 |
-| `fiscal_year` | int64 | 2024 |
-| `fiscal_year_label` | str | FY2024 |
-| `fiscal_period` | int64 | 1 |
-| `fiscal_quarter` | str | FY2024 Q1 |
-| `week_start` | str | 2023-06-26 |
-| `month_index` | int64 | 0 |
-| `is_month_end` | bool | False |
+| `date` | text | 2023-07-01 |
+| `year` | integer | 2023 |
+| `month` | text | 2023-07-01 |
+| `month_name` | text | Jul 2023 |
+| `month_short` | text | Jul |
+| `month_number` | integer | 7 |
+| `quarter` | text | 2023 Q3 |
+| `fiscal_year` | integer | 2024 |
+| `fiscal_year_label` | text | FY2024 |
+| `fiscal_period` | integer | 1 |
+| `fiscal_quarter` | text | FY2024 Q1 |
+| `week_start` | text | 2023-06-26 |
+| `month_index` | integer | 0 |
+| `is_month_end` | boolean | False |
 
 ### `dim_month`
 
@@ -95,17 +95,17 @@ The month grain every fact is keyed on. Not marked as a date table -- Power BI n
 
 | Column | Type | Example |
 |---|---|---|
-| `month` | str | 2023-07-01 |
-| `month_name` | str | Jul 2023 |
-| `month_short` | str | Jul |
-| `month_number` | int64 | 7 |
-| `year` | int64 | 2023 |
-| `quarter` | str | 2023 Q3 |
-| `fiscal_year` | int64 | 2024 |
-| `fiscal_year_label` | str | FY2024 |
-| `fiscal_period` | int64 | 1 |
-| `fiscal_quarter` | str | FY2024 Q1 |
-| `month_index` | int64 | 0 |
+| `month` | text | 2023-07-01 |
+| `month_name` | text | Jul 2023 |
+| `month_short` | text | Jul |
+| `month_number` | integer | 7 |
+| `year` | integer | 2023 |
+| `quarter` | text | 2023 Q3 |
+| `fiscal_year` | integer | 2024 |
+| `fiscal_year_label` | text | FY2024 |
+| `fiscal_period` | integer | 1 |
+| `fiscal_quarter` | text | FY2024 Q1 |
+| `month_index` | integer | 0 |
 
 ### `dim_product`
 
@@ -115,26 +115,26 @@ The catalogue. Category, cut, brand tier, pack format and lifecycle, plus the co
 
 | Column | Type | Example |
 |---|---|---|
-| `product_id` | int64 | 20000 |
-| `description` | str | Wireless Earbuds - Privat... |
-| `category` | str | Consumer Electronics |
-| `sub_category` | str | Wireless Earbuds |
-| `brand_tier` | str | Private label |
-| `pack_format` | str | Inner pack 6 |
-| `units_per_billing_uom` | float64 | 6.0 |
-| `lifecycle` | str | Mature |
-| `supplier` | str | Ningbo Hometech Manufactu... |
-| `inbound_lane` | str | Import Ocean FCL |
-| `commodity_index` | str | Semiconductor & Components |
-| `elasticity` | float64 | -2.1184 |
-| `target_margin` | float64 | 0.3097 |
-| `standard_sellable_rate` | float64 | 0.9729 |
-| `base_input_cost_unit` | float64 | 36.8247 |
-| `handling_cost_unit` | float64 | 0.4043 |
-| `labelling_cost_unit` | float64 | 0.0 |
-| `damage_rate` | float64 | 0.0407 |
-| `adj_unit` | float64 | 0.1992 |
-| `base_volume_units` | float64 | 1226.1 |
+| `product_id` | integer | 20000 |
+| `description` | text | Wireless Earbuds - Privat... |
+| `category` | text | Consumer Electronics |
+| `sub_category` | text | Wireless Earbuds |
+| `brand_tier` | text | Private label |
+| `pack_format` | text | Inner pack 6 |
+| `units_per_billing_uom` | decimal | 6.0 |
+| `lifecycle` | text | Mature |
+| `supplier` | text | Ningbo Hometech Manufactu... |
+| `inbound_lane` | text | Import Ocean FCL |
+| `commodity_index` | text | Semiconductor & Components |
+| `elasticity` | decimal | -2.1184 |
+| `target_margin` | decimal | 0.3097 |
+| `standard_sellable_rate` | decimal | 0.9729 |
+| `base_input_cost_unit` | decimal | 36.8247 |
+| `handling_cost_unit` | decimal | 0.4043 |
+| `labelling_cost_unit` | decimal | 0.0 |
+| `damage_rate` | decimal | 0.0407 |
+| `adj_unit` | decimal | 0.1992 |
+| `base_volume_units` | decimal | 1226.1 |
 
 ### `dim_salesperson`
 
@@ -144,12 +144,12 @@ Twelve reps, each with a region, a segment focus and a discount appetite that sh
 
 | Column | Type | Example |
 |---|---|---|
-| `salesperson_id` | str | SP100 |
-| `salesperson` | str | Dana Whitfield |
-| `home_region` | str | West |
-| `tenure_years` | float64 | 11.0 |
-| `discount_appetite` | float64 | 0.82 |
-| `quota_units` | float64 | 151585.0 |
+| `salesperson_id` | text | SP100 |
+| `salesperson` | text | Dana Whitfield |
+| `home_region` | text | West |
+| `tenure_years` | decimal | 11.0 |
+| `discount_appetite` | decimal | 0.82 |
+| `quota_units` | decimal | 151585.0 |
 
 ### `fact_budget`
 
@@ -159,20 +159,20 @@ The plan, set once a year at category x month, and the actuals beside it.
 
 | Column | Type | Example |
 |---|---|---|
-| `month` | str | 2023-07-01 |
-| `fiscal_year` | int64 | 2024 |
-| `category` | str | Apparel & Accessories |
-| `budget_revenue` | float64 | 585994.47 |
-| `budget_volume_units` | float64 | 23451.2 |
-| `budget_cogs` | float64 | 418108.48 |
-| `actual_revenue` | float64 | 597385.96 |
-| `actual_volume_units` | float64 | 23886.5 |
-| `actual_cogs` | float64 | 433698.09 |
-| `actual_pocket_revenue` | float64 | 556174.78 |
-| `budget_margin` | float64 | 167885.99 |
-| `actual_margin` | float64 | 163687.87 |
-| `revenue_variance` | float64 | 11391.49 |
-| `margin_variance` | float64 | -4198.12 |
+| `month` | text | 2023-07-01 |
+| `fiscal_year` | integer | 2024 |
+| `category` | text | Apparel & Accessories |
+| `budget_revenue` | decimal | 585994.47 |
+| `budget_volume_units` | decimal | 23451.2 |
+| `budget_cogs` | decimal | 418108.48 |
+| `actual_revenue` | decimal | 597385.96 |
+| `actual_volume_units` | decimal | 23886.5 |
+| `actual_cogs` | decimal | 433698.09 |
+| `actual_pocket_revenue` | decimal | 556174.78 |
+| `budget_margin` | decimal | 167885.99 |
+| `actual_margin` | decimal | 163687.87 |
+| `revenue_variance` | decimal | 11391.49 |
+| `margin_variance` | decimal | -4198.12 |
 
 ### `fact_commodity_index`
 
@@ -182,10 +182,10 @@ Six weekly input indices with their own drift, volatility and seasonality.
 
 | Column | Type | Example |
 |---|---|---|
-| `week_start` | str | 2023-06-26 |
-| `index_name` | str | Semiconductor & Components |
-| `index_value` | float64 | 99.6355 |
-| `trend_value` | float64 | 101.1528 |
+| `week_start` | text | 2023-06-26 |
+| `index_name` | text | Semiconductor & Components |
+| `index_value` | decimal | 99.6355 |
+| `trend_value` | decimal | 101.1528 |
 
 ### `fact_competitor_price`
 
@@ -195,14 +195,14 @@ What the market was seen charging. Deliberately partial and uneven: a competitiv
 
 | Column | Type | Example |
 |---|---|---|
-| `month` | str | 2023-07-01 |
-| `product_id` | int64 | 20000 |
-| `competitor_id` | str | C1 |
-| `observed_price` | float64 | 59.5761 |
-| `our_list_price` | float64 | 64.5408 |
-| `source` | str | Lost quote |
-| `in_stock` | int64 | 1 |
-| `observation_age_days` | int64 | 5 |
+| `month` | text | 2023-07-01 |
+| `product_id` | integer | 20000 |
+| `competitor_id` | text | C1 |
+| `observed_price` | decimal | 59.5761 |
+| `our_list_price` | decimal | 64.5408 |
+| `source` | text | Lost quote |
+| `in_stock` | integer | 1 |
+| `observation_age_days` | integer | 5 |
 
 ### `fact_cost_element`
 
@@ -212,16 +212,16 @@ Standard against actual for every cost element, by product and month. The varian
 
 | Column | Type | Example |
 |---|---|---|
-| `product_id` | int64 | 20000 |
-| `month` | str | 2023-07-01 |
-| `volume_units` | float64 | 1283.1 |
-| `cost_element` | str | Goods |
-| `standard_cost_per_unit` | float64 | 35.2113 |
-| `actual_cost_per_unit` | float64 | 35.5433 |
-| `standard_cost` | float64 | 45179.62 |
-| `actual_cost` | float64 | 45605.61 |
-| `variance` | float64 | 425.99 |
-| `behaviour` | str | Variable |
+| `product_id` | integer | 20000 |
+| `month` | text | 2023-07-01 |
+| `volume_units` | decimal | 1283.1 |
+| `cost_element` | text | Goods |
+| `standard_cost_per_unit` | decimal | 35.2113 |
+| `actual_cost_per_unit` | decimal | 35.5433 |
+| `standard_cost` | decimal | 45179.62 |
+| `actual_cost` | decimal | 45605.61 |
+| `variance` | decimal | 425.99 |
+| `behaviour` | text | Variable |
 
 ### `fact_cost_ledger`
 
@@ -231,23 +231,23 @@ Purchases and production yields against standard, which is where purchase price 
 
 | Column | Type | Example |
 |---|---|---|
-| `month` | str | 2023-07-01 |
-| `product_id` | int64 | 20000 |
-| `supplier` | str | Ningbo Hometech Manufactu... |
-| `purchased_units` | float64 | 1455.7 |
-| `output_units` | float64 | 1410.0 |
-| `standard_input_cost_unit` | float64 | 35.2113 |
-| `actual_input_cost_unit` | float64 | 35.5433 |
-| `standard_sellable_rate` | float64 | 0.9729 |
-| `actual_recovery` | float64 | 0.9686 |
-| `standard_handling_unit` | float64 | 0.4043 |
-| `actual_handling_unit` | float64 | 0.3891 |
-| `labour_hours` | float64 | 27.33 |
-| `standard_hours` | float64 | 20.74 |
-| `purchase_price_variance` | float64 | 483.29 |
-| `standard_input_units` | float64 | 1449.3 |
-| `yield_variance` | float64 | 225.35 |
-| `handling_variance` | float64 | -21.43 |
+| `month` | text | 2023-07-01 |
+| `product_id` | integer | 20000 |
+| `supplier` | text | Ningbo Hometech Manufactu... |
+| `purchased_units` | decimal | 1455.7 |
+| `output_units` | decimal | 1410.0 |
+| `standard_input_cost_unit` | decimal | 35.2113 |
+| `actual_input_cost_unit` | decimal | 35.5433 |
+| `standard_sellable_rate` | decimal | 0.9729 |
+| `actual_recovery` | decimal | 0.9686 |
+| `standard_handling_unit` | decimal | 0.4043 |
+| `actual_handling_unit` | decimal | 0.3891 |
+| `labour_hours` | decimal | 27.33 |
+| `standard_hours` | decimal | 20.74 |
+| `purchase_price_variance` | decimal | 483.29 |
+| `standard_input_units` | decimal | 1449.3 |
+| `yield_variance` | decimal | 225.35 |
+| `handling_variance` | decimal | -21.43 |
 
 ### `fact_fixed_cost`
 
@@ -257,13 +257,13 @@ The four fixed pools -- DC facility, inventory carrying, technology and marketpl
 
 | Column | Type | Example |
 |---|---|---|
-| `month` | str | 2023-07-01 |
-| `cost_pool` | str | DC facility and equipment |
-| `cost_element` | str | Fixed warehouse overhead |
-| `behaviour` | str | Fixed |
-| `budgeted_fixed_cost` | float64 | 118000.0 |
-| `actual_fixed_cost` | float64 | 121502.01 |
-| `variance` | float64 | 3502.01 |
+| `month` | text | 2023-07-01 |
+| `cost_pool` | text | DC facility and equipment |
+| `cost_element` | text | Fixed warehouse overhead |
+| `behaviour` | text | Fixed |
+| `budgeted_fixed_cost` | decimal | 118000.0 |
+| `actual_fixed_cost` | decimal | 121502.01 |
+| `variance` | decimal | 3502.01 |
 
 ### `fact_overhead`
 
@@ -273,16 +273,16 @@ Monthly overhead pools with a budgeted absorption rate per unit.
 
 | Column | Type | Example |
 |---|---|---|
-| `month` | str | 2023-07-01 |
-| `cost_pool` | str | Warehouse operations |
-| `budgeted_rate_unit` | float64 | 0.212 |
-| `budgeted_volume_units` | float64 | 510177.5 |
-| `actual_volume_units` | float64 | 435160.6 |
-| `budgeted_overhead` | float64 | 108157.63 |
-| `actual_overhead` | float64 | 103472.08 |
-| `absorbed_overhead` | float64 | 92254.05 |
-| `spending_variance` | float64 | 11218.03 |
-| `volume_variance` | float64 | 15903.58 |
+| `month` | text | 2023-07-01 |
+| `cost_pool` | text | Warehouse operations |
+| `budgeted_rate_unit` | decimal | 0.212 |
+| `budgeted_volume_units` | decimal | 510177.5 |
+| `actual_volume_units` | decimal | 435160.6 |
+| `budgeted_overhead` | decimal | 108157.63 |
+| `actual_overhead` | decimal | 103472.08 |
+| `absorbed_overhead` | decimal | 92254.05 |
+| `spending_variance` | decimal | 11218.03 |
+| `volume_variance` | decimal | 15903.58 |
 
 ### `fact_price_change`
 
@@ -292,21 +292,21 @@ The price-list change log. One row per change, with the reason, who asked, and h
 
 | Column | Type | Example |
 |---|---|---|
-| `change_id` | str | PC20000 |
-| `effective_month` | str | 2024-01-01 |
-| `product_id` | int64 | 20000 |
-| `description` | str | Wireless Earbuds - Privat... |
-| `category` | str | Consumer Electronics |
-| `brand_tier` | str | Private label |
-| `previous_price` | float64 | 64.5408 |
-| `new_price` | float64 | 68.1604 |
-| `pct_change` | float64 | 0.05608 |
-| `direction` | str | Increase |
-| `reason` | str | Annual review |
-| `requested_by` | str | Pricing team |
-| `approval_state` | str | Approved |
-| `approver` | str | Sales manager |
-| `days_to_approve` | int64 | 1 |
+| `change_id` | text | PC20000 |
+| `effective_month` | text | 2024-01-01 |
+| `product_id` | integer | 20000 |
+| `description` | text | Wireless Earbuds - Privat... |
+| `category` | text | Consumer Electronics |
+| `brand_tier` | text | Private label |
+| `previous_price` | decimal | 64.5408 |
+| `new_price` | decimal | 68.1604 |
+| `pct_change` | decimal | 0.05608 |
+| `direction` | text | Increase |
+| `reason` | text | Annual review |
+| `requested_by` | text | Pricing team |
+| `approval_state` | text | Approved |
+| `approver` | text | Sales manager |
+| `days_to_approve` | integer | 1 |
 
 ### `fact_price_cost_panel`
 
@@ -316,20 +316,20 @@ One row per product per month: input cost, standard cost, the full cost stack, a
 
 | Column | Type | Example |
 |---|---|---|
-| `product_id` | int64 | 20000 |
-| `month` | str | 2023-07-01 |
-| `commodity_index` | str | Semiconductor & Components |
-| `index_value` | float64 | 101.1481 |
-| `actual_input_cost_unit` | float64 | 35.5433 |
-| `standard_input_cost_unit` | float64 | 35.2113 |
-| `actual_final_cost_unit` | float64 | 37.5741 |
-| `standard_final_cost_unit` | float64 | 37.2329 |
-| `landed_cost_unit` | float64 | 36.1625 |
-| `sellable_input_cost_unit` | float64 | 37.1698 |
-| `freight_in_unit` | float64 | 0.42 |
-| `list_price_unit` | float64 | 64.5408 |
-| `review_cadence` | str | Semi-annual |
-| `list_margin_pct` | float64 | 0.417824 |
+| `product_id` | integer | 20000 |
+| `month` | text | 2023-07-01 |
+| `commodity_index` | text | Semiconductor & Components |
+| `index_value` | decimal | 101.1481 |
+| `actual_input_cost_unit` | decimal | 35.5433 |
+| `standard_input_cost_unit` | decimal | 35.2113 |
+| `actual_final_cost_unit` | decimal | 37.5741 |
+| `standard_final_cost_unit` | decimal | 37.2329 |
+| `landed_cost_unit` | decimal | 36.1625 |
+| `sellable_input_cost_unit` | decimal | 37.1698 |
+| `freight_in_unit` | decimal | 0.42 |
+| `list_price_unit` | decimal | 64.5408 |
+| `review_cadence` | text | Semi-annual |
+| `list_margin_pct` | decimal | 0.417824 |
 
 ### `fact_promotion`
 
@@ -339,28 +339,28 @@ Every promotion run: its mechanic, its depth, the products it covered and the mo
 
 | Column | Type | Example |
 |---|---|---|
-| `product_id` | int64 | 20000 |
-| `month` | str | 2024-07-01 |
-| `volume_units` | float64 | 783.34 |
-| `pocket_revenue` | float64 | 37020.37 |
-| `cogs` | float64 | 28491.26 |
-| `list_value` | float64 | 49032.77 |
-| `list_price` | float64 | 62.5945 |
-| `mechanic` | str | Temporary price reduction |
-| `customers` | int64 | 3 |
-| `baseline_volume_units` | float64 | 1458.0700000000002 |
-| `description` | str | Wireless Earbuds - Privat... |
-| `category` | str | Consumer Electronics |
-| `brand_tier` | str | Private label |
-| `promo_id` | str | PR5000 |
-| `discount_depth` | float64 | 0.0758 |
-| `incremental_volume_units` | float64 | -674.7 |
-| `unit_margin` | float64 | 10.8881 |
-| `incremental_margin` | float64 | -7346.2 |
-| `discount_on_baseline` | float64 | 6922.09 |
-| `net_promo_margin` | float64 | -14268.29 |
-| `promo_roi` | float64 | -2.0613 |
-| `verdict` | str | Bought its own volume |
+| `product_id` | integer | 20000 |
+| `month` | text | 2024-07-01 |
+| `volume_units` | decimal | 783.34 |
+| `pocket_revenue` | decimal | 37020.37 |
+| `cogs` | decimal | 28491.26 |
+| `list_value` | decimal | 49032.77 |
+| `list_price` | decimal | 62.5945 |
+| `mechanic` | text | Temporary price reduction |
+| `customers` | integer | 3 |
+| `baseline_volume_units` | decimal | 1458.0700000000002 |
+| `description` | text | Wireless Earbuds - Privat... |
+| `category` | text | Consumer Electronics |
+| `brand_tier` | text | Private label |
+| `promo_id` | text | PR5000 |
+| `discount_depth` | decimal | 0.0758 |
+| `incremental_volume_units` | decimal | -674.7 |
+| `unit_margin` | decimal | 10.8881 |
+| `incremental_margin` | decimal | -7346.2 |
+| `discount_on_baseline` | decimal | 6922.09 |
+| `net_promo_margin` | decimal | -14268.29 |
+| `promo_roi` | decimal | -2.0613 |
+| `verdict` | text | Bought its own volume |
 
 ### `fact_quote`
 
@@ -370,20 +370,20 @@ Won and lost quotes with the competing price. The only place demand at prices we
 
 | Column | Type | Example |
 |---|---|---|
-| `quote_id` | str | Q100000 |
-| `month` | str | 2024-06-01 |
-| `customer_id` | str | CU2068 |
-| `product_id` | int64 | 20189 |
-| `segment` | str | E-commerce Pure-Play |
-| `quantity_units` | float64 | 945.1 |
-| `list_price` | float64 | 12.4575 |
-| `quoted_price` | float64 | 10.7607 |
-| `competitor_price` | float64 | 10.455 |
-| `price_ratio` | float64 | 1.02923 |
-| `final_cost` | float64 | 6.4114 |
-| `won` | int64 | 0 |
-| `outcome` | str | Lost |
-| `loss_reason` | str | Incumbent supplier |
+| `quote_id` | text | Q100000 |
+| `month` | text | 2024-06-01 |
+| `customer_id` | text | CU2068 |
+| `product_id` | integer | 20189 |
+| `segment` | text | E-commerce Pure-Play |
+| `quantity_units` | decimal | 945.1 |
+| `list_price` | decimal | 12.4575 |
+| `quoted_price` | decimal | 10.7607 |
+| `competitor_price` | decimal | 10.455 |
+| `price_ratio` | decimal | 1.02923 |
+| `final_cost` | decimal | 6.4114 |
+| `won` | integer | 0 |
+| `outcome` | text | Lost |
+| `loss_reason` | text | Incumbent supplier |
 
 ### `fact_sales`
 
@@ -393,37 +393,37 @@ Invoice lines at month x customer x product, carrying all ten waterfall deductio
 
 | Column | Type | Example |
 |---|---|---|
-| `month` | str | 2023-07-01 |
-| `product_id` | int64 | 20067 |
-| `customer_id` | str | CU2000 |
-| `quantity_units` | float64 | 57.08 |
-| `list_price` | float64 | 7.6651 |
-| `volume_discount` | float64 | 0.1391 |
-| `contract_discount` | float64 | 0.0 |
-| `promo_discount` | float64 | 0.0 |
-| `rebate` | float64 | 0.0 |
-| `coop_marketing` | float64 | 0.069 |
-| `payment_terms_discount` | float64 | 0.0307 |
-| `freight_allowance` | float64 | 0.0 |
-| `freight_out` | float64 | 0.2 |
-| `order_handling` | float64 | 0.085 |
-| `returns_credits` | float64 | 0.1275 |
-| `final_cost` | float64 | 4.6955 |
-| `standard_cost` | float64 | 4.6391 |
-| `on_promotion` | int64 | 0 |
-| `promo_mechanic` | str | Bundle offer |
-| `invoice_price` | float64 | 7.526 |
-| `net_price` | float64 | 7.4263 |
-| `pocket_price` | float64 | 7.0138 |
-| `on_invoice_discounts` | float64 | 0.1391 |
-| `off_invoice_deductions` | float64 | 0.0997 |
-| `cost_to_serve` | float64 | 0.4125 |
-| `revenue` | float64 | 429.58 |
-| `pocket_revenue` | float64 | 400.35 |
-| `cogs` | float64 | 268.02 |
-| `standard_cogs` | float64 | 264.8 |
-| `pocket_margin` | float64 | 132.33 |
-| `list_value` | float64 | 437.52 |
+| `month` | text | 2023-07-01 |
+| `product_id` | integer | 20067 |
+| `customer_id` | text | CU2000 |
+| `quantity_units` | decimal | 57.08 |
+| `list_price` | decimal | 7.6651 |
+| `volume_discount` | decimal | 0.1391 |
+| `contract_discount` | decimal | 0.0 |
+| `promo_discount` | decimal | 0.0 |
+| `rebate` | decimal | 0.0 |
+| `coop_marketing` | decimal | 0.069 |
+| `payment_terms_discount` | decimal | 0.0307 |
+| `freight_allowance` | decimal | 0.0 |
+| `freight_out` | decimal | 0.2 |
+| `order_handling` | decimal | 0.085 |
+| `returns_credits` | decimal | 0.1275 |
+| `final_cost` | decimal | 4.6955 |
+| `standard_cost` | decimal | 4.6391 |
+| `on_promotion` | integer | 0 |
+| `promo_mechanic` | text | Bundle offer |
+| `invoice_price` | decimal | 7.526 |
+| `net_price` | decimal | 7.4263 |
+| `pocket_price` | decimal | 7.0138 |
+| `on_invoice_discounts` | decimal | 0.1391 |
+| `off_invoice_deductions` | decimal | 0.0997 |
+| `cost_to_serve` | decimal | 0.4125 |
+| `revenue` | decimal | 429.58 |
+| `pocket_revenue` | decimal | 400.35 |
+| `cogs` | decimal | 268.02 |
+| `standard_cogs` | decimal | 264.8 |
+| `pocket_margin` | decimal | 132.33 |
+| `list_value` | decimal | 437.52 |
 
 ## The ERP extract — `raw/`
 
@@ -435,28 +435,28 @@ The billing document items as SAP SD would hand them over, defects included: mis
 
 | Column | Type | Example |
 |---|---|---|
-| `billing_document` | int64 | 90600000 |
-| `item_number` | int64 | 10 |
-| `document_type` | str | Invoice |
-| `billing_date` | str | 2025-07-24 |
-| `company_code` | str | CA10 |
-| `sales_org` | int64 | 1000 |
-| `distribution_channel` | int64 | 20 |
-| `sold_to_party` | str | CU2000 |
-| `material` | int64 | 20067 |
-| `plant` | str | PL01 |
-| `billed_quantity` | float64 | 32.08 |
-| `sales_uom` | str | EA |
-| `gross_price` | float64 | 10.2148 |
-| `net_price` | float64 | 9.4061 |
-| `invoice_price` | float64 | 10.0369 |
-| `discount_value` | float64 | 5.71 |
-| `rebate_accrual` | float64 | 4.26 |
-| `freight_value` | float64 | 15.98 |
-| `cost_value` | float64 | 174.05 |
-| `extract_date` | str | 2026-07-02 |
-| `net_value` | float64 | 301.75 |
-| `pack_size_units` | float64 | 12.0 |
+| `billing_document` | integer | 90600000 |
+| `item_number` | integer | 10 |
+| `document_type` | text | Invoice |
+| `billing_date` | text | 2025-07-24 |
+| `company_code` | text | CA10 |
+| `sales_org` | integer | 1000 |
+| `distribution_channel` | integer | 20 |
+| `sold_to_party` | text | CU2000 |
+| `material` | integer | 20067 |
+| `plant` | text | PL01 |
+| `billed_quantity` | decimal | 32.08 |
+| `sales_uom` | text | EA |
+| `gross_price` | decimal | 10.2148 |
+| `net_price` | decimal | 9.4061 |
+| `invoice_price` | decimal | 10.0369 |
+| `discount_value` | decimal | 5.71 |
+| `rebate_accrual` | decimal | 4.26 |
+| `freight_value` | decimal | 15.98 |
+| `cost_value` | decimal | 174.05 |
+| `extract_date` | text | 2026-07-02 |
+| `net_value` | decimal | 301.75 |
+| `pack_size_units` | decimal | 12.0 |
 
 ### `erp_condition_records`
 
@@ -466,16 +466,16 @@ Pricing condition records: the list price and the discount conditions each custo
 
 | Column | Type | Example |
 |---|---|---|
-| `condition_record` | str | CR700000 |
-| `condition_type` | str | PR00 |
-| `material` | int64 | 20000 |
-| `sales_org` | int64 | 1000 |
-| `condition_value` | float64 | 52.2297 |
-| `condition_uom` | str | EA |
-| `valid_from` | str | 2023-07-01 |
-| `valid_to` | str | 9999-12-31 |
-| `days_since_change` | int64 | 182 |
-| `created_by` | str | PRICING |
+| `condition_record` | text | CR700000 |
+| `condition_type` | text | PR00 |
+| `material` | integer | 20000 |
+| `sales_org` | integer | 1000 |
+| `condition_value` | decimal | 52.2297 |
+| `condition_uom` | text | EA |
+| `valid_from` | text | 2023-07-01 |
+| `valid_to` | text | 9999-12-31 |
+| `days_since_change` | integer | 182 |
+| `created_by` | text | PRICING |
 
 ### `erp_customer_master`
 
@@ -485,17 +485,17 @@ The sold-to party master, including the orphans that billing lines point at and 
 
 | Column | Type | Example |
 |---|---|---|
-| `customer` | str | CU2000 |
-| `customer_name` | str | Sunshine Table |
-| `account_group` | str | Independent Retailer |
-| `sales_org` | int64 | 1000 |
-| `distribution_channel` | float64 | 20.0 |
-| `sales_district` | str | Southwest |
-| `payment_terms` | str | Net 45 |
-| `price_group` | str | D |
-| `price_list_type` | str | List |
-| `sales_employee` | str | Tom Beauchemin |
-| `created_on` | str | 2019-04-01 |
+| `customer` | text | CU2000 |
+| `customer_name` | text | Sunshine Table |
+| `account_group` | text | Independent Retailer |
+| `sales_org` | integer | 1000 |
+| `distribution_channel` | decimal | 20.0 |
+| `sales_district` | text | Southwest |
+| `payment_terms` | text | Net 45 |
+| `price_group` | text | D |
+| `price_list_type` | text | List |
+| `sales_employee` | text | Tom Beauchemin |
+| `created_on` | text | 2019-04-01 |
 
 ### `erp_material_master`
 
@@ -505,18 +505,18 @@ The material master. Base UOM, pack size and standard cost -- with the gaps that
 
 | Column | Type | Example |
 |---|---|---|
-| `material` | int64 | 20000 |
-| `material_description` | str | Wireless Earbuds - Privat... |
-| `material_group` | str | Consumer Electronics |
-| `base_uom` | str | EA |
-| `units_per_case` | float64 | 6.0 |
-| `plant` | str | PL02 |
-| `standard_cost` | float64 | 37.5575 |
-| `moving_average_price` | float64 | 32.6615 |
-| `recovery` | float64 | 0.9729 |
-| `profit_center` | str | PCCON |
-| `mrp_controller` | str | M04 |
-| `deletion_flag` | float64 |  |
+| `material` | integer | 20000 |
+| `material_description` | text | Wireless Earbuds - Privat... |
+| `material_group` | text | Consumer Electronics |
+| `base_uom` | text | EA |
+| `units_per_case` | decimal | 6.0 |
+| `plant` | text | PL02 |
+| `standard_cost` | decimal | 37.5575 |
+| `moving_average_price` | decimal | 32.6615 |
+| `recovery` | decimal | 0.9729 |
+| `profit_center` | text | PCCON |
+| `mrp_controller` | text | M04 |
+| `deletion_flag` | decimal |  |
 
 ## Analysis outputs — `output/`
 
@@ -528,13 +528,13 @@ A volume grid from zero upward: revenue, fixed cost, variable cost, total cost a
 
 | Column | Type | Example |
 |---|---|---|
-| `quantity` | float64 | 0.0 |
-| `revenue` | float64 | 0.0 |
-| `fixed_cost` | float64 | 4942542.87 |
-| `variable_cost` | float64 | 0.0 |
-| `total_cost` | float64 | 4942542.87 |
-| `profit` | float64 | -4942542.87 |
-| `is_break_even` | float64 | 0.0 |
+| `quantity` | decimal | 0.0 |
+| `revenue` | decimal | 0.0 |
+| `fixed_cost` | decimal | 4942542.87 |
+| `variable_cost` | decimal | 0.0 |
+| `total_cost` | decimal | 4942542.87 |
+| `profit` | decimal | -4942542.87 |
+| `is_break_even` | decimal | 0.0 |
 
 ### `break_even_portfolio`
 
@@ -544,19 +544,19 @@ The same for the whole book and for each category, with operating leverage.
 
 | Column | Type | Example |
 |---|---|---|
-| `scope` | str | Whole book |
-| `member` | str | Whole book |
-| `revenue` | float64 | 260354430.25 |
-| `variable_cost` | float64 | 208579117.7089 |
-| `contribution` | float64 | 51775312.5411 |
-| `contribution_ratio` | float64 | 0.1989 |
-| `fixed_costs` | float64 | 4942542.87 |
-| `break_even_revenue` | float64 | 24853793.6277 |
-| `break_even_volume` | float64 | 624846.8094 |
-| `operating_profit` | float64 | 46832769.6711 |
-| `margin_of_safety` | float64 | 0.9045 |
-| `operating_leverage` | float64 | 1.1055 |
-| `note` | str | ok |
+| `scope` | text | Whole book |
+| `member` | text | Whole book |
+| `revenue` | decimal | 260354430.25 |
+| `variable_cost` | decimal | 208579117.7089 |
+| `contribution` | decimal | 51775312.5411 |
+| `contribution_ratio` | decimal | 0.1989 |
+| `fixed_costs` | decimal | 4942542.87 |
+| `break_even_revenue` | decimal | 24853793.6277 |
+| `break_even_volume` | decimal | 624846.8094 |
+| `operating_profit` | decimal | 46832769.6711 |
+| `margin_of_safety` | decimal | 0.9045 |
+| `operating_leverage` | decimal | 1.1055 |
+| `note` | text | ok |
 
 ### `break_even_products`
 
@@ -566,18 +566,18 @@ Break-even units and revenue per product, with the margin of safety against what
 
 | Column | Type | Example |
 |---|---|---|
-| `product_id` | int64 | 20000 |
-| `description` | str | Wireless Earbuds - Privat... |
-| `category` | str | Consumer Electronics |
-| `exists` | bool | True |
-| `break_even_units` | float64 | 2696.7155 |
-| `break_even_revenue` | float64 | 121963.635 |
-| `contribution_per_unit` | float64 | 7.2424 |
-| `contribution_ratio` | float64 | 0.1601 |
-| `actual_volume_units` | float64 | 25865.2 |
-| `margin_of_safety` | float64 | 0.8957 |
-| `operating_profit` | float64 | 167796.5141 |
-| `note` | str | ok |
+| `product_id` | integer | 20000 |
+| `description` | text | Wireless Earbuds - Privat... |
+| `category` | text | Consumer Electronics |
+| `exists` | boolean | True |
+| `break_even_units` | decimal | 2696.7155 |
+| `break_even_revenue` | decimal | 121963.635 |
+| `contribution_per_unit` | decimal | 7.2424 |
+| `contribution_ratio` | decimal | 0.1601 |
+| `actual_volume_units` | decimal | 25865.2 |
+| `margin_of_safety` | decimal | 0.8957 |
+| `operating_profit` | decimal | 167796.5141 |
+| `note` | text | ok |
 
 ### `budget_variance`
 
@@ -587,24 +587,24 @@ Budget against actual by month and category, with the sign interpreted per line.
 
 | Column | Type | Example |
 |---|---|---|
-| `month` | str | 2023-07-01 |
-| `fiscal_year` | int64 | 2024 |
-| `category` | str | Apparel & Accessories |
-| `budget_revenue` | float64 | 585994.47 |
-| `actual_revenue` | float64 | 597385.96 |
-| `revenue_variance` | float64 | 11391.49 |
-| `revenue_variance_pct` | float64 | 0.0194 |
-| `revenue_verdict` | str | Favourable |
-| `budget_cogs` | float64 | 418108.48 |
-| `actual_cogs` | float64 | 433698.09 |
-| `cogs_variance` | float64 | 15589.61 |
-| `cogs_verdict` | str | Unfavourable |
-| `budget_margin` | float64 | 167885.99 |
-| `actual_margin` | float64 | 163687.87 |
-| `margin_variance` | float64 | -4198.12 |
-| `margin_verdict` | str | Unfavourable |
-| `budget_volume_units` | float64 | 23451.2 |
-| `actual_volume_units` | float64 | 23886.5 |
+| `month` | text | 2023-07-01 |
+| `fiscal_year` | integer | 2024 |
+| `category` | text | Apparel & Accessories |
+| `budget_revenue` | decimal | 585994.47 |
+| `actual_revenue` | decimal | 597385.96 |
+| `revenue_variance` | decimal | 11391.49 |
+| `revenue_variance_pct` | decimal | 0.0194 |
+| `revenue_verdict` | text | Favourable |
+| `budget_cogs` | decimal | 418108.48 |
+| `actual_cogs` | decimal | 433698.09 |
+| `cogs_variance` | decimal | 15589.61 |
+| `cogs_verdict` | text | Unfavourable |
+| `budget_margin` | decimal | 167885.99 |
+| `actual_margin` | decimal | 163687.87 |
+| `margin_variance` | decimal | -4198.12 |
+| `margin_verdict` | text | Unfavourable |
+| `budget_volume_units` | decimal | 23451.2 |
+| `actual_volume_units` | decimal | 23886.5 |
 
 ### `bundle_candidates`
 
@@ -614,25 +614,25 @@ Product pairs the same customers already buy together, priced and judged on incr
 
 | Column | Type | Example |
 |---|---|---|
-| `rank` | int64 | 1 |
-| `bundle_id` | str | B01 |
-| `product_a` | int64 | 20017 |
-| `product_b` | int64 | 20115 |
-| `name_a` | str | Webcam - National brand |
-| `name_b` | str | USB-C Charger - National ... |
-| `category_a` | str | Consumer Electronics |
-| `category_b` | str | Consumer Electronics |
-| `co_purchase_months` | int64 | 49 |
-| `standalone_price` | float64 | 65.643 |
-| `bundle_price` | float64 | 59.0787 |
-| `standalone_margin_pct` | float64 | 0.2914 |
-| `bundle_margin_pct` | float64 | 0.2127 |
-| `expected_units` | float64 | 4883.5 |
-| `cannibalisation_rate` | float64 | 0.5104 |
-| `break_even_cannibalisation` | float64 | 0.6568 |
-| `headroom` | float64 | 0.1464 |
-| `incremental_margin` | float64 | 13679.4 |
-| `verdict` | str | Creates value |
+| `rank` | integer | 1 |
+| `bundle_id` | text | B01 |
+| `product_a` | integer | 20017 |
+| `product_b` | integer | 20115 |
+| `name_a` | text | Webcam - National brand |
+| `name_b` | text | USB-C Charger - National ... |
+| `category_a` | text | Consumer Electronics |
+| `category_b` | text | Consumer Electronics |
+| `co_purchase_months` | integer | 49 |
+| `standalone_price` | decimal | 65.643 |
+| `bundle_price` | decimal | 59.0787 |
+| `standalone_margin_pct` | decimal | 0.2914 |
+| `bundle_margin_pct` | decimal | 0.2127 |
+| `expected_units` | decimal | 4883.5 |
+| `cannibalisation_rate` | decimal | 0.5104 |
+| `break_even_cannibalisation` | decimal | 0.6568 |
+| `headroom` | decimal | 0.1464 |
+| `incremental_margin` | decimal | 13679.4 |
+| `verdict` | text | Creates value |
 
 ### `bundle_discount_sweep`
 
@@ -642,14 +642,14 @@ Incremental margin across a sweep of bundle discounts.
 
 | Column | Type | Example |
 |---|---|---|
-| `bundle_id` | str | B01 |
-| `discount` | float64 | 0.0 |
-| `bundle_price` | float64 | 65.643 |
-| `bundle_margin_pct` | float64 | 0.2914 |
-| `expected_units` | float64 | 4883.508 |
-| `incremental_margin` | float64 | 45736.2044 |
-| `break_even_cannibalisation` | float64 | 1.0 |
-| `is_best` | float64 | 1.0 |
+| `bundle_id` | text | B01 |
+| `discount` | decimal | 0.0 |
+| `bundle_price` | decimal | 65.643 |
+| `bundle_margin_pct` | decimal | 0.2914 |
+| `expected_units` | decimal | 4883.508 |
+| `incremental_margin` | decimal | 45736.2044 |
+| `break_even_cannibalisation` | decimal | 1.0 |
+| `is_best` | decimal | 1.0 |
 
 ### `commodity_index_weekly`
 
@@ -659,10 +659,10 @@ The input indices, weekly.
 
 | Column | Type | Example |
 |---|---|---|
-| `week_start` | str | 2023-06-26 |
-| `index_name` | str | Semiconductor & Components |
-| `index_value` | float64 | 99.6355 |
-| `trend_value` | float64 | 101.1528 |
+| `week_start` | text | 2023-06-26 |
+| `index_name` | text | Semiconductor & Components |
+| `index_value` | decimal | 99.6355 |
+| `trend_value` | decimal | 101.1528 |
 
 ### `competitive_index`
 
@@ -672,24 +672,24 @@ Price index per product per month, with the market price it was measured against
 
 | Column | Type | Example |
 |---|---|---|
-| `product_id` | int64 | 20000 |
-| `month` | str | 2023-07-01 |
-| `our_price` | float64 | 64.5408 |
-| `market_price` | float64 | 59.2896 |
-| `price_index` | float64 | 108.86 |
-| `gap_pct` | float64 | 0.0886 |
-| `position` | str | Premium |
-| `observations` | int64 | 2 |
-| `competitors_seen` | int64 | 2 |
-| `max_age_days` | float64 | 41.0 |
-| `pocket_revenue` | float64 | 67802.16 |
-| `quantity_units` | float64 | 1283.1 |
-| `cogs` | float64 | 48211.33 |
-| `description` | str | Wireless Earbuds - Privat... |
-| `category` | str | Consumer Electronics |
-| `brand_tier` | str | Private label |
-| `lifecycle` | str | Mature |
-| `margin_pct` | float64 | 0.2889 |
+| `product_id` | integer | 20000 |
+| `month` | text | 2023-07-01 |
+| `our_price` | decimal | 64.5408 |
+| `market_price` | decimal | 59.2896 |
+| `price_index` | decimal | 108.86 |
+| `gap_pct` | decimal | 0.0886 |
+| `position` | text | Premium |
+| `observations` | integer | 2 |
+| `competitors_seen` | integer | 2 |
+| `max_age_days` | decimal | 41.0 |
+| `pocket_revenue` | decimal | 67802.16 |
+| `quantity_units` | decimal | 1283.1 |
+| `cogs` | decimal | 48211.33 |
+| `description` | text | Wireless Earbuds - Privat... |
+| `category` | text | Consumer Electronics |
+| `brand_tier` | text | Private label |
+| `lifecycle` | text | Mature |
+| `margin_pct` | decimal | 0.2889 |
 
 ### `competitive_summary`
 
@@ -699,14 +699,14 @@ The latest month's coverage, median index and the revenue sitting above and belo
 
 | Column | Type | Example |
 |---|---|---|
-| `month` | str | 2026-06-01 |
-| `median_index` | float64 | 99.16 |
-| `products_covered` | int64 | 204 |
-| `coverage` | float64 | 1.0 |
-| `underpriced_products` | int64 | 85 |
-| `overpriced_products` | int64 | 26 |
-| `revenue_at_risk` | float64 | 1854389.87 |
-| `opportunity` | float64 | 4613252.46 |
+| `month` | text | 2026-06-01 |
+| `median_index` | decimal | 99.16 |
+| `products_covered` | integer | 204 |
+| `coverage` | decimal | 1.0 |
+| `underpriced_products` | integer | 85 |
+| `overpriced_products` | integer | 26 |
+| `revenue_at_risk` | decimal | 1854389.87 |
+| `opportunity` | decimal | 4613252.46 |
 
 ### `cost_element_by_category`
 
@@ -716,11 +716,11 @@ Which categories carry each element's variance.
 
 | Column | Type | Example |
 |---|---|---|
-| `category` | str | Apparel & Accessories |
-| `cost_element` | str | Goods |
-| `standard_cost` | float64 | 6496405.04 |
-| `actual_cost` | float64 | 6409560.14 |
-| `variance` | float64 | -86844.9 |
+| `category` | text | Apparel & Accessories |
+| `cost_element` | text | Goods |
+| `standard_cost` | decimal | 6496405.04 |
+| `actual_cost` | decimal | 6409560.14 |
+| `variance` | decimal | -86844.9 |
 
 ### `cost_element_summary`
 
@@ -730,15 +730,15 @@ Standard against actual per cost element for the current year, with the variance
 
 | Column | Type | Example |
 |---|---|---|
-| `fiscal_year` | int64 | 2024 |
-| `cost_element` | str | Goods |
-| `behaviour` | str | Variable |
-| `standard_cost` | float64 | 137548851.38 |
-| `actual_cost` | float64 | 135794844.81 |
-| `volume_units` | float64 | 5582754.46 |
-| `variance` | float64 | -1754006.57 |
-| `variance_pct` | float64 | -0.01 |
-| `verdict` | str | Favourable |
+| `fiscal_year` | integer | 2024 |
+| `cost_element` | text | Goods |
+| `behaviour` | text | Variable |
+| `standard_cost` | decimal | 137548851.38 |
+| `actual_cost` | decimal | 135794844.81 |
+| `volume_units` | decimal | 5582754.46 |
+| `variance` | decimal | -1754006.57 |
+| `variance_pct` | decimal | -0.01 |
+| `verdict` | text | Favourable |
 
 ### `cost_element_waterfall`
 
@@ -748,12 +748,12 @@ The same as waterfall bars, standard cost through each element to actual.
 
 | Column | Type | Example |
 |---|---|---|
-| `step` | str | Standard cost |
-| `kind` | str | total |
-| `amount` | float64 | 219745069.09 |
-| `running` | float64 | 219745069.09 |
-| `sort_order` | int64 | 0 |
-| `delta` | float64 | 219745069.09 |
+| `step` | text | Standard cost |
+| `kind` | text | total |
+| `amount` | decimal | 219745069.09 |
+| `running` | decimal | 219745069.09 |
+| `sort_order` | integer | 0 |
+| `delta` | decimal | 219745069.09 |
 
 ### `cost_variance_detail`
 
@@ -763,26 +763,26 @@ Purchase price, yield and labour variance per product per month, restated throug
 
 | Column | Type | Example |
 |---|---|---|
-| `month` | str | 2023-07-01 |
-| `fiscal_year` | int64 | 2024 |
-| `product_id` | int64 | 20000 |
-| `description` | str | Wireless Earbuds - Privat... |
-| `category` | str | Consumer Electronics |
-| `brand_tier` | str | Private label |
-| `supplier` | str | Ningbo Hometech Manufactu... |
-| `purchased_units` | float64 | 1455.7 |
-| `output_units` | float64 | 1410.0 |
-| `standard_sellable_rate` | float64 | 0.9729 |
-| `actual_recovery` | float64 | 0.9686 |
-| `recovery_gap` | float64 | -0.0043 |
-| `purchase_price_variance` | float64 | 483.29 |
-| `yield_variance` | float64 | 226.22 |
-| `labour_rate_variance` | float64 | -21.43 |
-| `labour_efficiency_variance` | float64 | 181.17 |
-| `total_variance` | float64 | 869.26 |
-| `verdict` | str | Unfavourable |
-| `standard_cost_value` | float64 | 51257.09 |
-| `actual_cost_value` | float64 | 51740.38 |
+| `month` | text | 2023-07-01 |
+| `fiscal_year` | integer | 2024 |
+| `product_id` | integer | 20000 |
+| `description` | text | Wireless Earbuds - Privat... |
+| `category` | text | Consumer Electronics |
+| `brand_tier` | text | Private label |
+| `supplier` | text | Ningbo Hometech Manufactu... |
+| `purchased_units` | decimal | 1455.7 |
+| `output_units` | decimal | 1410.0 |
+| `standard_sellable_rate` | decimal | 0.9729 |
+| `actual_recovery` | decimal | 0.9686 |
+| `recovery_gap` | decimal | -0.0043 |
+| `purchase_price_variance` | decimal | 483.29 |
+| `yield_variance` | decimal | 226.22 |
+| `labour_rate_variance` | decimal | -21.43 |
+| `labour_efficiency_variance` | decimal | 181.17 |
+| `total_variance` | decimal | 869.26 |
+| `verdict` | text | Unfavourable |
+| `standard_cost_value` | decimal | 51257.09 |
+| `actual_cost_value` | decimal | 51740.38 |
 
 ### `cost_variance_long`
 
@@ -792,15 +792,15 @@ The same, one row per variance type, for stacked charts.
 
 | Column | Type | Example |
 |---|---|---|
-| `month` | str | 2023-07-01 |
-| `fiscal_year` | int64 | 2024 |
-| `product_id` | int64 | 20000 |
-| `category` | str | Consumer Electronics |
-| `brand_tier` | str | Private label |
-| `supplier` | str | Ningbo Hometech Manufactu... |
-| `variance_type` | str | Purchase price |
-| `variance` | float64 | 483.29 |
-| `verdict` | str | Unfavourable |
+| `month` | text | 2023-07-01 |
+| `fiscal_year` | integer | 2024 |
+| `product_id` | integer | 20000 |
+| `category` | text | Consumer Electronics |
+| `brand_tier` | text | Private label |
+| `supplier` | text | Ningbo Hometech Manufactu... |
+| `variance_type` | text | Purchase price |
+| `variance` | decimal | 483.29 |
+| `verdict` | text | Unfavourable |
 
 ### `customer_profitability`
 
@@ -810,27 +810,27 @@ One row per customer with margin, leakage, cost to serve and a quadrant against 
 
 | Column | Type | Example |
 |---|---|---|
-| `customer_id` | str | CU2000 |
-| `customer_name` | str | Sunshine Table |
-| `segment` | str | Independent Retailer |
-| `channel` | str | Retail |
-| `region` | str | Southwest |
-| `tier` | str | D |
-| `volume_units` | float64 | 1519.83 |
-| `list_value` | float64 | 43033.54 |
-| `invoice_revenue` | float64 | 41715.71 |
-| `pocket_revenue` | float64 | 40004.94 |
-| `cogs` | float64 | 25491.55 |
-| `lines` | int64 | 62 |
-| `products` | int64 | 7 |
-| `cost_to_serve` | float64 | 1151.2574 |
-| `pocket_margin` | float64 | 14513.39 |
-| `pocket_margin_pct` | float64 | 0.3628 |
-| `leakage_pct` | float64 | 0.0704 |
-| `avg_drop_units` | float64 | 24.5134 |
-| `price_list` | str | List |
-| `payment_terms` | str | Net 45 |
-| `quadrant` | str | Grow |
+| `customer_id` | text | CU2000 |
+| `customer_name` | text | Sunshine Table |
+| `segment` | text | Independent Retailer |
+| `channel` | text | Retail |
+| `region` | text | Southwest |
+| `tier` | text | D |
+| `volume_units` | decimal | 1519.83 |
+| `list_value` | decimal | 43033.54 |
+| `invoice_revenue` | decimal | 41715.71 |
+| `pocket_revenue` | decimal | 40004.94 |
+| `cogs` | decimal | 25491.55 |
+| `lines` | integer | 62 |
+| `products` | integer | 7 |
+| `cost_to_serve` | decimal | 1151.2574 |
+| `pocket_margin` | decimal | 14513.39 |
+| `pocket_margin_pct` | decimal | 0.3628 |
+| `leakage_pct` | decimal | 0.0704 |
+| `avg_drop_units` | decimal | 24.5134 |
+| `price_list` | text | List |
+| `payment_terms` | text | Net 45 |
+| `quadrant` | text | Grow |
 
 ### `data_quality_checks`
 
@@ -840,18 +840,18 @@ Twelve rules across the six quality dimensions, each with the rows it checked, t
 
 | Column | Type | Example |
 |---|---|---|
-| `code` | str | DQ01 |
-| `dimension` | str | Completeness |
-| `severity` | str | Critical |
-| `severity_rank` | int64 | 1 |
-| `table` | str | erp_billing_items |
-| `check` | str | Billing lines with no cos... |
-| `rows_checked` | int64 | 17643 |
-| `rows_failing` | int64 | 879 |
-| `fail_rate` | float64 | 0.0498214589355551 |
-| `passed` | bool | False |
-| `action` | str | A missing standard cost p... |
-| `error` | float64 |  |
+| `code` | text | DQ01 |
+| `dimension` | text | Completeness |
+| `severity` | text | Critical |
+| `severity_rank` | integer | 1 |
+| `table` | text | erp_billing_items |
+| `check` | text | Billing lines with no cos... |
+| `rows_checked` | integer | 17643 |
+| `rows_failing` | integer | 879 |
+| `fail_rate` | decimal | 0.0498214589355551 |
+| `passed` | boolean | False |
+| `action` | text | A missing standard cost p... |
+| `error` | decimal |  |
 
 ### `data_quality_score`
 
@@ -861,12 +861,12 @@ The rules rolled up per dimension, plus an overall row. Row-weighted, not an ave
 
 | Column | Type | Example |
 |---|---|---|
-| `dimension` | str | Completeness |
-| `checks` | int64 | 3 |
-| `checks_passed` | int64 | 0 |
-| `rows_checked` | int64 | 35436 |
-| `rows_failing` | int64 | 1417 |
-| `score` | float64 | 0.9600124167513264 |
+| `dimension` | text | Completeness |
+| `checks` | integer | 3 |
+| `checks_passed` | integer | 0 |
+| `rows_checked` | integer | 35436 |
+| `rows_failing` | integer | 1417 |
+| `score` | decimal | 0.9600124167513264 |
 
 ### `deal_scores`
 
@@ -876,32 +876,32 @@ The latest month's lines scored against floor, target and stretch, with the appr
 
 | Column | Type | Example |
 |---|---|---|
-| `month` | str | 2026-06-01 |
-| `product_id` | int64 | 20067 |
-| `description` | str | Toner Cartridge - Nationa... |
-| `category` | str | Office & Stationery |
-| `customer_id` | str | CU2000 |
-| `customer_name` | str | Sunshine Table |
-| `segment` | str | Independent Retailer |
-| `tier` | str | D |
-| `quantity_units` | float64 | 30.68 |
-| `list_price` | float64 | 10.5402 |
-| `pocket_price` | float64 | 9.6846 |
-| `floor_price` | float64 | 8.0546 |
-| `target_price` | float64 | 8.8836 |
-| `stretch_price` | float64 | 9.7991 |
-| `pocket_margin_pct` | float64 | 0.3522 |
-| `floor_margin` | float64 | 0.1285 |
-| `target_margin` | float64 | 0.2185 |
-| `verdict` | str | Above stretch |
-| `within_guardrail` | bool | True |
-| `approver` | str | Commercial director |
-| `margin_gap_dollars` | float64 | 0.0 |
-| `extended_margin` | float64 | 104.64 |
-| `leakage_pct` | float64 | 0.0812 |
-| `price_index` | float64 | 116.51 |
-| `days_since_price_change` | float64 | 120.0 |
-| `cost_change_pct` | float64 | 0.0349 |
+| `month` | text | 2026-06-01 |
+| `product_id` | integer | 20067 |
+| `description` | text | Toner Cartridge - Nationa... |
+| `category` | text | Office & Stationery |
+| `customer_id` | text | CU2000 |
+| `customer_name` | text | Sunshine Table |
+| `segment` | text | Independent Retailer |
+| `tier` | text | D |
+| `quantity_units` | decimal | 30.68 |
+| `list_price` | decimal | 10.5402 |
+| `pocket_price` | decimal | 9.6846 |
+| `floor_price` | decimal | 8.0546 |
+| `target_price` | decimal | 8.8836 |
+| `stretch_price` | decimal | 9.7991 |
+| `pocket_margin_pct` | decimal | 0.3522 |
+| `floor_margin` | decimal | 0.1285 |
+| `target_margin` | decimal | 0.2185 |
+| `verdict` | text | Above stretch |
+| `within_guardrail` | boolean | True |
+| `approver` | text | Commercial director |
+| `margin_gap_dollars` | decimal | 0.0 |
+| `extended_margin` | decimal | 104.64 |
+| `leakage_pct` | decimal | 0.0812 |
+| `price_index` | decimal | 116.51 |
+| `days_since_price_change` | decimal | 120.0 |
+| `cost_change_pct` | decimal | 0.0349 |
 
 ### `discount_margin_matrix`
 
@@ -911,14 +911,14 @@ Invoice lines banded by discount depth against margin achieved. The cells off th
 
 | Column | Type | Example |
 |---|---|---|
-| `discount_band` | str | 0% to 5% |
-| `margin_band` | str | 10% to 20% |
-| `lines` | int64 | 23 |
-| `volume_units` | float64 | 1437.4 |
-| `pocket_revenue` | float64 | 79941.35 |
-| `cogs` | float64 | 65792.5 |
-| `gross_margin` | float64 | 14148.85 |
-| `share_of_revenue` | float64 | 0.0003 |
+| `discount_band` | text | 0% to 5% |
+| `margin_band` | text | 10% to 20% |
+| `lines` | integer | 23 |
+| `volume_units` | decimal | 1437.4 |
+| `pocket_revenue` | decimal | 79941.35 |
+| `cogs` | decimal | 65792.5 |
+| `gross_margin` | decimal | 14148.85 |
+| `share_of_revenue` | decimal | 0.0003 |
 
 ### `elasticity_estimates`
 
@@ -928,29 +928,29 @@ Own-price elasticity per category and per product, with the fit diagnostics and 
 
 | Column | Type | Example |
 |---|---|---|
-| `scope` | str | Category |
-| `member` | str | Apparel & Accessories |
-| `products` | int64 | 19 |
-| `observations` | int64 | 489 |
-| `elasticity` | float64 | -1.5148 |
-| `r_squared` | float64 | 0.0707 |
-| `price_cv` | float64 | 0.0741 |
-| `usable` | bool | True |
-| `reason` | str | ok |
-| `volume_units` | float64 | 930134.5 |
-| `pocket_revenue` | float64 | 20838219.23 |
-| `avg_pocket_price` | float64 | 22.4034 |
-| `avg_unit_cost` | float64 | 18.7781 |
-| `optimal_price` | float64 | 55.2553 |
-| `optimal_exists` | bool | True |
-| `optimal_actionable` | bool | True |
-| `implied_markup` | float64 | 2.943 |
-| `optimal_note` | str | ok |
-| `price_vs_optimal_pct` | float64 | -0.5945 |
-| `description` | str | Wireless Earbuds - Privat... |
-| `category` | str | Consumer Electronics |
-| `brand_tier` | str | Private label |
-| `seeded_elasticity` | float64 | -2.1184 |
+| `scope` | text | Category |
+| `member` | text | Apparel & Accessories |
+| `products` | integer | 19 |
+| `observations` | integer | 489 |
+| `elasticity` | decimal | -1.5148 |
+| `r_squared` | decimal | 0.0707 |
+| `price_cv` | decimal | 0.0741 |
+| `usable` | boolean | True |
+| `reason` | text | ok |
+| `volume_units` | decimal | 930134.5 |
+| `pocket_revenue` | decimal | 20838219.23 |
+| `avg_pocket_price` | decimal | 22.4034 |
+| `avg_unit_cost` | decimal | 18.7781 |
+| `optimal_price` | decimal | 55.2553 |
+| `optimal_exists` | boolean | True |
+| `optimal_actionable` | boolean | True |
+| `implied_markup` | decimal | 2.943 |
+| `optimal_note` | text | ok |
+| `price_vs_optimal_pct` | decimal | -0.5945 |
+| `description` | text | Wireless Earbuds - Privat... |
+| `category` | text | Consumer Electronics |
+| `brand_tier` | text | Private label |
+| `seeded_elasticity` | decimal | -2.1184 |
 
 ### `executive_summary`
 
@@ -960,12 +960,12 @@ The dozen numbers a pricing analyst opens a meeting with, pre-aggregated so a ca
 
 | Column | Type | Example |
 |---|---|---|
-| `kpi` | str | Pocket revenue |
-| `value` | float64 | 260354430.25 |
-| `unit` | str | currency |
-| `note` | str | FY2026 revenue after ever... |
-| `fiscal_year` | int64 | 2026 |
-| `sort_order` | int64 | 0 |
+| `kpi` | text | Pocket revenue |
+| `value` | decimal | 260354430.25 |
+| `unit` | text | currency |
+| `note` | text | FY2026 revenue after ever... |
+| `fiscal_year` | integer | 2026 |
+| `sort_order` | integer | 0 |
 
 ### `forecast_accuracy`
 
@@ -975,14 +975,14 @@ Every method against every measure in a rolling-origin backtest, ranked by WAPE.
 
 | Column | Type | Example |
 |---|---|---|
-| `measure` | str | Volume (units) |
-| `method` | str | Seasonal naive with drift |
-| `wape` | float64 | 0.04648 |
-| `mape` | float64 | 0.04713 |
-| `bias` | float64 | -0.0127 |
-| `folds` | int64 | 12 |
-| `rank` | int64 | 1 |
-| `is_best` | bool | True |
+| `measure` | text | Volume (units) |
+| `method` | text | Seasonal naive with drift |
+| `wape` | decimal | 0.04648 |
+| `mape` | decimal | 0.04713 |
+| `bias` | decimal | -0.0127 |
+| `folds` | integer | 12 |
+| `rank` | integer | 1 |
+| `is_best` | boolean | True |
 
 ### `forecast_series`
 
@@ -992,13 +992,13 @@ Actual and forecast by month for four measures, with an empirical interval taken
 
 | Column | Type | Example |
 |---|---|---|
-| `measure` | str | Volume (units) |
-| `month` | str | 2023-07-01 |
-| `actual` | float64 | 435160.61 |
-| `forecast` | float64 | 502183.34 |
-| `low` | float64 | 462488.6 |
-| `high` | float64 | 534058.4 |
-| `period` | str | History |
+| `measure` | text | Volume (units) |
+| `month` | text | 2023-07-01 |
+| `actual` | decimal | 435160.61 |
+| `forecast` | decimal | 502183.34 |
+| `low` | decimal | 462488.6 |
+| `high` | decimal | 534058.4 |
+| `period` | text | History |
 
 ### `forecast_summary`
 
@@ -1008,13 +1008,13 @@ The chosen method per measure, its backtest and holdout error, and the next six 
 
 | Column | Type | Example |
 |---|---|---|
-| `measure` | str | Volume (units) |
-| `method` | str | Seasonal naive with drift |
-| `next_6_total` | float64 | 3527583.1199 |
-| `last_6_actual` | float64 | 3183658.97 |
-| `backtest_wape` | float64 | 0.0455 |
-| `holdout_wape` | float64 | 0.0428 |
-| `change_pct` | float64 | 0.108 |
+| `measure` | text | Volume (units) |
+| `method` | text | Seasonal naive with drift |
+| `next_6_total` | decimal | 3527583.1199 |
+| `last_6_actual` | decimal | 3183658.97 |
+| `backtest_wape` | decimal | 0.0455 |
+| `holdout_wape` | decimal | 0.0428 |
+| `change_pct` | decimal | 0.108 |
 
 ### `guardrail_exceptions`
 
@@ -1024,22 +1024,22 @@ Every guardrail breach, ranked by margin at risk.
 
 | Column | Type | Example |
 |---|---|---|
-| `code` | str | LOSS |
-| `severity` | int64 | 1 |
-| `alert` | str | Red |
-| `product_id` | int64 | 20140 |
-| `customer_id` | str | CU2050 |
-| `description` | str | USB-C Charger - Premium b... |
-| `pocket_margin_pct` | float64 | -0.0455 |
-| `price_index` | float64 | 97.39 |
-| `margin_at_risk` | float64 | 697879.25 |
-| `action` | str | Selling below cost once e... |
-| `category` | str | Consumer Electronics |
-| `segment` | str | Marketplace Seller |
-| `customer_name` | str | Cedar Butchery |
-| `quantity_units` | float64 | 16552.16 |
-| `list_price` | float64 | 182.1906 |
-| `pocket_price` | float64 | 137.1788 |
+| `code` | text | LOSS |
+| `severity` | integer | 1 |
+| `alert` | text | Red |
+| `product_id` | integer | 20140 |
+| `customer_id` | text | CU2050 |
+| `description` | text | USB-C Charger - Premium b... |
+| `pocket_margin_pct` | decimal | -0.0455 |
+| `price_index` | decimal | 97.39 |
+| `margin_at_risk` | decimal | 697879.25 |
+| `action` | text | Selling below cost once e... |
+| `category` | text | Consumer Electronics |
+| `segment` | text | Marketplace Seller |
+| `customer_name` | text | Cedar Butchery |
+| `quantity_units` | decimal | 16552.16 |
+| `list_price` | decimal | 182.1906 |
+| `pocket_price` | decimal | 137.1788 |
 
 ### `guardrail_summary`
 
@@ -1049,12 +1049,12 @@ One row per rule: how many breaches and how much money.
 
 | Column | Type | Example |
 |---|---|---|
-| `code` | str | BELOW_FLOOR |
-| `count` | int64 | 256 |
-| `margin_at_risk` | float64 | 991032.2200000004 |
-| `severity` | int64 | 2 |
-| `alert` | str | Red |
-| `action` | str | Pocket margin is under th... |
+| `code` | text | BELOW_FLOOR |
+| `count` | integer | 256 |
+| `margin_at_risk` | decimal | 991032.2200000004 |
+| `severity` | integer | 2 |
+| `alert` | text | Red |
+| `action` | text | Pocket margin is under th... |
 
 ### `leakage_by_dimension`
 
@@ -1064,13 +1064,13 @@ Long form: one row per dimension, member and deduction, so the dashboard can ran
 
 | Column | Type | Example |
 |---|---|---|
-| `dimension` | str | category |
-| `member` | str | Apparel & Accessories |
-| `deduction` | str | Volume discount |
-| `bucket` | str | On-invoice |
-| `amount` | float64 | 2969946.62 |
-| `pct_of_list` | float64 | 0.096094 |
-| `list_value` | float64 | 30906812.76 |
+| `dimension` | text | category |
+| `member` | text | Apparel & Accessories |
+| `deduction` | text | Volume discount |
+| `bucket` | text | On-invoice |
+| `amount` | decimal | 2969946.62 |
+| `pct_of_list` | decimal | 0.096094 |
+| `list_value` | decimal | 30906812.76 |
 
 ### `margin_bridge_effects`
 
@@ -1080,10 +1080,10 @@ Price, cost, volume, mix, new and lost -- plus the residual, which is float nois
 
 | Column | Type | Example |
 |---|---|---|
-| `comparison` | str | FY2024 to FY2025 |
-| `effect` | str | Price |
-| `amount` | float64 | -23627581.94 |
-| `pct_of_prior` | float64 | -0.383237 |
+| `comparison` | text | FY2024 to FY2025 |
+| `effect` | text | Price |
+| `amount` | decimal | -23627581.94 |
+| `pct_of_prior` | decimal | -0.383237 |
 
 ### `margin_bridge_steps`
 
@@ -1093,13 +1093,13 @@ The margin bridge as waterfall bars, per year-pair.
 
 | Column | Type | Example |
 |---|---|---|
-| `comparison` | str | FY2024 to FY2025 |
-| `sort_order` | int64 | 0 |
-| `label` | str | Prior |
-| `kind` | str | total |
-| `amount` | float64 | 61652627.98 |
-| `running` | float64 | 61652627.98 |
-| `delta` | float64 | 61652627.98 |
+| `comparison` | text | FY2024 to FY2025 |
+| `sort_order` | integer | 0 |
+| `label` | text | Prior |
+| `kind` | text | total |
+| `amount` | decimal | 61652627.98 |
+| `running` | decimal | 61652627.98 |
+| `delta` | decimal | 61652627.98 |
 
 ### `markup_vs_margin`
 
@@ -1109,11 +1109,11 @@ The conversion table. For each rate, what it means read as a margin, what markup
 
 | Column | Type | Example |
 |---|---|---|
-| `rate` | float64 | 0.05 |
-| `margin_if_read_as_margin` | float64 | 0.05 |
-| `markup_needed_for_that_margin` | float64 | 0.0526 |
-| `margin_if_read_as_markup` | float64 | 0.0476 |
-| `gap` | float64 | 0.0024 |
+| `rate` | decimal | 0.05 |
+| `margin_if_read_as_margin` | decimal | 0.05 |
+| `markup_needed_for_that_margin` | decimal | 0.0526 |
+| `margin_if_read_as_markup` | decimal | 0.0476 |
+| `gap` | decimal | 0.0024 |
 
 ### `overhead_variance`
 
@@ -1123,16 +1123,16 @@ Spending and volume variance per cost pool.
 
 | Column | Type | Example |
 |---|---|---|
-| `month` | str | 2023-07-01 |
-| `cost_pool` | str | Warehouse operations |
-| `budgeted_rate_unit` | float64 | 0.212 |
-| `actual_overhead` | float64 | 103472.08 |
-| `absorbed_overhead` | float64 | 92254.05 |
-| `spending_variance` | float64 | 11218.03 |
-| `spending_verdict` | str | Unfavourable |
-| `volume_variance` | float64 | 15903.58 |
-| `volume_verdict` | str | Unfavourable |
-| `total_variance` | float64 | 27121.62 |
+| `month` | text | 2023-07-01 |
+| `cost_pool` | text | Warehouse operations |
+| `budgeted_rate_unit` | decimal | 0.212 |
+| `actual_overhead` | decimal | 103472.08 |
+| `absorbed_overhead` | decimal | 92254.05 |
+| `spending_variance` | decimal | 11218.03 |
+| `spending_verdict` | text | Unfavourable |
+| `volume_variance` | decimal | 15903.58 |
+| `volume_verdict` | text | Unfavourable |
+| `total_variance` | decimal | 27121.62 |
 
 ### `passthrough`
 
@@ -1142,20 +1142,20 @@ How much of each input-cost move reached list price and how much reached pocket 
 
 | Column | Type | Example |
 |---|---|---|
-| `commodity_index` | str | Agricultural Inputs |
-| `passthrough_to_list` | float64 | 0.2425 |
-| `passthrough_to_pocket` | float64 | 0.3086 |
-| `discount_giveback` | float64 | -0.0661 |
-| `best_lag_quarters` | int64 | 0 |
-| `r_squared` | float64 | 0.3807 |
-| `observations` | int64 | 11 |
-| `usable` | bool | True |
-| `reason` | str | ok |
-| `index_change_pct` | float64 | 0.201 |
-| `list_price_change_pct` | float64 | 0.1414 |
-| `realised_price_change_pct` | float64 | 0.0561 |
-| `cumulative_passthrough` | float64 | 0.7036 |
-| `material_move` | bool | True |
+| `commodity_index` | text | Agricultural Inputs |
+| `passthrough_to_list` | decimal | 0.2425 |
+| `passthrough_to_pocket` | decimal | 0.3086 |
+| `discount_giveback` | decimal | -0.0661 |
+| `best_lag_quarters` | integer | 0 |
+| `r_squared` | decimal | 0.3807 |
+| `observations` | integer | 11 |
+| `usable` | boolean | True |
+| `reason` | text | ok |
+| `index_change_pct` | decimal | 0.201 |
+| `list_price_change_pct` | decimal | 0.1414 |
+| `realised_price_change_pct` | decimal | 0.0561 |
+| `cumulative_passthrough` | decimal | 0.7036 |
+| `material_move` | boolean | True |
 
 ### `price_bands`
 
@@ -1165,18 +1165,18 @@ Per product: the volume-weighted p10, median and p90 pocket price, and what clos
 
 | Column | Type | Example |
 |---|---|---|
-| `product_id` | int64 | 20140 |
-| `description` | str | USB-C Charger - Premium b... |
-| `category` | str | Consumer Electronics |
-| `customers` | int64 | 10 |
-| `lines` | int64 | 78 |
-| `volume_units` | float64 | 343488.2 |
-| `p10_price` | float64 | 140.6962 |
-| `median_price` | float64 | 172.8765 |
-| `p90_price` | float64 | 204.5483 |
-| `band_width_pct` | float64 | 0.3694 |
-| `realisation_opportunity` | float64 | 3142294.91 |
-| `lines_below_median` | int64 | 23 |
+| `product_id` | integer | 20140 |
+| `description` | text | USB-C Charger - Premium b... |
+| `category` | text | Consumer Electronics |
+| `customers` | integer | 10 |
+| `lines` | integer | 78 |
+| `volume_units` | decimal | 343488.2 |
+| `p10_price` | decimal | 140.6962 |
+| `median_price` | decimal | 172.8765 |
+| `p90_price` | decimal | 204.5483 |
+| `band_width_pct` | decimal | 0.3694 |
+| `realisation_opportunity` | decimal | 3142294.91 |
+| `lines_below_median` | integer | 23 |
 
 ### `price_change_approvals`
 
@@ -1186,10 +1186,10 @@ The log rolled up by approval state.
 
 | Column | Type | Example |
 |---|---|---|
-| `approval_state` | str | Approved |
-| `changes` | int64 | 1763 |
-| `median_days` | float64 | 3.0 |
-| `median_pct` | float64 | -0.00706 |
+| `approval_state` | text | Approved |
+| `changes` | integer | 1763 |
+| `median_days` | decimal | 3.0 |
+| `median_pct` | decimal | -0.00706 |
 
 ### `price_change_hurdles`
 
@@ -1199,14 +1199,14 @@ For a grid of price changes: the volume each needs to break even, and the volume
 
 | Column | Type | Example |
 |---|---|---|
-| `category` | str | Apparel & Accessories |
-| `price_change_pct` | float64 | -0.1 |
-| `contribution_margin_pct` | float64 | 0.1618 |
-| `break_even_volume_pct` | float64 | 1.6176 |
-| `expected_volume_pct` | float64 | 0.173 |
-| `expected_margin_change` | float64 | -1860905.38 |
-| `expected_revenue_change` | float64 | 1161468.2 |
-| `verdict` | str | Destroys margin |
+| `category` | text | Apparel & Accessories |
+| `price_change_pct` | decimal | -0.1 |
+| `contribution_margin_pct` | decimal | 0.1618 |
+| `break_even_volume_pct` | decimal | 1.6176 |
+| `expected_volume_pct` | decimal | 0.173 |
+| `expected_margin_change` | decimal | -1860905.38 |
+| `expected_revenue_change` | decimal | 1161468.2 |
+| `verdict` | text | Destroys margin |
 
 ### `price_change_log`
 
@@ -1216,21 +1216,21 @@ Every price change: from, to, why, who asked, and how long the approval took.
 
 | Column | Type | Example |
 |---|---|---|
-| `change_id` | str | PC20000 |
-| `effective_month` | str | 2024-01-01 |
-| `product_id` | int64 | 20000 |
-| `description` | str | Wireless Earbuds - Privat... |
-| `category` | str | Consumer Electronics |
-| `brand_tier` | str | Private label |
-| `previous_price` | float64 | 64.5408 |
-| `new_price` | float64 | 68.1604 |
-| `pct_change` | float64 | 0.05608 |
-| `direction` | str | Increase |
-| `reason` | str | Annual review |
-| `requested_by` | str | Pricing team |
-| `approval_state` | str | Approved |
-| `approver` | str | Sales manager |
-| `days_to_approve` | int64 | 1 |
+| `change_id` | text | PC20000 |
+| `effective_month` | text | 2024-01-01 |
+| `product_id` | integer | 20000 |
+| `description` | text | Wireless Earbuds - Privat... |
+| `category` | text | Consumer Electronics |
+| `brand_tier` | text | Private label |
+| `previous_price` | decimal | 64.5408 |
+| `new_price` | decimal | 68.1604 |
+| `pct_change` | decimal | 0.05608 |
+| `direction` | text | Increase |
+| `reason` | text | Annual review |
+| `requested_by` | text | Pricing team |
+| `approval_state` | text | Approved |
+| `approver` | text | Sales manager |
+| `days_to_approve` | integer | 1 |
 
 ### `price_change_summary`
 
@@ -1240,11 +1240,11 @@ The log rolled up by reason and direction.
 
 | Column | Type | Example |
 |---|---|---|
-| `reason` | str | Annual review |
-| `direction` | str | Decrease |
-| `changes` | int64 | 118 |
-| `median_pct` | float64 | -0.03375 |
-| `median_days` | float64 | 1.0 |
+| `reason` | text | Annual review |
+| `direction` | text | Decrease |
+| `changes` | integer | 118 |
+| `median_pct` | decimal | -0.03375 |
+| `median_days` | decimal | 1.0 |
 
 ### `price_ladders`
 
@@ -1254,16 +1254,16 @@ A good/better/best ladder on the median item of each category.
 
 | Column | Type | Example |
 |---|---|---|
-| `category` | str | Apparel & Accessories |
-| `product_id` | int64 | 20108 |
-| `description` | str | Cotton T-Shirt 5pk - Value |
-| `tier` | str | Good |
-| `cost` | float64 | 12.3049 |
-| `target_margin` | float64 | 0.16 |
-| `price` | float64 | 14.6487 |
-| `margin` | float64 | 2.3438 |
-| `step_from_previous` | float64 | 0.0 |
-| `step_pct` | float64 | 0.0 |
+| `category` | text | Apparel & Accessories |
+| `product_id` | integer | 20108 |
+| `description` | text | Cotton T-Shirt 5pk - Value |
+| `tier` | text | Good |
+| `cost` | decimal | 12.3049 |
+| `target_margin` | decimal | 0.16 |
+| `price` | decimal | 14.6487 |
+| `margin` | decimal | 2.3438 |
+| `step_from_previous` | decimal | 0.0 |
+| `step_pct` | decimal | 0.0 |
 
 ### `price_list_coverage`
 
@@ -1273,11 +1273,11 @@ How much of the book each review cadence covers, how stale it has gone, and what
 
 | Column | Type | Example |
 |---|---|---|
-| `review_cadence` | str | Quarterly |
-| `products` | int64 | 170 |
-| `median_days_since_change` | float64 | 31.0 |
-| `median_margin_pct` | float64 | 0.369 |
-| `stale` | int64 | 0 |
+| `review_cadence` | text | Quarterly |
+| `products` | integer | 170 |
+| `median_days_since_change` | decimal | 31.0 |
+| `median_margin_pct` | decimal | 0.369 |
+| `stale` | integer | 0 |
 
 ### `price_response_curve`
 
@@ -1287,15 +1287,15 @@ Volume, revenue and profit across a band of prices either side of today's.
 
 | Column | Type | Example |
 |---|---|---|
-| `category` | str | Apparel & Accessories |
-| `price_change_pct` | float64 | -0.25 |
-| `price` | float64 | 16.8026 |
-| `quantity` | float64 | 1438145.9132 |
-| `revenue` | float64 | 24164518.6144 |
-| `profit` | float64 | -2841129.1589 |
-| `margin_pct` | float64 | -0.1176 |
-| `is_current` | float64 | 0.0 |
-| `is_profit_max` | float64 | 0.0 |
+| `category` | text | Apparel & Accessories |
+| `price_change_pct` | decimal | -0.25 |
+| `price` | decimal | 16.8026 |
+| `quantity` | decimal | 1438145.9132 |
+| `revenue` | decimal | 24164518.6144 |
+| `profit` | decimal | -2841129.1589 |
+| `margin_pct` | decimal | -0.1176 |
+| `is_current` | decimal | 0.0 |
+| `is_profit_max` | decimal | 0.0 |
 
 ### `price_vs_volume`
 
@@ -1305,16 +1305,16 @@ Price and units by product and month, split by whether the month was promoted. T
 
 | Column | Type | Example |
 |---|---|---|
-| `product_id` | int64 | 20000 |
-| `description` | str | Wireless Earbuds - Privat... |
-| `category` | str | Consumer Electronics |
-| `month` | str | 2023-07-01 |
-| `volume_units` | float64 | 1283.1 |
-| `list_price` | float64 | 64.5408 |
-| `pocket_revenue` | float64 | 67802.16 |
-| `on_promotion` | int64 | 0 |
-| `pocket_price` | float64 | 52.8425 |
-| `promoted` | str | Base |
+| `product_id` | integer | 20000 |
+| `description` | text | Wireless Earbuds - Privat... |
+| `category` | text | Consumer Electronics |
+| `month` | text | 2023-07-01 |
+| `volume_units` | decimal | 1283.1 |
+| `list_price` | decimal | 64.5408 |
+| `pocket_revenue` | decimal | 67802.16 |
+| `on_promotion` | integer | 0 |
+| `pocket_price` | decimal | 52.8425 |
+| `promoted` | text | Base |
 
 ### `price_waterfall`
 
@@ -1324,16 +1324,16 @@ The list-to-pocket-margin waterfall at the book total, one row per step.
 
 | Column | Type | Example |
 |---|---|---|
-| `scope` | str | Total |
-| `dimension` | str | Total |
-| `member` | str | All |
-| `step` | str | List value |
-| `kind` | str | total |
-| `amount` | float64 | 878520371.22 |
-| `running` | float64 | 878520371.22 |
-| `bucket` | str | List |
-| `sort_order` | int64 | 0 |
-| `delta` | float64 | 878520371.22 |
+| `scope` | text | Total |
+| `dimension` | text | Total |
+| `member` | text | All |
+| `step` | text | List value |
+| `kind` | text | total |
+| `amount` | decimal | 878520371.22 |
+| `running` | decimal | 878520371.22 |
+| `bucket` | text | List |
+| `sort_order` | integer | 0 |
+| `delta` | decimal | 878520371.22 |
 
 ### `product_co_purchase`
 
@@ -1343,13 +1343,13 @@ For each product, the single partner most often on the same order, and how often
 
 | Column | Type | Example |
 |---|---|---|
-| `product_id` | int64 | 20106 |
-| `description` | str | Tool Chest - Private label |
-| `order_lines` | int64 | 16 |
-| `top_partner` | int64 | 20034 |
-| `top_partner_orders` | int64 | 15 |
-| `co_purchase_rate` | float64 | 0.9375 |
-| `top_partner_name` | str | Smart Plug - Premium brand |
+| `product_id` | integer | 20106 |
+| `description` | text | Tool Chest - Private label |
+| `order_lines` | integer | 16 |
+| `top_partner` | integer | 20034 |
+| `top_partner_orders` | integer | 15 |
+| `co_purchase_rate` | decimal | 0.9375 |
+| `top_partner_name` | text | Smart Plug - Premium brand |
 
 ### `profit_heatmap`
 
@@ -1359,15 +1359,15 @@ The segment-by-category grid: revenue, margin and leakage for every pair.
 
 | Column | Type | Example |
 |---|---|---|
-| `segment` | str | Corporate & B2B Buyer |
-| `category` | str | Apparel & Accessories |
-| `pocket_revenue` | float64 | 1303686.28 |
-| `cogs` | float64 | 1192563.95 |
-| `volume_units` | float64 | 72065.05 |
-| `list_value` | float64 | 1698513.3 |
-| `gross_margin` | float64 | 111122.33 |
-| `gross_margin_pct` | float64 | 0.0852 |
-| `leakage_pct` | float64 | 0.2325 |
+| `segment` | text | Corporate & B2B Buyer |
+| `category` | text | Apparel & Accessories |
+| `pocket_revenue` | decimal | 1303686.28 |
+| `cogs` | decimal | 1192563.95 |
+| `volume_units` | decimal | 72065.05 |
+| `list_value` | decimal | 1698513.3 |
+| `gross_margin` | decimal | 111122.33 |
+| `gross_margin_pct` | decimal | 0.0852 |
+| `leakage_pct` | decimal | 0.2325 |
 
 ### `profitability`
 
@@ -1377,27 +1377,27 @@ Long form: one row per (dimension, member) across product, customer, region, cha
 
 | Column | Type | Example |
 |---|---|---|
-| `dimension` | str | category |
-| `member` | str | Apparel & Accessories |
-| `volume_units` | float64 | 443957.66 |
-| `list_value` | float64 | 11380532.04 |
-| `invoice_revenue` | float64 | 9774875.39 |
-| `pocket_revenue` | float64 | 9065423.94 |
-| `cogs` | float64 | 8080957.97 |
-| `lines` | int64 | 1106 |
-| `products` | int64 | 19 |
-| `customers` | int64 | 83 |
-| `cost_to_serve` | float64 | 281648.8696 |
-| `gross_margin` | float64 | 984465.97 |
-| `gross_margin_pct` | float64 | 0.1086 |
-| `contribution` | float64 | 984465.97 |
-| `fixed_allocated_by_revenue` | float64 | 172097.1155 |
-| `operating_profit` | float64 | 812368.8545 |
-| `operating_margin_pct` | float64 | 0.0896 |
-| `leakage_pct` | float64 | 0.2034 |
-| `price_unit` | float64 | 20.4196 |
-| `revenue_share` | float64 | 0.0348 |
-| `avg_drop_units` | float64 | 401.4084 |
+| `dimension` | text | category |
+| `member` | text | Apparel & Accessories |
+| `volume_units` | decimal | 443957.66 |
+| `list_value` | decimal | 11380532.04 |
+| `invoice_revenue` | decimal | 9774875.39 |
+| `pocket_revenue` | decimal | 9065423.94 |
+| `cogs` | decimal | 8080957.97 |
+| `lines` | integer | 1106 |
+| `products` | integer | 19 |
+| `customers` | integer | 83 |
+| `cost_to_serve` | decimal | 281648.8696 |
+| `gross_margin` | decimal | 984465.97 |
+| `gross_margin_pct` | decimal | 0.1086 |
+| `contribution` | decimal | 984465.97 |
+| `fixed_allocated_by_revenue` | decimal | 172097.1155 |
+| `operating_profit` | decimal | 812368.8545 |
+| `operating_margin_pct` | decimal | 0.0896 |
+| `leakage_pct` | decimal | 0.2034 |
+| `price_unit` | decimal | 20.4196 |
+| `revenue_share` | decimal | 0.0348 |
+| `avg_drop_units` | decimal | 401.4084 |
 
 ### `promotion_analysis`
 
@@ -1407,28 +1407,28 @@ The same at product and month grain, with the baseline each promotion is measure
 
 | Column | Type | Example |
 |---|---|---|
-| `product_id` | int64 | 20000 |
-| `month` | str | 2024-07-01 |
-| `volume_units` | float64 | 783.34 |
-| `pocket_revenue` | float64 | 37020.37 |
-| `cogs` | float64 | 28491.26 |
-| `list_value` | float64 | 49032.77 |
-| `list_price` | float64 | 62.5945 |
-| `mechanic` | str | Temporary price reduction |
-| `customers` | int64 | 3 |
-| `baseline_volume_units` | float64 | 1458.07 |
-| `description` | str | Wireless Earbuds - Privat... |
-| `category` | str | Consumer Electronics |
-| `brand_tier` | str | Private label |
-| `promo_id` | str | PR5000 |
-| `discount_depth` | float64 | 0.0758 |
-| `incremental_volume_units` | float64 | -674.7 |
-| `unit_margin` | float64 | 10.8881 |
-| `incremental_margin` | float64 | -7346.2 |
-| `discount_on_baseline` | float64 | 6922.09 |
-| `net_promo_margin` | float64 | -14268.29 |
-| `promo_roi` | float64 | -2.0613 |
-| `verdict` | str | Bought its own volume |
+| `product_id` | integer | 20000 |
+| `month` | text | 2024-07-01 |
+| `volume_units` | decimal | 783.34 |
+| `pocket_revenue` | decimal | 37020.37 |
+| `cogs` | decimal | 28491.26 |
+| `list_value` | decimal | 49032.77 |
+| `list_price` | decimal | 62.5945 |
+| `mechanic` | text | Temporary price reduction |
+| `customers` | integer | 3 |
+| `baseline_volume_units` | decimal | 1458.07 |
+| `description` | text | Wireless Earbuds - Privat... |
+| `category` | text | Consumer Electronics |
+| `brand_tier` | text | Private label |
+| `promo_id` | text | PR5000 |
+| `discount_depth` | decimal | 0.0758 |
+| `incremental_volume_units` | decimal | -674.7 |
+| `unit_margin` | decimal | 10.8881 |
+| `incremental_margin` | decimal | -7346.2 |
+| `discount_on_baseline` | decimal | 6922.09 |
+| `net_promo_margin` | decimal | -14268.29 |
+| `promo_roi` | decimal | -2.0613 |
+| `verdict` | text | Bought its own volume |
 
 ### `promotion_summary`
 
@@ -1438,15 +1438,15 @@ One row per mechanic: incremental volume, incremental margin, the discount given
 
 | Column | Type | Example |
 |---|---|---|
-| `mechanic` | str | Rebate accelerator |
-| `promotions` | int64 | 175 |
-| `volume_units` | float64 | 456867.17 |
-| `incremental_volume_units` | float64 | 133813.6 |
-| `incremental_margin` | float64 | 786854.26 |
-| `discount_on_baseline` | float64 | 416286.66 |
-| `net_promo_margin` | float64 | 370567.6 |
-| `roi` | float64 | 0.8902 |
-| `paid` | str | Paid for itself |
+| `mechanic` | text | Rebate accelerator |
+| `promotions` | integer | 175 |
+| `volume_units` | decimal | 456867.17 |
+| `incremental_volume_units` | decimal | 133813.6 |
+| `incremental_margin` | decimal | 786854.26 |
+| `discount_on_baseline` | decimal | 416286.66 |
+| `net_promo_margin` | decimal | 370567.6 |
+| `roi` | decimal | 0.8902 |
+| `paid` | text | Paid for itself |
 
 ### `quote_loss_reasons`
 
@@ -1456,10 +1456,10 @@ Why quotes were lost, and what they were worth.
 
 | Column | Type | Example |
 |---|---|---|
-| `loss_reason` | str | Price |
-| `quotes` | int64 | 1328 |
-| `volume_units` | float64 | 666658.8 |
-| `value_lost` | float64 | 24002214.74 |
+| `loss_reason` | text | Price |
+| `quotes` | integer | 1328 |
+| `volume_units` | decimal | 666658.8 |
+| `value_lost` | decimal | 24002214.74 |
 
 ### `recommendation_note`
 
@@ -1469,10 +1469,10 @@ The written summary, in one row, so a card and the paragraph under it cannot dis
 
 | Column | Type | Example |
 |---|---|---|
-| `note` | str | 240 products reviewed. Th... |
-| `products` | int64 | 240 |
-| `margin_delta` | float64 | 1732621.76 |
-| `revenue_delta` | float64 | -1321721.78 |
+| `note` | text | 240 products reviewed. Th... |
+| `products` | integer | 240 |
+| `margin_delta` | decimal | 1732621.76 |
+| `revenue_delta` | decimal | -1321721.78 |
 
 ### `recommendation_summary`
 
@@ -1482,11 +1482,11 @@ The recommendations rolled up by action.
 
 | Column | Type | Example |
 |---|---|---|
-| `action` | str | Fix cost |
-| `products` | int64 | 16 |
-| `volume_units` | float64 | 196026.35 |
-| `revenue_delta` | float64 | 0.0 |
-| `margin_delta` | float64 | 0.0 |
+| `action` | text | Fix cost |
+| `products` | integer | 16 |
+| `volume_units` | decimal | 196026.35 |
+| `revenue_delta` | decimal | 0.0 |
+| `margin_delta` | decimal | 0.0 |
 
 ### `recommendations`
 
@@ -1496,24 +1496,24 @@ One row per product: the action, the price it implies, what it is worth, the con
 
 | Column | Type | Example |
 |---|---|---|
-| `product_id` | int64 | 20235 |
-| `description` | str | Camping Tent - Value |
-| `category` | str | Sporting Goods |
-| `current_price` | float64 | 57.1093 |
-| `unit_cost` | float64 | 45.2331 |
-| `volume_units` | float64 | 17311.51 |
-| `margin_pct` | float64 | 0.208 |
-| `price_index` | float64 | 97.02 |
-| `confidence` | str | Medium |
-| `evidence` | str | only 2 competitor observa... |
-| `action` | str | Fix cost |
-| `recommended_price` | float64 | 57.1093 |
-| `price_change_pct` | float64 | 0.0 |
-| `volume_change_pct` | float64 | 0.0 |
-| `revenue_delta` | float64 | 0.0 |
-| `margin_delta` | float64 | 0.0 |
-| `priority` | float64 | 988648.218 |
-| `rationale` | str | No usable standard cost o... |
+| `product_id` | integer | 20235 |
+| `description` | text | Camping Tent - Value |
+| `category` | text | Sporting Goods |
+| `current_price` | decimal | 57.1093 |
+| `unit_cost` | decimal | 45.2331 |
+| `volume_units` | decimal | 17311.51 |
+| `margin_pct` | decimal | 0.208 |
+| `price_index` | decimal | 97.02 |
+| `confidence` | text | Medium |
+| `evidence` | text | only 2 competitor observa... |
+| `action` | text | Fix cost |
+| `recommended_price` | decimal | 57.1093 |
+| `price_change_pct` | decimal | 0.0 |
+| `volume_change_pct` | decimal | 0.0 |
+| `revenue_delta` | decimal | 0.0 |
+| `margin_delta` | decimal | 0.0 |
+| `priority` | decimal | 988648.218 |
+| `rationale` | text | No usable standard cost o... |
 
 ### `reconciliation`
 
@@ -1523,12 +1523,12 @@ Extract total down to staged total, with every exclusion named and the unexplain
 
 | Column | Type | Example |
 |---|---|---|
-| `line` | str | Extract total |
-| `amount` | float64 | 261314697.02 |
-| `running` | float64 | 261314697.02 |
-| `delta` | float64 | 261314697.02 |
-| `balanced` | bool | True |
-| `unexplained` | float64 | 0.0 |
+| `line` | text | Extract total |
+| `amount` | decimal | 261314697.02 |
+| `running` | decimal | 261314697.02 |
+| `delta` | decimal | 261314697.02 |
+| `balanced` | boolean | True |
+| `unexplained` | decimal | 0.0 |
 
 ### `revenue_bridge_effects`
 
@@ -1538,9 +1538,9 @@ The same decomposition on revenue.
 
 | Column | Type | Example |
 |---|---|---|
-| `comparison` | str | FY2024 to FY2025 |
-| `effect` | str | Price |
-| `amount` | float64 | -23627581.94 |
+| `comparison` | text | FY2024 to FY2025 |
+| `effect` | text | Price |
+| `amount` | decimal | -23627581.94 |
 
 ### `scenario_assumptions`
 
@@ -1550,8 +1550,8 @@ The inputs the base case was run on.
 
 | Column | Type | Example |
 |---|---|---|
-| `input` | str | Base list price per unit |
-| `value` | float64 | 48.5982 |
+| `input` | text | Base list price per unit |
+| `value` | decimal | 48.5982 |
 
 ### `scenario_grid`
 
@@ -1561,14 +1561,14 @@ A two-input sensitivity grid: operating profit at every combination of two assum
 
 | Column | Type | Example |
 |---|---|---|
-| `x_input` | str | price_change |
-| `y_input` | str | unit_cost_change |
-| `x` | float64 | -0.06 |
-| `y` | float64 | -0.06 |
-| `value` | float64 | 48339432.8571 |
-| `delta` | float64 | 1506663.186 |
-| `delta_pct` | float64 | 0.0322 |
-| `sign` | str | Better |
+| `x_input` | text | price_change |
+| `y_input` | text | unit_cost_change |
+| `x` | decimal | -0.06 |
+| `y` | decimal | -0.06 |
+| `value` | decimal | 48339432.8571 |
+| `delta` | decimal | 1506663.186 |
+| `delta_pct` | decimal | 0.0322 |
+| `sign` | text | Better |
 
 ### `scenario_three_point`
 
@@ -1578,23 +1578,23 @@ Worst, base and best case. The ends are every assumption at its own extreme at o
 
 | Column | Type | Example |
 |---|---|---|
-| `scenario` | str | Worst case |
-| `list_price` | float64 | 46.6543 |
-| `discount` | float64 | 0.2115 |
-| `net_price` | float64 | 36.7852 |
-| `volume` | float64 | 6253684.2807 |
-| `unit_cost` | float64 | 35.6897 |
-| `revenue` | float64 | 230042763.958 |
-| `variable_cost` | float64 | 223192172.6792 |
-| `contribution` | float64 | 6850591.2788 |
-| `contribution_pct` | float64 | 0.0298 |
-| `fixed_costs` | float64 | 5337946.2993 |
-| `operating_profit` | float64 | 1512644.9795 |
-| `operating_margin_pct` | float64 | 0.0066 |
-| `unit_contribution` | float64 | 1.0954 |
-| `delta` | float64 | -45320124.6916 |
-| `delta_pct` | float64 | -0.9677 |
-| `note` | str | Every assumption at its o... |
+| `scenario` | text | Worst case |
+| `list_price` | decimal | 46.6543 |
+| `discount` | decimal | 0.2115 |
+| `net_price` | decimal | 36.7852 |
+| `volume` | decimal | 6253684.2807 |
+| `unit_cost` | decimal | 35.6897 |
+| `revenue` | decimal | 230042763.958 |
+| `variable_cost` | decimal | 223192172.6792 |
+| `contribution` | decimal | 6850591.2788 |
+| `contribution_pct` | decimal | 0.0298 |
+| `fixed_costs` | decimal | 5337946.2993 |
+| `operating_profit` | decimal | 1512644.9795 |
+| `operating_margin_pct` | decimal | 0.0066 |
+| `unit_contribution` | decimal | 1.0954 |
+| `delta` | decimal | -45320124.6916 |
+| `delta_pct` | decimal | -0.9677 |
+| `note` | text | Every assumption at its o... |
 
 ### `scenario_thresholds`
 
@@ -1604,12 +1604,12 @@ The value at which each input drives operating profit through zero, and a stated
 
 | Column | Type | Example |
 |---|---|---|
-| `exists` | bool | True |
-| `input` | str | Input cost |
-| `key` | str | unit_cost_change |
-| `threshold` | float64 | 0.22453 |
-| `baseline` | float64 | 46832769.6711 |
-| `reason` | str | ok |
+| `exists` | boolean | True |
+| `input` | text | Input cost |
+| `key` | text | unit_cost_change |
+| `threshold` | decimal | 0.22453 |
+| `baseline` | decimal | 46832769.6711 |
+| `reason` | text | ok |
 
 ### `scenario_tornado`
 
@@ -1619,18 +1619,18 @@ One row per input, ranked by how far moving it alone moves operating profit.
 
 | Column | Type | Example |
 |---|---|---|
-| `input` | str | Input cost |
-| `key` | str | unit_cost_change |
-| `low_value` | float64 | -0.05 |
-| `high_value` | float64 | 0.12 |
-| `downside` | float64 | 21803275.546 |
-| `upside` | float64 | 57261725.5566 |
-| `baseline` | float64 | 46832769.6711 |
-| `downside_delta` | float64 | -25029494.1251 |
-| `upside_delta` | float64 | 10428955.8855 |
-| `swing` | float64 | 35458450.0106 |
-| `share_of_swing` | float64 | 0.4695 |
-| `cumulative_share` | float64 | 0.4695 |
+| `input` | text | Input cost |
+| `key` | text | unit_cost_change |
+| `low_value` | decimal | -0.05 |
+| `high_value` | decimal | 0.12 |
+| `downside` | decimal | 21803275.546 |
+| `upside` | decimal | 57261725.5566 |
+| `baseline` | decimal | 46832769.6711 |
+| `downside_delta` | decimal | -25029494.1251 |
+| `upside_delta` | decimal | 10428955.8855 |
+| `swing` | decimal | 35458450.0106 |
+| `share_of_swing` | decimal | 0.4695 |
+| `cumulative_share` | decimal | 0.4695 |
 
 ### `segment_profile`
 
@@ -1640,18 +1640,18 @@ Level and consistency by segment, channel, region, tier, brand tier and category
 
 | Column | Type | Example |
 |---|---|---|
-| `dimension` | str | segment |
-| `member` | str | Marketplace Seller |
-| `lines` | int64 | 5022 |
-| `volume` | float64 | 1841910.42 |
-| `revenue` | float64 | 85184192.3937 |
-| `cogs` | float64 | 69589263.682 |
-| `margin` | float64 | 15594928.7116 |
-| `margin_pct` | float64 | 0.1831 |
-| `avg_price` | float64 | 46.2477 |
-| `median_price` | float64 | 29.19 |
-| `band_width_pct` | float64 | 4.3803 |
-| `realisation_opportunity` | float64 | 10663666.7063 |
+| `dimension` | text | segment |
+| `member` | text | Marketplace Seller |
+| `lines` | integer | 5022 |
+| `volume` | decimal | 1841910.42 |
+| `revenue` | decimal | 85184192.3937 |
+| `cogs` | decimal | 69589263.682 |
+| `margin` | decimal | 15594928.7116 |
+| `margin_pct` | decimal | 0.1831 |
+| `avg_price` | decimal | 46.2477 |
+| `median_price` | decimal | 29.19 |
+| `band_width_pct` | decimal | 4.3803 |
+| `realisation_opportunity` | decimal | 10663666.7063 |
 
 ### `sql_exceptions`
 
@@ -1661,25 +1661,25 @@ The guardrail exceptions in SQL, for the same reason.
 
 | Column | Type | Example |
 |---|---|---|
-| `month` | str | 2026-06-01 |
-| `product_id` | int64 | 20140 |
-| `description` | str | USB-C Charger - Premium b... |
-| `category` | str | Consumer Electronics |
-| `customer_id` | str | CU2049 |
-| `customer_name` | str | Mount Market |
-| `segment` | str | Independent Retailer |
-| `salesperson` | str | Marcus Oyelaran |
-| `quantity_units` | float64 | 4240.84 |
-| `list_price` | float64 | 182.1906 |
-| `pocket_price` | float64 | 164.5721 |
-| `final_cost` | float64 | 143.4141 |
-| `pocket_margin_pct` | float64 | 0.128563711589024 |
-| `leakage_pct` | float64 | 0.0967036718689108 |
-| `extended_margin` | float64 | 89727.69272000006 |
-| `target_margin` | float64 | 0.2619 |
-| `floor_margin` | float64 | 0.1719 |
-| `verdict` | str | Below floor |
-| `margin_gap_dollars` | float64 | 93058.58836131154 |
+| `month` | text | 2026-06-01 |
+| `product_id` | integer | 20140 |
+| `description` | text | USB-C Charger - Premium b... |
+| `category` | text | Consumer Electronics |
+| `customer_id` | text | CU2049 |
+| `customer_name` | text | Mount Market |
+| `segment` | text | Independent Retailer |
+| `salesperson` | text | Marcus Oyelaran |
+| `quantity_units` | decimal | 4240.84 |
+| `list_price` | decimal | 182.1906 |
+| `pocket_price` | decimal | 164.5721 |
+| `final_cost` | decimal | 143.4141 |
+| `pocket_margin_pct` | decimal | 0.128563711589024 |
+| `leakage_pct` | decimal | 0.0967036718689108 |
+| `extended_margin` | decimal | 89727.69272000006 |
+| `target_margin` | decimal | 0.2619 |
+| `floor_margin` | decimal | 0.1719 |
+| `verdict` | text | Below floor |
+| `margin_gap_dollars` | decimal | 93058.58836131154 |
 
 ### `sql_margin_concentration`
 
@@ -1689,16 +1689,16 @@ Margin concentration in SQL: rank overall and within category, with the running 
 
 | Column | Type | Example |
 |---|---|---|
-| `product_id` | int64 | 20140 |
-| `description` | str | USB-C Charger - Premium b... |
-| `category` | str | Consumer Electronics |
-| `pocket_revenue` | float64 | 59393874.27 |
-| `gross_margin` | float64 | 5109123.829999983 |
-| `gross_margin_pct` | float64 | 0.0860210567637716 |
-| `margin_rank` | int64 | 1 |
-| `rank_in_category` | int64 | 1 |
-| `running_margin_share` | float64 | 0.0874345612708419 |
-| `running_product_share` | float64 | 0.0041666666666666 |
+| `product_id` | integer | 20140 |
+| `description` | text | USB-C Charger - Premium b... |
+| `category` | text | Consumer Electronics |
+| `pocket_revenue` | decimal | 59393874.27 |
+| `gross_margin` | decimal | 5109123.829999983 |
+| `gross_margin_pct` | decimal | 0.0860210567637716 |
+| `margin_rank` | integer | 1 |
+| `rank_in_category` | integer | 1 |
+| `running_margin_share` | decimal | 0.0874345612708419 |
+| `running_product_share` | decimal | 0.0041666666666666 |
 
 ### `sql_monthly_trend`
 
@@ -1708,19 +1708,19 @@ The monthly trend in SQL: LAG at one and twelve months, and a rolling three-mont
 
 | Column | Type | Example |
 |---|---|---|
-| `month` | str | 2023-07-01 |
-| `month_index` | int64 | 0 |
-| `fiscal_year` | int64 | 2024 |
-| `volume_units` | float64 | 435160.61 |
-| `pocket_revenue` | float64 | 16702755.650000004 |
-| `gross_margin` | float64 | 5046804.670000004 |
-| `gross_margin_pct` | float64 | 0.3021540143287675 |
-| `leakage_pct` | float64 | 0.1631282137191595 |
-| `realised_price_unit` | float64 | 38.38296772770863 |
-| `pocket_revenue_prior_month` | float64 | 16702755.650000004 |
-| `pocket_revenue_prior_year` | float64 | 16702755.650000004 |
-| `yoy_pct` | float64 | 0.3824688580653448 |
-| `revenue_3m_average` | float64 | 16702755.650000004 |
+| `month` | text | 2023-07-01 |
+| `month_index` | integer | 0 |
+| `fiscal_year` | integer | 2024 |
+| `volume_units` | decimal | 435160.61 |
+| `pocket_revenue` | decimal | 16702755.650000004 |
+| `gross_margin` | decimal | 5046804.670000004 |
+| `gross_margin_pct` | decimal | 0.3021540143287675 |
+| `leakage_pct` | decimal | 0.1631282137191595 |
+| `realised_price_unit` | decimal | 38.38296772770863 |
+| `pocket_revenue_prior_month` | decimal | 16702755.650000004 |
+| `pocket_revenue_prior_year` | decimal | 16702755.650000004 |
+| `yoy_pct` | decimal | 0.3824688580653448 |
+| `revenue_3m_average` | decimal | 16702755.650000004 |
 
 ### `sql_price_bands`
 
@@ -1730,15 +1730,15 @@ Price bands in SQL, using PERCENTILE_CONT.
 
 | Column | Type | Example |
 |---|---|---|
-| `product_id` | int64 | 20203 |
-| `description` | str | Laminator - National brand |
-| `category` | str | Office & Stationery |
-| `customers` | int64 | 8 |
-| `volume_units` | float64 | 14725.379999999996 |
-| `p10_price` | float64 | 14.1856 |
-| `median_price` | float64 | 16.0241 |
-| `p90_price` | float64 | 17.321659999999998 |
-| `band_width_pct` | float64 | 0.1957089633739178 |
+| `product_id` | integer | 20206 |
+| `description` | text | Camping Tent - National b... |
+| `category` | text | Sporting Goods |
+| `customers` | integer | 9 |
+| `volume_units` | decimal | 5393.540000000001 |
+| `p10_price` | decimal | 42.6706 |
+| `median_price` | decimal | 63.3148 |
+| `p90_price` | decimal | 71.3144 |
+| `band_width_pct` | decimal | 0.4524029136947444 |
 
 ### `sql_profitability`
 
@@ -1748,21 +1748,21 @@ The profitability cut, in SQL, using GROUPING SETS.
 
 | Column | Type | Example |
 |---|---|---|
-| `dimension` | str | region |
-| `member` | str | Midwest |
-| `volume_units` | float64 | 1809339.5300000007 |
-| `list_value` | float64 | 77029975.57 |
-| `pocket_revenue` | float64 | 63708654.27000008 |
-| `cogs` | float64 | 46858723.85999997 |
-| `cost_to_serve` | float64 | 997179.9758240002 |
-| `lines` | int64 | 3082 |
-| `products` | int64 | 189 |
-| `customers` | int64 | 24 |
-| `gross_margin` | float64 | 16849930.41000011 |
-| `gross_margin_pct` | float64 | 0.2644841678587239 |
-| `leakage_pct` | float64 | 0.1729368496020661 |
-| `price_unit` | float64 | 35.21100004375633 |
-| `revenue_share` | float64 | 0.2446997126525758 |
+| `dimension` | text | category |
+| `member` | text | Sporting Goods |
+| `volume_units` | decimal | 558452.74 |
+| `list_value` | decimal | 29304432.50000006 |
+| `pocket_revenue` | decimal | 24110497.299999997 |
+| `cogs` | decimal | 19191349.99000003 |
+| `cost_to_serve` | decimal | 436552.0040339994 |
+| `lines` | integer | 1601 |
+| `products` | integer | 24 |
+| `customers` | integer | 87 |
+| `gross_margin` | decimal | 4919147.309999965 |
+| `gross_margin_pct` | decimal | 0.2040251285069912 |
+| `leakage_pct` | decimal | 0.1772406000355084 |
+| `price_unit` | decimal | 43.17374698528651 |
+| `revenue_share` | decimal | 0.0926064414454111 |
 
 ### `sql_waterfall`
 
@@ -1772,20 +1772,20 @@ The waterfall computed in DuckDB rather than pandas. A test holds the two to 1e-
 
 | Column | Type | Example |
 |---|---|---|
-| `fiscal_year` | int64 | 2024 |
-| `lines` | int64 | 17035 |
-| `volume_units` | float64 | 5582754.460000009 |
-| `list_value` | float64 | 263003358.7500001 |
-| `on_invoice_discounts` | float64 | 32217748.40837207 |
-| `invoice_revenue` | float64 | 230785611.06000105 |
-| `off_invoice_deductions` | float64 | 9467740.775143033 |
-| `net_revenue` | float64 | 221317870.284858 |
-| `cost_to_serve` | float64 | 4487965.880434002 |
-| `pocket_revenue` | float64 | 216829904.49000075 |
-| `cogs` | float64 | 155177276.5100001 |
-| `pocket_margin` | float64 | 61652627.980000645 |
-| `leakage_pct` | float64 | 0.1755622227771239 |
-| `pocket_margin_pct` | float64 | 0.2843363701377445 |
+| `fiscal_year` | integer | 2024 |
+| `lines` | integer | 17035 |
+| `volume_units` | decimal | 5582754.460000009 |
+| `list_value` | decimal | 263003358.7500001 |
+| `on_invoice_discounts` | decimal | 32217748.40837207 |
+| `invoice_revenue` | decimal | 230785611.06000105 |
+| `off_invoice_deductions` | decimal | 9467740.775143033 |
+| `net_revenue` | decimal | 221317870.284858 |
+| `cost_to_serve` | decimal | 4487965.880434002 |
+| `pocket_revenue` | decimal | 216829904.49000075 |
+| `cogs` | decimal | 155177276.5100001 |
+| `pocket_margin` | decimal | 61652627.980000645 |
+| `leakage_pct` | decimal | 0.1755622227771239 |
+| `pocket_margin_pct` | decimal | 0.2843363701377445 |
 
 ### `staged_billing_items`
 
@@ -1795,33 +1795,33 @@ The extract after staging: typed, de-duplicated, joined to the masters, and flag
 
 | Column | Type | Example |
 |---|---|---|
-| `billing_document` | int64 | 90600000 |
-| `item_number` | int64 | 10 |
-| `document_type` | str | Invoice |
-| `billing_date` | str | 2025-07-24 |
-| `company_code` | str | CA10 |
-| `sales_org` | int64 | 1000 |
-| `distribution_channel` | int64 | 20 |
-| `sold_to_party` | str | CU2000 |
-| `material` | int64 | 20067 |
-| `plant` | str | PL01 |
-| `billed_quantity` | float64 | 32.08 |
-| `sales_uom` | str | EA |
-| `gross_price` | float64 | 10.2148 |
-| `net_price` | float64 | 9.4061 |
-| `invoice_price` | float64 | 10.0369 |
-| `discount_value` | float64 | 5.71 |
-| `rebate_accrual` | float64 | 4.26 |
-| `freight_value` | float64 | 15.98 |
-| `cost_value` | float64 | 174.05 |
-| `net_value` | float64 | 301.75 |
-| `pack_size_units` | float64 | 12.0 |
-| `standard_cost` | float64 | 5.3926 |
-| `recovery` | float64 | 0.9615 |
-| `cost_is_missing` | bool | False |
-| `recovery_is_implausible` | bool | False |
-| `priceable` | bool | True |
-| `margin` | float64 | 128.76 |
+| `billing_document` | integer | 90600000 |
+| `item_number` | integer | 10 |
+| `document_type` | text | Invoice |
+| `billing_date` | text | 2025-07-24 |
+| `company_code` | text | CA10 |
+| `sales_org` | integer | 1000 |
+| `distribution_channel` | integer | 20 |
+| `sold_to_party` | text | CU2000 |
+| `material` | integer | 20067 |
+| `plant` | text | PL01 |
+| `billed_quantity` | decimal | 32.08 |
+| `sales_uom` | text | EA |
+| `gross_price` | decimal | 10.2148 |
+| `net_price` | decimal | 9.4061 |
+| `invoice_price` | decimal | 10.0369 |
+| `discount_value` | decimal | 5.71 |
+| `rebate_accrual` | decimal | 4.26 |
+| `freight_value` | decimal | 15.98 |
+| `cost_value` | decimal | 174.05 |
+| `net_value` | decimal | 301.75 |
+| `pack_size_units` | decimal | 12.0 |
+| `standard_cost` | decimal | 5.3926 |
+| `recovery` | decimal | 0.9615 |
+| `cost_is_missing` | boolean | False |
+| `recovery_is_implausible` | boolean | False |
+| `priceable` | boolean | True |
+| `margin` | decimal | 128.76 |
 
 ### `staging_log`
 
@@ -1831,11 +1831,11 @@ One row per staging step, with the rows and the value it moved. This is the audi
 
 | Column | Type | Example |
 |---|---|---|
-| `step` | str | Extract as received |
-| `action` | str | Opening |
-| `rows` | int64 | 17643 |
-| `value` | float64 | 261314697.02 |
-| `note` | str | 17,643 billing lines from... |
+| `step` | text | Extract as received |
+| `action` | text | Opening |
+| `rows` | integer | 17643 |
+| `value` | decimal | 261314697.02 |
+| `note` | text | 17,643 billing lines from... |
 
 ### `staging_summary`
 
@@ -1845,9 +1845,9 @@ The staging run as a dozen headline numbers.
 
 | Column | Type | Example |
 |---|---|---|
-| `metric` | str | Billing lines received |
-| `value` | float64 | 17643.0 |
-| `unit` | str | count |
+| `metric` | text | Billing lines received |
+| `value` | decimal | 17643.0 |
+| `unit` | text | count |
 
 ### `unit_economics`
 
@@ -1857,29 +1857,29 @@ Per product: contribution, contribution per unit, markup, cost to serve, and ope
 
 | Column | Type | Example |
 |---|---|---|
-| `product_id` | int64 | 20000 |
-| `description` | str | Wireless Earbuds - Privat... |
-| `category` | str | Consumer Electronics |
-| `brand_tier` | str | Private label |
-| `volume_units` | float64 | 25865.2 |
-| `list_value` | float64 | 1444828.19 |
-| `pocket_revenue` | float64 | 1169798.51 |
-| `cogs` | float64 | 954476.07 |
-| `cost_to_serve` | float64 | 27567.2474 |
-| `production_variable_cost` | float64 | 954903.93 |
-| `variable_cost` | float64 | 982471.1774 |
-| `price_unit` | float64 | 45.2267 |
-| `variable_cost_unit` | float64 | 37.9843 |
-| `contribution` | float64 | 187327.3326 |
-| `contribution_unit` | float64 | 7.2424 |
-| `contribution_pct` | float64 | 0.1601 |
-| `gross_margin` | float64 | 215322.44 |
-| `gross_margin_pct` | float64 | 0.1841 |
-| `markup_pct` | float64 | 0.2256 |
-| `cost_to_serve_pct` | float64 | 0.0236 |
-| `fixed_allocated_by_volume` | float64 | 19530.8185 |
-| `operating_profit` | float64 | 167796.5141 |
-| `operating_margin_pct` | float64 | 0.1434 |
+| `product_id` | integer | 20000 |
+| `description` | text | Wireless Earbuds - Privat... |
+| `category` | text | Consumer Electronics |
+| `brand_tier` | text | Private label |
+| `volume_units` | decimal | 25865.2 |
+| `list_value` | decimal | 1444828.19 |
+| `pocket_revenue` | decimal | 1169798.51 |
+| `cogs` | decimal | 954476.07 |
+| `cost_to_serve` | decimal | 27567.2474 |
+| `production_variable_cost` | decimal | 954903.93 |
+| `variable_cost` | decimal | 982471.1774 |
+| `price_unit` | decimal | 45.2267 |
+| `variable_cost_unit` | decimal | 37.9843 |
+| `contribution` | decimal | 187327.3326 |
+| `contribution_unit` | decimal | 7.2424 |
+| `contribution_pct` | decimal | 0.1601 |
+| `gross_margin` | decimal | 215322.44 |
+| `gross_margin_pct` | decimal | 0.1841 |
+| `markup_pct` | decimal | 0.2256 |
+| `cost_to_serve_pct` | decimal | 0.0236 |
+| `fixed_allocated_by_volume` | decimal | 19530.8185 |
+| `operating_profit` | decimal | 167796.5141 |
+| `operating_margin_pct` | decimal | 0.1434 |
 
 ### `waterfall_monthly`
 
@@ -1889,18 +1889,18 @@ The four price levels by month, so leakage can be trended.
 
 | Column | Type | Example |
 |---|---|---|
-| `month` | str | 2023-07-01 |
-| `fiscal_year` | int64 | 2024 |
-| `list_value` | float64 | 19958559.87 |
-| `invoice_revenue` | float64 | 17762872.38 |
-| `pocket_revenue` | float64 | 16702755.65 |
-| `cogs` | float64 | 11655950.98 |
-| `quantity_units` | float64 | 435160.61 |
-| `net_revenue` | float64 | 17041403.2995 |
-| `pocket_margin` | float64 | 5046804.67 |
-| `leakage_pct` | float64 | 0.1631 |
-| `pocket_margin_pct` | float64 | 0.3022 |
-| `realised_price_unit` | float64 | 38.383 |
+| `month` | text | 2023-07-01 |
+| `fiscal_year` | integer | 2024 |
+| `list_value` | decimal | 19958559.87 |
+| `invoice_revenue` | decimal | 17762872.38 |
+| `pocket_revenue` | decimal | 16702755.65 |
+| `cogs` | decimal | 11655950.98 |
+| `quantity_units` | decimal | 435160.61 |
+| `net_revenue` | decimal | 17041403.2995 |
+| `pocket_margin` | decimal | 5046804.67 |
+| `leakage_pct` | decimal | 0.1631 |
+| `pocket_margin_pct` | decimal | 0.3022 |
+| `realised_price_unit` | decimal | 38.383 |
 
 ### `wtp_curve`
 
@@ -1910,11 +1910,11 @@ The fitted curve and the observed win rates, for plotting one over the other.
 
 | Column | Type | Example |
 |---|---|---|
-| `segment` | str | All |
-| `kind` | str | Fitted |
-| `price_ratio` | float64 | 0.8 |
-| `win_rate` | float64 | 0.8546 |
-| `quotes` | float64 | 7.0 |
+| `segment` | text | All |
+| `kind` | text | Fitted |
+| `price_ratio` | decimal | 0.8 |
+| `win_rate` | decimal | 0.8546 |
+| `quotes` | decimal | 7.0 |
 
 ### `wtp_fits`
 
@@ -1924,14 +1924,14 @@ The fitted win curve per segment: slope, and the price ratio at which we win hal
 
 | Column | Type | Example |
 |---|---|---|
-| `segment` | str | All |
-| `quotes` | int64 | 5600 |
-| `wins` | int64 | 2884 |
-| `win_rate` | float64 | 0.515 |
-| `intercept` | float64 | 10.0701 |
-| `slope` | float64 | -10.3734 |
-| `indifference_price_ratio` | float64 | 0.9708 |
-| `converged` | bool | True |
-| `usable` | bool | True |
-| `reason` | str | ok |
+| `segment` | text | All |
+| `quotes` | integer | 5600 |
+| `wins` | integer | 2884 |
+| `win_rate` | decimal | 0.515 |
+| `intercept` | decimal | 10.0701 |
+| `slope` | decimal | -10.3734 |
+| `indifference_price_ratio` | decimal | 0.9708 |
+| `converged` | boolean | True |
+| `usable` | boolean | True |
+| `reason` | text | ok |
 

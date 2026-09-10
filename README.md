@@ -3,6 +3,7 @@
 [![CI](https://github.com/KushPatel29/cost-to-price-calculator/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/cost-to-price-calculator/actions/workflows/ci.yml)
 ![tests](https://img.shields.io/badge/tests-2356-brightgreen)
 ![python](https://img.shields.io/badge/python-3.12-blue)
+![streamlit](https://img.shields.io/badge/streamlit-1.60-ff4b4b)
 
 **Live app:** [cost-to-price-calculator.streamlit.app](https://cost-to-price-calculator.streamlit.app/)
 

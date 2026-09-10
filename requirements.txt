@@ -1,9 +1,16 @@
-streamlit==1.61.1
-pandas==2.3.2
-numpy>=1.26
+# What the app imports, pinned to the versions it was actually built and tested
+# against. They had drifted: this file pinned pandas 2.3.2 and streamlit 1.61.1
+# while the work was being done on pandas 3.0.3 and streamlit 1.60.0, so CI and
+# Streamlit Community Cloud were installing a combination nothing here had ever
+# run on. It surfaced as a data-dictionary diff -- pandas 2 calls a text column
+# `object` and pandas 3 calls it `str` -- which is a harmless symptom of a
+# thoroughly unharmless situation.
+streamlit==1.60.0
+pandas==3.0.3
+numpy==2.5.3
 plotly==6.9.0
 openpyxl==3.1.5
-xlsxwriter==3.2.0
+xlsxwriter==3.2.9
 
 # The build and the tests need more than this: see requirements-dev.txt.
 # This file is what Streamlit Community Cloud installs to run the app, so it

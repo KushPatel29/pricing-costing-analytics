@@ -248,8 +248,30 @@ DESCRIPTIONS: dict[str, str] = {
 }
 
 
+def kind_of(series: pd.Series) -> str:
+    """
+    A stable name for a column's type.
+
+    Not `str(series.dtype)`. That is a pandas *repr* and it moves between
+    versions -- text is `object` on pandas 2 and `str` on pandas 3, so a
+    dictionary generated on one and checked on the other differs on every text
+    column in the file and the CI failure points at the document rather than at
+    the version skew underneath it. It is also the wrong register: a reader
+    wants to know a column holds text, not that it is backed by `object`.
+    """
+    if pd.api.types.is_bool_dtype(series):
+        return "boolean"
+    if pd.api.types.is_integer_dtype(series):
+        return "integer"
+    if pd.api.types.is_float_dtype(series):
+        return "decimal"
+    if pd.api.types.is_datetime64_any_dtype(series):
+        return "date"
+    return "text"
+
+
 def describe(path: Path) -> tuple[int, list[tuple[str, str, str]]]:
-    """Row count, and (column, dtype, example) for each column."""
+    """Row count, and (column, type, example) for each column."""
     frame = pd.read_csv(path)
     rows = []
     for name in frame.columns:
@@ -257,7 +279,7 @@ def describe(path: Path) -> tuple[int, list[tuple[str, str, str]]]:
         example = "" if series.empty else str(series.iloc[0])
         if len(example) > 28:
             example = example[:25] + "..."
-        rows.append((name, str(frame[name].dtype), example))
+        rows.append((name, kind_of(frame[name]), example))
     return len(frame), rows
 
 

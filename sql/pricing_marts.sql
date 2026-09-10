@@ -18,6 +18,13 @@
 -- database to keep in sync -- `read_csv_auto` over data/ is the whole source
 -- layer.
 
+-- Every mart below ends on a *total* order -- one that no two rows can tie on.
+-- A SELECT with no ORDER BY, or one ordered on a column with ties, is free to
+-- come back in any order at all, and DuckDB takes that freedom: these CSVs are
+-- committed, and the same query returned a different first row on Linux than
+-- on Windows. Nothing was wrong with the numbers; the file simply was not
+-- reproducible, which is most of what a committed artefact is for.
+--
 -- ===========================================================================
 -- Source layer
 -- ===========================================================================
@@ -178,7 +185,8 @@ SELECT
             WHEN region     <> '(all)' THEN 'region'
             ELSE 'salesperson'
         END)                                                     AS revenue_share
-FROM cuts;
+FROM cuts
+ORDER BY dimension, member;
 
 -- ===========================================================================
 -- Mart 3: the price band per product
@@ -210,7 +218,8 @@ SELECT
 FROM fct_sales
 WHERE fiscal_year = (SELECT MAX(fiscal_year) FROM fct_sales)
 GROUP BY product_id
-HAVING COUNT(*) >= 8;
+HAVING COUNT(*) >= 8
+ORDER BY product_id;
 
 -- ===========================================================================
 -- Mart 4: month-over-month and year-over-year, with window functions
@@ -279,20 +288,20 @@ SELECT
     pocket_revenue,
     gross_margin,
     gross_margin / NULLIF(pocket_revenue, 0) AS gross_margin_pct,
-    ROW_NUMBER() OVER (ORDER BY gross_margin DESC)                   AS margin_rank,
+    ROW_NUMBER() OVER (ORDER BY gross_margin DESC, product_id)       AS margin_rank,
     RANK()       OVER (PARTITION BY category ORDER BY gross_margin DESC)
                                                                      AS rank_in_category,
     -- ROWS, not the default RANGE. With RANGE, tied margins are lumped into
     -- one step and the concentration curve jumps; ROWS advances one product at
     -- a time, which is what a Pareto curve means.
     SUM(gross_margin) OVER (
-        ORDER BY gross_margin DESC
+        ORDER BY gross_margin DESC, product_id
         ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
         / NULLIF(SUM(gross_margin) OVER (), 0)                       AS running_margin_share,
-    ROW_NUMBER() OVER (ORDER BY gross_margin DESC)
+    ROW_NUMBER() OVER (ORDER BY gross_margin DESC, product_id)
         * 1.0 / COUNT(*) OVER ()                                     AS running_product_share
 FROM by_product
-ORDER BY gross_margin DESC;
+ORDER BY gross_margin DESC, product_id;
 
 -- ===========================================================================
 -- Mart 6: exceptions
@@ -339,4 +348,4 @@ SELECT
         AS margin_gap_dollars
 FROM scored
 WHERE pocket_margin_pct < floor_margin OR leakage_pct > 0.25
-ORDER BY extended_margin DESC;
+ORDER BY extended_margin DESC, month, product_id, customer_id;

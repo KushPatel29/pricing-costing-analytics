@@ -216,3 +216,66 @@ def test_price_bands_agree_on_the_median_they_both_compute(marts, sales):
         lines = recent[recent["product_id"] == product_id]["pocket_price"]
         assert close(sql.loc[product_id, "median_price"], float(lines.median()),
                      tolerance=1e-6)
+
+
+# --------------------------------------------------------------------------
+# Reproducibility
+# --------------------------------------------------------------------------
+
+# The columns each mart ends its ORDER BY on. A total order is one no two rows
+# can tie on; anything less and the engine is free to return them in any order,
+# which is fine for a query and not fine for a file that is committed.
+ORDERING: dict[str, tuple[str, ...]] = {
+    "mart_waterfall": ("fiscal_year",),
+    "mart_profitability": ("dimension", "member"),
+    "mart_price_bands": ("product_id",),
+    "mart_monthly_trend": ("month_index",),
+    "mart_margin_concentration": ("gross_margin", "product_id"),
+    "mart_exceptions": ("extended_margin", "month", "product_id", "customer_id"),
+}
+
+
+@pytest.mark.parametrize("name,columns", sorted(ORDERING.items()))
+def test_every_mart_comes_back_in_a_total_order(name, columns, marts):
+    """
+    These CSVs are committed, so "any order the engine likes" is not good
+    enough: the same query returned a different first row on Linux than on
+    Windows, and the only thing that noticed was a data dictionary built from
+    the first row of each file.
+
+    A tie on the ordering key is the failure. Nothing about the numbers is
+    wrong when it happens, which is exactly why it survives review.
+    """
+    frame = marts[name]
+    key = frame[list(columns)]
+    ties = key.duplicated(keep=False)
+    assert not ties.any(), (
+        f"{name} ties on {list(columns)} for {int(ties.sum())} rows, so its row "
+        f"order is whatever the engine felt like:\n{frame[ties].head(4).to_string()}"
+    )
+
+
+@pytest.mark.parametrize("name", sorted(ORDERING))
+def test_the_committed_mart_is_the_one_the_sql_produces(name, marts):
+    """The CSV on disk is what a reader sees. If it is not what the SQL
+    returns, the SQL is documentation rather than the source."""
+    committed = pd.read_csv(OUT / f"sql_{name.removeprefix('mart_')}.csv")
+    fresh = marts[name]
+    assert len(committed) == len(fresh)
+    assert list(committed.columns) == list(fresh.columns)
+    for column in ORDERING[name]:
+        left, right = committed[column], fresh[column].reset_index(drop=True)
+        if pd.api.types.is_numeric_dtype(right):
+            # Compared as numbers, not as text. A float written to CSV and read
+            # back is the same number and not the same string, so a string
+            # comparison here would fail on the round trip rather than on the
+            # order, which is what is being checked.
+            assert ((left - right).abs() <= right.abs() * RELATIVE + 1e-6).all(), (
+                f"sql_{name.removeprefix('mart_')}.csv is in a different order "
+                "than the SQL returns. Run: python -m engine.run_sql"
+            )
+        else:
+            assert list(left.astype(str)) == list(right.astype(str)), (
+                f"sql_{name.removeprefix('mart_')}.csv is in a different order "
+                "than the SQL returns. Run: python -m engine.run_sql"
+            )

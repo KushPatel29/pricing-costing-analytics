@@ -1730,15 +1730,15 @@ Price bands in SQL, using PERCENTILE_CONT.
 
 | Column | Type | Example |
 |---|---|---|
-| `product_id` | integer | 20206 |
-| `description` | text | Camping Tent - National b... |
-| `category` | text | Sporting Goods |
-| `customers` | integer | 9 |
-| `volume_units` | decimal | 5393.540000000001 |
-| `p10_price` | decimal | 42.6706 |
-| `median_price` | decimal | 63.3148 |
-| `p90_price` | decimal | 71.3144 |
-| `band_width_pct` | decimal | 0.4524029136947444 |
+| `product_id` | integer | 20000 |
+| `description` | text | Wireless Earbuds - Privat... |
+| `category` | text | Consumer Electronics |
+| `customers` | integer | 7 |
+| `volume_units` | decimal | 25865.200000000004 |
+| `p10_price` | decimal | 42.12464000000001 |
+| `median_price` | decimal | 47.6436 |
+| `p90_price` | decimal | 53.42312 |
+| `band_width_pct` | decimal | 0.2371458076215901 |
 
 ### `sql_profitability`
 
@@ -1748,21 +1748,21 @@ The profitability cut, in SQL, using GROUPING SETS.
 
 | Column | Type | Example |
 |---|---|---|
-| `dimension` | text | category |
-| `member` | text | Sporting Goods |
-| `volume_units` | decimal | 558452.74 |
-| `list_value` | decimal | 29304432.50000006 |
-| `pocket_revenue` | decimal | 24110497.299999997 |
-| `cogs` | decimal | 19191349.99000003 |
-| `cost_to_serve` | decimal | 436552.0040339994 |
-| `lines` | integer | 1601 |
-| `products` | integer | 24 |
-| `customers` | integer | 87 |
-| `gross_margin` | decimal | 4919147.309999965 |
-| `gross_margin_pct` | decimal | 0.2040251285069912 |
-| `leakage_pct` | decimal | 0.1772406000355084 |
-| `price_unit` | decimal | 43.17374698528651 |
-| `revenue_share` | decimal | 0.0926064414454111 |
+| `dimension` | text | brand_tier |
+| `member` | text | National brand |
+| `volume_units` | decimal | 2145316.1500000027 |
+| `list_value` | decimal | 65636366.14999999 |
+| `pocket_revenue` | decimal | 53711391.309999965 |
+| `cogs` | decimal | 41337906.22000004 |
+| `cost_to_serve` | decimal | 1467661.5522290035 |
+| `lines` | integer | 6534 |
+| `products` | integer | 91 |
+| `customers` | integer | 146 |
+| `gross_margin` | decimal | 12373485.08999993 |
+| `gross_margin_pct` | decimal | 0.2303698487083547 |
+| `leakage_pct` | decimal | 0.1816824352028822 |
+| `price_unit` | decimal | 25.036585544745886 |
+| `revenue_share` | decimal | 0.2063010460717903 |
 
 ### `sql_waterfall`
 

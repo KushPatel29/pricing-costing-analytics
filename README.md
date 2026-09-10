@@ -1,7 +1,7 @@
 # Pricing and Costing Analytics
 
 [![CI](https://github.com/KushPatel29/cost-to-price-calculator/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/cost-to-price-calculator/actions/workflows/ci.yml)
-![tests](https://img.shields.io/badge/tests-2452-brightgreen)
+![Tests](https://img.shields.io/badge/tests-2455%20passing-3B8C6E)
 ![python](https://img.shields.io/badge/python-3.12-blue)
 ![streamlit](https://img.shields.io/badge/streamlit-1.60-ff4b4b)
 
@@ -581,7 +581,7 @@ streamlit run app/streamlit_app.py
 pytest -q
 ```
 
-2,452 tests. The ones worth reading are the convention tests — additive versus
+2,455 tests. The ones worth reading are the convention tests — additive versus
 compounding discounts, margin on pocket versus on list, which side of a variance
 is unfavourable, whether a subtotal bar moves a waterfall, whether a negative
 amount reads `-$32k` or `$-32k` — because those are where two defensible

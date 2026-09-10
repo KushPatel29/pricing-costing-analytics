@@ -7,10 +7,12 @@ functions of their arguments now, so `tests/` can assert on them directly.
 
 Vocabulary, because two of these are routinely confused:
 
-- **recovery** (also called yield) is the fraction of raw material that
-  survives processing. A 100 lb primal that trims down to 68 lb of saleable
-  product has a recovery of 0.68. Costs are *divided* by recovery, because you
-  have to buy 1/0.68 lb of raw material for every saleable pound.
+- **recovery** (also called yield, or the sellable rate) is the fraction of
+  what you buy that you can actually sell. In distribution that is units
+  received against units that ship, after inbound damage, warehouse shrink and
+  the returns that come back unsellable -- for e-commerce apparel it runs
+  around 0.86. Costs are *divided* by recovery, because you have to buy 1/0.86
+  units for every one you sell.
 - **margin** is profit as a fraction of *price*, not of cost. Price is
   therefore `cost / (1 - margin)`, not `cost * (1 + margin)`. The second is
   markup, and using it where margin is meant understates price.
@@ -21,12 +23,18 @@ from __future__ import annotations
 import math
 from typing import Any
 
-# Freight per lb by inbound lane.
+# Inbound freight and duty per selling unit, by lane. The spread between them
+# is the point: an air-freighted unit carries more than five times the inbound
+# cost of the same unit on a full container, so lane mix is one of the largest
+# single drivers of landed cost in a distribution business -- and it is a
+# sourcing decision that pricing inherits rather than makes.
 FREIGHT_RATES: dict[str, float] = {
-    "Inbound Consolidator": 0.07,
-    "Local Pickup": 0.11,
-    "Alberta": 0.205,
-    "Ontario/Quebec": 0.25,
+    "Domestic FTL": 0.19,
+    "Cross-dock Consolidator": 0.26,
+    "Domestic LTL": 0.31,
+    "Import Ocean FCL": 0.42,
+    "Import Ocean LCL": 0.78,
+    "Import Air Freight": 2.35,
 }
 
 DEFAULT_FREIGHT = 0.0
@@ -80,26 +88,43 @@ def normalize_recovery(value: Any, default: float = DEFAULT_RECOVERY) -> float:
 
 
 def get_freight_cost(vendor: Any) -> float:
-    """Freight per lb for an inbound lane, matched loosely on the vendor text."""
-    text = str(vendor or "").strip()
+    """
+    Inbound freight and duty per unit for a lane, matched loosely on the text.
+
+    Loose matching because the lane arrives as free text from a purchasing
+    system and is spelled six ways -- "Import Ocean FCL", "OCEAN-FCL", "FCL
+    Shanghai". Order matters: air is tested before the ocean lanes because
+    "Import Air Freight" contains neither FCL nor LCL but an unanchored
+    "Import" test would swallow it.
+    """
+    text = str(vendor or "").strip().upper()
     if not text:
         return DEFAULT_FREIGHT
-    if "Consolidator" in text:
-        return FREIGHT_RATES["Inbound Consolidator"]
-    if "Local" in text or "Pickup" in text:
-        return FREIGHT_RATES["Local Pickup"]
-    if "Alberta" in text:
-        return FREIGHT_RATES["Alberta"]
-    if "Ontario" in text or "Quebec" in text:
-        return FREIGHT_RATES["Ontario/Quebec"]
+    if "AIR" in text:
+        return FREIGHT_RATES["Import Air Freight"]
+    if "LCL" in text:
+        return FREIGHT_RATES["Import Ocean LCL"]
+    if "FCL" in text or "OCEAN" in text:
+        return FREIGHT_RATES["Import Ocean FCL"]
+    if "CROSS" in text or "CONSOLIDAT" in text:
+        return FREIGHT_RATES["Cross-dock Consolidator"]
+    if "FTL" in text:
+        return FREIGHT_RATES["Domestic FTL"]
+    if "LTL" in text or "DOMESTIC" in text:
+        return FREIGHT_RATES["Domestic LTL"]
     return DEFAULT_FREIGHT
 
 
-def calculate_actual_inv_cost(vendor_invoice_price: float, lb_per_billing_uom: float) -> float:
-    """Invoice price converted to a per-pound cost."""
-    if lb_per_billing_uom == 0:
+def calculate_actual_inv_cost(vendor_invoice_price: float, units_per_billing_uom: float) -> float:
+    """
+    Invoice price converted to a cost per selling unit.
+
+    A distributor buys by the case and sells by the each, and this conversion
+    is where a price goes wrong by a factor of twelve without anybody noticing.
+    """
+    if units_per_billing_uom == 0:
         return vendor_invoice_price
-    return vendor_invoice_price / lb_per_billing_uom
+    return vendor_invoice_price / units_per_billing_uom
 
 
 def calculate_market_cost(actual_inv_cost: float, adj: float) -> float:
@@ -112,7 +137,7 @@ def calculate_landed_cost(market_cost: float, freight: float) -> float:
 
 def calculate_recovery_input(market_cost: float, freight: float, recovery: Any) -> float:
     """
-    Landed cost grossed up for processing loss.
+    Landed cost grossed up for the units that never ship.
 
     `recovery` is normalised here, so passing 85 and passing 0.85 give the same
     answer. They previously did not: this function divided by the raw value
@@ -126,20 +151,20 @@ def calculate_recovery_input(market_cost: float, freight: float, recovery: Any) 
 
 
 def calculate_waste_output(raw_material_cost: float, recovery: Any) -> float:
-    """The cost of the material lost to trim and shrink."""
+    """The cost of the units lost to damage, shrink and unsellable returns."""
     rate = normalize_recovery(recovery)
     if rate == 0:
         return 0.0
     return (raw_material_cost / rate) - raw_material_cost
 
 
-def calculate_trim_recovery(trim_cost_lb: float, trim_percent: Any, recovery: Any) -> float:
+def calculate_trim_recovery(salvage_value_unit: float, trim_percent: Any, recovery: Any) -> float:
     """Credit for trim that is sold on rather than thrown away."""
     rate = normalize_recovery(recovery)
     if rate == 0:
         return 0.0
-    trim = normalize_recovery(trim_percent, default=0.0)
-    return (trim_cost_lb * trim) / rate
+    damaged = normalize_recovery(trim_percent, default=0.0)
+    return (salvage_value_unit * damaged) / rate
 
 
 def calculate_price_from_margin(cost: float, margin: Any) -> float:
@@ -173,12 +198,12 @@ def calculate_margin_percent(price: float, cost: float) -> float:
 def build_cost_stack(
     *,
     vendor_invoice_price: float,
-    lb_per_billing_uom: float,
+    units_per_billing_uom: float,
     adj: float = 0.0,
     vendor: str = "",
     recovery: Any = DEFAULT_RECOVERY,
-    labour_per_lb: float = 0.0,
-    sticker_per_lb: float = 0.0,
+    handling_per_unit: float = 0.0,
+    labelling_per_unit: float = 0.0,
     base_margin: Any = DEFAULT_BASE_MARGIN,
     list_margin: Any = DEFAULT_LIST_MARGIN,
 ) -> dict[str, float]:
@@ -188,12 +213,12 @@ def build_cost_stack(
     Returns every intermediate step, because when a price looks wrong the
     question is always *which* step moved.
     """
-    actual_inv_cost = calculate_actual_inv_cost(vendor_invoice_price, lb_per_billing_uom)
+    actual_inv_cost = calculate_actual_inv_cost(vendor_invoice_price, units_per_billing_uom)
     market_cost = calculate_market_cost(actual_inv_cost, adj)
     freight = get_freight_cost(vendor)
     landed_cost = calculate_landed_cost(market_cost, freight)
     recovery_input = calculate_recovery_input(market_cost, freight, recovery)
-    final_cost = recovery_input + labour_per_lb + sticker_per_lb
+    final_cost = recovery_input + handling_per_unit + labelling_per_unit
     base_price = calculate_price_from_margin(final_cost, base_margin)
     list_price = calculate_price_from_margin(final_cost, list_margin)
     return {

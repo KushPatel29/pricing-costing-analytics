@@ -1,0 +1,145 @@
+month,cost_pool,cost_element,behaviour,budgeted_fixed_cost,actual_fixed_cost,variance
+2023-07-01,DC facility and equipment,Fixed warehouse overhead,Fixed,118000.0,121502.01,3502.01
+2023-07-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,52000.0,51320.33,-679.67
+2023-07-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,34000.0,35218.11,1218.11
+2023-07-01,Selling and admin,Selling and admin,Fixed,142000.0,144695.72,2695.72
+2023-08-01,DC facility and equipment,Fixed warehouse overhead,Fixed,118259.6,117704.47,-555.13
+2023-08-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,52114.4,51978.73,-135.67
+2023-08-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,34074.8,35701.25,1626.45
+2023-08-01,Selling and admin,Selling and admin,Fixed,142312.4,148638.36,6325.96
+2023-09-01,DC facility and equipment,Fixed warehouse overhead,Fixed,118519.2,113289.01,-5230.19
+2023-09-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,52228.8,52182.0,-46.8
+2023-09-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,34149.6,33885.21,-264.39
+2023-09-01,Selling and admin,Selling and admin,Fixed,142624.8,138895.51,-3729.29
+2023-10-01,DC facility and equipment,Fixed warehouse overhead,Fixed,118778.8,115342.59,-3436.21
+2023-10-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,52343.2,51893.65,-449.55
+2023-10-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,34224.4,33301.36,-923.04
+2023-10-01,Selling and admin,Selling and admin,Fixed,142937.2,145792.22,2855.02
+2023-11-01,DC facility and equipment,Fixed warehouse overhead,Fixed,119038.4,117841.78,-1196.62
+2023-11-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,52457.6,54577.89,2120.29
+2023-11-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,34299.2,35631.6,1332.4
+2023-11-01,Selling and admin,Selling and admin,Fixed,143249.6,148267.52,5017.92
+2023-12-01,DC facility and equipment,Fixed warehouse overhead,Fixed,119298.0,116257.83,-3040.17
+2023-12-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,52572.0,54941.07,2369.07
+2023-12-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,34374.0,35744.5,1370.5
+2023-12-01,Selling and admin,Selling and admin,Fixed,143562.0,149678.2,6116.2
+2024-01-01,DC facility and equipment,Fixed warehouse overhead,Fixed,119557.6,115079.37,-4478.23
+2024-01-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,52686.4,54958.95,2272.55
+2024-01-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,34448.8,35475.93,1027.13
+2024-01-01,Selling and admin,Selling and admin,Fixed,143874.4,151868.84,7994.44
+2024-02-01,DC facility and equipment,Fixed warehouse overhead,Fixed,119817.2,119450.93,-366.27
+2024-02-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,52800.8,49720.18,-3080.62
+2024-02-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,34523.6,34197.07,-326.53
+2024-02-01,Selling and admin,Selling and admin,Fixed,144186.8,141959.83,-2226.97
+2024-03-01,DC facility and equipment,Fixed warehouse overhead,Fixed,120076.8,119669.97,-406.83
+2024-03-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,52915.2,54851.16,1935.96
+2024-03-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,34598.4,33785.38,-813.02
+2024-03-01,Selling and admin,Selling and admin,Fixed,144499.2,145179.07,679.87
+2024-04-01,DC facility and equipment,Fixed warehouse overhead,Fixed,120336.4,124373.61,4037.21
+2024-04-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,53029.6,53333.76,304.16
+2024-04-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,34673.2,34894.3,221.1
+2024-04-01,Selling and admin,Selling and admin,Fixed,144811.6,147991.21,3179.61
+2024-05-01,DC facility and equipment,Fixed warehouse overhead,Fixed,120596.0,118021.06,-2574.94
+2024-05-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,53144.0,53226.65,82.65
+2024-05-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,34748.0,34631.12,-116.88
+2024-05-01,Selling and admin,Selling and admin,Fixed,145124.0,148729.49,3605.49
+2024-06-01,DC facility and equipment,Fixed warehouse overhead,Fixed,120855.6,117756.01,-3099.59
+2024-06-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,53258.4,49993.19,-3265.21
+2024-06-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,34822.8,35482.7,659.9
+2024-06-01,Selling and admin,Selling and admin,Fixed,145436.4,143954.12,-1482.28
+2024-07-01,DC facility and equipment,Fixed warehouse overhead,Fixed,121115.2,124543.71,3428.51
+2024-07-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,53372.8,56270.68,2897.88
+2024-07-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,34897.6,34330.01,-567.59
+2024-07-01,Selling and admin,Selling and admin,Fixed,145748.8,142136.25,-3612.55
+2024-08-01,DC facility and equipment,Fixed warehouse overhead,Fixed,121374.8,116360.87,-5013.93
+2024-08-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,53487.2,55379.5,1892.3
+2024-08-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,34972.4,35395.54,423.14
+2024-08-01,Selling and admin,Selling and admin,Fixed,146061.2,142461.54,-3599.66
+2024-09-01,DC facility and equipment,Fixed warehouse overhead,Fixed,135014.18,136636.58,1622.4
+2024-09-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,59497.78,59908.03,410.25
+2024-09-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,38902.39,39625.21,722.82
+2024-09-01,Selling and admin,Selling and admin,Fixed,162474.7,170483.24,8008.54
+2024-10-01,DC facility and equipment,Fixed warehouse overhead,Fixed,135302.34,138214.02,2911.68
+2024-10-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,59624.76,60567.92,943.16
+2024-10-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,38985.42,38468.8,-516.62
+2024-10-01,Selling and admin,Selling and admin,Fixed,162821.46,167953.21,5131.75
+2024-11-01,DC facility and equipment,Fixed warehouse overhead,Fixed,135590.5,137250.86,1660.36
+2024-11-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,59751.74,57352.26,-2399.48
+2024-11-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,39068.45,39176.32,107.87
+2024-11-01,Selling and admin,Selling and admin,Fixed,163168.22,165049.05,1880.83
+2024-12-01,DC facility and equipment,Fixed warehouse overhead,Fixed,135878.65,123992.8,-11885.85
+2024-12-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,59878.73,61097.67,1218.94
+2024-12-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,39151.48,39728.78,577.3
+2024-12-01,Selling and admin,Selling and admin,Fixed,163514.99,163541.76,26.77
+2025-01-01,DC facility and equipment,Fixed warehouse overhead,Fixed,136166.81,138868.08,2701.27
+2025-01-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,60005.71,61176.9,1171.19
+2025-01-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,39234.5,39704.79,470.29
+2025-01-01,Selling and admin,Selling and admin,Fixed,163861.75,167349.11,3487.36
+2025-02-01,DC facility and equipment,Fixed warehouse overhead,Fixed,136454.96,138284.64,1829.68
+2025-02-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,60132.7,60883.86,751.16
+2025-02-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,39317.53,41613.93,2296.4
+2025-02-01,Selling and admin,Selling and admin,Fixed,164208.52,167905.99,3697.47
+2025-03-01,DC facility and equipment,Fixed warehouse overhead,Fixed,136743.12,140200.87,3457.75
+2025-03-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,60259.68,62193.9,1934.22
+2025-03-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,39400.56,41085.69,1685.13
+2025-03-01,Selling and admin,Selling and admin,Fixed,164555.28,163272.87,-1282.41
+2025-04-01,DC facility and equipment,Fixed warehouse overhead,Fixed,137031.28,139944.65,2913.37
+2025-04-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,60386.66,62401.12,2014.46
+2025-04-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,39483.59,41553.91,2070.32
+2025-04-01,Selling and admin,Selling and admin,Fixed,164902.04,164019.23,-882.81
+2025-05-01,DC facility and equipment,Fixed warehouse overhead,Fixed,137319.43,134216.65,-3102.78
+2025-05-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,60513.65,58498.89,-2014.76
+2025-05-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,39566.62,39696.6,129.98
+2025-05-01,Selling and admin,Selling and admin,Fixed,165248.81,170960.7,5711.89
+2025-06-01,DC facility and equipment,Fixed warehouse overhead,Fixed,137607.59,140907.07,3299.48
+2025-06-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,60640.63,60103.2,-537.43
+2025-06-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,39649.64,40060.03,410.39
+2025-06-01,Selling and admin,Selling and admin,Fixed,165595.57,164109.8,-1485.77
+2025-07-01,DC facility and equipment,Fixed warehouse overhead,Fixed,137895.74,135738.6,-2157.14
+2025-07-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,60767.62,60858.77,91.15
+2025-07-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,39732.67,41142.93,1410.26
+2025-07-01,Selling and admin,Selling and admin,Fixed,165942.34,169260.86,3318.52
+2025-08-01,DC facility and equipment,Fixed warehouse overhead,Fixed,138183.9,139463.03,1279.13
+2025-08-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,60894.6,59554.96,-1339.64
+2025-08-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,39815.7,39328.25,-487.45
+2025-08-01,Selling and admin,Selling and admin,Fixed,166289.1,165043.29,-1245.81
+2025-09-01,DC facility and equipment,Fixed warehouse overhead,Fixed,138472.06,141789.86,3317.8
+2025-09-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,61021.58,63431.77,2410.19
+2025-09-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,39898.73,42151.58,2252.85
+2025-09-01,Selling and admin,Selling and admin,Fixed,166635.86,158466.3,-8169.56
+2025-10-01,DC facility and equipment,Fixed warehouse overhead,Fixed,138760.21,140501.44,1741.23
+2025-10-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,61148.57,60502.21,-646.36
+2025-10-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,39981.76,39156.97,-824.79
+2025-10-01,Selling and admin,Selling and admin,Fixed,166982.63,162573.85,-4408.78
+2025-11-01,DC facility and equipment,Fixed warehouse overhead,Fixed,139048.37,141881.54,2833.17
+2025-11-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,61275.55,61176.95,-98.6
+2025-11-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,40064.78,40425.24,360.46
+2025-11-01,Selling and admin,Selling and admin,Fixed,167329.39,179023.01,11693.62
+2025-12-01,DC facility and equipment,Fixed warehouse overhead,Fixed,139336.52,130897.37,-8439.15
+2025-12-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,61402.54,61220.94,-181.6
+2025-12-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,40147.81,41028.08,880.27
+2025-12-01,Selling and admin,Selling and admin,Fixed,167676.16,172790.0,5113.84
+2026-01-01,DC facility and equipment,Fixed warehouse overhead,Fixed,139624.68,142130.58,2505.9
+2026-01-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,61529.52,65931.72,4402.2
+2026-01-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,40230.84,40476.77,245.93
+2026-01-01,Selling and admin,Selling and admin,Fixed,168022.92,165334.14,-2688.78
+2026-02-01,DC facility and equipment,Fixed warehouse overhead,Fixed,139912.84,136594.45,-3318.39
+2026-02-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,61656.5,63772.13,2115.63
+2026-02-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,40313.87,40176.0,-137.87
+2026-02-01,Selling and admin,Selling and admin,Fixed,168369.68,171415.15,3045.47
+2026-03-01,DC facility and equipment,Fixed warehouse overhead,Fixed,140200.99,141306.46,1105.47
+2026-03-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,61783.49,64966.24,3182.75
+2026-03-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,40396.9,38704.79,-1692.11
+2026-03-01,Selling and admin,Selling and admin,Fixed,168716.45,168117.57,-598.88
+2026-04-01,DC facility and equipment,Fixed warehouse overhead,Fixed,140489.15,141849.19,1360.04
+2026-04-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,61910.47,62519.13,608.66
+2026-04-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,40479.92,43635.57,3155.65
+2026-04-01,Selling and admin,Selling and admin,Fixed,169063.21,163751.24,-5311.97
+2026-05-01,DC facility and equipment,Fixed warehouse overhead,Fixed,140777.3,143813.84,3036.54
+2026-05-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,62037.46,63971.47,1934.01
+2026-05-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,40562.95,39727.26,-835.69
+2026-05-01,Selling and admin,Selling and admin,Fixed,169409.98,175956.31,6546.33
+2026-06-01,DC facility and equipment,Fixed warehouse overhead,Fixed,141065.46,144659.81,3594.35
+2026-06-01,Inventory carrying and insurance,Fixed warehouse overhead,Fixed,62164.44,61757.06,-407.38
+2026-06-01,Technology and marketplace fees,Fixed warehouse overhead,Fixed,40645.98,39094.04,-1551.94
+2026-06-01,Selling and admin,Selling and admin,Fixed,169756.74,175474.15,5717.41

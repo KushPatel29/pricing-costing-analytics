@@ -1,0 +1,66 @@
+table price_change_hurdles
+	lineageTag: 2c5f035f-8b2d-54f1-a5e1-30dd56d02e69
+
+	column category
+		dataType: string
+		lineageTag: 690c7e8b-fc99-554a-b3f3-b442406fca7a
+		summarizeBy: none
+		sourceColumn: category
+
+	column price_change_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 9aaa24b8-52e7-54ee-b980-417d985b38f3
+		summarizeBy: sum
+		sourceColumn: price_change_pct
+
+	column contribution_margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: a3ecfc6e-4a29-564b-8b03-8b5b240d978a
+		summarizeBy: sum
+		sourceColumn: contribution_margin_pct
+
+	column break_even_volume_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 1da65848-0867-5932-b241-3b490247dce4
+		summarizeBy: sum
+		sourceColumn: break_even_volume_pct
+
+	column expected_volume_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 23cb4b2b-3e83-535e-b186-656b56212960
+		summarizeBy: sum
+		sourceColumn: expected_volume_pct
+
+	column expected_margin_change
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 55d9b326-cd77-5fff-9fbc-db650c8fd2a3
+		summarizeBy: sum
+		sourceColumn: expected_margin_change
+
+	column expected_revenue_change
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: e38c18f6-52da-59da-b3f2-4eac19ce8871
+		summarizeBy: sum
+		sourceColumn: expected_revenue_change
+
+	column verdict
+		dataType: string
+		lineageTag: 799c0dae-872c-563f-a2fb-6101bf07a89f
+		summarizeBy: none
+		sourceColumn: verdict
+
+	partition price_change_hurdles = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\price_change_hurdles.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"category", type text}, {"price_change_pct", type number}, {"contribution_margin_pct", type number}, {"break_even_volume_pct", type number}, {"expected_volume_pct", type number}, {"expected_margin_change", type number}, {"expected_revenue_change", type number}, {"verdict", type text}})
+				in
+				    Typed

@@ -1,0 +1,9 @@
+commodity_index,passthrough_to_list,passthrough_to_pocket,discount_giveback,best_lag_quarters,r_squared,observations,usable,reason,index_change_pct,list_price_change_pct,realised_price_change_pct,cumulative_passthrough,material_move
+Agricultural Inputs,0.2425,0.3086,-0.0661,0,0.3807,11,True,ok,0.201,0.1414,0.0561,0.7036,True
+Aluminium & Composites,0.2987,0.797,-0.4983,0,0.5401,11,True,ok,0.1132,0.0792,0.0239,0.6997,True
+Chemicals & Actives,0.2478,0.3798,-0.132,0,0.4623,11,True,ok,-0.0078,0.0103,-0.0223,,False
+Cotton & Textiles,0.6437,0.396,0.2477,0,0.6984,11,True,ok,0.0039,0.0137,-0.1167,,False
+Paper & Pulp,0.5386,0.6118,-0.0732,0,0.5271,11,True,ok,0.2516,0.2246,0.1989,0.8928,True
+Resin & Plastics,0.4328,0.4998,-0.067,0,0.6262,11,True,ok,0.0373,0.0069,-0.0324,0.1857,True
+Semiconductor & Components,0.58,0.4778,0.1022,0,0.7224,11,True,ok,-0.1776,-0.1248,-0.1019,0.7024,True
+Steel & Fabricated Metal,0.563,0.9765,-0.4134,0,0.8214,11,True,ok,-0.1318,-0.0884,-0.073,0.6712,True

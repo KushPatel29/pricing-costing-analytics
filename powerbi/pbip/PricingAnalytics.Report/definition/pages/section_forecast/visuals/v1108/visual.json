@@ -1,0 +1,129 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1108",
+  "position": {
+    "x": 654,
+    "y": 442,
+    "z": 2007,
+    "height": 258,
+    "width": 410,
+    "tabOrder": 2007
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "forecast_summary"
+                    }
+                  },
+                  "Property": "measure"
+                }
+              },
+              "queryRef": "forecast_summary.measure",
+              "nativeQueryRef": "measure"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "forecast_summary"
+                    }
+                  },
+                  "Property": "method"
+                }
+              },
+              "queryRef": "forecast_summary.method",
+              "nativeQueryRef": "method"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Backtest WAPE"
+                }
+              },
+              "queryRef": "_Measures.Backtest WAPE",
+              "nativeQueryRef": "Backtest WAPE"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Holdout WAPE"
+                }
+              },
+              "queryRef": "_Measures.Holdout WAPE",
+              "nativeQueryRef": "Holdout WAPE"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Forecast change %"
+                }
+              },
+              "queryRef": "_Measures.Forecast change %",
+              "nativeQueryRef": "Forecast change %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Every series'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled Every series. Lists the chosen method, Backtest WAPE, Holdout WAPE and Forecast change % for each forecast measure.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,226 @@
+table fact_sales
+	lineageTag: 5eee3bb1-6a9c-5e8e-9e83-25dd7df8b865
+
+	column month
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: edeca2cf-035e-5f4b-94ea-13a737343435
+		summarizeBy: none
+		sourceColumn: month
+
+	column product_id
+		dataType: string
+		lineageTag: a9ed3269-597f-5502-a661-77ac1bd66bf1
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column customer_id
+		dataType: string
+		lineageTag: 817f3ee0-57ef-53a2-815c-d81577730c73
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column quantity_units
+		dataType: double
+		formatString: #,0
+		lineageTag: 9a92ae6c-bbf6-5336-8f69-f929bf6a9376
+		summarizeBy: sum
+		sourceColumn: quantity_units
+
+	column list_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 3167949e-8a1c-5f90-b24b-23260b2518f4
+		summarizeBy: sum
+		sourceColumn: list_price
+
+	column volume_discount
+		dataType: double
+		formatString: #,0
+		lineageTag: aca2af16-cba1-505f-b110-d81c1b3cdf40
+		summarizeBy: sum
+		sourceColumn: volume_discount
+
+	column contract_discount
+		dataType: double
+		formatString: #,0
+		lineageTag: 52f54130-7d2b-5e64-a8ee-114f471f884f
+		summarizeBy: sum
+		sourceColumn: contract_discount
+
+	column promo_discount
+		dataType: double
+		formatString: #,0
+		lineageTag: f33329b1-abaa-5b45-82cd-c29cba4e3c0c
+		summarizeBy: sum
+		sourceColumn: promo_discount
+
+	column rebate
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 34a22ee3-c1bf-52be-9001-bd5fd050c4c1
+		summarizeBy: sum
+		sourceColumn: rebate
+
+	column coop_marketing
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 89a58af8-b9b6-5aeb-ad9f-4267274868ec
+		summarizeBy: sum
+		sourceColumn: coop_marketing
+
+	column payment_terms_discount
+		dataType: double
+		formatString: #,0
+		lineageTag: 5369f0fa-4879-54db-876e-930d3ec3531e
+		summarizeBy: sum
+		sourceColumn: payment_terms_discount
+
+	column freight_allowance
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b257ca17-d8c3-5001-8754-9be7c352e047
+		summarizeBy: sum
+		sourceColumn: freight_allowance
+
+	column freight_out
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 7dd9a89a-7fb2-5a7b-828b-38147a89bfa5
+		summarizeBy: sum
+		sourceColumn: freight_out
+
+	column order_handling
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 22d8b5ea-8609-5ae9-b3f6-95c1aa49cdf2
+		summarizeBy: sum
+		sourceColumn: order_handling
+
+	column returns_credits
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 93be4bbd-bd42-5de2-a736-3c8a9bdc6c45
+		summarizeBy: sum
+		sourceColumn: returns_credits
+
+	column final_cost
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 98ead906-d6d9-553b-9b88-192eaa7cfe4f
+		summarizeBy: sum
+		sourceColumn: final_cost
+
+	column standard_cost
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: bf77c697-a3cd-5157-bdf1-4f2570e55ef9
+		summarizeBy: sum
+		sourceColumn: standard_cost
+
+	column on_promotion
+		dataType: int64
+		formatString: 0
+		lineageTag: 71f02f7e-9a04-5c3c-9890-e222af2515d4
+		summarizeBy: sum
+		sourceColumn: on_promotion
+
+	column promo_mechanic
+		dataType: string
+		lineageTag: 6ed3abe5-a398-5a8d-a375-50d4eb8ed93c
+		summarizeBy: none
+		sourceColumn: promo_mechanic
+
+	column invoice_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 6ae1beff-448f-5914-8aa3-35004bbf1be9
+		summarizeBy: sum
+		sourceColumn: invoice_price
+
+	column net_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 5733ff80-aee2-52b8-9aca-becf9335a2c4
+		summarizeBy: sum
+		sourceColumn: net_price
+
+	column pocket_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: fc9abd4a-d213-5f7b-8307-ac5a22d5fec0
+		summarizeBy: sum
+		sourceColumn: pocket_price
+
+	column on_invoice_discounts
+		dataType: double
+		formatString: #,0
+		lineageTag: b6256656-5e87-5441-9629-504bf95fbc1f
+		summarizeBy: sum
+		sourceColumn: on_invoice_discounts
+
+	column off_invoice_deductions
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d75d01ee-b105-5d8a-9632-bfe547e6a53b
+		summarizeBy: sum
+		sourceColumn: off_invoice_deductions
+
+	column cost_to_serve
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 2d4745d5-4708-57e1-9b30-1cc34a55daad
+		summarizeBy: sum
+		sourceColumn: cost_to_serve
+
+	column revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 336d8c44-2925-5564-a6bb-fe7b3500d26d
+		summarizeBy: sum
+		sourceColumn: revenue
+
+	column pocket_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: a266cd3b-d8e5-53c4-854a-0c031f17fb50
+		summarizeBy: sum
+		sourceColumn: pocket_revenue
+
+	column cogs
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d05c5395-6018-5f9a-a9ae-25c937982797
+		summarizeBy: sum
+		sourceColumn: cogs
+
+	column standard_cogs
+		dataType: double
+		formatString: #,0.00
+		lineageTag: a46464ad-53dd-5e63-beeb-fb03015126c2
+		summarizeBy: sum
+		sourceColumn: standard_cogs
+
+	column pocket_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: cb203059-4a7a-5454-be45-1b47172b019b
+		summarizeBy: sum
+		sourceColumn: pocket_margin
+
+	column list_value
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: c48cd517-91a7-53a8-a5b6-0b4f4b9f9557
+		summarizeBy: sum
+		sourceColumn: list_value
+
+	partition fact_sales = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\data\fact_sales.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type date}, {"product_id", type text}, {"customer_id", type text}, {"quantity_units", type number}, {"list_price", type number}, {"volume_discount", type number}, {"contract_discount", type number}, {"promo_discount", type number}, {"rebate", type number}, {"coop_marketing", type number}, {"payment_terms_discount", type number}, {"freight_allowance", type number}, {"freight_out", type number}, {"order_handling", type number}, {"returns_credits", type number}, {"final_cost", type number}, {"standard_cost", type number}, {"on_promotion", Int64.Type}, {"promo_mechanic", type text}, {"invoice_price", type number}, {"net_price", type number}, {"pocket_price", type number}, {"on_invoice_discounts", type number}, {"off_invoice_deductions", type number}, {"cost_to_serve", type number}, {"revenue", type number}, {"pocket_revenue", type number}, {"cogs", type number}, {"standard_cogs", type number}, {"pocket_margin", type number}, {"list_value", type number}})
+				in
+				    Typed

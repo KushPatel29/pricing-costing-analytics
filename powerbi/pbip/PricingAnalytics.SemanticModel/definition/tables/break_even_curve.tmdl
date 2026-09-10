@@ -1,0 +1,61 @@
+table break_even_curve
+	lineageTag: 7421c125-cf09-5a78-8a77-8861dae5cbb8
+
+	column quantity
+		dataType: double
+		formatString: #,0
+		lineageTag: 191e695e-6eed-58ca-b212-d29b80b1f0e8
+		summarizeBy: sum
+		sourceColumn: quantity
+
+	column revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 93fdda7c-3cb9-5c80-867a-124a23f65452
+		summarizeBy: sum
+		sourceColumn: revenue
+
+	column fixed_cost
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: a3f57237-fe47-5556-9b4e-72491d6320ad
+		summarizeBy: sum
+		sourceColumn: fixed_cost
+
+	column variable_cost
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: ed378257-273a-5184-9a44-54a4503cab8d
+		summarizeBy: sum
+		sourceColumn: variable_cost
+
+	column total_cost
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 1968eed8-9561-55b4-8398-f9d74f2a2841
+		summarizeBy: sum
+		sourceColumn: total_cost
+
+	column profit
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 143913c0-7da7-503f-ab93-d59b8a8b6123
+		summarizeBy: sum
+		sourceColumn: profit
+
+	column is_break_even
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 5389ed07-f921-50d0-9bee-04cf9f132661
+		summarizeBy: sum
+		sourceColumn: is_break_even
+
+	partition break_even_curve = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\break_even_curve.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"quantity", type number}, {"revenue", type number}, {"fixed_cost", type number}, {"variable_cost", type number}, {"total_cost", type number}, {"profit", type number}, {"is_break_even", type number}})
+				in
+				    Typed

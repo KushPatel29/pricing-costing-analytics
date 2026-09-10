@@ -1,0 +1,143 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0808",
+  "position": {
+    "x": 20,
+    "y": 442,
+    "z": 1707,
+    "height": 258,
+    "width": 1030,
+    "tabOrder": 1707
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_product"
+                    }
+                  },
+                  "Property": "description"
+                }
+              },
+              "queryRef": "dim_product.description",
+              "nativeQueryRef": "description"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_customer"
+                    }
+                  },
+                  "Property": "customer_name"
+                }
+              },
+              "queryRef": "dim_customer.customer_name",
+              "nativeQueryRef": "customer_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "deal_scores"
+                    }
+                  },
+                  "Property": "verdict"
+                }
+              },
+              "queryRef": "deal_scores.verdict",
+              "nativeQueryRef": "verdict"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Deal margin %"
+                }
+              },
+              "queryRef": "_Measures.Deal margin %",
+              "nativeQueryRef": "Deal margin %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Extended margin"
+                }
+              },
+              "queryRef": "_Measures.Extended margin",
+              "nativeQueryRef": "Extended margin"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "deal_scores"
+                    }
+                  },
+                  "Property": "approver"
+                }
+              },
+              "queryRef": "deal_scores.approver",
+              "nativeQueryRef": "approver"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'The exception report'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled The exception report. Lists product, customer, verdict, margin, extended margin and approver for each scored line.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

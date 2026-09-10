@@ -1,0 +1,100 @@
+table dim_customer
+	lineageTag: ff845ada-c8e7-56d5-a42b-899a5bb84716
+
+	column customer_id
+		dataType: string
+		lineageTag: 5567c3a2-e04e-5f83-ab39-36dde1aaad0d
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column customer_name
+		dataType: string
+		lineageTag: d1a9da47-5e82-5cf6-ac2b-016bfd62c602
+		summarizeBy: none
+		sourceColumn: customer_name
+
+	column segment
+		dataType: string
+		lineageTag: 710d4c61-b450-54f3-a1e9-23f38ec99549
+		summarizeBy: none
+		sourceColumn: segment
+
+	column channel
+		dataType: string
+		lineageTag: 72d5a8dd-0ddc-53de-84e0-00dadff7242f
+		summarizeBy: none
+		sourceColumn: channel
+
+	column region
+		dataType: string
+		lineageTag: 53d725bb-9523-5d9a-a812-102e5c67383c
+		summarizeBy: none
+		sourceColumn: region
+
+	column tier
+		dataType: string
+		lineageTag: 0df6c745-2adf-5030-9ee2-14633aaddf63
+		summarizeBy: none
+		sourceColumn: tier
+
+	column price_list
+		dataType: string
+		lineageTag: 97eb9fa7-4dcd-5c65-9b7d-d4857cee61b0
+		summarizeBy: none
+		sourceColumn: price_list
+
+	column payment_terms
+		dataType: string
+		lineageTag: e35ff168-4f10-5c64-a72a-31102636bb93
+		summarizeBy: none
+		sourceColumn: payment_terms
+
+	column range_breadth
+		dataType: int64
+		formatString: 0
+		lineageTag: 601516cf-ab42-513c-a58d-1396fee23b8e
+		summarizeBy: sum
+		sourceColumn: range_breadth
+
+	column volume_weight
+		dataType: double
+		formatString: #,0
+		lineageTag: 0a896da1-45e7-5010-8235-dff21a61ecc6
+		summarizeBy: sum
+		sourceColumn: volume_weight
+
+	column price_sensitivity
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 7410e61d-6259-50ba-b0a0-06f866861cb3
+		summarizeBy: sum
+		sourceColumn: price_sensitivity
+
+	column avg_drop_size_units
+		dataType: double
+		formatString: #,0
+		lineageTag: 2aaf60e3-a3ba-5980-814b-0a2c11c0701f
+		summarizeBy: sum
+		sourceColumn: avg_drop_size_units
+
+	column salesperson_id
+		dataType: string
+		lineageTag: c459a4b3-3e2b-512c-b92a-dcb749bbb78d
+		summarizeBy: none
+		sourceColumn: salesperson_id
+
+	column salesperson
+		dataType: string
+		lineageTag: b5899b9e-0afa-5d70-a58e-15492e27ddbe
+		summarizeBy: none
+		sourceColumn: salesperson
+
+	partition dim_customer = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\data\dim_customer.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"customer_id", type text}, {"customer_name", type text}, {"segment", type text}, {"channel", type text}, {"region", type text}, {"tier", type text}, {"price_list", type text}, {"payment_terms", type text}, {"range_breadth", Int64.Type}, {"volume_weight", type number}, {"price_sensitivity", type number}, {"avg_drop_size_units", type number}, {"salesperson_id", type text}, {"salesperson", type text}})
+				in
+				    Typed

@@ -1,0 +1,128 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1207",
+  "position": {
+    "x": 20,
+    "y": 442,
+    "z": 2106,
+    "height": 258,
+    "width": 620,
+    "tabOrder": 2106
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "profitability"
+                    }
+                  },
+                  "Property": "member"
+                }
+              },
+              "queryRef": "profitability.member",
+              "nativeQueryRef": "member",
+              "active": true
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Profitability revenue"
+                }
+              },
+              "queryRef": "_Measures.Profitability revenue",
+              "nativeQueryRef": "Profitability revenue"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Profitability margin %"
+                }
+              },
+              "queryRef": "_Measures.Profitability margin %",
+              "nativeQueryRef": "Profitability margin %"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Profitability contribution"
+                }
+              },
+              "queryRef": "_Measures.Profitability contribution",
+              "nativeQueryRef": "Profitability contribution"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Revenue against margin'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Scatter chart titled Revenue against margin. One point per member of the chosen cut: Profitability revenue on the x axis, Profitability margin % on the y axis, sized by Profitability contribution.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

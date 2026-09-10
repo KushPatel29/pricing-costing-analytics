@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0303",
+  "position": {
+    "x": 634,
+    "y": 20,
+    "z": 1202,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 1202
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Products over market"
+                }
+              },
+              "queryRef": "_Measures.Products over market",
+              "nativeQueryRef": "Products over market"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Products over market: priced above 115 on the index.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0905",
+  "position": {
+    "x": 20,
+    "y": 152,
+    "z": 1804,
+    "height": 272,
+    "width": 780,
+    "tabOrder": 1804
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "break_even_curve"
+                    }
+                  },
+                  "Property": "quantity"
+                }
+              },
+              "queryRef": "break_even_curve.quantity",
+              "nativeQueryRef": "quantity",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Curve revenue"
+                }
+              },
+              "queryRef": "_Measures.Curve revenue",
+              "nativeQueryRef": "Curve revenue"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Curve fixed cost"
+                }
+              },
+              "queryRef": "_Measures.Curve fixed cost",
+              "nativeQueryRef": "Curve fixed cost"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Curve variable cost"
+                }
+              },
+              "queryRef": "_Measures.Curve variable cost",
+              "nativeQueryRef": "Curve variable cost"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Curve total cost"
+                }
+              },
+              "queryRef": "_Measures.Curve total cost",
+              "nativeQueryRef": "Curve total cost"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Break-even: where revenue overtakes total cost'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Line chart titled Break-even where revenue overtakes total cost. Plots Curve revenue, Curve fixed cost, Curve variable cost and Curve total cost against quantity. The crossing point is the break-even volume.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

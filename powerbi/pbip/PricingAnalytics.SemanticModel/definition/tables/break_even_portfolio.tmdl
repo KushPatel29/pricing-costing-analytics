@@ -1,0 +1,100 @@
+table break_even_portfolio
+	lineageTag: abadf166-2ae8-5def-a327-52d0680a35f4
+
+	column scope
+		dataType: string
+		lineageTag: 6c4565ab-bb5a-5b4c-b025-b5e9f587de81
+		summarizeBy: none
+		sourceColumn: scope
+
+	column member
+		dataType: string
+		lineageTag: 6834eabb-b163-5e70-b308-ed768d0821a9
+		summarizeBy: none
+		sourceColumn: member
+
+	column revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 462bfaef-870b-5709-a65c-f6470b399ed9
+		summarizeBy: sum
+		sourceColumn: revenue
+
+	column variable_cost
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 70b2f5a0-07e8-52b1-bf43-66457c2c768a
+		summarizeBy: sum
+		sourceColumn: variable_cost
+
+	column contribution
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 91cd9b70-1756-5131-a45a-b41232d089d9
+		summarizeBy: sum
+		sourceColumn: contribution
+
+	column contribution_ratio
+		dataType: double
+		formatString: #,0.00
+		lineageTag: f6a0291d-aa2f-5e8b-9026-e25b9902c8b7
+		summarizeBy: sum
+		sourceColumn: contribution_ratio
+
+	column fixed_costs
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: a87dd566-49d8-5f65-953a-f1c144931cd5
+		summarizeBy: sum
+		sourceColumn: fixed_costs
+
+	column break_even_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 0098970c-4e2c-5dcc-a991-824fb801a5dc
+		summarizeBy: sum
+		sourceColumn: break_even_revenue
+
+	column break_even_volume
+		dataType: double
+		formatString: #,0
+		lineageTag: ad44e19a-ac2f-5bfa-bfad-ff1fb130706b
+		summarizeBy: sum
+		sourceColumn: break_even_volume
+
+	column operating_profit
+		dataType: double
+		formatString: #,0.00
+		lineageTag: ac881100-ef29-563b-bd22-009ef109788f
+		summarizeBy: sum
+		sourceColumn: operating_profit
+
+	column margin_of_safety
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 8a91dba9-afac-5771-963f-72fefe7070db
+		summarizeBy: sum
+		sourceColumn: margin_of_safety
+
+	column operating_leverage
+		dataType: double
+		formatString: #,0.00
+		lineageTag: bbf02f11-8a8a-5c11-ae48-d3dce1dcb999
+		summarizeBy: sum
+		sourceColumn: operating_leverage
+
+	column note
+		dataType: string
+		lineageTag: fc283fc2-7746-5cc9-adcd-dbe5f65d5903
+		summarizeBy: none
+		sourceColumn: note
+
+	partition break_even_portfolio = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\break_even_portfolio.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"scope", type text}, {"member", type text}, {"revenue", type number}, {"variable_cost", type number}, {"contribution", type number}, {"contribution_ratio", type number}, {"fixed_costs", type number}, {"break_even_revenue", type number}, {"break_even_volume", type number}, {"operating_profit", type number}, {"margin_of_safety", type number}, {"operating_leverage", type number}, {"note", type text}})
+				in
+				    Typed

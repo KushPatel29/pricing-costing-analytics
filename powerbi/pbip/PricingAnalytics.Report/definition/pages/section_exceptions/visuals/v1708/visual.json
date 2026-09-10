@@ -1,0 +1,157 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1708",
+  "position": {
+    "x": 20,
+    "y": 442,
+    "z": 2607,
+    "height": 258,
+    "width": 1030,
+    "tabOrder": 2607
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "guardrail_exceptions"
+                    }
+                  },
+                  "Property": "alert"
+                }
+              },
+              "queryRef": "guardrail_exceptions.alert",
+              "nativeQueryRef": "alert"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "guardrail_exceptions"
+                    }
+                  },
+                  "Property": "code"
+                }
+              },
+              "queryRef": "guardrail_exceptions.code",
+              "nativeQueryRef": "code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_product"
+                    }
+                  },
+                  "Property": "description"
+                }
+              },
+              "queryRef": "dim_product.description",
+              "nativeQueryRef": "description"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_customer"
+                    }
+                  },
+                  "Property": "customer_name"
+                }
+              },
+              "queryRef": "dim_customer.customer_name",
+              "nativeQueryRef": "customer_name"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Exception margin %"
+                }
+              },
+              "queryRef": "_Measures.Exception margin %",
+              "nativeQueryRef": "Exception margin %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Exception margin at risk"
+                }
+              },
+              "queryRef": "_Measures.Exception margin at risk",
+              "nativeQueryRef": "Exception margin at risk"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "guardrail_exceptions"
+                    }
+                  },
+                  "Property": "action"
+                }
+              },
+              "queryRef": "guardrail_exceptions.action",
+              "nativeQueryRef": "action"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'The exception report'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled The exception report. Each breach with its alert level, code, product, customer, Exception margin % and Exception margin at risk, and the action in plain words.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

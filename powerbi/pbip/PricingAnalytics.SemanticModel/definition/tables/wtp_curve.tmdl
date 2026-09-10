@@ -1,0 +1,45 @@
+table wtp_curve
+	lineageTag: af333c19-c141-50fd-a985-a02a51e504b1
+
+	column segment
+		dataType: string
+		lineageTag: 4609ec84-4892-55b3-bb6f-8845509e706f
+		summarizeBy: none
+		sourceColumn: segment
+
+	column kind
+		dataType: string
+		lineageTag: 1046f099-03d3-5d57-91a0-c1ba78748e5a
+		summarizeBy: none
+		sourceColumn: kind
+
+	column price_ratio
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: fd8b80e6-2771-57b1-b0a4-3d29b915aca3
+		summarizeBy: sum
+		sourceColumn: price_ratio
+
+	column win_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: d3ec1260-14ba-52b4-8f8f-e42b1473f8ee
+		summarizeBy: sum
+		sourceColumn: win_rate
+
+	column quotes
+		dataType: double
+		formatString: #,0
+		lineageTag: 261f09db-8676-580b-ae09-9ea0bf0b2780
+		summarizeBy: sum
+		sourceColumn: quotes
+
+	partition wtp_curve = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\wtp_curve.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"segment", type text}, {"kind", type text}, {"price_ratio", type number}, {"win_rate", type number}, {"quotes", type number}})
+				in
+				    Typed

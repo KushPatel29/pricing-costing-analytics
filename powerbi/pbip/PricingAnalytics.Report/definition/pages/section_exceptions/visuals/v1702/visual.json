@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1702",
+  "position": {
+    "x": 330,
+    "y": 20,
+    "z": 2601,
+    "height": 118,
+    "width": 296,
+    "tabOrder": 2601
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Red exceptions"
+                }
+              },
+              "queryRef": "_Measures.Red exceptions",
+              "nativeQueryRef": "Red exceptions"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Red exceptions: margin leaving on today's invoices.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

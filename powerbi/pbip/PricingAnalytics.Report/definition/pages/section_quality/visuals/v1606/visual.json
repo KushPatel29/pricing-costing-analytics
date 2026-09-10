@@ -1,0 +1,143 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1606",
+  "position": {
+    "x": 534,
+    "y": 152,
+    "z": 2505,
+    "height": 272,
+    "width": 726,
+    "tabOrder": 2505
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "data_quality_checks"
+                    }
+                  },
+                  "Property": "code"
+                }
+              },
+              "queryRef": "data_quality_checks.code",
+              "nativeQueryRef": "code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "data_quality_checks"
+                    }
+                  },
+                  "Property": "check"
+                }
+              },
+              "queryRef": "data_quality_checks.check",
+              "nativeQueryRef": "check"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "data_quality_checks"
+                    }
+                  },
+                  "Property": "severity"
+                }
+              },
+              "queryRef": "data_quality_checks.severity",
+              "nativeQueryRef": "severity"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Rows failing"
+                }
+              },
+              "queryRef": "_Measures.Rows failing",
+              "nativeQueryRef": "Rows failing"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Fail rate"
+                }
+              },
+              "queryRef": "_Measures.Fail rate",
+              "nativeQueryRef": "Fail rate"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "data_quality_checks"
+                    }
+                  },
+                  "Property": "action"
+                }
+              },
+              "queryRef": "data_quality_checks.action",
+              "nativeQueryRef": "action"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Every rule, and what to do about it'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled Every rule and what to do about it. Lists each check with its severity, Rows failing, Fail rate and the action to take.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

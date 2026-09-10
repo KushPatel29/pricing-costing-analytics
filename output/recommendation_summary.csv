@@ -1,0 +1,7 @@
+action,products,volume_units,revenue_delta,margin_delta
+Fix cost,16,196026.35,0.0,0.0
+Discontinue,2,2504.34,-116592.1,5157.32
+Increase,111,2658715.18,-1215248.12,1725696.06
+Discount,2,15471.53,10118.44,1768.39
+Bundle,7,13938.18,0.0,0.0
+Maintain,102,3658889.84,0.0,0.0

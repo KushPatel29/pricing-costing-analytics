@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0502",
+  "position": {
+    "x": 330,
+    "y": 20,
+    "z": 1401,
+    "height": 118,
+    "width": 296,
+    "tabOrder": 1401
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Yield variance"
+                }
+              },
+              "queryRef": "_Measures.Yield variance",
+              "nativeQueryRef": "Yield variance"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Yield variance: material used beyond standard recovery.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

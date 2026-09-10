@@ -1,0 +1,51 @@
+table cost_element_waterfall
+	lineageTag: 19bf3e7b-3274-5752-9ecd-20b10f4ccdc1
+
+	column step
+		dataType: string
+		lineageTag: 0503d7a0-c307-55a8-90c5-6305ffe75463
+		summarizeBy: none
+		sourceColumn: step
+
+	column kind
+		dataType: string
+		lineageTag: 01d8029a-f708-5987-9ff4-6ec213a8d28d
+		summarizeBy: none
+		sourceColumn: kind
+
+	column amount
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 106551aa-8bf3-5a43-b2fe-d44311f4b7a3
+		summarizeBy: sum
+		sourceColumn: amount
+
+	column running
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 88144b2c-6dfa-597f-a785-97fda888bfe6
+		summarizeBy: sum
+		sourceColumn: running
+
+	column sort_order
+		dataType: string
+		lineageTag: 31a3129a-1797-5759-a4fe-50a026aad50f
+		summarizeBy: none
+		sourceColumn: sort_order
+
+	column delta
+		dataType: double
+		formatString: #,0.00
+		lineageTag: c487c23a-243d-5427-89ee-b57aefb41ba9
+		summarizeBy: sum
+		sourceColumn: delta
+
+	partition cost_element_waterfall = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\cost_element_waterfall.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"step", type text}, {"kind", type text}, {"amount", type number}, {"running", type number}, {"sort_order", type text}, {"delta", type number}})
+				in
+				    Typed

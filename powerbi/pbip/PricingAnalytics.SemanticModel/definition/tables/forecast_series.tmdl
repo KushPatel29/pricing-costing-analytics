@@ -1,0 +1,59 @@
+table forecast_series
+	lineageTag: e52e3867-9064-5d48-a8ba-9ba1c8ff7401
+
+	column measure
+		dataType: string
+		lineageTag: ff0987b1-0b1d-5a7c-aec7-e0f688b2cad1
+		summarizeBy: none
+		sourceColumn: measure
+
+	column month
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: c2d454d0-475f-561e-89ea-9eaaa63b9ddb
+		summarizeBy: none
+		sourceColumn: month
+
+	column actual
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 246fb5ca-c189-5f80-8c27-60959a208405
+		summarizeBy: sum
+		sourceColumn: actual
+
+	column forecast
+		dataType: double
+		formatString: #,0.00
+		lineageTag: a3481465-077e-5b60-b41b-a15a66a07c08
+		summarizeBy: sum
+		sourceColumn: forecast
+
+	column low
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d9eb09c8-daf9-5d7b-9160-38ba5e968d9b
+		summarizeBy: sum
+		sourceColumn: low
+
+	column high
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 4d07cff1-1e72-5bf0-b9c2-4f7684976e58
+		summarizeBy: sum
+		sourceColumn: high
+
+	column period
+		dataType: string
+		lineageTag: 9ffec31e-b22a-5a54-85ac-140b1fd4e053
+		summarizeBy: none
+		sourceColumn: period
+
+	partition forecast_series = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\forecast_series.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"measure", type text}, {"month", type date}, {"actual", type number}, {"forecast", type number}, {"low", type number}, {"high", type number}, {"period", type text}})
+				in
+				    Typed

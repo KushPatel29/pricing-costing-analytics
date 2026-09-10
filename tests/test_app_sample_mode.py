@@ -19,12 +19,30 @@ import pytest
 
 from seed.generate_sheets import generate
 
-APP_SOURCE = pathlib.Path("app/streamlit_app.py").read_text(encoding="utf-8")
+# The calculator moved out of the entry script when the app became multi-page:
+# app/streamlit_app.py is now a router, and the tool itself is one view. These
+# assertions are about the tool, so they follow it.
+CALCULATOR = pathlib.Path("app/views/cost_to_price_calculator.py")
+APP_SOURCE = CALCULATOR.read_text(encoding="utf-8")
+ROUTER_SOURCE = pathlib.Path("app/streamlit_app.py").read_text(encoding="utf-8")
 
 
 class TestSampleModeWiring:
     def test_app_parses(self):
         ast.parse(APP_SOURCE)
+        ast.parse(ROUTER_SOURCE)
+
+    def test_the_router_still_lists_the_calculator(self):
+        """
+        A view Streamlit never routes to is dead code that still imports and
+        still passes every other test in this file.
+        """
+        assert "cost_to_price_calculator.py" in ROUTER_SOURCE
+
+    def test_every_view_on_disk_is_routed(self):
+        views = {p.name for p in pathlib.Path("app/views").glob("*.py")}
+        unrouted = sorted(v for v in views if v not in ROUTER_SOURCE)
+        assert not unrouted, f"views nothing navigates to: {unrouted}"
 
     def test_sample_is_the_default_source(self):
         """

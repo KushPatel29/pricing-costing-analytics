@@ -1,0 +1,47 @@
+table markup_vs_margin
+	lineageTag: 59b9c4d6-7527-5035-8fe5-ad22456c135f
+
+	column rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 6d94acc9-6d60-5243-96d6-ab79f5cfbf5f
+		summarizeBy: sum
+		sourceColumn: rate
+
+	column margin_if_read_as_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: f251f565-6f2a-53c5-b9b7-cc17c2c08492
+		summarizeBy: sum
+		sourceColumn: margin_if_read_as_margin
+
+	column markup_needed_for_that_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 5f5a18e5-61b9-5b54-845c-a82b42c00dc3
+		summarizeBy: sum
+		sourceColumn: markup_needed_for_that_margin
+
+	column margin_if_read_as_markup
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 03283df5-8b9d-5244-ad7d-5879ce4a9160
+		summarizeBy: sum
+		sourceColumn: margin_if_read_as_markup
+
+	column gap
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 2a179a8d-8e3c-5b96-8284-d39d142befd6
+		summarizeBy: sum
+		sourceColumn: gap
+
+	partition markup_vs_margin = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\markup_vs_margin.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"rate", type number}, {"margin_if_read_as_margin", type number}, {"markup_needed_for_that_margin", type number}, {"margin_if_read_as_markup", type number}, {"gap", type number}})
+				in
+				    Typed

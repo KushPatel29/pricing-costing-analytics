@@ -1,0 +1,132 @@
+table competitive_index
+	lineageTag: 14eb6f2c-eb91-50ca-a964-0daa79d2614d
+
+	column product_id
+		dataType: string
+		lineageTag: 452d18c4-4f58-518c-a6c8-83490deea5f6
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column month
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 2b49150c-df49-5cda-a5c9-0feae6155b0d
+		summarizeBy: none
+		sourceColumn: month
+
+	column our_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 7d437aad-6c13-552e-9c1d-44392640a174
+		summarizeBy: sum
+		sourceColumn: our_price
+
+	column market_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 7339ce15-5d0c-59c6-ae20-93a556f2349a
+		summarizeBy: sum
+		sourceColumn: market_price
+
+	column price_index
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 760b228b-aa89-5fb0-9f6c-cd7daf9ef5f7
+		summarizeBy: none
+		sourceColumn: price_index
+
+	column gap_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 4fb0e339-3fed-50e8-982c-e3586ad67843
+		summarizeBy: sum
+		sourceColumn: gap_pct
+
+	column position
+		dataType: string
+		lineageTag: 7b17b9cd-7579-5117-9392-8d39cdf5d990
+		summarizeBy: none
+		sourceColumn: position
+
+	column observations
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e37a576-9a6c-5569-9015-7f7aad0c63ec
+		summarizeBy: sum
+		sourceColumn: observations
+
+	column competitors_seen
+		dataType: int64
+		formatString: 0
+		lineageTag: 3fa38724-466e-52b0-80d8-d2c0ca10445b
+		summarizeBy: sum
+		sourceColumn: competitors_seen
+
+	column max_age_days
+		dataType: double
+		formatString: #,0
+		lineageTag: 8a34a440-4d05-5065-8b1a-7e59242a1960
+		summarizeBy: sum
+		sourceColumn: max_age_days
+
+	column pocket_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 0dddba01-bc48-5676-b53b-d700347a0dc3
+		summarizeBy: sum
+		sourceColumn: pocket_revenue
+
+	column quantity_units
+		dataType: double
+		formatString: #,0
+		lineageTag: 74c476cc-b400-5736-acbb-f52d5dd8e2bb
+		summarizeBy: sum
+		sourceColumn: quantity_units
+
+	column cogs
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 8d3c4a07-5978-53db-ac58-662c8a899586
+		summarizeBy: sum
+		sourceColumn: cogs
+
+	column description
+		dataType: string
+		lineageTag: 642d3667-cf60-5a40-9e00-d9080ec9d3b9
+		summarizeBy: none
+		sourceColumn: description
+
+	column category
+		dataType: string
+		lineageTag: b415482c-90da-5039-8800-74ec7bf45dcf
+		summarizeBy: none
+		sourceColumn: category
+
+	column brand_tier
+		dataType: string
+		lineageTag: 290bac2d-2db7-5616-aef9-93b37e711bf8
+		summarizeBy: none
+		sourceColumn: brand_tier
+
+	column lifecycle
+		dataType: string
+		lineageTag: 3b83c5c3-4042-50ae-a98c-dbcaf9ac4628
+		summarizeBy: none
+		sourceColumn: lifecycle
+
+	column margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 4ca21c95-a9f1-5434-83a6-2078d701aedc
+		summarizeBy: sum
+		sourceColumn: margin_pct
+
+	partition competitive_index = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\competitive_index.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"product_id", type text}, {"month", type date}, {"our_price", type number}, {"market_price", type number}, {"price_index", type number}, {"gap_pct", type number}, {"position", type text}, {"observations", Int64.Type}, {"competitors_seen", Int64.Type}, {"max_age_days", type number}, {"pocket_revenue", type number}, {"quantity_units", type number}, {"cogs", type number}, {"description", type text}, {"category", type text}, {"brand_tier", type text}, {"lifecycle", type text}, {"margin_pct", type number}})
+				in
+				    Typed

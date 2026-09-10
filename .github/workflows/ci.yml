@@ -18,12 +18,62 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: python -m pip install --upgrade pip
-      - run: pip install -r requirements.txt pytest ruff
+      - run: pip install -r requirements.txt pytest ruff jsonschema referencing openpyxl
+
       - name: ruff
-        run: ruff check costing seed tests
+        run: ruff check app costing docs engine powerbi pricing seed tests
+
+      # Regenerate everything before testing. The committed data and analysis
+      # outputs are convenience, not source: if the generator has drifted from
+      # what is committed, the tests should run against the generator.
+      - name: Generate the market data
+        run: python -m seed.generate_market
+      # The ERP extract, with its injected defects. The quality rules and the
+      # reconciliation run against this rather than against the clean tables,
+      # which is the only way either of them means anything.
+      - name: Generate the ERP extract
+        run: python -m seed.generate_erp
+      - name: Build the analysis outputs
+        run: python -m engine.build_pricing_analytics
+      - name: Stage the ERP extract and run the quality rules
+        run: python -m engine.stage_erp
+      # The same six marts in SQL and in pandas. The test holds them to 1e-8 of
+      # each other; this step is what makes sure the SQL still runs at all.
+      - name: SQL marts agree with the Python
+        run: python -m engine.run_sql --check
+      # sample_data/ is gitignored; the tests build the workbooks in memory.
+      # This step only checks that writing them to disk still works, which is
+      # what the README tells a reader to do.
+      - name: Sample workbooks write
+        run: python -m seed.generate_sheets
+
       - name: pytest
         run: python -m pytest -q
-      - name: Sample sheets generate
-        run: python -m seed.generate_sheets
-      - name: Streamlit app imports cleanly
-        run: python -c "import ast,pathlib; ast.parse(pathlib.Path('app/streamlit_app.py').read_text(encoding='utf-8')); print('ok')"
+
+      # The PBIP is generated from powerbi/model_spec.py and report_spec.py.
+      # A hand-edit to the committed project has to fail here rather than
+      # survive until the next regeneration silently reverts it.
+      - name: Power BI project matches its spec
+        run: python -m powerbi.build_pbip --check
+
+      - name: Data dictionary matches the CSVs
+        run: python -m docs.build_dictionary --check
+
+      # Parsing is not running. Every view is also executed headlessly by
+      # tests/test_app_views_render.py, which is the step that catches a
+      # renamed column -- this one only catches a file that will not compile,
+      # and it stays because it says which file in one line.
+      - name: Every app file parses
+        run: |
+          python - <<'PY'
+          import ast, pathlib, sys
+          failures = []
+          for path in sorted(pathlib.Path("app").rglob("*.py")):
+              try:
+                  ast.parse(path.read_text(encoding="utf-8"))
+              except SyntaxError as error:
+                  failures.append(f"{path}: {error}")
+          if failures:
+              sys.exit("\n".join(failures))
+          print(f"parsed {len(list(pathlib.Path('app').rglob('*.py')))} app files")
+          PY

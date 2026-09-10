@@ -1,0 +1,72 @@
+table cost_element_summary
+	lineageTag: a4920eda-2f5e-5861-9e9d-c7cd5248174d
+
+	column fiscal_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b122aab-a1fd-5d33-806c-468c83a6edae
+		summarizeBy: sum
+		sourceColumn: fiscal_year
+
+	column cost_element
+		dataType: string
+		lineageTag: 503cb7e3-fb1e-50c2-8bb1-fb8febdb8c85
+		summarizeBy: none
+		sourceColumn: cost_element
+
+	column behaviour
+		dataType: string
+		lineageTag: e4fa5af3-d15d-5bb2-be8c-93955dc50a7a
+		summarizeBy: none
+		sourceColumn: behaviour
+
+	column standard_cost
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: a5608581-ccdc-5445-8e47-df4990ef3552
+		summarizeBy: sum
+		sourceColumn: standard_cost
+
+	column actual_cost
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 886227e6-4d08-5143-9995-f6d946f978aa
+		summarizeBy: sum
+		sourceColumn: actual_cost
+
+	column volume_units
+		dataType: double
+		formatString: #,0
+		lineageTag: 4352dd6f-c03d-5a3e-8e92-fb9aea467869
+		summarizeBy: sum
+		sourceColumn: volume_units
+
+	column variance
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 79a4a746-a6e5-5a94-b58d-14bf74830748
+		summarizeBy: sum
+		sourceColumn: variance
+
+	column variance_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: dd745f96-c765-58db-8280-defa421c4f3e
+		summarizeBy: sum
+		sourceColumn: variance_pct
+
+	column verdict
+		dataType: string
+		lineageTag: 2ea91f5e-9a0b-5416-a28a-7cd33c2ae642
+		summarizeBy: none
+		sourceColumn: verdict
+
+	partition cost_element_summary = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\cost_element_summary.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"fiscal_year", Int64.Type}, {"cost_element", type text}, {"behaviour", type text}, {"standard_cost", type number}, {"actual_cost", type number}, {"volume_units", type number}, {"variance", type number}, {"variance_pct", type number}, {"verdict", type text}})
+				in
+				    Typed

@@ -1,0 +1,78 @@
+table wtp_fits
+	lineageTag: e5d8b42e-c4b3-5dd6-8397-ff3acecdacc2
+
+	column segment
+		dataType: string
+		lineageTag: 394ab033-99ec-55df-b6be-217dd726cfa8
+		summarizeBy: none
+		sourceColumn: segment
+
+	column quotes
+		dataType: int64
+		formatString: 0
+		lineageTag: 589367d5-72ea-5c96-be4e-26cfa7444f0d
+		summarizeBy: sum
+		sourceColumn: quotes
+
+	column wins
+		dataType: int64
+		formatString: 0
+		lineageTag: bcd3575e-af8e-568d-9c81-647227875ed1
+		summarizeBy: sum
+		sourceColumn: wins
+
+	column win_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: f9a0fc99-471a-514e-8de5-4eea2abda355
+		summarizeBy: sum
+		sourceColumn: win_rate
+
+	column intercept
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 54e930f9-710e-58b4-ad9b-7727a5e9ea9e
+		summarizeBy: sum
+		sourceColumn: intercept
+
+	column slope
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 99749056-c9d8-5413-a36f-ead427465198
+		summarizeBy: sum
+		sourceColumn: slope
+
+	column indifference_price_ratio
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 6bf3710b-1d9a-5267-836e-6028c11047b1
+		summarizeBy: sum
+		sourceColumn: indifference_price_ratio
+
+	column converged
+		dataType: boolean
+		lineageTag: 3d13d7f6-d8f4-5c4d-9d15-df0ac40c7dd0
+		summarizeBy: none
+		sourceColumn: converged
+
+	column usable
+		dataType: boolean
+		lineageTag: 0df152af-d599-5046-954a-526a8ec7507c
+		summarizeBy: none
+		sourceColumn: usable
+
+	column reason
+		dataType: string
+		lineageTag: 2124287a-315e-5946-826f-93b24ca1b874
+		summarizeBy: none
+		sourceColumn: reason
+
+	partition wtp_fits = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\wtp_fits.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"segment", type text}, {"quotes", Int64.Type}, {"wins", Int64.Type}, {"win_rate", type number}, {"intercept", type number}, {"slope", type number}, {"indifference_price_ratio", type number}, {"converged", type logical}, {"usable", type logical}, {"reason", type text}})
+				in
+				    Typed

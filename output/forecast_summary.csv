@@ -1,0 +1,5 @@
+measure,method,next_6_total,last_6_actual,backtest_wape,holdout_wape,change_pct
+Volume (units),Seasonal naive with drift,3527583.1199,3183658.97,0.0455,0.0428,0.108
+Pocket revenue,Seasonal naive with drift,146715494.0447,123325073.21,0.0935,0.11,0.1897
+Cost of goods,Seasonal naive with drift,117384856.5643,93600653.15,0.1208,0.1251,0.2541
+Gross margin,Seasonal naive,28709267.44,29724420.06,0.1411,0.2654,-0.0342

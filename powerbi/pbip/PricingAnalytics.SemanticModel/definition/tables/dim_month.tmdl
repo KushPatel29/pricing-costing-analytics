@@ -1,0 +1,86 @@
+table dim_month
+	lineageTag: e1ccc966-f36d-5023-b6fa-fe3f925b6f15
+
+	column month
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: d6708244-0318-57b7-ae70-0bb7763fe2cc
+		summarizeBy: none
+		sourceColumn: month
+
+	column month_name
+		dataType: string
+		lineageTag: 2a28cac1-de5e-5da5-acc7-e5c4b7f5bc10
+		summarizeBy: none
+		sourceColumn: month_name
+		sortByColumn: month_index
+
+	column month_short
+		dataType: string
+		lineageTag: dca7ea15-47b4-55c2-ae99-e9ed3ad46983
+		summarizeBy: none
+		sourceColumn: month_short
+
+	column month_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e286780-3962-5889-b8b2-3edb5320c73a
+		summarizeBy: sum
+		sourceColumn: month_number
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: a620a00c-764f-53ef-a9dd-a1e85d8999f3
+		summarizeBy: sum
+		sourceColumn: year
+
+	column quarter
+		dataType: string
+		lineageTag: b60d01bb-c085-52d6-81a3-82ba122e2ecd
+		summarizeBy: none
+		sourceColumn: quarter
+
+	column fiscal_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 5bf33d93-44c2-5e75-adb1-5cd94821208c
+		summarizeBy: sum
+		sourceColumn: fiscal_year
+
+	column fiscal_year_label
+		dataType: string
+		lineageTag: 1f4fb83f-15ca-5268-97b3-2276bca2ce39
+		summarizeBy: none
+		sourceColumn: fiscal_year_label
+
+	column fiscal_period
+		dataType: int64
+		formatString: 0
+		lineageTag: f70e2346-b999-5078-9a58-95d05a1b6095
+		summarizeBy: sum
+		sourceColumn: fiscal_period
+
+	column fiscal_quarter
+		dataType: string
+		lineageTag: d9d83251-587a-5e25-9bf6-3f514f8551bd
+		summarizeBy: none
+		sourceColumn: fiscal_quarter
+		sortByColumn: month_index
+
+	column month_index
+		dataType: int64
+		formatString: 0
+		lineageTag: 8fcb38eb-b13c-5109-8f1e-7aeac48d91c3
+		summarizeBy: none
+		sourceColumn: month_index
+
+	partition dim_month = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\data\dim_month.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type date}, {"month_name", type text}, {"month_short", type text}, {"month_number", Int64.Type}, {"year", Int64.Type}, {"quarter", type text}, {"fiscal_year", Int64.Type}, {"fiscal_year_label", type text}, {"fiscal_period", Int64.Type}, {"fiscal_quarter", type text}, {"month_index", Int64.Type}})
+				in
+				    Typed

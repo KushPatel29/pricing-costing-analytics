@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0201",
+  "position": {
+    "x": 20,
+    "y": 20,
+    "z": 1100,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 1100
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "List value"
+                }
+              },
+              "queryRef": "_Measures.List value",
+              "nativeQueryRef": "List value"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Total list value of everything shipped.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

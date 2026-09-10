@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0702",
+  "position": {
+    "x": 330,
+    "y": 20,
+    "z": 1601,
+    "height": 118,
+    "width": 296,
+    "tabOrder": 1601
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Band width %"
+                }
+              },
+              "queryRef": "_Measures.Band width %",
+              "nativeQueryRef": "Band width %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Median price band width, tenth to ninetieth percentile.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

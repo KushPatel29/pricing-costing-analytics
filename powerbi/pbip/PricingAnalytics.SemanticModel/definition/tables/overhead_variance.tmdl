@@ -1,0 +1,79 @@
+table overhead_variance
+	lineageTag: 23743be5-4846-5415-8ee7-7a0cc9a76a71
+
+	column month
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 62a5c40c-7aa6-599b-8700-2f39c1b2351e
+		summarizeBy: none
+		sourceColumn: month
+
+	column cost_pool
+		dataType: string
+		lineageTag: 7f8cb4d1-581b-5fd9-a766-e5680901ea31
+		summarizeBy: none
+		sourceColumn: cost_pool
+
+	column budgeted_rate_unit
+		dataType: double
+		formatString: 0.0%
+		lineageTag: f6eeb488-4e5c-58dd-bccd-53b4e294fd2c
+		summarizeBy: sum
+		sourceColumn: budgeted_rate_unit
+
+	column actual_overhead
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 8853ce48-1e10-5ffa-acf7-f3706e7d252b
+		summarizeBy: sum
+		sourceColumn: actual_overhead
+
+	column absorbed_overhead
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 113ff31e-21e5-53dd-aa77-8b4fd2f96a70
+		summarizeBy: sum
+		sourceColumn: absorbed_overhead
+
+	column spending_variance
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: d109321f-138c-559c-a981-65872ffe82ba
+		summarizeBy: sum
+		sourceColumn: spending_variance
+
+	column spending_verdict
+		dataType: string
+		lineageTag: c5561743-ac10-527a-ba6d-363abe4246d0
+		summarizeBy: none
+		sourceColumn: spending_verdict
+
+	column volume_variance
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: bfbb5ff8-8b94-59c7-9a90-dec087b3f86a
+		summarizeBy: sum
+		sourceColumn: volume_variance
+
+	column volume_verdict
+		dataType: string
+		lineageTag: 1ac9590e-6928-5e4c-9eb7-d9b2e443fefb
+		summarizeBy: none
+		sourceColumn: volume_verdict
+
+	column total_variance
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: b6a5b4e2-3631-57d0-8dbd-12586e32afb6
+		summarizeBy: sum
+		sourceColumn: total_variance
+
+	partition overhead_variance = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\overhead_variance.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type date}, {"cost_pool", type text}, {"budgeted_rate_unit", type number}, {"actual_overhead", type number}, {"absorbed_overhead", type number}, {"spending_variance", type number}, {"spending_verdict", type text}, {"volume_variance", type number}, {"volume_verdict", type text}, {"total_variance", type number}})
+				in
+				    Typed

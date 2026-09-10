@@ -1,0 +1,238 @@
+product_id,description,category,customers,lines,volume_units,p10_price,median_price,p90_price,band_width_pct,realisation_opportunity,lines_below_median
+20140,USB-C Charger - Premium brand,Consumer Electronics,10,78,343488.2,140.6962,172.8765,204.5483,0.3694,3142294.91,23
+20137,Bluetooth Speaker - Private label,Consumer Electronics,8,73,152787.0,52.6697,62.6593,71.0106,0.2927,450623.57,24
+20171,Socket Set - Premium brand,Tools & Hardware,8,78,133439.7,25.7184,34.8296,48.6562,0.6586,359247.74,25
+20048,Adjustable Dumbbells - Value,Sporting Goods,6,48,30438.8,62.5762,87.0335,98.7335,0.4154,297497.42,15
+20184,Wireless Earbuds - Premium brand,Consumer Electronics,9,90,85453.1,90.965,103.2357,126.9981,0.349,264082.3,30
+20042,Wireless Earbuds - Private label,Consumer Electronics,7,73,40590.9,47.4683,66.7815,77.6976,0.4527,226437.92,18
+20013,Webcam - National brand,Consumer Electronics,8,80,115955.6,60.6524,66.5763,71.5104,0.1631,225598.27,28
+20034,Smart Plug - Premium brand,Consumer Electronics,12,109,121101.1,63.6634,69.616,77.4041,0.1974,199379.01,26
+20055,Smart Plug - Premium brand,Consumer Electronics,6,50,41907.7,120.4635,133.8543,138.4484,0.1344,189500.14,13
+20077,Wireless Earbuds - Premium brand,Consumer Electronics,8,72,34889.2,115.1374,130.0225,155.2107,0.3082,188266.89,25
+20183,Cooler Box - Premium brand,Sporting Goods,10,88,97846.2,61.9615,67.9025,72.5813,0.1564,154918.33,29
+20115,USB-C Charger - National brand,Consumer Electronics,8,79,67936.6,36.8202,43.378,49.4141,0.2903,142543.88,29
+20003,Storage Bins - National brand,Home & Kitchen,10,86,139879.5,20.2664,23.0734,25.6589,0.2337,140633.38,31
+20020,Cutlery Block - Private label,Home & Kitchen,11,91,63871.4,45.4304,50.9934,60.754,0.3005,133001.83,26
+20084,Webcam - Value,Consumer Electronics,9,74,222341.1,13.7816,15.5255,17.9663,0.2695,100958.1,20
+20071,Wireless Earbuds - Value,Consumer Electronics,8,74,36478.5,43.8041,53.088,59.8847,0.3029,99167.79,24
+20237,Bluetooth Speaker - Value,Consumer Electronics,14,127,57770.7,41.2487,46.6134,52.8864,0.2497,96155.18,34
+20230,Air Fryer - Private label,Home & Kitchen,8,86,74762.1,27.9601,31.9987,38.3396,0.3244,91210.86,14
+20082,Smart Plug - Private label,Consumer Electronics,7,71,53965.2,25.9851,31.0904,34.3665,0.2696,90309.58,29
+20025,Bedding Set - National brand,Home & Kitchen,10,78,36500.5,26.164,32.283,36.0359,0.3058,85300.01,15
+20202,Tool Chest - Value,Tools & Hardware,13,91,41602.9,30.9993,38.255,43.074,0.3156,84916.47,27
+20173,Safety Boots - Value,Apparel & Accessories,9,83,163555.1,16.778,18.3768,20.5749,0.2066,84674.79,17
+20192,Laser Measure - National brand,Tools & Hardware,8,65,81952.0,11.1788,15.5706,19.6747,0.5456,84206.22,15
+20141,Socket Set - Premium brand,Tools & Hardware,13,95,46721.2,31.3835,37.7373,43.3155,0.3162,84048.55,30
+20113,Bedding Set - Private label,Home & Kitchen,7,80,59115.0,23.1419,27.8673,32.4887,0.3354,77770.48,23
+20058,Safety Glasses - Value,Tools & Hardware,10,81,59041.5,21.4082,24.7621,31.706,0.4159,74594.81,30
+20054,Wireless Earbuds - Private label,Consumer Electronics,7,63,12085.7,83.3739,101.8155,121.6998,0.3764,73305.05,15
+20167,27in Monitor - Value,Consumer Electronics,10,78,25250.7,54.5651,65.2908,71.387,0.2576,70942.65,29
+20133,Mechanical Keyboard - Premium brand,Consumer Electronics,13,115,41595.2,25.1666,29.7837,35.4788,0.3462,69481.6,42
+20119,HDMI Cable - National brand,Consumer Electronics,13,120,58980.2,34.3886,38.2118,41.6266,0.1894,66916.75,51
+20066,Laser Measure - National brand,Tools & Hardware,7,72,109301.0,10.258,12.4942,14.5846,0.3463,65876.63,20
+20089,Bluetooth Speaker - National brand,Consumer Electronics,8,82,34190.7,49.2453,54.8065,66.3623,0.3123,65104.73,30
+20191,27in Monitor - Value,Consumer Electronics,12,97,68278.6,45.847,48.9105,54.5064,0.177,64722.44,21
+20164,LED Floor Lamp - National brand,Home & Kitchen,10,104,25700.9,34.994,42.6195,47.0226,0.2822,62333.83,32
+20186,Camping Tent - Value,Sporting Goods,4,33,28535.4,50.911,58.1514,63.0188,0.2082,61702.81,11
+20045,Safety Boots - National brand,Apparel & Accessories,7,69,47101.2,12.7291,16.7784,19.2526,0.3888,60628.04,20
+20180,Sunscreen SPF50 - National brand,Health & Beauty,15,131,161988.7,12.5294,13.8732,15.3215,0.2013,58545.61,37
+20118,Blender - Premium brand,Home & Kitchen,11,90,26807.8,58.216,64.7921,70.5671,0.1906,56766.75,23
+20145,Laminator - Premium brand,Office & Stationery,15,123,66395.1,11.838,14.5401,16.5108,0.3214,53733.83,33
+20176,Work Gloves - Value,Tools & Hardware,7,52,28181.7,37.7191,42.9088,48.2073,0.2444,52136.13,13
+20102,Blender - National brand,Home & Kitchen,9,83,18913.5,43.184,51.5092,56.6148,0.2607,52069.97,32
+20217,Cycling Helmet - National brand,Sporting Goods,8,73,44800.5,36.3226,41.223,45.8954,0.2322,49527.27,18
+20002,Safety Boots - Value,Apparel & Accessories,9,82,35738.3,38.8137,43.6129,47.4601,0.1983,48580.15,21
+20105,Pet Bed - Premium brand,Pet Supplies,11,104,107972.3,15.8297,17.0595,18.8219,0.1754,48169.11,33
+20158,Cutlery Block - Value,Home & Kitchen,11,76,40829.3,21.829,25.1428,33.2199,0.453,43840.27,12
+20177,Nonstick Cookware Set - Value,Home & Kitchen,8,77,51410.4,26.4572,28.7599,31.7624,0.1845,41744.84,17
+20109,Vitamin C Serum - Premium brand,Health & Beauty,10,84,49056.4,20.1743,22.8536,24.3289,0.1818,39626.06,23
+20219,Vitamin C Serum - Premium brand,Health & Beauty,11,103,121082.0,8.2625,9.6586,10.3789,0.2191,39414.41,25
+20086,Vacuum Sealer - Private label,Home & Kitchen,13,99,33641.9,31.1075,37.0352,41.792,0.2885,38191.06,26
+20143,Tool Chest - National brand,Tools & Hardware,5,36,20005.1,42.9208,49.6317,58.1904,0.3077,38127.28,13
+20193,Wireless Earbuds - Private label,Consumer Electronics,12,120,21490.8,29.3319,35.3064,38.0296,0.2463,37435.09,46
+20100,HDMI Cable - Value,Consumer Electronics,6,47,37498.1,13.7096,16.9572,19.5326,0.3434,37335.64,16
+20056,Chew Toy Pack - Premium brand,Pet Supplies,10,92,44705.9,38.2679,40.6351,43.9002,0.1386,36977.13,30
+20214,Safety Boots - National brand,Apparel & Accessories,5,51,48705.6,9.2217,12.0235,14.285,0.4211,36656.41,15
+20006,Electric Toothbrush - Premium brand,Health & Beauty,11,97,34395.2,28.9867,32.6803,34.974,0.1832,35394.33,31
+20227,Socket Set - National brand,Tools & Hardware,5,39,22239.5,25.7302,29.4612,32.264,0.2218,35053.33,13
+20061,Multivitamin - Premium brand,Health & Beauty,15,111,51139.2,18.0183,20.2163,21.4511,0.1698,34529.91,37
+20000,Wireless Earbuds - Private label,Consumer Electronics,7,52,25865.2,41.3917,45.1838,48.6639,0.1609,33791.78,16
+20017,Webcam - National brand,Consumer Electronics,18,167,40695.9,19.6061,22.4846,24.9553,0.2379,33100.73,71
+20206,Camping Tent - National brand,Sporting Goods,9,71,5393.5,41.0929,59.119,66.1009,0.423,33051.32,22
+20187,Dry Dog Food - Value,Pet Supplies,14,114,19716.5,35.2323,39.5526,46.322,0.2804,33023.74,25
+20085,Power Bank - Value,Consumer Electronics,9,76,15056.5,37.0428,42.9804,49.9252,0.2997,32964.79,10
+20051,HDMI Cable - National brand,Consumer Electronics,15,118,14641.4,53.0351,59.6904,67.8021,0.2474,31870.3,41
+20213,Dry Dog Food - Private label,Pet Supplies,5,35,56042.8,28.4572,30.6071,33.6448,0.1695,30946.29,11
+20063,Camping Tent - Premium brand,Sporting Goods,9,83,9662.4,66.302,77.2866,86.5733,0.2623,30719.38,23
+20111,27in Monitor - Private label,Consumer Electronics,13,106,18875.5,25.405,30.1538,32.3846,0.2315,30390.69,49
+20135,Bluetooth Speaker - Premium brand,Consumer Electronics,8,73,12826.2,46.0737,54.6218,61.88,0.2894,29768.59,27
+20097,Wireless Earbuds - Private label,Consumer Electronics,9,84,18590.8,53.2057,59.4411,62.4363,0.1553,29570.23,28
+20225,Air Fryer - Premium brand,Home & Kitchen,8,75,11552.9,68.6943,76.8214,86.0579,0.226,29297.18,11
+20235,Camping Tent - Value,Sporting Goods,12,110,17311.5,52.0208,57.3696,63.4366,0.199,28698.92,21
+20142,Yoga Mat - National brand,Sporting Goods,6,63,28461.8,22.253,24.879,28.9513,0.2692,27680.88,16
+20120,Bluetooth Speaker - Premium brand,Consumer Electronics,11,98,24528.0,48.8238,53.6762,61.1283,0.2292,27104.49,10
+20216,Work Gloves - National brand,Tools & Hardware,11,108,40198.9,33.0715,34.843,36.6543,0.1028,25566.72,31
+20232,Webcam - Value,Consumer Electronics,7,76,32682.7,31.1497,33.5504,36.8342,0.1694,25252.66,27
+20022,Tool Chest - Value,Tools & Hardware,8,83,28227.2,33.4304,36.24,38.9846,0.1533,25034.17,15
+20222,Work Gloves - National brand,Tools & Hardware,9,79,43713.9,17.3745,18.7145,20.9787,0.1926,24655.07,24
+20210,Safety Boots - Premium brand,Apparel & Accessories,13,114,23622.4,32.9063,37.667,41.702,0.2335,24164.14,27
+20190,Work Jacket - National brand,Apparel & Accessories,7,68,17381.4,25.7223,30.3277,33.3377,0.2511,23906.58,25
+20091,Electric Toothbrush - Premium brand,Health & Beauty,9,90,35270.7,22.8366,25.2271,27.4908,0.1845,23750.8,29
+20094,Body Wash - Premium brand,Health & Beauty,8,75,100882.9,13.7875,14.6044,15.8511,0.1413,23718.09,23
+20236,Mechanical Keyboard - Value,Consumer Electronics,10,95,9975.2,29.901,38.1872,44.6933,0.3874,23135.62,31
+20024,Tool Chest - Value,Tools & Hardware,11,78,18275.9,30.9555,35.1999,41.6159,0.3029,22926.94,33
+20083,Smart Plug - Private label,Consumer Electronics,10,82,15319.6,38.2584,44.1749,48.4288,0.2302,22608.42,35
+20220,Body Wash - Premium brand,Health & Beauty,9,88,42715.4,11.5134,13.5791,15.1427,0.2673,22403.48,30
+20039,Blender - Premium brand,Home & Kitchen,8,58,22892.0,65.6072,68.0924,76.4804,0.1597,20176.48,13
+20028,Adjustable Dumbbells - Value,Sporting Goods,10,96,74189.4,25.2229,26.0888,28.1048,0.1105,20091.77,20
+20229,Chew Toy Pack - National brand,Pet Supplies,10,83,54419.3,16.1636,17.3253,18.9917,0.1632,18906.78,16
+20147,Laptop Sleeve - Value,Apparel & Accessories,12,96,16385.5,20.3929,24.6767,27.4941,0.2878,18528.97,27
+20178,Socket Set - National brand,Tools & Hardware,5,44,26323.1,18.3486,21.0588,23.5833,0.2486,18194.87,16
+20037,Socket Set - National brand,Tools & Hardware,10,78,34965.4,24.0462,25.5601,29.5392,0.2149,17896.19,14
+20065,Adjustable Dumbbells - Private label,Sporting Goods,10,83,22791.7,32.4003,34.2504,37.8049,0.1578,16273.02,16
+20081,Vacuum Sealer - Premium brand,Home & Kitchen,16,127,13893.4,50.0998,54.0514,60.6192,0.1946,15992.36,24
+20004,Camping Tent - Premium brand,Sporting Goods,9,75,40830.0,20.9216,22.9626,25.1945,0.1861,15785.29,15
+20008,Electric Toothbrush - Value,Health & Beauty,11,100,15133.7,12.8631,16.8369,18.6966,0.3465,15674.38,40
+20112,Safety Glasses - National brand,Tools & Hardware,6,50,15475.4,33.2516,38.4899,40.4578,0.1872,15577.81,18
+20018,Mechanical Keyboard - Premium brand,Consumer Electronics,5,44,2781.0,57.6844,74.193,83.0865,0.3424,14684.47,12
+20239,HDMI Cable - National brand,Consumer Electronics,9,18,5185.3,42.588,49.4185,54.8806,0.2487,14670.33,5
+20159,Cooler Box - Value,Sporting Goods,7,45,17931.0,14.5457,17.3564,23.1694,0.4969,14605.71,10
+20107,Adjustable Dumbbells - Private label,Sporting Goods,8,69,11947.0,39.9372,43.1897,46.7626,0.158,14434.91,24
+20224,Laser Measure - Value,Tools & Hardware,6,52,16318.4,6.3331,9.2581,10.0771,0.4044,14371.51,14
+20179,Nonstick Cookware Set - Private label,Home & Kitchen,17,38,6081.8,29.6067,35.7051,42.1058,0.3501,13952.94,8
+20211,Storage Bins - National brand,Home & Kitchen,13,137,22666.7,29.849,32.0454,33.857,0.1251,13645.41,35
+20036,Laptop Sleeve - National brand,Apparel & Accessories,7,54,37864.9,8.0723,9.4109,10.4693,0.2547,13307.71,14
+20155,27in Monitor - Value,Consumer Electronics,6,61,2813.5,95.701,113.506,132.8959,0.3277,12808.44,27
+20163,Sunscreen SPF50 - National brand,Health & Beauty,8,56,49870.8,13.8989,14.4772,15.7594,0.1285,12448.14,14
+20009,Toner Cartridge - Private label,Office & Stationery,10,95,8812.7,23.3072,27.2525,30.5655,0.2663,12445.48,21
+20021,Bedding Set - National brand,Home & Kitchen,7,71,10537.6,31.8501,36.0841,38.7941,0.1924,12311.88,32
+20130,HDMI Cable - Value,Consumer Electronics,7,67,5567.7,50.4145,57.0246,63.1397,0.2232,12292.81,27
+20165,Electric Toothbrush - National brand,Health & Beauty,13,113,37938.1,13.9826,14.8886,15.991,0.1349,12256.77,30
+20101,Multivitamin - Premium brand,Health & Beauty,13,53,17316.5,9.9481,11.967,13.116,0.2647,11462.5,17
+20088,Hair Dryer - Premium brand,Health & Beauty,10,89,38653.5,13.1574,14.0572,15.528,0.1686,11281.5,25
+20134,Cotton T-Shirt 5pk - Private label,Apparel & Accessories,3,26,15281.9,18.5559,20.5436,22.0849,0.1718,10968.09,10
+20103,Safety Glasses - Private label,Tools & Hardware,6,58,6517.0,25.9812,31.5743,34.4924,0.2696,10860.69,26
+20035,Camping Tent - Premium brand,Sporting Goods,11,101,20244.8,37.1892,38.5254,43.6059,0.1666,10816.34,16
+20090,Yoga Mat - Private label,Sporting Goods,6,51,30724.9,25.5241,26.0028,28.8711,0.1287,10803.94,15
+20205,Aquarium Filter - National brand,Pet Supplies,11,106,32626.3,16.2869,17.5799,19.3293,0.1731,10744.51,27
+20032,Body Wash - National brand,Health & Beauty,6,55,17620.3,12.0043,13.9527,14.9703,0.2126,10715.41,19
+20196,Cycling Helmet - National brand,Sporting Goods,6,57,21296.6,16.4645,17.7676,24.0252,0.4255,10680.33,11
+20153,Multivitamin - Premium brand,Health & Beauty,7,76,16136.3,20.0067,22.1033,23.1823,0.1437,10507.48,39
+20169,Laser Measure - Value,Tools & Hardware,12,89,14896.7,15.6423,17.6609,20.2554,0.2612,10485.49,35
+20212,Resistance Bands - National brand,Sporting Goods,10,104,16121.4,32.6902,35.682,38.8255,0.1719,10448.67,27
+20053,Hair Dryer - National brand,Health & Beauty,11,84,23919.4,15.7206,17.2201,18.7635,0.1767,10267.6,29
+20068,Safety Glasses - Value,Tools & Hardware,7,50,16469.2,12.8525,14.8654,17.1652,0.2901,10190.73,16
+20209,Desk Organiser - National brand,Office & Stationery,6,65,40861.1,10.7833,11.3827,12.4659,0.1478,9992.91,14
+20075,Sunscreen SPF50 - Private label,Health & Beauty,8,73,16007.6,15.1245,17.6336,18.7595,0.2061,9958.2,26
+20093,Vacuum Sealer - Private label,Home & Kitchen,19,150,6909.0,40.5909,45.2934,52.0576,0.2532,9837.63,32
+20041,Cordless Drill - National brand,Tools & Hardware,5,40,6928.7,28.4007,32.7806,37.4829,0.2771,9828.64,17
+20073,Gel Pens - Value,Office & Stationery,7,57,28527.6,15.5573,16.2343,19.0564,0.2155,9470.94,8
+20116,Dry Dog Food - National brand,Pet Supplies,6,43,20527.3,8.1686,9.52,10.1708,0.2103,9339.81,18
+20010,Adjustable Dumbbells - National brand,Sporting Goods,6,59,12246.4,34.7117,37.2093,40.088,0.1445,9202.83,13
+20188,Grooming Kit - National brand,Pet Supplies,9,90,38962.8,8.7512,9.4554,10.1802,0.1511,9116.18,32
+20182,USB-C Charger - Value,Consumer Electronics,8,76,8867.9,21.0257,24.3457,27.9427,0.2841,9076.53,27
+20154,Aquarium Filter - Premium brand,Pet Supplies,10,86,4966.1,33.2033,38.7032,42.8809,0.25,8982.57,20
+20122,Dry-Erase Board - National brand,Office & Stationery,10,107,35203.6,9.1437,10.3066,11.1413,0.1938,8979.67,32
+20172,Dry-Erase Board - National brand,Office & Stationery,12,97,7464.3,19.8837,22.943,29.7049,0.4281,8816.86,29
+20046,Blender - Value,Home & Kitchen,9,87,24907.0,12.1858,13.1622,15.0123,0.2147,8654.59,17
+20114,Fastener Assortment - National brand,Tools & Hardware,12,105,8020.8,44.8549,48.679,53.9171,0.1862,8613.8,37
+20030,Dry Dog Food - National brand,Pet Supplies,8,61,33303.6,12.352,13.232,14.0564,0.1288,8590.85,14
+20129,Filing Boxes - National brand,Office & Stationery,11,107,20854.7,15.408,16.3505,18.4485,0.186,8579.51,29
+20161,Blender - Premium brand,Home & Kitchen,8,74,13722.5,27.8051,29.7203,31.7444,0.1325,8430.26,22
+20060,Storage Bins - Private label,Home & Kitchen,9,74,10615.5,16.9996,20.4594,22.7495,0.281,8327.99,21
+20195,Mechanical Keyboard - National brand,Consumer Electronics,9,84,5381.3,38.6659,41.9399,44.76,0.1453,7886.14,33
+20012,Vacuum Sealer - Private label,Home & Kitchen,10,71,18663.8,12.1415,13.3561,14.9952,0.2137,7808.67,21
+20170,Laminator - National brand,Office & Stationery,15,141,9441.5,18.1719,20.4448,23.5169,0.2614,7606.73,31
+20078,27in Monitor - Value,Consumer Electronics,9,79,7996.6,15.8432,19.0997,21.3237,0.2869,7597.41,27
+20231,Mechanical Keyboard - National brand,Consumer Electronics,4,19,13458.4,39.4873,40.3173,41.6477,0.0536,7327.69,7
+20136,Safety Boots - Private label,Apparel & Accessories,11,84,12954.4,13.1807,14.7876,16.3515,0.2144,7157.38,26
+20149,Cycling Helmet - National brand,Sporting Goods,6,31,3872.9,50.0348,55.7212,59.9772,0.1784,6754.31,10
+20204,Pet Bed - Private label,Pet Supplies,5,44,5883.8,18.6529,22.507,24.1695,0.2451,6616.86,19
+20124,Cat Litter - National brand,Pet Supplies,5,48,19650.9,11.6373,12.8428,13.7914,0.1677,6608.93,21
+20131,Air Fryer - Value,Home & Kitchen,12,109,9165.4,15.4041,18.0247,23.9984,0.4768,6529.61,29
+20156,Resistance Bands - Value,Sporting Goods,9,86,7144.0,57.944,59.7821,66.6766,0.1461,6261.4,16
+20033,Hair Dryer - Value,Health & Beauty,5,42,9365.5,7.0127,10.1978,12.6717,0.5549,6192.04,13
+20194,Pet Bed - National brand,Pet Supplies,7,53,15168.9,21.5474,23.0115,26.0768,0.1968,6116.32,10
+20001,Multivitamin - Private label,Health & Beauty,15,127,19073.5,14.3663,15.2147,16.3739,0.132,6038.87,45
+20019,Gel Pens - Private label,Office & Stationery,8,67,19035.8,6.4199,7.5101,8.0671,0.2193,5683.34,18
+20067,Toner Cartridge - National brand,Office & Stationery,12,95,21090.0,7.4847,8.4337,9.0987,0.1914,5493.59,27
+20152,Copy Paper - Private label,Office & Stationery,6,66,12671.5,16.9404,18.5065,19.8608,0.1578,5476.17,31
+20072,Toner Cartridge - National brand,Office & Stationery,8,73,18464.7,11.0417,12.0044,13.9183,0.2396,5323.87,17
+20160,Pet Bed - Private label,Pet Supplies,8,55,16497.6,10.9446,12.359,12.9313,0.1607,5311.45,19
+20223,Desk Organiser - Private label,Office & Stationery,6,70,15014.1,11.0363,12.1185,13.6638,0.2168,5200.09,17
+20104,Laminator - National brand,Office & Stationery,7,63,11074.4,12.5992,14.438,15.8342,0.2241,5188.93,20
+20057,Cordless Drill - National brand,Tools & Hardware,7,66,4228.9,29.5771,33.8025,37.8134,0.2437,5186.63,25
+20157,Camping Tent - Value,Sporting Goods,7,62,3779.7,41.3199,45.8185,50.11,0.1918,5176.76,11
+20016,Gel Pens - National brand,Office & Stationery,11,104,6935.0,14.0679,16.715,17.6734,0.2157,5119.08,43
+20014,Grooming Kit - Premium brand,Pet Supplies,3,28,4390.7,32.4172,35.6065,40.2504,0.22,5009.11,9
+20199,Sunscreen SPF50 - Value,Health & Beauty,13,92,35818.8,11.1409,11.5671,12.6958,0.1344,4994.27,21
+20218,Blender - Premium brand,Home & Kitchen,5,43,7109.7,33.3491,35.2323,38.5396,0.1473,4714.1,10
+20126,Mechanical Keyboard - National brand,Consumer Electronics,10,100,3330.2,38.0047,43.496,49.55,0.2654,4707.77,34
+20121,Copy Paper - National brand,Office & Stationery,7,57,15296.0,13.6847,14.5139,15.5069,0.1255,4560.21,17
+20201,Dry Dog Food - Value,Pet Supplies,8,66,9895.3,15.669,17.1942,20.1449,0.2603,4457.52,13
+20203,Laminator - National brand,Office & Stationery,8,59,14725.4,13.543,14.6137,16.7898,0.2222,4323.67,12
+20127,Bedding Set - Premium brand,Home & Kitchen,9,22,10361.7,36.4563,37.7822,42.7969,0.1678,4290.16,5
+20162,Gel Pens - Private label,Office & Stationery,12,112,6634.5,13.4314,15.8493,18.1635,0.2986,4193.83,36
+20106,Tool Chest - Private label,Tools & Hardware,2,16,4867.3,15.023,16.9082,17.2248,0.1302,4115.74,4
+20095,Gel Pens - Private label,Office & Stationery,13,108,10956.5,12.05,13.1772,14.3395,0.1737,4110.12,24
+20023,Adjustable Dumbbells - National brand,Sporting Goods,8,79,7868.4,23.6065,25.3536,27.4127,0.1501,4022.0,11
+20040,Blender - Private label,Home & Kitchen,9,73,2873.9,39.8459,44.7904,48.5151,0.1936,4014.6,27
+20208,Vitamin C Serum - Premium brand,Health & Beauty,10,83,7151.9,19.1187,20.7548,22.28,0.1523,3840.81,34
+20138,Cutlery Block - National brand,Home & Kitchen,9,55,5360.4,20.1363,22.4456,25.8874,0.2562,3765.37,16
+20047,Work Gloves - National brand,Tools & Hardware,8,51,7330.6,12.8804,14.8115,16.7062,0.2583,3730.33,17
+20185,Gel Pens - Private label,Office & Stationery,12,95,10042.0,7.546,8.5361,9.5632,0.2363,3689.11,28
+20174,Body Wash - National brand,Health & Beauty,14,128,12909.0,9.1287,10.3072,11.1982,0.2008,3487.65,37
+20148,Bluetooth Speaker - Value,Consumer Electronics,11,92,3252.1,50.8458,55.6342,62.8475,0.2157,3371.96,20
+20110,27in Monitor - National brand,Consumer Electronics,6,55,870.8,98.409,110.6986,122.2714,0.2156,3347.1,26
+20026,Socket Set - National brand,Tools & Hardware,7,61,3387.3,29.1522,32.6117,36.8004,0.2345,3339.97,16
+20238,Pet Bed - National brand,Pet Supplies,7,54,10202.7,10.6319,11.7043,13.2534,0.224,3333.84,19
+20198,Toner Cartridge - Premium brand,Office & Stationery,9,78,10110.6,7.2756,8.3155,8.9193,0.1977,3262.42,29
+20166,Storage Bins - Value,Home & Kitchen,12,105,6571.7,9.2097,10.9159,12.3405,0.2868,3255.18,28
+20151,Tool Chest - Private label,Tools & Hardware,5,46,12789.6,13.988,14.6899,15.6757,0.1149,3186.93,19
+20234,Safety Glasses - National brand,Tools & Hardware,11,96,4021.9,29.4988,31.5789,34.9079,0.1713,3152.04,43
+20015,Body Wash - Value,Health & Beauty,8,64,8374.8,8.5245,10.323,11.2042,0.2596,3115.02,19
+20076,LED Floor Lamp - Private label,Home & Kitchen,11,101,9587.1,17.715,18.8033,20.4442,0.1451,3057.75,33
+20128,Dry-Erase Board - National brand,Office & Stationery,10,81,4925.3,12.0856,13.6926,15.0168,0.2141,2619.38,21
+20125,Hair Dryer - Value,Health & Beauty,10,92,4928.5,10.5546,12.065,13.1596,0.2159,2607.86,29
+20029,Fastener Assortment - Private label,Tools & Hardware,8,53,6658.9,24.1163,25.72,30.7636,0.2584,2580.83,7
+20080,Work Gloves - National brand,Tools & Hardware,5,55,3331.7,20.1434,22.2725,26.527,0.2866,2500.06,24
+20079,Cotton T-Shirt 5pk - Value,Apparel & Accessories,5,46,5386.1,8.2637,9.4016,10.4279,0.2302,2285.36,14
+20150,Nonstick Cookware Set - National brand,Home & Kitchen,9,84,4032.7,16.7526,18.5928,20.6466,0.2094,2266.17,27
+20221,Laptop Sleeve - National brand,Apparel & Accessories,14,56,7424.2,16.228,17.1968,18.3302,0.1222,1965.4,14
+20226,Cat Litter - Private label,Pet Supplies,7,64,5544.1,9.1168,10.6261,11.9483,0.2665,1891.16,19
+20027,Dry Dog Food - National brand,Pet Supplies,8,61,1909.9,28.8286,31.6397,34.8608,0.1907,1877.61,24
+20117,LED Floor Lamp - National brand,Home & Kitchen,7,58,13257.3,11.5304,11.8999,13.6528,0.1784,1702.04,10
+20044,Laminator - Private label,Office & Stationery,7,52,2941.3,11.5939,13.3413,14.1349,0.1905,1656.69,12
+20069,Cotton T-Shirt 5pk - National brand,Apparel & Accessories,5,35,3977.9,13.9041,15.3083,16.9145,0.1967,1625.52,12
+20052,Work Gloves - Private label,Tools & Hardware,6,43,3656.0,12.7583,14.2534,17.0436,0.3007,1617.05,16
+20096,Electric Toothbrush - Private label,Health & Beauty,6,54,14704.0,6.3698,6.7318,7.4496,0.1604,1616.45,18
+20050,Copy Paper - National brand,Office & Stationery,13,98,4527.3,10.3546,11.4227,12.7604,0.2106,1616.24,34
+20098,Electric Toothbrush - National brand,Health & Beauty,9,63,4959.0,16.6684,17.8157,19.1505,0.1393,1580.19,13
+20062,Laptop Sleeve - National brand,Apparel & Accessories,5,44,1260.5,31.3822,36.0066,41.0062,0.2673,1553.47,10
+20064,Blender - National brand,Home & Kitchen,6,20,2458.5,41.1832,43.8515,47.7281,0.1493,1486.04,8
+20070,Fastener Assortment - Value,Tools & Hardware,7,68,4730.3,9.9549,11.0332,12.9351,0.2701,1444.75,12
+20087,Laptop Sleeve - Value,Apparel & Accessories,13,46,698.3,26.1019,32.9987,35.5118,0.2852,1345.06,22
+20175,Cat Litter - Private label,Pet Supplies,13,135,3660.3,11.1392,12.243,13.6553,0.2055,1322.86,53
+20132,Gel Pens - Value,Office & Stationery,11,86,4236.1,6.1128,7.1631,7.9548,0.2572,1274.74,43
+20007,Pet Bed - Value,Pet Supplies,7,48,3208.5,16.5026,17.577,18.7532,0.128,1228.61,20
+20189,Desk Organiser - National brand,Office & Stationery,9,80,4631.7,11.4823,12.3019,13.4648,0.1612,1208.36,36
+20233,Bedding Set - National brand,Home & Kitchen,9,84,2816.6,42.3471,43.6125,50.0415,0.1764,1085.19,21
+20168,Aquarium Filter - Premium brand,Pet Supplies,8,72,7547.2,12.5175,13.0008,14.829,0.1778,1061.4,13
+20005,Backpack - Private label,Apparel & Accessories,3,29,1640.3,29.1166,31.3211,34.1653,0.1612,1050.86,7
+20059,Desk Organiser - Value,Office & Stationery,12,99,2378.1,8.2847,9.5344,10.225,0.2035,1033.47,40
+20144,Socket Set - National brand,Tools & Hardware,7,32,1802.6,18.3423,20.6794,22.9416,0.2224,983.3,11
+20207,Hair Dryer - Value,Health & Beauty,7,69,5255.9,10.3621,10.9093,11.5373,0.1077,967.17,25
+20215,Safety Boots - National brand,Apparel & Accessories,6,53,2947.8,9.1742,10.2954,10.4344,0.1224,912.64,27
+20181,Desk Organiser - National brand,Office & Stationery,11,99,1527.7,13.1128,15.2034,17.098,0.2621,900.38,48
+20228,Adjustable Dumbbells - National brand,Sporting Goods,3,18,3167.2,31.5106,32.8977,40.1635,0.263,860.74,3
+20038,Cycling Helmet - Value,Sporting Goods,7,16,1847.6,55.3956,56.8113,60.1067,0.0829,822.14,3
+20200,Toner Cartridge - National brand,Office & Stationery,5,47,1568.0,21.7265,23.2714,25.1014,0.145,811.51,19
+20049,Blender - Premium brand,Home & Kitchen,5,40,1090.8,54.3935,56.988,65.7124,0.1986,767.88,14
+20031,Body Wash - National brand,Health & Beauty,9,64,3867.9,5.0023,5.7016,5.9109,0.1594,670.63,17
+20092,Laptop Sleeve - National brand,Apparel & Accessories,11,18,746.2,27.2883,30.3006,34.0445,0.223,609.66,6
+20043,HDMI Cable - Value,Consumer Electronics,10,43,645.0,29.5846,33.2339,36.5275,0.2089,554.55,21
+20139,Toner Cartridge - Private label,Office & Stationery,6,67,2625.1,9.6089,10.2841,11.0212,0.1373,531.62,29
+20108,Cotton T-Shirt 5pk - Value,Apparel & Accessories,12,52,1285.8,21.5897,22.9863,24.1397,0.1109,517.48,21
+20011,Cordless Drill - Value,Tools & Hardware,3,23,656.7,13.6822,14.8653,16.8031,0.2099,312.45,5
+20074,Bluetooth Speaker - Private label,Consumer Electronics,6,19,2399.0,33.5866,33.9832,37.5194,0.1157,242.53,6
+20146,Fastener Assortment - Value,Tools & Hardware,10,15,462.9,13.694,14.182,15.2036,0.1064,73.2,4

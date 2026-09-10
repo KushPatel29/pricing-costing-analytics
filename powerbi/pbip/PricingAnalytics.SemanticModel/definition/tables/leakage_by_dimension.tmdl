@@ -1,0 +1,57 @@
+table leakage_by_dimension
+	lineageTag: a205c79e-06c7-556a-938d-657a3a1f7bbe
+
+	column dimension
+		dataType: string
+		lineageTag: 9006ba5b-b12b-50f2-b908-132312cf752d
+		summarizeBy: none
+		sourceColumn: dimension
+
+	column member
+		dataType: string
+		lineageTag: 366d926c-29ec-53c1-b5f3-70d092046059
+		summarizeBy: none
+		sourceColumn: member
+
+	column deduction
+		dataType: string
+		lineageTag: 2e99af5a-dcbc-5039-a9d0-2818fd355bbd
+		summarizeBy: none
+		sourceColumn: deduction
+
+	column bucket
+		dataType: string
+		lineageTag: 4d53b506-eacf-5b00-8b33-0d1b97c8ae7d
+		summarizeBy: none
+		sourceColumn: bucket
+
+	column amount
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: b33f7a75-8764-5ecf-bb20-737cba44c992
+		summarizeBy: sum
+		sourceColumn: amount
+
+	column pct_of_list
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b8e8b481-b204-5f46-b961-20e41e0cc17b
+		summarizeBy: sum
+		sourceColumn: pct_of_list
+
+	column list_value
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 65d3da38-b8a7-5b7c-a769-8da727fcc043
+		summarizeBy: sum
+		sourceColumn: list_value
+
+	partition leakage_by_dimension = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\leakage_by_dimension.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dimension", type text}, {"member", type text}, {"deduction", type text}, {"bucket", type text}, {"amount", type number}, {"pct_of_list", type number}, {"list_value", type number}})
+				in
+				    Typed

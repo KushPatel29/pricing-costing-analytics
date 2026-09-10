@@ -1,0 +1,128 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1307",
+  "position": {
+    "x": 20,
+    "y": 442,
+    "z": 2206,
+    "height": 258,
+    "width": 620,
+    "tabOrder": 2206
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_product"
+                    }
+                  },
+                  "Property": "description"
+                }
+              },
+              "queryRef": "dim_product.description",
+              "nativeQueryRef": "description",
+              "active": true
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Price point"
+                }
+              },
+              "queryRef": "_Measures.Price point",
+              "nativeQueryRef": "Price point"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Units sold"
+                }
+              },
+              "queryRef": "_Measures.Units sold",
+              "nativeQueryRef": "Units sold"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Price point revenue"
+                }
+              },
+              "queryRef": "_Measures.Price point revenue",
+              "nativeQueryRef": "Price point revenue"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Price against units sold'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Scatter chart titled Price against units sold. One point per product: Price point on the x axis, Units sold on the y axis, sized by Price point revenue.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,65 @@
+table forecast_accuracy
+	lineageTag: ea5c083c-51e1-5d1c-bd7a-24c7fdd8ab6c
+
+	column measure
+		dataType: string
+		lineageTag: 4accd6b2-c4dd-5b9a-bd68-23cf71267988
+		summarizeBy: none
+		sourceColumn: measure
+
+	column method
+		dataType: string
+		lineageTag: efbafc85-710c-52e9-a4b8-1e65e11954a1
+		summarizeBy: none
+		sourceColumn: method
+
+	column wape
+		dataType: double
+		formatString: #,0.00
+		lineageTag: f2d9327c-eafa-5f99-81c7-a6436a76f91c
+		summarizeBy: sum
+		sourceColumn: wape
+
+	column mape
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d27ced99-1667-566b-9f7a-a3a350296527
+		summarizeBy: sum
+		sourceColumn: mape
+
+	column bias
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 93c2060c-bd34-50bf-957c-6510abf01752
+		summarizeBy: sum
+		sourceColumn: bias
+
+	column folds
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e70fe02-5690-53ca-9695-a26e994b9fc5
+		summarizeBy: sum
+		sourceColumn: folds
+
+	column rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ffe67e3-b194-58ac-b5ee-3ddc5b128fbb
+		summarizeBy: sum
+		sourceColumn: rank
+
+	column is_best
+		dataType: boolean
+		lineageTag: e6ee08e4-ad99-5396-b25a-da4289a5a618
+		summarizeBy: none
+		sourceColumn: is_best
+
+	partition forecast_accuracy = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\forecast_accuracy.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"measure", type text}, {"method", type text}, {"wape", type number}, {"mape", type number}, {"bias", type number}, {"folds", Int64.Type}, {"rank", Int64.Type}, {"is_best", type logical}})
+				in
+				    Typed

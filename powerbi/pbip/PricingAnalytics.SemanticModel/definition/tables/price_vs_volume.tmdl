@@ -1,0 +1,78 @@
+table price_vs_volume
+	lineageTag: 93d72bd0-378d-52a1-a24c-59dca92619c4
+
+	column product_id
+		dataType: string
+		lineageTag: 7af069b6-ca54-5406-8cfa-8f4e11848662
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column description
+		dataType: string
+		lineageTag: d47f0d93-c257-5914-8423-dfdea9e483f6
+		summarizeBy: none
+		sourceColumn: description
+
+	column category
+		dataType: string
+		lineageTag: 2954cb09-0f6e-52be-acf8-b8cae64bb00e
+		summarizeBy: none
+		sourceColumn: category
+
+	column month
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 2aa56cbe-2289-5382-b260-20baf9eee640
+		summarizeBy: none
+		sourceColumn: month
+
+	column volume_units
+		dataType: double
+		formatString: #,0
+		lineageTag: c87eab6b-a47f-54c2-88fa-b2e6afd9060a
+		summarizeBy: sum
+		sourceColumn: volume_units
+
+	column list_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 21751443-ed12-5f1c-b4a2-2650dc70da7e
+		summarizeBy: sum
+		sourceColumn: list_price
+
+	column pocket_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 84745411-79b0-58ad-bb6f-feef30c4f67d
+		summarizeBy: sum
+		sourceColumn: pocket_revenue
+
+	column on_promotion
+		dataType: int64
+		formatString: 0
+		lineageTag: e5159570-a0a9-5eee-a3f2-d2fe1df32025
+		summarizeBy: sum
+		sourceColumn: on_promotion
+
+	column pocket_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: eceff724-dfbd-568e-8cbe-1847c855812b
+		summarizeBy: sum
+		sourceColumn: pocket_price
+
+	column promoted
+		dataType: string
+		lineageTag: 7af8d5af-d41f-52f5-bd06-6043b5529537
+		summarizeBy: none
+		sourceColumn: promoted
+
+	partition price_vs_volume = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\price_vs_volume.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"product_id", type text}, {"description", type text}, {"category", type text}, {"month", type date}, {"volume_units", type number}, {"list_price", type number}, {"pocket_revenue", type number}, {"on_promotion", Int64.Type}, {"pocket_price", type number}, {"promoted", type text}})
+				in
+				    Typed

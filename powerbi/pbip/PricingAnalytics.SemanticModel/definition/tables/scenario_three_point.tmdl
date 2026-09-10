@@ -1,0 +1,129 @@
+table scenario_three_point
+	lineageTag: 358f293d-c731-5c70-8067-72f824c11a81
+
+	column scenario
+		dataType: string
+		lineageTag: dc627a05-96a9-5a02-8835-4454fdb24cc9
+		summarizeBy: none
+		sourceColumn: scenario
+
+	column list_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 950ba807-f7a6-5f17-8081-c9ab6794afb3
+		summarizeBy: sum
+		sourceColumn: list_price
+
+	column discount
+		dataType: double
+		formatString: #,0
+		lineageTag: 3acb61a6-6411-59d1-a295-cfd2d5710615
+		summarizeBy: sum
+		sourceColumn: discount
+
+	column net_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 15595aa1-e1cf-5abc-94d6-7fb747533423
+		summarizeBy: sum
+		sourceColumn: net_price
+
+	column volume
+		dataType: double
+		formatString: #,0
+		lineageTag: e79fb6f9-3b76-5a0d-b99d-9c73cfbfef3b
+		summarizeBy: sum
+		sourceColumn: volume
+
+	column unit_cost
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: a3b47c64-96fc-5c12-9f9a-0261093ec64c
+		summarizeBy: sum
+		sourceColumn: unit_cost
+
+	column revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 9f1b9d57-e892-57dd-99f5-e6efb4ccd12d
+		summarizeBy: sum
+		sourceColumn: revenue
+
+	column variable_cost
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 2a17dfb7-8725-5f57-b710-1b03ade512fc
+		summarizeBy: sum
+		sourceColumn: variable_cost
+
+	column contribution
+		dataType: double
+		formatString: #,0.00
+		lineageTag: bec25565-0893-52dc-90ca-914d7bd513bb
+		summarizeBy: sum
+		sourceColumn: contribution
+
+	column contribution_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 6727d290-76c2-5361-a13c-a738661d01c7
+		summarizeBy: sum
+		sourceColumn: contribution_pct
+
+	column fixed_costs
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 0eb6e7be-e8d5-5053-b64a-42e5a07d464a
+		summarizeBy: sum
+		sourceColumn: fixed_costs
+
+	column operating_profit
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 234ca5f9-1e9a-51ba-b02c-7bcbb9283492
+		summarizeBy: sum
+		sourceColumn: operating_profit
+
+	column operating_margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: e299475f-f49b-5d5e-ab8f-2248017c5ec1
+		summarizeBy: sum
+		sourceColumn: operating_margin_pct
+
+	column unit_contribution
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d106e3f7-4c48-59f2-8089-d73c4620fa2b
+		summarizeBy: sum
+		sourceColumn: unit_contribution
+
+	column delta
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 396e23e4-1267-5a43-82ed-77c265ef1ef1
+		summarizeBy: sum
+		sourceColumn: delta
+
+	column delta_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: b23351b6-4686-5557-ab12-0ca7b8352989
+		summarizeBy: sum
+		sourceColumn: delta_pct
+
+	column note
+		dataType: string
+		lineageTag: ed01ec4e-654d-5186-b64f-0c833aaf8be8
+		summarizeBy: none
+		sourceColumn: note
+
+	partition scenario_three_point = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\scenario_three_point.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"scenario", type text}, {"list_price", type number}, {"discount", type number}, {"net_price", type number}, {"volume", type number}, {"unit_cost", type number}, {"revenue", type number}, {"variable_cost", type number}, {"contribution", type number}, {"contribution_pct", type number}, {"fixed_costs", type number}, {"operating_profit", type number}, {"operating_margin_pct", type number}, {"unit_contribution", type number}, {"delta", type number}, {"delta_pct", type number}, {"note", type text}})
+				in
+				    Typed

@@ -1,0 +1,44 @@
+table dim_competitor
+	lineageTag: 4c74e9a0-12f7-57cd-b1e9-e5377a98313a
+
+	column competitor_id
+		dataType: string
+		lineageTag: 64c1885a-4314-5bb5-b697-28b8ae8f1759
+		summarizeBy: none
+		sourceColumn: competitor_id
+
+	column competitor_name
+		dataType: string
+		lineageTag: 95d3cad5-60ef-5cd2-92db-671e75a977aa
+		summarizeBy: none
+		sourceColumn: competitor_name
+
+	column positioning
+		dataType: string
+		lineageTag: f03ff257-9803-5df5-9a8b-2281ce70da7b
+		summarizeBy: none
+		sourceColumn: positioning
+
+	column price_multiplier
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 97853839-86f4-5f8c-addf-b7c128587785
+		summarizeBy: sum
+		sourceColumn: price_multiplier
+
+	column catalogue_coverage
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 00270fde-513d-56e3-8c79-ebea4b0eb8fb
+		summarizeBy: sum
+		sourceColumn: catalogue_coverage
+
+	partition dim_competitor = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\data\dim_competitor.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"competitor_id", type text}, {"competitor_name", type text}, {"positioning", type text}, {"price_multiplier", type number}, {"catalogue_coverage", type number}})
+				in
+				    Typed

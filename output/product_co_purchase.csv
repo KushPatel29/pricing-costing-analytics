@@ -1,0 +1,241 @@
+product_id,description,order_lines,top_partner,top_partner_orders,co_purchase_rate,top_partner_name
+20106,Tool Chest - Private label,16,20034,15,0.9375,Smart Plug - Premium brand
+20134,Cotton T-Shirt 5pk - Private label,26,20198,20,0.7692,Toner Cartridge - Premium brand
+20186,Camping Tent - Value,33,20183,25,0.7576,Cooler Box - Premium brand
+20011,Cordless Drill - Value,23,20059,17,0.7391,Desk Organiser - Value
+20005,Backpack - Private label,29,20224,21,0.7241,Laser Measure - Value
+20062,Laptop Sleeve - National brand,44,20205,28,0.6364,Aquarium Filter - National brand
+20115,USB-C Charger - National brand,79,20017,49,0.6203,Webcam - National brand
+20197,Hair Dryer - Premium brand,5,20207,3,0.6,Hair Dryer - Value
+20048,Adjustable Dumbbells - Value,48,20023,28,0.5833,Adjustable Dumbbells - National brand
+20159,Cooler Box - Value,45,20129,26,0.5778,Filing Boxes - National brand
+20041,Cordless Drill - National brand,40,20105,23,0.575,Pet Bed - Premium brand
+20036,Laptop Sleeve - National brand,54,20076,31,0.5741,LED Floor Lamp - Private label
+20032,Body Wash - National brand,55,20174,31,0.5636,Body Wash - National brand
+20117,LED Floor Lamp - National brand,58,20211,32,0.5517,Storage Bins - National brand
+20070,Fastener Assortment - Value,68,20034,37,0.5441,Smart Plug - Premium brand
+20010,Adjustable Dumbbells - National brand,59,20046,32,0.5424,Blender - Value
+20218,Blender - Premium brand,43,20111,23,0.5349,27in Monitor - Private label
+20137,Bluetooth Speaker - Private label,73,20119,39,0.5342,HDMI Cable - National brand
+20074,Bluetooth Speaker - Private label,19,20036,10,0.5263,Laptop Sleeve - National brand
+20033,Hair Dryer - Value,42,20113,22,0.5238,Bedding Set - Private label
+20007,Pet Bed - Value,48,20017,25,0.5208,Webcam - National brand
+20116,Dry Dog Food - National brand,43,20023,22,0.5116,Adjustable Dumbbells - National brand
+20200,Toner Cartridge - National brand,47,20105,24,0.5106,Pet Bed - Premium brand
+20099,Bluetooth Speaker - Premium brand,6,20017,3,0.5,Webcam - National brand
+20239,HDMI Cable - National brand,18,20119,9,0.5,HDMI Cable - National brand
+20190,Work Jacket - National brand,68,20187,34,0.5,Dry Dog Food - Value
+20223,Desk Organiser - Private label,70,20172,35,0.5,Dry-Erase Board - National brand
+20030,Dry Dog Food - National brand,61,20017,30,0.4918,Webcam - National brand
+20149,Cycling Helmet - National brand,31,20046,15,0.4839,Blender - Value
+20135,Bluetooth Speaker - Premium brand,73,20017,35,0.4795,Webcam - National brand
+20018,Mechanical Keyboard - Premium brand,44,20016,21,0.4773,Gel Pens - National brand
+20231,Mechanical Keyboard - National brand,19,20093,9,0.4737,Vacuum Sealer - Private label
+20075,Sunscreen SPF50 - Private label,73,20001,34,0.4658,Multivitamin - Private label
+20163,Sunscreen SPF50 - National brand,56,20145,26,0.4643,Laminator - Premium brand
+20096,Electric Toothbrush - Private label,54,20129,25,0.463,Filing Boxes - National brand
+20128,Dry-Erase Board - National brand,81,20162,37,0.4568,Gel Pens - Private label
+20078,27in Monitor - Value,79,20017,36,0.4557,Webcam - National brand
+20226,Cat Litter - Private label,64,20002,29,0.4531,Safety Boots - Value
+20139,Toner Cartridge - Private label,67,20086,30,0.4478,Vacuum Sealer - Private label
+20153,Multivitamin - Premium brand,76,20017,34,0.4474,Webcam - National brand
+20228,Adjustable Dumbbells - National brand,18,20004,8,0.4444,Camping Tent - Premium brand
+20143,Tool Chest - National brand,36,20180,16,0.4444,Sunscreen SPF50 - National brand
+20044,Laminator - Private label,52,20067,23,0.4423,Toner Cartridge - National brand
+20003,Storage Bins - National brand,86,20129,38,0.4419,Filing Boxes - National brand
+20160,Pet Bed - Private label,55,20175,24,0.4364,Cat Litter - Private label
+20151,Tool Chest - Private label,46,20234,20,0.4348,Safety Glasses - National brand
+20215,Safety Boots - National brand,53,20193,23,0.434,Wireless Earbuds - Private label
+20023,Adjustable Dumbbells - National brand,79,20028,34,0.4304,Adjustable Dumbbells - Value
+20150,Nonstick Cookware Set - National brand,84,20164,36,0.4286,LED Floor Lamp - National brand
+20014,Grooming Kit - Premium brand,28,20105,12,0.4286,Pet Bed - Premium brand
+20213,Dry Dog Food - Private label,35,20188,15,0.4286,Grooming Kit - National brand
+20196,Cycling Helmet - National brand,57,20174,24,0.4211,Body Wash - National brand
+20112,Safety Glasses - National brand,50,20158,21,0.42,Cutlery Block - Value
+20071,Wireless Earbuds - Value,74,20136,31,0.4189,Safety Boots - Private label
+20052,Work Gloves - Private label,43,20135,18,0.4186,Bluetooth Speaker - Premium brand
+20090,Yoga Mat - Private label,51,20022,21,0.4118,Tool Chest - Value
+20214,Safety Boots - National brand,51,20016,21,0.4118,Gel Pens - National brand
+20040,Blender - Private label,73,20093,30,0.411,Vacuum Sealer - Private label
+20178,Socket Set - National brand,44,20165,18,0.4091,Electric Toothbrush - National brand
+20238,Pet Bed - National brand,54,20211,22,0.4074,Storage Bins - National brand
+20203,Laminator - National brand,59,20170,24,0.4068,Laminator - National brand
+20144,Socket Set - National brand,32,20165,13,0.4062,Electric Toothbrush - National brand
+20060,Storage Bins - Private label,74,20095,30,0.4054,Gel Pens - Private label
+20224,Laser Measure - Value,52,20005,21,0.4038,Backpack - Private label
+20064,Blender - National brand,20,20184,8,0.4,Wireless Earbuds - Premium brand
+20055,Smart Plug - Premium brand,50,20000,20,0.4,Wireless Earbuds - Private label
+20080,Work Gloves - National brand,55,20122,22,0.4,Dry-Erase Board - National brand
+20146,Fastener Assortment - Value,15,20208,6,0.4,Vitamin C Serum - Premium brand
+20103,Safety Glasses - Private label,58,20128,23,0.3966,Dry-Erase Board - National brand
+20194,Pet Bed - National brand,53,20174,21,0.3962,Body Wash - National brand
+20152,Copy Paper - Private label,66,20201,26,0.3939,Dry Dog Food - Value
+20201,Dry Dog Food - Value,66,20152,26,0.3939,Copy Paper - Private label
+20047,Work Gloves - National brand,51,20128,20,0.3922,Dry-Erase Board - National brand
+20031,Body Wash - National brand,64,20220,25,0.3906,Body Wash - Premium brand
+20236,Mechanical Keyboard - Value,95,20017,37,0.3895,Webcam - National brand
+20092,Laptop Sleeve - National brand,18,20006,7,0.3889,Electric Toothbrush - Premium brand
+20013,Webcam - National brand,80,20017,31,0.3875,Webcam - National brand
+20121,Copy Paper - National brand,57,20142,22,0.386,Yoga Mat - National brand
+20073,Gel Pens - Value,57,20223,22,0.386,Desk Organiser - Private label
+20208,Vitamin C Serum - Premium brand,83,20180,32,0.3855,Sunscreen SPF50 - National brand
+20000,Wireless Earbuds - Private label,52,20055,20,0.3846,Smart Plug - Premium brand
+20100,HDMI Cable - Value,47,20211,18,0.383,Storage Bins - National brand
+20104,Laminator - National brand,63,20172,24,0.381,Dry-Erase Board - National brand
+20021,Bedding Set - National brand,71,20111,27,0.3803,27in Monitor - Private label
+20045,Safety Boots - National brand,69,20198,26,0.3768,Toner Cartridge - Premium brand
+20177,Nonstick Cookware Set - Value,77,20118,29,0.3766,Blender - Premium brand
+20038,Cycling Helmet - Value,16,20120,6,0.375,Bluetooth Speaker - Premium brand
+20049,Blender - Premium brand,40,20163,15,0.375,Sunscreen SPF50 - National brand
+20130,HDMI Cable - Value,67,20193,25,0.3731,Wireless Earbuds - Private label
+20043,HDMI Cable - Value,43,20175,16,0.3721,Cat Litter - Private label
+20042,Wireless Earbuds - Private label,73,20065,27,0.3699,Adjustable Dumbbells - Private label
+20079,Cotton T-Shirt 5pk - Value,46,20210,17,0.3696,Safety Boots - Premium brand
+20053,Hair Dryer - National brand,84,20175,31,0.369,Cat Litter - Private label
+20136,Safety Boots - Private label,84,20071,31,0.369,Wireless Earbuds - Value
+20046,Blender - Value,87,20010,32,0.3678,Adjustable Dumbbells - National brand
+20188,Grooming Kit - National brand,90,20017,33,0.3667,Webcam - National brand
+20084,Webcam - Value,74,20211,27,0.3649,Storage Bins - National brand
+20127,Bedding Set - Premium brand,22,20170,8,0.3636,Laminator - National brand
+20204,Pet Bed - Private label,44,20172,16,0.3636,Dry-Erase Board - National brand
+20039,Blender - Premium brand,58,20187,21,0.3621,Dry Dog Food - Value
+20102,Blender - National brand,83,20017,30,0.3614,Webcam - National brand
+20066,Laser Measure - National brand,72,20174,26,0.3611,Body Wash - National brand
+20172,Dry-Erase Board - National brand,97,20223,35,0.3608,Desk Organiser - Private label
+20026,Socket Set - National brand,61,20012,22,0.3607,Vacuum Sealer - Private label
+20155,27in Monitor - Value,61,20171,22,0.3607,Socket Set - Premium brand
+20015,Body Wash - Value,64,20126,23,0.3594,Mechanical Keyboard - National brand
+20129,Filing Boxes - National brand,107,20003,38,0.3551,Storage Bins - National brand
+20222,Work Gloves - National brand,79,20017,28,0.3544,Webcam - National brand
+20028,Adjustable Dumbbells - Value,96,20023,34,0.3542,Adjustable Dumbbells - National brand
+20124,Cat Litter - National brand,48,20131,17,0.3542,Air Fryer - Value
+20192,Laser Measure - National brand,65,20132,23,0.3538,Gel Pens - Value
+20002,Safety Boots - Value,82,20017,29,0.3537,Webcam - National brand
+20193,Wireless Earbuds - Private label,120,20017,42,0.35,Webcam - National brand
+20142,Yoga Mat - National brand,63,20121,22,0.3492,Copy Paper - National brand
+20207,Hair Dryer - Value,69,20001,24,0.3478,Multivitamin - Private label
+20077,Wireless Earbuds - Premium brand,72,20066,25,0.3472,Laser Measure - National brand
+20004,Camping Tent - Premium brand,75,20111,26,0.3467,27in Monitor - Private label
+20164,LED Floor Lamp - National brand,104,20150,36,0.3462,Nonstick Cookware Set - National brand
+20110,27in Monitor - National brand,55,20078,19,0.3455,27in Monitor - Value
+20184,Wireless Earbuds - Premium brand,90,20145,31,0.3444,Laminator - Premium brand
+20091,Electric Toothbrush - Premium brand,90,20184,31,0.3444,Wireless Earbuds - Premium brand
+20019,Gel Pens - Private label,67,20154,23,0.3433,Aquarium Filter - Premium brand
+20179,Nonstick Cookware Set - Private label,38,20093,13,0.3421,Vacuum Sealer - Private label
+20220,Body Wash - Premium brand,88,20017,30,0.3409,Webcam - National brand
+20202,Tool Chest - Value,91,20105,31,0.3407,Pet Bed - Premium brand
+20029,Fastener Assortment - Private label,53,20141,18,0.3396,Socket Set - Premium brand
+20034,Smart Plug - Premium brand,109,20070,37,0.3394,Fastener Assortment - Value
+20161,Blender - Premium brand,74,20008,25,0.3378,Electric Toothbrush - Value
+20056,Chew Toy Pack - Premium brand,92,20211,31,0.337,Storage Bins - National brand
+20227,Socket Set - National brand,39,20233,13,0.3333,Bedding Set - National brand
+20024,Tool Chest - Value,78,20128,26,0.3333,Dry-Erase Board - National brand
+20109,Vitamin C Serum - Premium brand,84,20174,28,0.3333,Body Wash - National brand
+20198,Toner Cartridge - Premium brand,78,20045,26,0.3333,Safety Boots - National brand
+20123,Multivitamin - National brand,6,20008,2,0.3333,Electric Toothbrush - Value
+20051,HDMI Cable - National brand,118,20115,39,0.3305,USB-C Charger - National brand
+20162,Gel Pens - Private label,112,20128,37,0.3304,Dry-Erase Board - National brand
+20148,Bluetooth Speaker - Value,92,20147,30,0.3261,Laptop Sleeve - Value
+20065,Adjustable Dumbbells - Private label,83,20042,27,0.3253,Wireless Earbuds - Private label
+20173,Safety Boots - Value,83,20175,27,0.3253,Cat Litter - Private label
+20119,HDMI Cable - National brand,120,20137,39,0.325,Bluetooth Speaker - Private label
+20012,Vacuum Sealer - Private label,71,20037,23,0.3239,Socket Set - National brand
+20086,Vacuum Sealer - Private label,99,20122,32,0.3232,Dry-Erase Board - National brand
+20209,Desk Organiser - National brand,65,20154,21,0.3231,Aquarium Filter - Premium brand
+20118,Blender - Premium brand,90,20177,29,0.3222,Nonstick Cookware Set - Value
+20058,Safety Glasses - Value,81,20216,26,0.321,Work Gloves - National brand
+20025,Bedding Set - National brand,78,20086,25,0.3205,Vacuum Sealer - Private label
+20171,Socket Set - Premium brand,78,20174,25,0.3205,Body Wash - National brand
+20068,Safety Glasses - Value,50,20091,16,0.32,Electric Toothbrush - Premium brand
+20008,Electric Toothbrush - Value,100,20174,32,0.32,Body Wash - National brand
+20057,Cordless Drill - National brand,66,20076,21,0.3182,LED Floor Lamp - Private label
+20098,Electric Toothbrush - National brand,63,20085,20,0.3175,Power Bank - Value
+20016,Gel Pens - National brand,104,20223,33,0.3173,Desk Organiser - Private label
+20182,USB-C Charger - Value,76,20086,24,0.3158,Vacuum Sealer - Private label
+20072,Toner Cartridge - National brand,73,20132,23,0.3151,Gel Pens - Value
+20069,Cotton T-Shirt 5pk - National brand,35,20097,11,0.3143,Wireless Earbuds - Private label
+20181,Desk Organiser - National brand,99,20170,31,0.3131,Laminator - National brand
+20147,Laptop Sleeve - Value,96,20148,30,0.3125,Bluetooth Speaker - Value
+20189,Desk Organiser - National brand,80,20050,25,0.3125,Copy Paper - National brand
+20006,Electric Toothbrush - Premium brand,97,20056,30,0.3093,Chew Toy Pack - Premium brand
+20138,Cutlery Block - National brand,55,20170,17,0.3091,Laminator - National brand
+20076,LED Floor Lamp - Private label,101,20036,31,0.3069,Laptop Sleeve - National brand
+20120,Bluetooth Speaker - Premium brand,98,20166,30,0.3061,Storage Bins - Value
+20168,Aquarium Filter - Premium brand,72,20180,22,0.3056,Sunscreen SPF50 - National brand
+20087,Laptop Sleeve - Value,46,20184,14,0.3043,Wireless Earbuds - Premium brand
+20221,Laptop Sleeve - National brand,56,20210,17,0.3036,Safety Boots - Premium brand
+20169,Laser Measure - Value,89,20175,27,0.3034,Cat Litter - Private label
+20101,Multivitamin - Premium brand,53,20125,16,0.3019,Hair Dryer - Value
+20054,Wireless Earbuds - Private label,63,20001,19,0.3016,Multivitamin - Private label
+20113,Bedding Set - Private label,80,20166,24,0.3,Storage Bins - Value
+20122,Dry-Erase Board - National brand,107,20086,32,0.2991,Vacuum Sealer - Private label
+20187,Dry Dog Food - Value,114,20190,34,0.2982,Work Jacket - National brand
+20105,Pet Bed - Premium brand,104,20202,31,0.2981,Tool Chest - Value
+20195,Mechanical Keyboard - National brand,84,20028,25,0.2976,Adjustable Dumbbells - Value
+20233,Bedding Set - National brand,84,20169,25,0.2976,Laser Measure - Value
+20097,Wireless Earbuds - Private label,84,20017,25,0.2976,Webcam - National brand
+20206,Camping Tent - National brand,71,20056,21,0.2958,Chew Toy Pack - Premium brand
+20082,Smart Plug - Private label,71,20022,21,0.2958,Tool Chest - Value
+20183,Cooler Box - Premium brand,88,20056,26,0.2955,Chew Toy Pack - Premium brand
+20037,Socket Set - National brand,78,20012,23,0.2949,Vacuum Sealer - Private label
+20017,Webcam - National brand,167,20115,49,0.2934,USB-C Charger - National brand
+20094,Body Wash - Premium brand,75,20212,22,0.2933,Resistance Bands - National brand
+20230,Air Fryer - Private label,86,20191,25,0.2907,27in Monitor - Value
+20232,Webcam - Value,76,20141,22,0.2895,Socket Set - Premium brand
+20022,Tool Chest - Value,83,20220,24,0.2892,Body Wash - Premium brand
+20108,Cotton T-Shirt 5pk - Value,52,20207,15,0.2885,Hair Dryer - Value
+20212,Resistance Bands - National brand,104,20105,30,0.2885,Pet Bed - Premium brand
+20114,Fastener Assortment - National brand,105,20056,30,0.2857,Chew Toy Pack - Premium brand
+20166,Storage Bins - Value,105,20120,30,0.2857,Bluetooth Speaker - Premium brand
+20145,Laminator - Premium brand,123,20211,35,0.2846,Storage Bins - National brand
+20185,Gel Pens - Private label,95,20002,27,0.2842,Safety Boots - Value
+20125,Hair Dryer - Value,92,20051,26,0.2826,HDMI Cable - National brand
+20180,Sunscreen SPF50 - National brand,131,20211,37,0.2824,Storage Bins - National brand
+20088,Hair Dryer - Premium brand,89,20174,25,0.2809,Body Wash - National brand
+20083,Smart Plug - Private label,82,20199,23,0.2805,Sunscreen SPF50 - Value
+20225,Air Fryer - Premium brand,75,20166,21,0.28,Storage Bins - Value
+20156,Resistance Bands - Value,86,20169,24,0.2791,Laser Measure - Value
+20095,Gel Pens - Private label,108,20060,30,0.2778,Storage Bins - Private label
+20063,Camping Tent - Premium brand,83,20210,23,0.2771,Safety Boots - Premium brand
+20158,Cutlery Block - Value,76,20112,21,0.2763,Safety Glasses - National brand
+20107,Adjustable Dumbbells - Private label,69,20132,19,0.2754,Gel Pens - Value
+20217,Cycling Helmet - National brand,73,20170,20,0.274,Laminator - National brand
+20067,Toner Cartridge - National brand,95,20162,26,0.2737,Gel Pens - Private label
+20111,27in Monitor - Private label,106,20028,29,0.2736,Adjustable Dumbbells - Value
+20211,Storage Bins - National brand,137,20180,37,0.2701,Sunscreen SPF50 - National brand
+20133,Mechanical Keyboard - Premium brand,115,20013,31,0.2696,Webcam - National brand
+20176,Work Gloves - Value,52,20080,14,0.2692,Work Gloves - National brand
+20089,Bluetooth Speaker - National brand,82,20111,22,0.2683,27in Monitor - Private label
+20001,Multivitamin - Private label,127,20075,34,0.2677,Sunscreen SPF50 - Private label
+20132,Gel Pens - Value,86,20072,23,0.2674,Toner Cartridge - National brand
+20154,Aquarium Filter - Premium brand,86,20019,23,0.2674,Gel Pens - Private label
+20205,Aquarium Filter - National brand,106,20062,28,0.2642,Laptop Sleeve - National brand
+20020,Cutlery Block - Private label,91,20086,24,0.2637,Vacuum Sealer - Private label
+20085,Power Bank - Value,76,20098,20,0.2632,Electric Toothbrush - National brand
+20141,Socket Set - Premium brand,95,20170,25,0.2632,Laminator - National brand
+20027,Dry Dog Food - National brand,61,20225,16,0.2623,Air Fryer - Premium brand
+20199,Sunscreen SPF50 - Value,92,20188,24,0.2609,Grooming Kit - National brand
+20157,Camping Tent - Value,62,20148,16,0.2581,Bluetooth Speaker - Value
+20191,27in Monitor - Value,97,20230,25,0.2577,Air Fryer - Private label
+20140,USB-C Charger - Premium brand,78,20114,20,0.2564,Fastener Assortment - National brand
+20050,Copy Paper - National brand,98,20189,25,0.2551,Desk Organiser - National brand
+20237,Bluetooth Speaker - Value,127,20028,32,0.252,Adjustable Dumbbells - Value
+20174,Body Wash - National brand,128,20008,32,0.25,Electric Toothbrush - Value
+20035,Camping Tent - Premium brand,101,20145,25,0.2475,Laminator - Premium brand
+20167,27in Monitor - Value,78,20133,19,0.2436,Mechanical Keyboard - Premium brand
+20216,Work Gloves - National brand,108,20058,26,0.2407,Safety Glasses - Value
+20131,Air Fryer - Value,109,20164,26,0.2385,LED Floor Lamp - National brand
+20081,Vacuum Sealer - Premium brand,127,20187,30,0.2362,Dry Dog Food - Value
+20061,Multivitamin - Premium brand,111,20187,26,0.2342,Dry Dog Food - Value
+20219,Vitamin C Serum - Premium brand,103,20061,24,0.233,Multivitamin - Premium brand
+20009,Toner Cartridge - Private label,95,20084,22,0.2316,Webcam - Value
+20126,Mechanical Keyboard - National brand,100,20015,23,0.23,Body Wash - Value
+20175,Cat Litter - Private label,135,20053,31,0.2296,Hair Dryer - National brand
+20170,Laminator - National brand,141,20188,32,0.227,Grooming Kit - National brand
+20165,Electric Toothbrush - National brand,113,20208,25,0.2212,Vitamin C Serum - Premium brand
+20234,Safety Glasses - National brand,96,20042,21,0.2188,Wireless Earbuds - Private label
+20229,Chew Toy Pack - National brand,83,20017,18,0.2169,Webcam - National brand
+20059,Desk Organiser - Value,99,20050,20,0.202,Copy Paper - National brand
+20210,Safety Boots - Premium brand,114,20216,23,0.2018,Work Gloves - National brand
+20093,Vacuum Sealer - Private label,150,20040,30,0.2,Blender - Private label
+20235,Camping Tent - Value,110,20004,21,0.1909,Camping Tent - Premium brand

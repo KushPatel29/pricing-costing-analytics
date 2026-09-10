@@ -1,0 +1,66 @@
+table discount_margin_matrix
+	lineageTag: 3dca5dba-0f3c-5234-96a8-7b69f66d48af
+
+	column discount_band
+		dataType: string
+		lineageTag: 86e26145-5aa0-582f-a5c8-cf4758b6f1bb
+		summarizeBy: none
+		sourceColumn: discount_band
+
+	column margin_band
+		dataType: string
+		lineageTag: 78a91eeb-a714-55cf-8856-0cbe6066228a
+		summarizeBy: none
+		sourceColumn: margin_band
+
+	column lines
+		dataType: int64
+		formatString: 0
+		lineageTag: 2654c698-80b9-5946-8b78-9965bc8a6bd6
+		summarizeBy: sum
+		sourceColumn: lines
+
+	column volume_units
+		dataType: double
+		formatString: #,0
+		lineageTag: 3bc88f03-c176-5a3c-9f02-f2573b4e54d0
+		summarizeBy: sum
+		sourceColumn: volume_units
+
+	column pocket_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: c40b8a71-af71-5557-9acb-e21b26eff5b0
+		summarizeBy: sum
+		sourceColumn: pocket_revenue
+
+	column cogs
+		dataType: double
+		formatString: #,0.00
+		lineageTag: cc410b39-e02b-5680-ad7f-04e73f74f8de
+		summarizeBy: sum
+		sourceColumn: cogs
+
+	column gross_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 33d9fb53-2b95-5c61-9dd7-88d71fa9db9a
+		summarizeBy: sum
+		sourceColumn: gross_margin
+
+	column share_of_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: f74846bd-94d1-5ec0-80af-d591f969d9b4
+		summarizeBy: sum
+		sourceColumn: share_of_revenue
+
+	partition discount_margin_matrix = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\discount_margin_matrix.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"discount_band", type text}, {"margin_band", type text}, {"lines", Int64.Type}, {"volume_units", type number}, {"pocket_revenue", type number}, {"cogs", type number}, {"gross_margin", type number}, {"share_of_revenue", type number}})
+				in
+				    Typed

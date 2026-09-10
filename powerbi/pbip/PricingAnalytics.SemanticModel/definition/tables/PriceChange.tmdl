@@ -1,0 +1,16 @@
+table PriceChange
+	lineageTag: 707856b5-f29d-5534-821f-2bb312b45577
+
+	column 'Price change %'
+		dataType: double
+		isNameInferred
+		formatString: 0.0%
+		lineageTag: 3261a239-11da-56f5-8c5f-e990dc9f5da0
+		summarizeBy: none
+		sourceColumn: [Price change %]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PriceChange = calculated
+		mode: import
+		source = SELECTCOLUMNS(GENERATESERIES(-0.15, 0.15, 0.01), "Price change %", [Value])

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0503",
+  "position": {
+    "x": 634,
+    "y": 20,
+    "z": 1402,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 1402
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Labour variance"
+                }
+              },
+              "queryRef": "_Measures.Labour variance",
+              "nativeQueryRef": "Labour variance"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Labour variance: rate and efficiency combined.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

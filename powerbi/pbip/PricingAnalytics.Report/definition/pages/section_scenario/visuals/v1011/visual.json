@@ -1,0 +1,115 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1011",
+  "position": {
+    "x": 20,
+    "y": 472,
+    "z": 1910,
+    "height": 228,
+    "width": 620,
+    "tabOrder": 1910
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "scenario_three_point"
+                    }
+                  },
+                  "Property": "scenario"
+                }
+              },
+              "queryRef": "scenario_three_point.scenario",
+              "nativeQueryRef": "scenario"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Three-point operating profit"
+                }
+              },
+              "queryRef": "_Measures.Three-point operating profit",
+              "nativeQueryRef": "Three-point operating profit"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Three-point contribution %"
+                }
+              },
+              "queryRef": "_Measures.Three-point contribution %",
+              "nativeQueryRef": "Three-point contribution %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Three-point delta"
+                }
+              },
+              "queryRef": "_Measures.Three-point delta",
+              "nativeQueryRef": "Three-point delta"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'The three cases'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled The three cases. Lists Three-point operating profit, Three-point contribution % and Three-point delta per scenario.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

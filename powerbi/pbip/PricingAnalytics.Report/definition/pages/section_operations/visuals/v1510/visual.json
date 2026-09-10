@@ -1,0 +1,129 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1510",
+  "position": {
+    "x": 654,
+    "y": 442,
+    "z": 2409,
+    "height": 258,
+    "width": 606,
+    "tabOrder": 2409
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "price_list_coverage"
+                    }
+                  },
+                  "Property": "review_cadence"
+                }
+              },
+              "queryRef": "price_list_coverage.review_cadence",
+              "nativeQueryRef": "review_cadence"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Products on the price list"
+                }
+              },
+              "queryRef": "_Measures.Products on the price list",
+              "nativeQueryRef": "Products on the price list"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Days since price change"
+                }
+              },
+              "queryRef": "_Measures.Days since price change",
+              "nativeQueryRef": "Days since price change"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Coverage margin %"
+                }
+              },
+              "queryRef": "_Measures.Coverage margin %",
+              "nativeQueryRef": "Coverage margin %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Stale products"
+                }
+              },
+              "queryRef": "_Measures.Stale products",
+              "nativeQueryRef": "Stale products"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'How much of the book each cadence covers'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled How much of the book each cadence covers. Products on the price list, Days since price change, Coverage margin % and Stale products for each review cadence.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

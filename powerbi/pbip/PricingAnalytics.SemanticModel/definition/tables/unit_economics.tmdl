@@ -1,0 +1,169 @@
+table unit_economics
+	lineageTag: 2c5473a1-8dc2-5094-aa01-33718f0ac449
+
+	column product_id
+		dataType: string
+		lineageTag: 476e3919-5647-5b05-a132-893f97281d39
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column description
+		dataType: string
+		lineageTag: 51a7f2be-be25-51f1-8e11-2324f6f6117f
+		summarizeBy: none
+		sourceColumn: description
+
+	column category
+		dataType: string
+		lineageTag: 0500177f-5fd6-5641-b33d-449d1bb36f7d
+		summarizeBy: none
+		sourceColumn: category
+
+	column brand_tier
+		dataType: string
+		lineageTag: f2806773-eb7e-5a8d-b905-c37f1600eec3
+		summarizeBy: none
+		sourceColumn: brand_tier
+
+	column volume_units
+		dataType: double
+		formatString: #,0
+		lineageTag: 0a8c2f96-7574-5f66-bdf5-e4dd9f4b45ac
+		summarizeBy: sum
+		sourceColumn: volume_units
+
+	column list_value
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 1381bc33-95c4-5fdf-ba8f-6c10565e691e
+		summarizeBy: sum
+		sourceColumn: list_value
+
+	column pocket_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 35c79b7d-531a-551d-a549-946259012006
+		summarizeBy: sum
+		sourceColumn: pocket_revenue
+
+	column cogs
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 7c87ef7c-d452-5269-8150-9705aaa94ec3
+		summarizeBy: sum
+		sourceColumn: cogs
+
+	column cost_to_serve
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 7b5b3179-a7fe-560a-bbb8-68e576c1de8b
+		summarizeBy: sum
+		sourceColumn: cost_to_serve
+
+	column production_variable_cost
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 3b9bb642-9794-5a0f-b611-68420d9056c3
+		summarizeBy: sum
+		sourceColumn: production_variable_cost
+
+	column variable_cost
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: a1570538-1931-5a50-9189-54516d3c23b2
+		summarizeBy: sum
+		sourceColumn: variable_cost
+
+	column price_unit
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 2d75af0e-ed06-56bb-ab86-5552c0b8713f
+		summarizeBy: sum
+		sourceColumn: price_unit
+
+	column variable_cost_unit
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: c6642606-13d6-5ece-ac3d-865ff90d3d94
+		summarizeBy: sum
+		sourceColumn: variable_cost_unit
+
+	column contribution
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 841d0017-e3c1-5957-90b1-fbbaeb474254
+		summarizeBy: sum
+		sourceColumn: contribution
+
+	column contribution_unit
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 4a79974d-651d-5404-a570-1000914482f1
+		summarizeBy: sum
+		sourceColumn: contribution_unit
+
+	column contribution_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 9adf217a-b19c-5c53-94b9-af90f5d6fe94
+		summarizeBy: sum
+		sourceColumn: contribution_pct
+
+	column gross_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 26a6a170-a243-5325-a8b7-b6ab9a1f1845
+		summarizeBy: sum
+		sourceColumn: gross_margin
+
+	column gross_margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 98243dd1-6267-5ba5-aa8b-58c708a4f563
+		summarizeBy: sum
+		sourceColumn: gross_margin_pct
+
+	column markup_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 2fb6129b-4a40-5c81-a1e9-fef94c0d21e3
+		summarizeBy: sum
+		sourceColumn: markup_pct
+
+	column cost_to_serve_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: b776ed78-4b82-52fa-ad1e-7e4da027b783
+		summarizeBy: sum
+		sourceColumn: cost_to_serve_pct
+
+	column fixed_allocated_by_volume
+		dataType: double
+		formatString: #,0
+		lineageTag: c4413515-bd0d-573b-9cde-2f5b21495da5
+		summarizeBy: sum
+		sourceColumn: fixed_allocated_by_volume
+
+	column operating_profit
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b28eb17a-8208-5492-87bd-c800790f8284
+		summarizeBy: sum
+		sourceColumn: operating_profit
+
+	column operating_margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: c78c3574-4d07-5295-aef9-1577f0db054a
+		summarizeBy: sum
+		sourceColumn: operating_margin_pct
+
+	partition unit_economics = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\unit_economics.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"product_id", type text}, {"description", type text}, {"category", type text}, {"brand_tier", type text}, {"volume_units", type number}, {"list_value", type number}, {"pocket_revenue", type number}, {"cogs", type number}, {"cost_to_serve", type number}, {"production_variable_cost", type number}, {"variable_cost", type number}, {"price_unit", type number}, {"variable_cost_unit", type number}, {"contribution", type number}, {"contribution_unit", type number}, {"contribution_pct", type number}, {"gross_margin", type number}, {"gross_margin_pct", type number}, {"markup_pct", type number}, {"cost_to_serve_pct", type number}, {"fixed_allocated_by_volume", type number}, {"operating_profit", type number}, {"operating_margin_pct", type number}})
+				in
+				    Typed

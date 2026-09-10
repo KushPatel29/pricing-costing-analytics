@@ -1,0 +1,139 @@
+table bundle_candidates
+	lineageTag: 7873a533-410e-5990-9d8f-a94a448185b0
+
+	column rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 4a2e667d-549d-5308-90ed-a0ce3ef1f62f
+		summarizeBy: sum
+		sourceColumn: rank
+
+	column bundle_id
+		dataType: string
+		lineageTag: 0c8b0d31-5ba8-5b2a-9d09-95565c653781
+		summarizeBy: none
+		sourceColumn: bundle_id
+
+	column product_a
+		dataType: int64
+		formatString: 0
+		lineageTag: 50b75370-eabb-5bba-8533-2a73c15e1f08
+		summarizeBy: sum
+		sourceColumn: product_a
+
+	column product_b
+		dataType: int64
+		formatString: 0
+		lineageTag: ff6653f6-0340-560d-861e-6f8c2050afce
+		summarizeBy: sum
+		sourceColumn: product_b
+
+	column name_a
+		dataType: string
+		lineageTag: f3b0426f-12d8-5dc0-8fb0-6d279110ab06
+		summarizeBy: none
+		sourceColumn: name_a
+
+	column name_b
+		dataType: string
+		lineageTag: 2c113620-8dfa-563b-aaf2-ace40b218193
+		summarizeBy: none
+		sourceColumn: name_b
+
+	column category_a
+		dataType: string
+		lineageTag: ff6e0764-d58a-5bff-a79a-c43f520b1765
+		summarizeBy: none
+		sourceColumn: category_a
+
+	column category_b
+		dataType: string
+		lineageTag: cf0bb420-c6b0-5353-9b78-d17e49e03167
+		summarizeBy: none
+		sourceColumn: category_b
+
+	column co_purchase_months
+		dataType: int64
+		formatString: 0
+		lineageTag: 5ad585de-adb0-5d71-b29c-7890620be8bd
+		summarizeBy: sum
+		sourceColumn: co_purchase_months
+
+	column standalone_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: d5f6726b-4b84-5e8e-b090-5f57a523817b
+		summarizeBy: sum
+		sourceColumn: standalone_price
+
+	column bundle_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 0c5e599d-659f-5ce1-83a4-6f21db214249
+		summarizeBy: sum
+		sourceColumn: bundle_price
+
+	column standalone_margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 6dbe7798-18dd-517b-abc6-451ef56f73b9
+		summarizeBy: sum
+		sourceColumn: standalone_margin_pct
+
+	column bundle_margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 42daef96-c64d-5ecd-919d-0f9d6445f6a7
+		summarizeBy: sum
+		sourceColumn: bundle_margin_pct
+
+	column expected_units
+		dataType: double
+		formatString: #,0
+		lineageTag: 7a272ae4-c376-50fe-a025-c431fd2773aa
+		summarizeBy: sum
+		sourceColumn: expected_units
+
+	column cannibalisation_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 8761fadc-5bad-5fe5-b1e0-7cff272f4770
+		summarizeBy: sum
+		sourceColumn: cannibalisation_rate
+
+	column break_even_cannibalisation
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 7153079f-2d6a-5a03-b9ac-dd06987a3201
+		summarizeBy: sum
+		sourceColumn: break_even_cannibalisation
+
+	column headroom
+		dataType: double
+		formatString: 0.0%
+		lineageTag: dab8ca47-16e0-5c84-a913-e6bf341add3f
+		summarizeBy: sum
+		sourceColumn: headroom
+
+	column incremental_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 1957b842-84f3-5edc-8948-2586e27b2001
+		summarizeBy: sum
+		sourceColumn: incremental_margin
+
+	column verdict
+		dataType: string
+		lineageTag: fd245f91-cbc3-54d9-819a-dc665d11a026
+		summarizeBy: none
+		sourceColumn: verdict
+
+	partition bundle_candidates = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\bundle_candidates.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"rank", Int64.Type}, {"bundle_id", type text}, {"product_a", Int64.Type}, {"product_b", Int64.Type}, {"name_a", type text}, {"name_b", type text}, {"category_a", type text}, {"category_b", type text}, {"co_purchase_months", Int64.Type}, {"standalone_price", type number}, {"bundle_price", type number}, {"standalone_margin_pct", type number}, {"bundle_margin_pct", type number}, {"expected_units", type number}, {"cannibalisation_rate", type number}, {"break_even_cannibalisation", type number}, {"headroom", type number}, {"incremental_margin", type number}, {"verdict", type text}})
+				in
+				    Typed

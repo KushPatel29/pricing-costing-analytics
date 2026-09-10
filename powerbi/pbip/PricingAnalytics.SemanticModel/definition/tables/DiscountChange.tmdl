@@ -1,0 +1,16 @@
+table DiscountChange
+	lineageTag: 766ca1f1-9d92-50cb-83d0-d526466fbcc5
+
+	column 'Discount change pts'
+		dataType: double
+		isNameInferred
+		formatString: 0.0%
+		lineageTag: 25eed4d3-06c1-5600-aa28-f53443dd669e
+		summarizeBy: none
+		sourceColumn: [Discount change pts]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DiscountChange = calculated
+		mode: import
+		source = SELECTCOLUMNS(GENERATESERIES(-0.05, 0.1, 0.005), "Discount change pts", [Value])

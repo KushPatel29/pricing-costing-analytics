@@ -1,0 +1,30 @@
+# The chart palette is validated against the surface it renders on, and this is
+# a dark app, so these are the dark steps: the same eight hues as the light
+# palette, re-stepped for #141416 and re-checked against it -- worst adjacent
+# colour-vision delta-E 8.4, worst adjacent normal-vision delta-E 19.3, all
+# eight clear 3:1 against the surface. Inverting a light palette instead is the
+# failure mode this guards against: every hue comes out too dark to separate,
+# and nothing reports it because the chart still draws.
+#
+# One [theme] table, deliberately, with no [theme.light] / [theme.dark]
+# variants. Those exist, and they are the wrong tool here: they let the
+# *visitor's* operating system pick a surface, and only one of the two surfaces
+# has a validated palette on it. This app has one surface.
+#
+# These have to be config rather than CSS because st.dataframe renders to a
+# canvas from the theme object in JavaScript. No stylesheet can reach inside
+# it, so a theme set only in CSS leaves every table a white block in a dark
+# app -- and the app looks right until the first page with a table on it.
+[theme]
+base = "dark"
+primaryColor = "#3987e5"
+backgroundColor = "#0c0c0f"
+secondaryBackgroundColor = "#141416"
+textColor = "#f2f2f4"
+font = "sans serif"
+
+[server]
+headless = true
+
+[browser]
+gatherUsageStats = false

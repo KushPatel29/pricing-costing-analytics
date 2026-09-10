@@ -1,0 +1,131 @@
+table recommendations
+	lineageTag: 6eac693d-b4c0-5822-82b7-b641aa45b774
+
+	column product_id
+		dataType: string
+		lineageTag: 0b59e1aa-8ac6-5c03-9c4d-4038a1aa86fe
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column description
+		dataType: string
+		lineageTag: ba7d6f23-51cd-5dda-9ec4-c8ef8a6ba539
+		summarizeBy: none
+		sourceColumn: description
+
+	column category
+		dataType: string
+		lineageTag: 500a5424-6340-570d-a4c1-9e4059152447
+		summarizeBy: none
+		sourceColumn: category
+
+	column current_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: f42ac0a9-90bb-5905-9e0e-edc6812e7394
+		summarizeBy: sum
+		sourceColumn: current_price
+
+	column unit_cost
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 5b44d077-46e2-57fd-bc49-ab57175bf1b4
+		summarizeBy: sum
+		sourceColumn: unit_cost
+
+	column volume_units
+		dataType: double
+		formatString: #,0
+		lineageTag: e196bfea-2b4d-5a42-abf5-6f412c72125e
+		summarizeBy: sum
+		sourceColumn: volume_units
+
+	column margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 5658222f-982a-5dfa-b1e2-eca693255309
+		summarizeBy: sum
+		sourceColumn: margin_pct
+
+	column price_index
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 180c66f4-91d6-54ff-bee6-bc046570e982
+		summarizeBy: none
+		sourceColumn: price_index
+
+	column confidence
+		dataType: string
+		lineageTag: 382896de-5795-565b-9020-bc7ad9df02bf
+		summarizeBy: none
+		sourceColumn: confidence
+
+	column evidence
+		dataType: string
+		lineageTag: 80cd257e-4c43-5674-9423-31cb95f30804
+		summarizeBy: none
+		sourceColumn: evidence
+
+	column action
+		dataType: string
+		lineageTag: 432ec90e-2034-5b9b-8e0d-0c35db662b98
+		summarizeBy: none
+		sourceColumn: action
+
+	column recommended_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 5fbd8cf0-da1c-5081-8f50-935ba1a07deb
+		summarizeBy: sum
+		sourceColumn: recommended_price
+
+	column price_change_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: ba8987cb-0fb4-5132-a374-ee50a78b6e3f
+		summarizeBy: sum
+		sourceColumn: price_change_pct
+
+	column volume_change_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 4a46500a-ba0a-5585-9538-028de97d00dc
+		summarizeBy: sum
+		sourceColumn: volume_change_pct
+
+	column revenue_delta
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: d36e6d96-75b9-59c9-9d14-c61717fb8397
+		summarizeBy: sum
+		sourceColumn: revenue_delta
+
+	column margin_delta
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 581b7ebf-6c56-50f4-939d-287d7244715b
+		summarizeBy: sum
+		sourceColumn: margin_delta
+
+	column priority
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 2d209513-0fef-5d65-ac6e-1d2e353bf17c
+		summarizeBy: sum
+		sourceColumn: priority
+
+	column rationale
+		dataType: string
+		lineageTag: fb94809f-a785-5c40-84fa-d755767c17ba
+		summarizeBy: none
+		sourceColumn: rationale
+
+	partition recommendations = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\recommendations.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"product_id", type text}, {"description", type text}, {"category", type text}, {"current_price", type number}, {"unit_cost", type number}, {"volume_units", type number}, {"margin_pct", type number}, {"price_index", type number}, {"confidence", type text}, {"evidence", type text}, {"action", type text}, {"recommended_price", type number}, {"price_change_pct", type number}, {"volume_change_pct", type number}, {"revenue_delta", type number}, {"margin_delta", type number}, {"priority", type number}, {"rationale", type text}})
+				in
+				    Typed

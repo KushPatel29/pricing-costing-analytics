@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0304",
+  "position": {
+    "x": 942,
+    "y": 20,
+    "z": 1203,
+    "height": 118,
+    "width": 318,
+    "tabOrder": 1203
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Pass-through to pocket"
+                }
+              },
+              "queryRef": "_Measures.Pass-through to pocket",
+              "nativeQueryRef": "Pass-through to pocket"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Pass-through to pocket: the share of an input-cost move that reached the realised price.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

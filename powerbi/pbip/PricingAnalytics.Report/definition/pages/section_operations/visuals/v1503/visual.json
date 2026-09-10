@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1503",
+  "position": {
+    "x": 634,
+    "y": 20,
+    "z": 2402,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 2402
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Median days to approve"
+                }
+              },
+              "queryRef": "_Measures.Median days to approve",
+              "nativeQueryRef": "Median days to approve"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Median days to approve a price change.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

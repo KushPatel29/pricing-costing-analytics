@@ -1,0 +1,101 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0606",
+  "position": {
+    "x": 20,
+    "y": 448,
+    "z": 1505,
+    "height": 252,
+    "width": 500,
+    "tabOrder": 1505
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "margin_bridge_effects"
+                    }
+                  },
+                  "Property": "effect"
+                }
+              },
+              "queryRef": "margin_bridge_effects.effect",
+              "nativeQueryRef": "effect"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Bridge amount"
+                }
+              },
+              "queryRef": "_Measures.Bridge amount",
+              "nativeQueryRef": "Bridge amount"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "margin_bridge_effects"
+                    }
+                  },
+                  "Property": "pct_of_prior"
+                }
+              },
+              "queryRef": "margin_bridge_effects.pct_of_prior",
+              "nativeQueryRef": "pct_of_prior"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'The numbers'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled The numbers. Lists each bridge effect with its amount and share of prior-year margin.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

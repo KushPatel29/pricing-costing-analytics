@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1604",
+  "position": {
+    "x": 942,
+    "y": 20,
+    "z": 2503,
+    "height": 118,
+    "width": 318,
+    "tabOrder": 2503
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Critical checks failing"
+                }
+              },
+              "queryRef": "_Measures.Critical checks failing",
+              "nativeQueryRef": "Critical checks failing"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Critical checks failing: rules whose breach stops a line being priced at all.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

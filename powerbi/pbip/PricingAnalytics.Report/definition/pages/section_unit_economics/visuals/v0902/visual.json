@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0902",
+  "position": {
+    "x": 330,
+    "y": 20,
+    "z": 1801,
+    "height": 118,
+    "width": 296,
+    "tabOrder": 1801
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Contribution %"
+                }
+              },
+              "queryRef": "_Measures.Contribution %",
+              "nativeQueryRef": "Contribution %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Contribution as a share of pocket revenue.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

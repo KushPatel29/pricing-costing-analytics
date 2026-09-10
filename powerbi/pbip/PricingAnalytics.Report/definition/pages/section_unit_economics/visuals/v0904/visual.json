@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0904",
+  "position": {
+    "x": 942,
+    "y": 20,
+    "z": 1803,
+    "height": 118,
+    "width": 318,
+    "tabOrder": 1803
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Margin of safety"
+                }
+              },
+              "queryRef": "_Measures.Margin of safety",
+              "nativeQueryRef": "Margin of safety"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Margin of safety: how far volume can fall before the book stops covering its fixed costs.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

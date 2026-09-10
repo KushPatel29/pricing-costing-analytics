@@ -1,0 +1,134 @@
+table budget_variance
+	lineageTag: 37ab3d62-57b9-506d-b133-30ce5d1af76c
+
+	column month
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: f5bed8bb-4bf4-500a-a188-ea68a26ede23
+		summarizeBy: none
+		sourceColumn: month
+
+	column fiscal_year
+		dataType: int64
+		formatString: 0
+		lineageTag: e01ef18b-c4bf-57e5-b419-ad407711268f
+		summarizeBy: sum
+		sourceColumn: fiscal_year
+
+	column category
+		dataType: string
+		lineageTag: 68756415-410a-502a-a91a-03b22c7bb719
+		summarizeBy: none
+		sourceColumn: category
+
+	column budget_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: fe7801cc-da72-5039-988b-b30f1f57a544
+		summarizeBy: sum
+		sourceColumn: budget_revenue
+
+	column actual_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 77251411-90ee-529f-8e3c-e2c4a90083a7
+		summarizeBy: sum
+		sourceColumn: actual_revenue
+
+	column revenue_variance
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 88548a13-e4d7-5ab8-9ca4-f0072cf1f85c
+		summarizeBy: sum
+		sourceColumn: revenue_variance
+
+	column revenue_variance_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 56ab4115-7dc4-5da9-b33e-a2db3d57fb22
+		summarizeBy: sum
+		sourceColumn: revenue_variance_pct
+
+	column revenue_verdict
+		dataType: string
+		lineageTag: 3e226e44-56a5-5ab3-a82f-a06af994e6e4
+		summarizeBy: none
+		sourceColumn: revenue_verdict
+
+	column budget_cogs
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: ba520fb7-e472-5467-ad9d-afd89b375099
+		summarizeBy: sum
+		sourceColumn: budget_cogs
+
+	column actual_cogs
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: b5ed9d33-28fe-5b33-878f-06d26a9302d3
+		summarizeBy: sum
+		sourceColumn: actual_cogs
+
+	column cogs_variance
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: e0759c1b-c3ad-5006-b011-a76be5104fa6
+		summarizeBy: sum
+		sourceColumn: cogs_variance
+
+	column cogs_verdict
+		dataType: string
+		lineageTag: 75557727-a22c-53a9-bf39-8f90b8b5da27
+		summarizeBy: none
+		sourceColumn: cogs_verdict
+
+	column budget_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: e8ce85c5-8d3a-5a85-ab62-b67a4238a905
+		summarizeBy: sum
+		sourceColumn: budget_margin
+
+	column actual_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: ac3e6a29-094b-5abf-877e-34456b05e2f5
+		summarizeBy: sum
+		sourceColumn: actual_margin
+
+	column margin_variance
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 252e9182-0829-5e6e-8810-629e1c15028e
+		summarizeBy: sum
+		sourceColumn: margin_variance
+
+	column margin_verdict
+		dataType: string
+		lineageTag: 59fd8553-661e-5be3-b7e8-cd11dc0c5d7f
+		summarizeBy: none
+		sourceColumn: margin_verdict
+
+	column budget_volume_units
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 00007c70-45bb-5593-8705-a0cdd355f2d2
+		summarizeBy: sum
+		sourceColumn: budget_volume_units
+
+	column actual_volume_units
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: d7b2c155-e79f-55c7-936f-01c2cedc35eb
+		summarizeBy: sum
+		sourceColumn: actual_volume_units
+
+	partition budget_variance = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\budget_variance.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type date}, {"fiscal_year", Int64.Type}, {"category", type text}, {"budget_revenue", type number}, {"actual_revenue", type number}, {"revenue_variance", type number}, {"revenue_variance_pct", type number}, {"revenue_verdict", type text}, {"budget_cogs", type number}, {"actual_cogs", type number}, {"cogs_variance", type number}, {"cogs_verdict", type text}, {"budget_margin", type number}, {"actual_margin", type number}, {"margin_variance", type number}, {"margin_verdict", type text}, {"budget_volume_units", type number}, {"actual_volume_units", type number}})
+				in
+				    Typed

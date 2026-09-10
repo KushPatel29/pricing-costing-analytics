@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1304",
+  "position": {
+    "x": 942,
+    "y": 20,
+    "z": 2203,
+    "height": 118,
+    "width": 318,
+    "tabOrder": 2203
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Promo ROI"
+                }
+              },
+              "queryRef": "_Measures.Promo ROI",
+              "nativeQueryRef": "Promo ROI"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Promo ROI: net promo margin per dollar of discount on baseline.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

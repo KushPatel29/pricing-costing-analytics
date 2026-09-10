@@ -1,0 +1,16 @@
+table CostChange
+	lineageTag: 53153525-95f9-5f57-9eb0-d127c9b0ff84
+
+	column 'Cost change %'
+		dataType: double
+		isNameInferred
+		formatString: 0.0%
+		lineageTag: d8ff70d6-a446-5b04-aac0-7a6cdd7e526a
+		summarizeBy: none
+		sourceColumn: [Cost change %]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CostChange = calculated
+		mode: import
+		source = SELECTCOLUMNS(GENERATESERIES(-0.15, 0.25, 0.01), "Cost change %", [Value])

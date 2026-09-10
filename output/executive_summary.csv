@@ -1,0 +1,13 @@
+kpi,value,unit,note,fiscal_year,sort_order
+Pocket revenue,260354430.25,currency,"FY2026 revenue after every discount, rebate and cost to serve.",2026,0
+Pocket margin %,0.224439,percent,Down 0.9% on FY2025.,2026,1
+Revenue leakage %,0.181537,percent,"Share of list price that never reaches us. Every point is $3,181,018.",2026,2
+Realisation opportunity,10502428.57,currency,Value of moving every below-median line up to its own product's median price.,2026,3
+Median price index,99.16,index,"Our price against the market, latest month. 100 is parity.",2026,4
+Products under market,85.0,count,"Priced below 96 on the index, with margin available.",2026,5
+Margin at risk,4075980.47,currency,Extended margin on lines breaching a guardrail this month.,2026,6
+Guardrail breaches,1222.0,count,"Lines below floor, loss-making, or outside the index band.",2026,7
+Purchase price variance,-5569865.37,currency,Actual input cost against frozen standard. Positive is unfavourable.,2026,8
+Yield variance,645606.79,currency,Material used beyond what standard recovery allows.,2026,9
+Average pass-through,0.555913,ratio,Share of an input-cost move that reached the realised price. Below 1 compresses margin.,2026,10
+Volume,6545545.42,count,Units shipped in FY2026.,2026,11

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0701",
+  "position": {
+    "x": 20,
+    "y": 20,
+    "z": 1600,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 1600
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Realisation opportunity"
+                }
+              },
+              "queryRef": "_Measures.Realisation opportunity",
+              "nativeQueryRef": "Realisation opportunity"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Realisation opportunity: the value of moving every below-median line up to its own product's median price.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,106 @@
+table passthrough
+	lineageTag: 828f3721-b75d-5a78-b512-c02c6a1a059a
+
+	column commodity_index
+		dataType: string
+		lineageTag: 1beb5373-48f6-5438-91a6-288aafa08cf3
+		summarizeBy: none
+		sourceColumn: commodity_index
+
+	column passthrough_to_list
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 0707cb72-9dfe-5cd9-8207-2f43e78fef59
+		summarizeBy: sum
+		sourceColumn: passthrough_to_list
+
+	column passthrough_to_pocket
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 785fb3b8-aaff-57a2-8848-7286ba63f389
+		summarizeBy: sum
+		sourceColumn: passthrough_to_pocket
+
+	column discount_giveback
+		dataType: double
+		formatString: #,0
+		lineageTag: e5d25c62-c09c-5eda-a6db-86e274730792
+		summarizeBy: sum
+		sourceColumn: discount_giveback
+
+	column best_lag_quarters
+		dataType: int64
+		formatString: 0
+		lineageTag: f27914d7-327d-5af8-8718-1409f6138a0b
+		summarizeBy: sum
+		sourceColumn: best_lag_quarters
+
+	column r_squared
+		dataType: double
+		formatString: 0.0%
+		lineageTag: b9c5cfdd-9c70-555c-b061-d6290233b8d7
+		summarizeBy: sum
+		sourceColumn: r_squared
+
+	column observations
+		dataType: int64
+		formatString: 0
+		lineageTag: 91ffd454-fe52-5d96-9aaf-c47c387fc8b9
+		summarizeBy: sum
+		sourceColumn: observations
+
+	column usable
+		dataType: boolean
+		lineageTag: b431b1c9-b623-5782-b615-83462a082c8e
+		summarizeBy: none
+		sourceColumn: usable
+
+	column reason
+		dataType: string
+		lineageTag: fe578184-9c01-54e7-aa1a-f390204fcb3c
+		summarizeBy: none
+		sourceColumn: reason
+
+	column index_change_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 3d7c52fc-0935-568c-baa4-5f75f02e543b
+		summarizeBy: sum
+		sourceColumn: index_change_pct
+
+	column list_price_change_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 1a6620fa-6f3f-5501-981b-790861bfcc06
+		summarizeBy: sum
+		sourceColumn: list_price_change_pct
+
+	column realised_price_change_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: a95f248c-4fbc-5d64-9f40-3245762f3391
+		summarizeBy: sum
+		sourceColumn: realised_price_change_pct
+
+	column cumulative_passthrough
+		dataType: double
+		formatString: 0.0%
+		lineageTag: a2ca8296-73bf-56ee-9952-6f2ae002a031
+		summarizeBy: sum
+		sourceColumn: cumulative_passthrough
+
+	column material_move
+		dataType: boolean
+		lineageTag: 611d11fe-a4e3-57e2-af5b-cfd63b97332c
+		summarizeBy: none
+		sourceColumn: material_move
+
+	partition passthrough = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\passthrough.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"commodity_index", type text}, {"passthrough_to_list", type number}, {"passthrough_to_pocket", type number}, {"discount_giveback", type number}, {"best_lag_quarters", Int64.Type}, {"r_squared", type number}, {"observations", Int64.Type}, {"usable", type logical}, {"reason", type text}, {"index_change_pct", type number}, {"list_price_change_pct", type number}, {"realised_price_change_pct", type number}, {"cumulative_passthrough", type number}, {"material_move", type logical}})
+				in
+				    Typed

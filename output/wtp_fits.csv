@@ -1,0 +1,10 @@
+segment,quotes,wins,win_rate,intercept,slope,indifference_price_ratio,converged,usable,reason
+All,5600,2884,0.515,10.0701,-10.3734,0.9708,True,True,ok
+Corporate & B2B Buyer,785,347,0.442,5.7537,-6.1587,0.9343,True,True,ok
+E-commerce Pure-Play,492,283,0.5752,13.1594,-13.2779,0.9911,True,True,ok
+Government & Education,331,152,0.4592,5.7625,-6.1529,0.9365,True,True,ok
+Independent Retailer,1000,513,0.513,7.9707,-8.1784,0.9746,True,True,ok
+Marketplace Seller,1567,826,0.5271,14.8551,-15.2793,0.9722,True,True,ok
+Regional Retail Chain,487,252,0.5175,10.3423,-10.7356,0.9634,True,True,ok
+Sub-Distributor,548,305,0.5566,13.9509,-14.2088,0.9818,True,True,ok
+Subscription Box Operator,390,206,0.5282,6.8764,-7.0497,0.9754,True,True,ok

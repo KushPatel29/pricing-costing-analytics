@@ -1,0 +1,111 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1306",
+  "position": {
+    "x": 534,
+    "y": 152,
+    "z": 2205,
+    "height": 272,
+    "width": 726,
+    "tabOrder": 2205
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "discount_margin_matrix"
+                    }
+                  },
+                  "Property": "discount_band"
+                }
+              },
+              "queryRef": "discount_margin_matrix.discount_band",
+              "nativeQueryRef": "discount_band",
+              "active": true
+            }
+          ]
+        },
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "discount_margin_matrix"
+                    }
+                  },
+                  "Property": "margin_band"
+                }
+              },
+              "queryRef": "discount_margin_matrix.margin_band",
+              "nativeQueryRef": "margin_band",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Banded revenue"
+                }
+              },
+              "queryRef": "_Measures.Banded revenue",
+              "nativeQueryRef": "Banded revenue"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Discount against margin'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Matrix titled Discount against margin. Banded revenue for every discount band against every margin band. The cells below the diagonal are the deals that took a discount and still needed the margin.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

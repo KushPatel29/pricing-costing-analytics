@@ -1,0 +1,111 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1206",
+  "position": {
+    "x": 434,
+    "y": 152,
+    "z": 2105,
+    "height": 272,
+    "width": 826,
+    "tabOrder": 2105
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "profit_heatmap"
+                    }
+                  },
+                  "Property": "segment"
+                }
+              },
+              "queryRef": "profit_heatmap.segment",
+              "nativeQueryRef": "segment",
+              "active": true
+            }
+          ]
+        },
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "profit_heatmap"
+                    }
+                  },
+                  "Property": "category"
+                }
+              },
+              "queryRef": "profit_heatmap.category",
+              "nativeQueryRef": "category",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Segment margin %"
+                }
+              },
+              "queryRef": "_Measures.Segment margin %",
+              "nativeQueryRef": "Segment margin %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segment against category'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Matrix titled Segment against category. Segment margin % for every segment and category pair, segments down the side and categories across the top, so the weak cells read as a block rather than as sixty-four rows.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

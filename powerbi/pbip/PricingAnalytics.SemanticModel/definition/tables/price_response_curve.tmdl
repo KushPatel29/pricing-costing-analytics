@@ -1,0 +1,74 @@
+table price_response_curve
+	lineageTag: db0dffcd-3e89-5e16-86d7-55c6f8766022
+
+	column category
+		dataType: string
+		lineageTag: 90aefcad-be3e-5443-b219-a903469a3b6d
+		summarizeBy: none
+		sourceColumn: category
+
+	column price_change_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: b411eedf-9ce2-5cd0-b199-5ade498e91f0
+		summarizeBy: sum
+		sourceColumn: price_change_pct
+
+	column price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 2fa14d76-1dc2-5703-bafa-213e768026ae
+		summarizeBy: sum
+		sourceColumn: price
+
+	column quantity
+		dataType: double
+		formatString: #,0
+		lineageTag: 48dc8c5b-8ba3-5372-b369-6e2de53b1c72
+		summarizeBy: sum
+		sourceColumn: quantity
+
+	column revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 3d341b93-1304-57b0-aff8-98aa6815b4aa
+		summarizeBy: sum
+		sourceColumn: revenue
+
+	column profit
+		dataType: double
+		formatString: #,0.00
+		lineageTag: ff5b8209-9dc0-549a-9725-2141d8640464
+		summarizeBy: sum
+		sourceColumn: profit
+
+	column margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: fe4675e1-3945-59e6-8baa-9016f9d1a513
+		summarizeBy: sum
+		sourceColumn: margin_pct
+
+	column is_current
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 33fe3d98-1637-5335-b99c-a68dda0a0299
+		summarizeBy: sum
+		sourceColumn: is_current
+
+	column is_profit_max
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 87f5eac9-bcf8-529d-9968-aff2fa654891
+		summarizeBy: sum
+		sourceColumn: is_profit_max
+
+	partition price_response_curve = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\price_response_curve.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"category", type text}, {"price_change_pct", type number}, {"price", type number}, {"quantity", type number}, {"revenue", type number}, {"profit", type number}, {"margin_pct", type number}, {"is_current", type number}, {"is_profit_max", type number}})
+				in
+				    Typed

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
+  "pageOrder": [
+    "section_summary",
+    "section_waterfall",
+    "section_competitive",
+    "section_elasticity",
+    "section_cost",
+    "section_bridge",
+    "section_bands",
+    "section_guardrails",
+    "section_unit_economics",
+    "section_scenario",
+    "section_forecast",
+    "section_profitability",
+    "section_discount",
+    "section_cost_elements",
+    "section_operations",
+    "section_quality",
+    "section_exceptions",
+    "section_recommendations"
+  ],
+  "activePageName": "section_summary"
+}

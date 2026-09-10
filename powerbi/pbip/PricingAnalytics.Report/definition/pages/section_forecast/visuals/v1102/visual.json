@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1102",
+  "position": {
+    "x": 330,
+    "y": 20,
+    "z": 2001,
+    "height": 118,
+    "width": 296,
+    "tabOrder": 2001
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Revenue forecast change %"
+                }
+              },
+              "queryRef": "_Measures.Revenue forecast change %",
+              "nativeQueryRef": "Revenue forecast change %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Revenue forecast change %: the next six months against the last six.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

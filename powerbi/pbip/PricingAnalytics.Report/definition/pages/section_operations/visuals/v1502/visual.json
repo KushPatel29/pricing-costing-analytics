@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1502",
+  "position": {
+    "x": 330,
+    "y": 20,
+    "z": 2401,
+    "height": 118,
+    "width": 296,
+    "tabOrder": 2401
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Median price change %"
+                }
+              },
+              "queryRef": "_Measures.Median price change %",
+              "nativeQueryRef": "Median price change %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Median price change % across the log.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

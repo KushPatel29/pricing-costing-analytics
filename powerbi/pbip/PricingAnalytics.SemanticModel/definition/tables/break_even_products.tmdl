@@ -1,0 +1,91 @@
+table break_even_products
+	lineageTag: 2edf6402-a850-5ea4-9d8c-e2518783ea73
+
+	column product_id
+		dataType: string
+		lineageTag: 6649aefe-4fd6-5734-b55f-eddf8286b7c5
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column description
+		dataType: string
+		lineageTag: 1f4f618b-0e3d-5c2f-b106-24f3f26afabf
+		summarizeBy: none
+		sourceColumn: description
+
+	column category
+		dataType: string
+		lineageTag: 59eab10c-c2b2-53f0-8423-277defc4cadf
+		summarizeBy: none
+		sourceColumn: category
+
+	column exists
+		dataType: boolean
+		lineageTag: 5b3a8a1c-d312-589d-94eb-f8125ee2c00d
+		summarizeBy: none
+		sourceColumn: exists
+
+	column break_even_units
+		dataType: double
+		formatString: #,0
+		lineageTag: 0ad44f4b-6c03-5ec8-bdc2-1834f0204415
+		summarizeBy: sum
+		sourceColumn: break_even_units
+
+	column break_even_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 6f94a3f6-141a-556d-a300-288133f2c35c
+		summarizeBy: sum
+		sourceColumn: break_even_revenue
+
+	column contribution_per_unit
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b35bc3aa-0d42-5b85-a621-2bd2813ec00e
+		summarizeBy: sum
+		sourceColumn: contribution_per_unit
+
+	column contribution_ratio
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 7f8ae477-7e65-5f98-9d5a-9f872898903b
+		summarizeBy: sum
+		sourceColumn: contribution_ratio
+
+	column actual_volume_units
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 816172eb-1bb5-5b80-a4a0-4709632c0e9a
+		summarizeBy: sum
+		sourceColumn: actual_volume_units
+
+	column margin_of_safety
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 2eaea6e8-8e20-54a2-8cc1-b962a97a3d62
+		summarizeBy: sum
+		sourceColumn: margin_of_safety
+
+	column operating_profit
+		dataType: double
+		formatString: #,0.00
+		lineageTag: bf9d587c-7c08-517f-8f9c-6b653a11afa1
+		summarizeBy: sum
+		sourceColumn: operating_profit
+
+	column note
+		dataType: string
+		lineageTag: 413be8a9-d264-5fdd-bb3a-fb29ad14b9d9
+		summarizeBy: none
+		sourceColumn: note
+
+	partition break_even_products = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\break_even_products.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"product_id", type text}, {"description", type text}, {"category", type text}, {"exists", type logical}, {"break_even_units", type number}, {"break_even_revenue", type number}, {"contribution_per_unit", type number}, {"contribution_ratio", type number}, {"actual_volume_units", type number}, {"margin_of_safety", type number}, {"operating_profit", type number}, {"note", type text}})
+				in
+				    Typed

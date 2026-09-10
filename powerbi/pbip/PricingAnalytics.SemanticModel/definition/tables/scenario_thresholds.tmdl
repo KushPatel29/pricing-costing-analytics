@@ -1,0 +1,50 @@
+table scenario_thresholds
+	lineageTag: 80b97331-3c30-58b3-98bc-bce936296392
+
+	column exists
+		dataType: boolean
+		lineageTag: 74945ea3-c38d-5163-a0f7-2cefb32ddf78
+		summarizeBy: none
+		sourceColumn: exists
+
+	column input
+		dataType: string
+		lineageTag: 4d41526b-320e-58fe-b5aa-f4fe4e178aa5
+		summarizeBy: none
+		sourceColumn: input
+
+	column key
+		dataType: string
+		lineageTag: 809b8f6e-7a48-5056-b23d-6655e143b5da
+		summarizeBy: none
+		sourceColumn: key
+
+	column threshold
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 37d296da-4483-55d0-bde2-130580de525c
+		summarizeBy: sum
+		sourceColumn: threshold
+
+	column baseline
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 6fa95460-01bd-55fe-aa63-9d138c1a88e3
+		summarizeBy: sum
+		sourceColumn: baseline
+
+	column reason
+		dataType: string
+		lineageTag: 7b3c6953-0d9b-5071-bb07-c320b9fedb40
+		summarizeBy: none
+		sourceColumn: reason
+
+	partition scenario_thresholds = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\scenario_thresholds.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"exists", type logical}, {"input", type text}, {"key", type text}, {"threshold", type number}, {"baseline", type number}, {"reason", type text}})
+				in
+				    Typed

@@ -1,0 +1,15 @@
+scope,dimension,member,step,kind,amount,running,bucket,sort_order,delta
+Total,Total,All,List value,total,878520371.22,878520371.22,List,0,878520371.22
+Total,Total,All,Volume discount,decrease,-84950948.56,793569422.66,On-invoice,1,-84950948.56
+Total,Total,All,Contract discount,decrease,-12596740.46,780972682.2,On-invoice,2,-12596740.46
+Total,Total,All,Promotional discount,decrease,-14254017.53,766718664.68,On-invoice,3,-14254017.53
+Total,Total,All,Rebate accrual,decrease,-16316393.3,750402271.37,Off-invoice,4,-16316393.3
+Total,Total,All,Co-op marketing,decrease,-1170005.11,749232266.26,Off-invoice,5,-1170005.11
+Total,Total,All,Payment terms,decrease,-5313262.13,743919004.13,Off-invoice,6,-5313262.13
+Total,Total,All,Freight allowance,decrease,-8580711.47,735338292.66,Off-invoice,7,-8580711.47
+Total,Total,All,Freight to customer,decrease,-9841378.65,725496914.01,Cost to serve,8,-9841378.65
+Total,Total,All,Order handling,decrease,-250604.64,725246309.37,Cost to serve,9,-250604.64
+Total,Total,All,Returns and credits,decrease,-4896109.21,720350200.16,Cost to serve,10,-4896109.21
+Total,Total,All,Pocket revenue,total,720350200.16,720350200.16,Pocket,11,0.0
+Total,Total,All,Cost of goods,decrease,-543425911.86,176924288.3,Cost,12,-543425911.86
+Total,Total,All,Pocket margin,total,176924288.3,176924288.3,Margin,13,0.0

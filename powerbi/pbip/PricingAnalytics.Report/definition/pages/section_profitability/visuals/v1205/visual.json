@@ -1,0 +1,92 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1205",
+  "position": {
+    "x": 20,
+    "y": 152,
+    "z": 2104,
+    "height": 272,
+    "width": 400,
+    "tabOrder": 2104
+  },
+  "visual": {
+    "visualType": "treemap",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "profit_heatmap"
+                    }
+                  },
+                  "Property": "segment"
+                }
+              },
+              "queryRef": "profit_heatmap.segment",
+              "nativeQueryRef": "segment",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Segment margin $"
+                }
+              },
+              "queryRef": "_Measures.Segment margin $",
+              "nativeQueryRef": "Segment margin $"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Where the margin sits'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Treemap titled Where the margin sits. Sizes each customer segment by Segment margin dollars.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

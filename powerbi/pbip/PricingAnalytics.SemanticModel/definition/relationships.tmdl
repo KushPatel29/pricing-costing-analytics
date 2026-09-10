@@ -1,0 +1,91 @@
+relationship 289c8b5d-627b-5568-a64e-08e4526be6e9
+	fromColumn: fact_sales.product_id
+	toColumn: dim_product.product_id
+
+relationship cf97174d-a6a7-56e8-81ac-f2e9c1118a57
+	fromColumn: fact_sales.customer_id
+	toColumn: dim_customer.customer_id
+
+relationship 05f47456-cf8f-5863-b7d3-a3f434361c9c
+	fromColumn: fact_sales.month
+	toColumn: dim_month.month
+
+relationship a1d6be96-8a7f-5ee2-9112-b807373aab00
+	fromColumn: competitive_index.product_id
+	toColumn: dim_product.product_id
+
+relationship 477fe3ef-d504-546f-bd97-e9da71693bb2
+	fromColumn: competitive_index.month
+	toColumn: dim_month.month
+
+relationship 8dcd5f18-b2bc-5258-afd0-fadd033c01cf
+	fromColumn: cost_variance_long.product_id
+	toColumn: dim_product.product_id
+
+relationship 8a781d14-593c-5018-9740-900428920cdb
+	fromColumn: cost_variance_long.month
+	toColumn: dim_month.month
+
+relationship b1054885-2d21-5e64-9676-d6be9eb1851c
+	fromColumn: deal_scores.product_id
+	toColumn: dim_product.product_id
+
+relationship d4c49d0c-9088-5485-91d0-9e93125fa2b1
+	fromColumn: deal_scores.customer_id
+	toColumn: dim_customer.customer_id
+
+relationship 7091f76c-006d-5d03-b369-3f5748757fff
+	fromColumn: price_bands.product_id
+	toColumn: dim_product.product_id
+
+relationship f96334ff-3321-5e22-817f-3325c0aef06b
+	fromColumn: customer_profitability.customer_id
+	toColumn: dim_customer.customer_id
+
+relationship 0d5d251a-b2e3-5cc6-b730-4d815c3e45ff
+	fromColumn: waterfall_monthly.month
+	toColumn: dim_month.month
+
+relationship 11cd9ebb-be73-5541-83ef-d474f5a96fb7
+	fromColumn: budget_variance.month
+	toColumn: dim_month.month
+
+relationship cdcbf106-7136-55b4-b18f-af53b8e5c3d6
+	fromColumn: overhead_variance.month
+	toColumn: dim_month.month
+
+relationship 22706101-f96f-5993-a2e6-cffc962edd81
+	fromColumn: unit_economics.product_id
+	toColumn: dim_product.product_id
+
+relationship bf24cc19-35da-5e1c-91ce-0e43c3bf76dc
+	fromColumn: break_even_products.product_id
+	toColumn: dim_product.product_id
+
+relationship 152e5415-68e8-5742-8af7-b764a186f01c
+	fromColumn: price_vs_volume.product_id
+	toColumn: dim_product.product_id
+
+relationship 26cdc3a8-b7a1-5304-a26e-c5ac37cc1fc6
+	fromColumn: price_vs_volume.month
+	toColumn: dim_month.month
+
+relationship 5d0ea19d-ac8a-5657-bee8-e68018fb4659
+	fromColumn: price_change_log.product_id
+	toColumn: dim_product.product_id
+
+relationship f9cfe02e-3400-5e9e-acb9-b8abcc1e8542
+	fromColumn: price_change_log.effective_month
+	toColumn: dim_month.month
+
+relationship 1ad3c838-6afd-5c30-92c7-c0dd718500dd
+	fromColumn: recommendations.product_id
+	toColumn: dim_product.product_id
+
+relationship 87eb0755-ebc6-5a8e-92f6-5a610ec81304
+	fromColumn: guardrail_exceptions.product_id
+	toColumn: dim_product.product_id
+
+relationship 032aa4fb-9b5c-51da-951d-ae8291bba4ab
+	fromColumn: guardrail_exceptions.customer_id
+	toColumn: dim_customer.customer_id

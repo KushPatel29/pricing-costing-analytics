@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0801",
+  "position": {
+    "x": 20,
+    "y": 20,
+    "z": 1700,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 1700
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Lines scored"
+                }
+              },
+              "queryRef": "_Measures.Lines scored",
+              "nativeQueryRef": "Lines scored"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Invoice lines scored against the guardrail this month.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

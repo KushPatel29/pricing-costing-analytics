@@ -1,0 +1,94 @@
+table scenario_tornado
+	lineageTag: ee1b34fa-08a0-5e20-b113-1e7e057d510b
+
+	column input
+		dataType: string
+		lineageTag: 46bbb1dc-77be-5e7c-9cb1-8fd0e4e2772b
+		summarizeBy: none
+		sourceColumn: input
+
+	column key
+		dataType: string
+		lineageTag: 9a3e4572-b2f7-5dfb-a607-a16316403fd3
+		summarizeBy: none
+		sourceColumn: key
+
+	column low_value
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 80a72c1d-0b25-57da-adf5-5c6911e59d82
+		summarizeBy: sum
+		sourceColumn: low_value
+
+	column high_value
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 4624bdf6-434f-5a32-9125-ae9b65a31892
+		summarizeBy: sum
+		sourceColumn: high_value
+
+	column downside
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 4f46296d-6fb3-5ad0-b7a3-d047620e433f
+		summarizeBy: sum
+		sourceColumn: downside
+
+	column upside
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 7746cbba-15e1-566d-bf74-e5a50d0130c7
+		summarizeBy: sum
+		sourceColumn: upside
+
+	column baseline
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 7dd90b57-aa08-5e22-9dc1-02660992f88b
+		summarizeBy: sum
+		sourceColumn: baseline
+
+	column downside_delta
+		dataType: double
+		formatString: #,0.00
+		lineageTag: dfea519d-9280-52d2-90bf-733d9726e8cb
+		summarizeBy: sum
+		sourceColumn: downside_delta
+
+	column upside_delta
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 6d2d3e83-2b76-5fab-9f24-869b50b53cbb
+		summarizeBy: sum
+		sourceColumn: upside_delta
+
+	column swing
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 4983329c-9352-5fc2-be52-0b28efb63579
+		summarizeBy: sum
+		sourceColumn: swing
+
+	column share_of_swing
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 5768338f-ef29-5017-8e22-9071081b1f93
+		summarizeBy: sum
+		sourceColumn: share_of_swing
+
+	column cumulative_share
+		dataType: double
+		formatString: #,0.00
+		lineageTag: e97d10f5-3248-52c6-affe-eedded24c390
+		summarizeBy: sum
+		sourceColumn: cumulative_share
+
+	partition scenario_tornado = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\scenario_tornado.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"input", type text}, {"key", type text}, {"low_value", type number}, {"high_value", type number}, {"downside", type number}, {"upside", type number}, {"baseline", type number}, {"downside_delta", type number}, {"upside_delta", type number}, {"swing", type number}, {"share_of_swing", type number}, {"cumulative_share", type number}})
+				in
+				    Typed

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1802",
+  "position": {
+    "x": 330,
+    "y": 20,
+    "z": 2701,
+    "height": 118,
+    "width": 296,
+    "tabOrder": 2701
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Margin delta"
+                }
+              },
+              "queryRef": "_Measures.Margin delta",
+              "nativeQueryRef": "Margin delta"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Margin delta: annual gross margin the recommended actions are worth.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+table data_quality_score
+	lineageTag: 6b0ed3a7-509b-563e-a1bb-293e5ea331ad
+
+	column dimension
+		dataType: string
+		lineageTag: 5ad3e7ed-01a0-5416-916a-d3667c51924b
+		summarizeBy: none
+		sourceColumn: dimension
+
+	column checks
+		dataType: int64
+		formatString: 0
+		lineageTag: 4abf77bb-1105-5c7d-8357-99ece33409fd
+		summarizeBy: sum
+		sourceColumn: checks
+
+	column checks_passed
+		dataType: int64
+		formatString: 0
+		lineageTag: ef7604da-ad15-59a6-948b-c5116ada175a
+		summarizeBy: sum
+		sourceColumn: checks_passed
+
+	column rows_checked
+		dataType: int64
+		formatString: 0
+		lineageTag: da584d43-eacd-5f7f-a380-b88c07d8054c
+		summarizeBy: sum
+		sourceColumn: rows_checked
+
+	column rows_failing
+		dataType: int64
+		formatString: 0
+		lineageTag: 37938cce-71dd-509f-812f-b1e48241433c
+		summarizeBy: sum
+		sourceColumn: rows_failing
+
+	column score
+		dataType: double
+		formatString: #,0.00
+		lineageTag: a08dc95f-d7ae-5ea6-9b6d-18c7cff8a226
+		summarizeBy: sum
+		sourceColumn: score
+
+	partition data_quality_score = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\data_quality_score.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dimension", type text}, {"checks", Int64.Type}, {"checks_passed", Int64.Type}, {"rows_checked", Int64.Type}, {"rows_failing", Int64.Type}, {"score", type number}})
+				in
+				    Typed

@@ -1,0 +1,115 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0908",
+  "position": {
+    "x": 534,
+    "y": 442,
+    "z": 1807,
+    "height": 258,
+    "width": 530,
+    "tabOrder": 1807
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_product"
+                    }
+                  },
+                  "Property": "description"
+                }
+              },
+              "queryRef": "dim_product.description",
+              "nativeQueryRef": "description"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Contribution per unit"
+                }
+              },
+              "queryRef": "_Measures.Contribution per unit",
+              "nativeQueryRef": "Contribution per unit"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Product break-even units"
+                }
+              },
+              "queryRef": "_Measures.Product break-even units",
+              "nativeQueryRef": "Product break-even units"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "break_even_products"
+                    }
+                  },
+                  "Property": "margin_of_safety"
+                }
+              },
+              "queryRef": "break_even_products.margin_of_safety",
+              "nativeQueryRef": "margin_of_safety"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Break-even by product'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled Break-even by product. Lists Contribution per unit, Product break-even units and margin of safety for each product.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

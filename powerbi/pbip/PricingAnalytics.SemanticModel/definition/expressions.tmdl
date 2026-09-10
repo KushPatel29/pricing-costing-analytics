@@ -1,0 +1,4 @@
+expression DataPath = "C:\Users\kush2\Claude\portfolio-projects\cost-to-price-calculator" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: a039d570-02f5-5f64-a85d-2abe7b5f33bf
+
+	annotation PBI_ResultType = Text

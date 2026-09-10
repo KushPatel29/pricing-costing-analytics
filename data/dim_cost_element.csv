@@ -1,0 +1,9 @@
+cost_element,behaviour,owner,sort_order
+Goods,Variable,Merchandising,0
+Shrink and damage,Variable,Operations,1
+Inbound freight and duty,Variable,Logistics,2
+"Pick, pack and handling",Variable,Operations,3
+Packaging and labelling,Variable,Operations,4
+Variable warehouse overhead,Variable,Operations,5
+Fixed warehouse overhead,Fixed,Operations,6
+Selling and admin,Fixed,Commercial,7

@@ -1,0 +1,73 @@
+table promotion_summary
+	lineageTag: 17096a60-111a-51f0-a085-cc4c9a765132
+
+	column mechanic
+		dataType: string
+		lineageTag: 283f3e3d-d3ea-593f-95df-6b3a07921081
+		summarizeBy: none
+		sourceColumn: mechanic
+
+	column promotions
+		dataType: int64
+		formatString: 0
+		lineageTag: f413bcae-4ae6-51bc-a666-742b9bfe3b7b
+		summarizeBy: sum
+		sourceColumn: promotions
+
+	column volume_units
+		dataType: double
+		formatString: #,0
+		lineageTag: ea6043b7-739e-5c09-ad09-585faee671cc
+		summarizeBy: sum
+		sourceColumn: volume_units
+
+	column incremental_volume_units
+		dataType: double
+		formatString: #,0
+		lineageTag: e2fb06cf-ccc7-552d-9348-c4284c8f60dd
+		summarizeBy: sum
+		sourceColumn: incremental_volume_units
+
+	column incremental_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 402c7c56-8f5d-58fa-b554-f4b297fc9aa1
+		summarizeBy: sum
+		sourceColumn: incremental_margin
+
+	column discount_on_baseline
+		dataType: double
+		formatString: #,0
+		lineageTag: 3138952d-8918-5e1c-a66c-0fcd1fe4d9e5
+		summarizeBy: sum
+		sourceColumn: discount_on_baseline
+
+	column net_promo_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: a3aebf56-4ac3-5af8-b8e3-b3d3962448e2
+		summarizeBy: sum
+		sourceColumn: net_promo_margin
+
+	column roi
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d5ceede4-fa7c-56b4-8742-2dd7aa60c78d
+		summarizeBy: sum
+		sourceColumn: roi
+
+	column paid
+		dataType: string
+		lineageTag: faee67ca-ef47-514f-bd72-ce53a8734eaf
+		summarizeBy: none
+		sourceColumn: paid
+
+	partition promotion_summary = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\promotion_summary.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"mechanic", type text}, {"promotions", Int64.Type}, {"volume_units", type number}, {"incremental_volume_units", type number}, {"incremental_margin", type number}, {"discount_on_baseline", type number}, {"net_promo_margin", type number}, {"roi", type number}, {"paid", type text}})
+				in
+				    Typed

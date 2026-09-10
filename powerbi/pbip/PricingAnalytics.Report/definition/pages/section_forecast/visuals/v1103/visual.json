@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1103",
+  "position": {
+    "x": 634,
+    "y": 20,
+    "z": 2002,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 2002
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Revenue backtest WAPE"
+                }
+              },
+              "queryRef": "_Measures.Revenue backtest WAPE",
+              "nativeQueryRef": "Revenue backtest WAPE"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Revenue backtest WAPE: weighted absolute percentage error across the rolling-origin folds.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

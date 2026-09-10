@@ -1,0 +1,101 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1608",
+  "position": {
+    "x": 654,
+    "y": 442,
+    "z": 2507,
+    "height": 258,
+    "width": 410,
+    "tabOrder": 2507
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "data_quality_score"
+                    }
+                  },
+                  "Property": "dimension"
+                }
+              },
+              "queryRef": "data_quality_score.dimension",
+              "nativeQueryRef": "dimension"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "data_quality_score"
+                    }
+                  },
+                  "Property": "checks"
+                }
+              },
+              "queryRef": "data_quality_score.checks",
+              "nativeQueryRef": "checks"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Dimension score"
+                }
+              },
+              "queryRef": "_Measures.Dimension score",
+              "nativeQueryRef": "Dimension score"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Rules per dimension'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled Rules per dimension. Number of checks and Dimension score for each quality dimension, plus the overall row.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

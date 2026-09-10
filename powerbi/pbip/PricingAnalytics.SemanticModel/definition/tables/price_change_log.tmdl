@@ -1,0 +1,107 @@
+table price_change_log
+	lineageTag: c0f55e57-cb87-5473-b5aa-a4a2c6dad8b5
+
+	column change_id
+		dataType: string
+		lineageTag: 62f540a3-3a98-588b-8cea-d11f7ecf8c43
+		summarizeBy: none
+		sourceColumn: change_id
+
+	column effective_month
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 8d0a5c5c-843c-5a13-87c4-b8abf90b01a3
+		summarizeBy: none
+		sourceColumn: effective_month
+
+	column product_id
+		dataType: string
+		lineageTag: ff1b5763-2cfb-5e56-809a-495904ecaf3b
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column description
+		dataType: string
+		lineageTag: ae2c00c7-94cd-56bc-8eeb-0523cb6338ed
+		summarizeBy: none
+		sourceColumn: description
+
+	column category
+		dataType: string
+		lineageTag: 82e47c9f-035f-57ae-a6b3-27faac0eb60d
+		summarizeBy: none
+		sourceColumn: category
+
+	column brand_tier
+		dataType: string
+		lineageTag: b35a33da-ffcc-5730-8527-f759d31ec9ac
+		summarizeBy: none
+		sourceColumn: brand_tier
+
+	column previous_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 1e970595-ca99-586d-8575-ac0973f05dd6
+		summarizeBy: sum
+		sourceColumn: previous_price
+
+	column new_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 0ed04918-1b33-5f23-9e64-caff19b5b9cc
+		summarizeBy: sum
+		sourceColumn: new_price
+
+	column pct_change
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 44f23c16-df80-5a9c-a7de-350ed97ca575
+		summarizeBy: sum
+		sourceColumn: pct_change
+
+	column direction
+		dataType: string
+		lineageTag: 9f956f3a-d64f-55fb-ba7d-6278191b231d
+		summarizeBy: none
+		sourceColumn: direction
+
+	column reason
+		dataType: string
+		lineageTag: 645669aa-e783-5c11-b2a9-00e4abfc0002
+		summarizeBy: none
+		sourceColumn: reason
+
+	column requested_by
+		dataType: string
+		lineageTag: 619cbbea-c703-5023-8b08-4ff187fd2f69
+		summarizeBy: none
+		sourceColumn: requested_by
+
+	column approval_state
+		dataType: string
+		lineageTag: f9c28558-8577-5766-921a-e80a01ea5988
+		summarizeBy: none
+		sourceColumn: approval_state
+
+	column approver
+		dataType: string
+		lineageTag: 2d8c3c96-ff02-551f-bb13-1c57b5f5f595
+		summarizeBy: none
+		sourceColumn: approver
+
+	column days_to_approve
+		dataType: int64
+		formatString: 0
+		lineageTag: ff6d36aa-6403-5ebd-8191-46d1ef23a241
+		summarizeBy: sum
+		sourceColumn: days_to_approve
+
+	partition price_change_log = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\price_change_log.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"change_id", type text}, {"effective_month", type date}, {"product_id", type text}, {"description", type text}, {"category", type text}, {"brand_tier", type text}, {"previous_price", type number}, {"new_price", type number}, {"pct_change", type number}, {"direction", type text}, {"reason", type text}, {"requested_by", type text}, {"approval_state", type text}, {"approver", type text}, {"days_to_approve", Int64.Type}})
+				in
+				    Typed

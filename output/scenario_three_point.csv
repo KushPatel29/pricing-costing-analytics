@@ -1,0 +1,4 @@
+scenario,list_price,discount,net_price,volume,unit_cost,revenue,variable_cost,contribution,contribution_pct,fixed_costs,operating_profit,operating_margin_pct,unit_contribution,delta,delta_pct,note
+Worst case,46.6543,0.2115,36.7852,6253684.2807,35.6897,230042763.958,223192172.6792,6850591.2788,0.0298,5337946.2993,1512644.9795,0.0066,1.0954,-45320124.6916,-0.9677,"Every assumption at its own end at once. A stress test, not an interval: the joint probability is far below any single one of them."
+Base,48.5982,0.1815,39.7758,6545545.42,31.8658,260354430.25,208579117.7092,51775312.5408,0.1989,4942542.8697,46832769.6711,0.1799,7.91,0.0,0.0,The stated assumptions.
+Best case,50.5421,0.1615,42.3777,6613019.9978,30.2725,280244541.3201,200192787.4023,80051753.9178,0.2856,4794266.5836,75257487.3341,0.2685,12.1052,28424717.663,0.6069,"Every assumption at its own end at once. A stress test, not an interval: the joint probability is far below any single one of them."

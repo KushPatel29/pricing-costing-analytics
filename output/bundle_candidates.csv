@@ -1,0 +1,25 @@
+rank,bundle_id,product_a,product_b,name_a,name_b,category_a,category_b,co_purchase_months,standalone_price,bundle_price,standalone_margin_pct,bundle_margin_pct,expected_units,cannibalisation_rate,break_even_cannibalisation,headroom,incremental_margin,verdict
+1,B01,20017,20115,Webcam - National brand,USB-C Charger - National brand,Consumer Electronics,Consumer Electronics,49,65.643,59.0787,0.2914,0.2127,4883.5,0.5104,0.6568,0.1464,13679.4,Creates value
+2,B02,20017,20193,Webcam - National brand,Wireless Earbuds - Private label,Consumer Electronics,Consumer Electronics,42,56.9255,51.233,0.1667,0.0741,2578.9,0.2917,0.4002,0.1085,2656.49,Creates value
+3,B03,20115,20193,USB-C Charger - National brand,Wireless Earbuds - Private label,Consumer Electronics,Consumer Electronics,40,77.5432,69.7888,0.1647,0.0719,2578.9,0.4167,0.3929,-0.0237,-781.78,Destroys value
+4,B04,20051,20115,HDMI Cable - National brand,USB-C Charger - National brand,Consumer Electronics,Consumer Electronics,39,103.205,92.8845,0.3026,0.2251,1757.0,0.4062,0.6695,0.2633,14444.25,Creates value
+5,B05,20119,20137,HDMI Cable - National brand,Bluetooth Speaker - Private label,Consumer Electronics,Consumer Electronics,39,100.3712,90.3341,0.3621,0.2913,7077.6,0.4062,0.7239,0.3176,81705.11,Creates value
+6,B06,20017,20051,Webcam - National brand,HDMI Cable - National brand,Consumer Electronics,Consumer Electronics,38,82.5874,74.3286,0.3384,0.2649,1757.0,0.2111,0.7045,0.4934,24223.37,Creates value
+7,B07,20003,20129,Storage Bins - National brand,Filing Boxes - National brand,Home & Kitchen,Office & Stationery,38,39.5267,35.574,0.169,0.0767,2502.6,0.3167,0.4084,0.0918,1534.19,Creates value
+8,B08,20034,20070,Smart Plug - Premium brand,Fastener Assortment - Value,Consumer Electronics,Tools & Hardware,37,81.0911,72.982,0.3008,0.2231,567.6,0.4405,0.6675,0.227,3143.34,Creates value
+9,B09,20128,20162,Dry-Erase Board - National brand,Gel Pens - Private label,Office & Stationery,Office & Stationery,37,29.4803,26.5323,0.3027,0.2253,591.0,0.3083,0.6697,0.3613,1906.02,Creates value
+10,B10,20017,20236,Webcam - National brand,Mechanical Keyboard - Value,Consumer Electronics,Consumer Electronics,37,60.2478,54.223,0.3266,0.2518,1197.0,0.3083,0.6938,0.3855,9081.09,Creates value
+11,B11,20180,20211,Sunscreen SPF50 - National brand,Storage Bins - National brand,Health & Beauty,Home & Kitchen,37,46.0142,41.4127,0.1141,0.0156,2720.0,0.2372,0.1233,-0.1139,-1625.82,Destroys value
+12,B12,20150,20164,Nonstick Cookware Set - National brand,LED Floor Lamp - National brand,Home & Kitchen,Home & Kitchen,36,60.0468,54.0421,0.1674,0.0749,483.9,0.3333,0.4026,0.0693,337.01,Creates value
+13,B13,20017,20078,Webcam - National brand,27in Monitor - Value,Consumer Electronics,Consumer Electronics,36,41.4077,37.2669,0.234,0.1489,959.6,0.3333,0.5727,0.2394,2226.01,Creates value
+14,B14,20017,20135,Webcam - National brand,Bluetooth Speaker - Premium brand,Consumer Electronics,Consumer Electronics,35,76.9144,69.2229,0.4488,0.3876,1539.1,0.3646,0.7772,0.4126,21921.82,Creates value
+15,B15,20172,20223,Dry-Erase Board - National brand,Desk Organiser - Private label,Office & Stationery,Office & Stationery,35,36.4695,32.8226,0.1339,0.0377,895.7,0.4861,0.2532,-0.2329,-1018.68,Destroys value
+16,B16,20145,20211,Laminator - Premium brand,Storage Bins - National brand,Office & Stationery,Home & Kitchen,35,46.3114,41.6802,0.0934,-0.0073,2720.0,0.2244,0.0,-0.2244,-3469.41,Destroys value
+17,B17,20017,20153,Webcam - National brand,Multivitamin - Premium brand,Consumer Electronics,Health & Beauty,34,44.3223,39.8901,0.3409,0.2676,1936.4,0.4048,0.7066,0.3019,8830.95,Creates value
+18,B18,20187,20190,Dry Dog Food - Value,Work Jacket - National brand,Pet Supplies,Apparel & Accessories,34,69.2638,62.3374,0.2764,0.196,2085.8,0.4048,0.6382,0.2334,9318.63,Creates value
+19,B19,20001,20075,Multivitamin - Private label,Sunscreen SPF50 - Private label,Health & Beauty,Health & Beauty,34,32.6753,29.4078,0.3037,0.2263,1920.9,0.3542,0.6707,0.3166,6033.98,Creates value
+20,B20,20023,20028,Adjustable Dumbbells - National brand,Adjustable Dumbbells - Value,Sporting Goods,Sporting Goods,34,51.8548,46.6693,0.2148,0.1275,944.2,0.3542,0.5344,0.1802,1894.75,Creates value
+21,B21,20016,20223,Gel Pens - National brand,Desk Organiser - Private label,Office & Stationery,Office & Stationery,33,28.5609,25.7048,0.2601,0.1779,832.2,0.4583,0.6156,0.1572,972.28,Creates value
+22,B22,20017,20188,Webcam - National brand,Grooming Kit - National brand,Consumer Electronics,Pet Supplies,33,31.9463,28.7517,0.2749,0.1944,4675.5,0.3056,0.6363,0.3307,13580.09,Creates value
+23,B23,20010,20046,Adjustable Dumbbells - National brand,Blender - Value,Sporting Goods,Home & Kitchen,32,51.0302,45.9271,0.1039,0.0043,1469.6,0.4444,0.0371,-0.4074,-3172.54,Destroys value
+24,B24,20086,20122,Vacuum Sealer - Private label,Dry-Erase Board - National brand,Home & Kitchen,Office & Stationery,32,47.9771,43.1794,0.4454,0.3838,4037.0,0.2667,0.7755,0.5088,43895.92,Creates value

@@ -1,0 +1,169 @@
+measure,month,actual,forecast,low,high,period
+Volume (units),2023-07-01,435160.61,,,,History
+Volume (units),2023-08-01,431200.46,,,,History
+Volume (units),2023-09-01,424087.22,,,,History
+Volume (units),2023-10-01,417740.18,,,,History
+Volume (units),2023-11-01,529694.78,,,,History
+Volume (units),2023-12-01,490808.91,,,,History
+Volume (units),2024-01-01,456808.59,,,,History
+Volume (units),2024-02-01,427520.2,,,,History
+Volume (units),2024-03-01,463865.54,,,,History
+Volume (units),2024-04-01,469021.87,,,,History
+Volume (units),2024-05-01,534529.95,,,,History
+Volume (units),2024-06-01,502316.15,,,,History
+Volume (units),2024-07-01,548026.7,,,,History
+Volume (units),2024-08-01,526160.09,,,,History
+Volume (units),2024-09-01,513552.09,,,,History
+Volume (units),2024-10-01,471096.84,,,,History
+Volume (units),2024-11-01,622746.27,,,,History
+Volume (units),2024-12-01,537939.63,,,,History
+Volume (units),2025-01-01,478030.61,,,,History
+Volume (units),2025-02-01,446054.15,,,,History
+Volume (units),2025-03-01,511669.73,,,,History
+Volume (units),2025-04-01,501429.29,,,,History
+Volume (units),2025-05-01,561613.8,,,,History
+Volume (units),2025-06-01,519770.65,,,,History
+Volume (units),2025-07-01,569242.16,,,,History
+Volume (units),2025-08-01,513927.9,,,,History
+Volume (units),2025-09-01,561381.45,,,,History
+Volume (units),2025-10-01,495523.97,,,,History
+Volume (units),2025-11-01,663043.39,,,,History
+Volume (units),2025-12-01,558767.58,,,,History
+Volume (units),2026-01-01,522670.42,502183.34,462488.6,534058.4,Held out
+Volume (units),2026-02-01,462631.12,468591.25,454429.84,500998.67,Held out
+Volume (units),2026-03-01,505101.75,537522.09,519889.46,571469.19,Held out
+Volume (units),2026-04-01,505365.85,526764.25,503325.81,562256.05,Held out
+Volume (units),2026-05-01,643912.53,589989.61,557460.66,623297.11,Held out
+Volume (units),2026-06-01,543977.3,546032.31,521765.62,589342.33,Held out
+Volume (units),2026-07-01,,597298.29,560529.88,634324.74,Forecast
+Volume (units),2026-08-01,,539257.77,511742.91,577823.9,Forecast
+Volume (units),2026-09-01,,589050.15,566333.54,629155.96,Forecast
+Volume (units),2026-10-01,,519946.77,492791.1,561607.35,Forecast
+Volume (units),2026-11-01,,695722.69,663036.35,737328.39,Forecast
+Volume (units),2026-12-01,,586307.45,546717.08,632630.37,Forecast
+Pocket revenue,2023-07-01,16702755.65,,,,History
+Pocket revenue,2023-08-01,18059723.78,,,,History
+Pocket revenue,2023-09-01,16278882.6,,,,History
+Pocket revenue,2023-10-01,17024419.22,,,,History
+Pocket revenue,2023-11-01,23242028.86,,,,History
+Pocket revenue,2023-12-01,20451757.89,,,,History
+Pocket revenue,2024-01-01,15515284.61,,,,History
+Pocket revenue,2024-02-01,15680768.02,,,,History
+Pocket revenue,2024-03-01,16594799.26,,,,History
+Pocket revenue,2024-04-01,16776434.43,,,,History
+Pocket revenue,2024-05-01,20142501.45,,,,History
+Pocket revenue,2024-06-01,20360548.72,,,,History
+Pocket revenue,2024-07-01,23091039.53,,,,History
+Pocket revenue,2024-08-01,20979154.8,,,,History
+Pocket revenue,2024-09-01,19485826.96,,,,History
+Pocket revenue,2024-10-01,17312254.24,,,,History
+Pocket revenue,2024-11-01,27589965.57,,,,History
+Pocket revenue,2024-12-01,23684353.26,,,,History
+Pocket revenue,2025-01-01,15602716.13,,,,History
+Pocket revenue,2025-02-01,17023977.65,,,,History
+Pocket revenue,2025-03-01,19571704.76,,,,History
+Pocket revenue,2025-04-01,17829472.77,,,,History
+Pocket revenue,2025-05-01,21382259.55,,,,History
+Pocket revenue,2025-06-01,19613140.88,,,,History
+Pocket revenue,2025-07-01,20443977.55,,,,History
+Pocket revenue,2025-08-01,20992978.55,,,,History
+Pocket revenue,2025-09-01,24326906.44,,,,History
+Pocket revenue,2025-10-01,20409321.39,,,,History
+Pocket revenue,2025-11-01,28551706.98,,,,History
+Pocket revenue,2025-12-01,22304466.13,,,,History
+Pocket revenue,2026-01-01,19171393.64,15602716.13,14286076.93,18687767.12,Held out
+Pocket revenue,2026-02-01,16706806.24,17023977.65,15644090.52,20121044.8,Held out
+Pocket revenue,2026-03-01,19255186.53,19571704.76,18065100.14,22843173.14,Held out
+Pocket revenue,2026-04-01,20386739.17,17829472.77,16196150.67,21275342.39,Held out
+Pocket revenue,2026-05-01,26408970.38,21382259.55,19622219.96,25002530.4,Held out
+Pocket revenue,2026-06-01,21395977.25,19613140.88,17726383.81,23407812.96,Held out
+Pocket revenue,2026-07-01,,21889092.46,19877366.43,25053133.42,Forecast
+Pocket revenue,2026-08-01,,22476900.47,19897504.57,25595372.81,Forecast
+Pocket revenue,2026-09-01,,26046492.33,24002239.56,28772119.47,Forecast
+Pocket revenue,2026-10-01,,21851986.58,19578241.73,25085043.26,Forecast
+Pocket revenue,2026-11-01,,30569929.58,28000193.03,34333787.7,Forecast
+Pocket revenue,2026-12-01,,23881092.62,21426561.8,27392198.48,Forecast
+Cost of goods,2023-07-01,11655950.98,,,,History
+Cost of goods,2023-08-01,12648286.56,,,,History
+Cost of goods,2023-09-01,11501091.0,,,,History
+Cost of goods,2023-10-01,11882195.33,,,,History
+Cost of goods,2023-11-01,16073636.28,,,,History
+Cost of goods,2023-12-01,14409846.37,,,,History
+Cost of goods,2024-01-01,11015390.17,,,,History
+Cost of goods,2024-02-01,11188106.76,,,,History
+Cost of goods,2024-03-01,12236100.77,,,,History
+Cost of goods,2024-04-01,12121646.51,,,,History
+Cost of goods,2024-05-01,14799962.42,,,,History
+Cost of goods,2024-06-01,15645063.36,,,,History
+Cost of goods,2024-07-01,17965232.09,,,,History
+Cost of goods,2024-08-01,15988555.79,,,,History
+Cost of goods,2024-09-01,14732843.0,,,,History
+Cost of goods,2024-10-01,12703164.98,,,,History
+Cost of goods,2024-11-01,20746838.85,,,,History
+Cost of goods,2024-12-01,18272118.67,,,,History
+Cost of goods,2025-01-01,11848234.15,,,,History
+Cost of goods,2025-02-01,12993525.5,,,,History
+Cost of goods,2025-03-01,15788439.58,,,,History
+Cost of goods,2025-04-01,13481911.41,,,,History
+Cost of goods,2025-05-01,16696248.53,,,,History
+Cost of goods,2025-06-01,15110780.05,,,,History
+Cost of goods,2025-07-01,16260695.37,,,,History
+Cost of goods,2025-08-01,16585738.47,,,,History
+Cost of goods,2025-09-01,20725200.19,,,,History
+Cost of goods,2025-10-01,15441698.96,,,,History
+Cost of goods,2025-11-01,22531593.23,,,,History
+Cost of goods,2025-12-01,16775163.38,,,,History
+Cost of goods,2026-01-01,14413789.27,11848234.15,10447546.06,15319192.48,Held out
+Cost of goods,2026-02-01,12306679.99,12993525.5,11496570.21,16545864.31,Held out
+Cost of goods,2026-03-01,14463044.5,15788439.58,14270726.15,19584780.23,Held out
+Cost of goods,2026-04-01,14854886.43,13481911.41,11943439.83,16871210.03,Held out
+Cost of goods,2026-05-01,20539987.01,16696248.53,15137018.81,20410929.47,Held out
+Cost of goods,2026-06-01,17022265.95,15110780.05,13530792.19,19150843.31,Held out
+Cost of goods,2026-07-01,,17621471.7,14557878.9,20670123.33,Forecast
+Cost of goods,2026-08-01,,17973716.03,15218644.46,21090522.59,Forecast
+Cost of goods,2026-09-01,,22459588.62,19874448.95,25154051.88,Forecast
+Cost of goods,2026-10-01,,16733937.58,13681511.42,18755773.6,Forecast
+Cost of goods,2026-11-01,,24417149.66,21105495.74,27012255.15,Forecast
+Cost of goods,2026-12-01,,18178992.97,14919569.65,20726771.03,Forecast
+Gross margin,2023-07-01,5046804.67,,,,History
+Gross margin,2023-08-01,5411437.22,,,,History
+Gross margin,2023-09-01,4777791.6,,,,History
+Gross margin,2023-10-01,5142223.89,,,,History
+Gross margin,2023-11-01,7168392.58,,,,History
+Gross margin,2023-12-01,6041911.52,,,,History
+Gross margin,2024-01-01,4499894.44,,,,History
+Gross margin,2024-02-01,4492661.26,,,,History
+Gross margin,2024-03-01,4358698.49,,,,History
+Gross margin,2024-04-01,4654787.92,,,,History
+Gross margin,2024-05-01,5342539.03,,,,History
+Gross margin,2024-06-01,4715485.36,,,,History
+Gross margin,2024-07-01,5125807.44,,,,History
+Gross margin,2024-08-01,4990599.01,,,,History
+Gross margin,2024-09-01,4752983.96,,,,History
+Gross margin,2024-10-01,4609089.26,,,,History
+Gross margin,2024-11-01,6843126.72,,,,History
+Gross margin,2024-12-01,5412234.59,,,,History
+Gross margin,2025-01-01,3754481.98,,,,History
+Gross margin,2025-02-01,4030452.15,,,,History
+Gross margin,2025-03-01,3783265.18,,,,History
+Gross margin,2025-04-01,4347561.36,,,,History
+Gross margin,2025-05-01,4686011.02,,,,History
+Gross margin,2025-06-01,4502360.83,,,,History
+Gross margin,2025-07-01,4183282.18,,,,History
+Gross margin,2025-08-01,4407240.08,,,,History
+Gross margin,2025-09-01,3601706.25,,,,History
+Gross margin,2025-10-01,4967622.43,,,,History
+Gross margin,2025-11-01,6020113.75,,,,History
+Gross margin,2025-12-01,5529302.75,,,,History
+Gross margin,2026-01-01,4757604.37,3501879.37,2853460.83,3938185.37,Held out
+Gross margin,2026-02-01,4400126.25,3497792.43,2841264.42,3970154.09,Held out
+Gross margin,2026-03-01,4792142.03,3327674.87,2642547.14,4040429.73,Held out
+Gross margin,2026-04-01,5531852.74,3622372.53,2638096.78,4314544.58,Held out
+Gross margin,2026-05-01,5868983.37,4249197.82,3244046.83,4650262.84,Held out
+Gross margin,2026-06-01,4373711.3,3635426.68,2609400.44,4035460.58,Held out
+Gross margin,2026-07-01,,4183282.18,3324415.52,5244387.68,Forecast
+Gross margin,2026-08-01,,4407240.08,3536422.19,5485755.13,Forecast
+Gross margin,2026-09-01,,3601706.25,2718937.14,4697630.85,Forecast
+Gross margin,2026-10-01,,4967622.43,4072902.09,6080956.58,Forecast
+Gross margin,2026-11-01,,6020113.75,5113442.18,7150857.45,Forecast
+Gross margin,2026-12-01,,5529302.75,4610679.95,6677456.0,Forecast

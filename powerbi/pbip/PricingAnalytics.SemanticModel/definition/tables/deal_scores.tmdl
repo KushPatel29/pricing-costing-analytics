@@ -1,0 +1,184 @@
+table deal_scores
+	lineageTag: 85f581b5-53a4-5451-9d2a-ed27370c26d3
+
+	column month
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 14649a76-b210-50c2-b9d6-1ec223a6db81
+		summarizeBy: none
+		sourceColumn: month
+
+	column product_id
+		dataType: string
+		lineageTag: 46783893-a053-5264-a40c-cf3a4c43da2d
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column description
+		dataType: string
+		lineageTag: 89009c21-7148-5159-814f-7eef96a565d8
+		summarizeBy: none
+		sourceColumn: description
+
+	column category
+		dataType: string
+		lineageTag: f4aed004-f368-577b-beec-df363170d0fc
+		summarizeBy: none
+		sourceColumn: category
+
+	column customer_id
+		dataType: string
+		lineageTag: bf7e23ab-ef00-5b2e-ad31-9fe7c3559948
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column customer_name
+		dataType: string
+		lineageTag: 1da2a309-924f-5e59-b3db-7a222b83c588
+		summarizeBy: none
+		sourceColumn: customer_name
+
+	column segment
+		dataType: string
+		lineageTag: 450c79b2-6f49-58fc-9bb4-48c89365dd31
+		summarizeBy: none
+		sourceColumn: segment
+
+	column tier
+		dataType: string
+		lineageTag: cc12f197-6ea9-5d80-b05f-3c5ccfdeec27
+		summarizeBy: none
+		sourceColumn: tier
+
+	column quantity_units
+		dataType: double
+		formatString: #,0
+		lineageTag: 8cbce1f5-d852-514f-a0e2-317f4dc2a1d6
+		summarizeBy: sum
+		sourceColumn: quantity_units
+
+	column list_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 1366a49a-6010-5dac-ab21-8b8e802604c0
+		summarizeBy: sum
+		sourceColumn: list_price
+
+	column pocket_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 8b12a080-b2f5-5932-91ce-69f39869e616
+		summarizeBy: sum
+		sourceColumn: pocket_price
+
+	column floor_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: bbbe0890-03d9-5ac1-8436-d4e5b3bc046a
+		summarizeBy: sum
+		sourceColumn: floor_price
+
+	column target_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 26ac5708-4a7a-57e1-8795-5031a80bbbd3
+		summarizeBy: sum
+		sourceColumn: target_price
+
+	column stretch_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: de811f89-c6fa-5b5b-bc67-eff7ff378ef6
+		summarizeBy: sum
+		sourceColumn: stretch_price
+
+	column pocket_margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: aa14902c-3034-5074-9b74-5e8e2bf10a13
+		summarizeBy: sum
+		sourceColumn: pocket_margin_pct
+
+	column floor_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: d5cc692a-9017-5777-9729-6a2d95cb4c18
+		summarizeBy: sum
+		sourceColumn: floor_margin
+
+	column target_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 48881403-2a45-5785-b3b0-5128698ad332
+		summarizeBy: sum
+		sourceColumn: target_margin
+
+	column verdict
+		dataType: string
+		lineageTag: 8cfe930e-4c79-544a-9e6f-b0527c5c66c0
+		summarizeBy: none
+		sourceColumn: verdict
+
+	column within_guardrail
+		dataType: boolean
+		lineageTag: 58787bd2-43da-5b94-95af-45c96737a792
+		summarizeBy: none
+		sourceColumn: within_guardrail
+
+	column approver
+		dataType: string
+		lineageTag: 4ab88362-bd3e-5dcb-9966-9fe655c24bc0
+		summarizeBy: none
+		sourceColumn: approver
+
+	column margin_gap_dollars
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 5c364cc8-aa18-5275-8115-b77ee665fff1
+		summarizeBy: sum
+		sourceColumn: margin_gap_dollars
+
+	column extended_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 58920001-7724-5233-a2e8-0c7ab053a6b6
+		summarizeBy: sum
+		sourceColumn: extended_margin
+
+	column leakage_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: ae56ce0b-ea63-5c02-ae3a-eb76d67cfbaa
+		summarizeBy: sum
+		sourceColumn: leakage_pct
+
+	column price_index
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 2e7f7e96-cad5-5c6b-9d99-728465c36799
+		summarizeBy: none
+		sourceColumn: price_index
+
+	column days_since_price_change
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 7f5a7f46-889f-56e6-a928-0d0f54618d9c
+		summarizeBy: sum
+		sourceColumn: days_since_price_change
+
+	column cost_change_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: e7372973-d46a-5144-b396-b47b422eab2b
+		summarizeBy: sum
+		sourceColumn: cost_change_pct
+
+	partition deal_scores = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\deal_scores.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type date}, {"product_id", type text}, {"description", type text}, {"category", type text}, {"customer_id", type text}, {"customer_name", type text}, {"segment", type text}, {"tier", type text}, {"quantity_units", type number}, {"list_price", type number}, {"pocket_price", type number}, {"floor_price", type number}, {"target_price", type number}, {"stretch_price", type number}, {"pocket_margin_pct", type number}, {"floor_margin", type number}, {"target_margin", type number}, {"verdict", type text}, {"within_guardrail", type logical}, {"approver", type text}, {"margin_gap_dollars", type number}, {"extended_margin", type number}, {"leakage_pct", type number}, {"price_index", type number}, {"days_since_price_change", type number}, {"cost_change_pct", type number}})
+				in
+				    Typed

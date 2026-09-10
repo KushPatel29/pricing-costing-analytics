@@ -1,0 +1,59 @@
+table forecast_summary
+	lineageTag: 554e3dff-7634-5c15-a106-ae2c9c806ef4
+
+	column measure
+		dataType: string
+		lineageTag: 8642dc90-1404-5f82-99f3-c4fcab5a7a18
+		summarizeBy: none
+		sourceColumn: measure
+
+	column method
+		dataType: string
+		lineageTag: ce8dc2b8-2f8a-53bf-99fd-d841f1db5398
+		summarizeBy: none
+		sourceColumn: method
+
+	column next_6_total
+		dataType: double
+		formatString: #,0.00
+		lineageTag: e3d30455-d045-5dc8-850a-9904a1028158
+		summarizeBy: sum
+		sourceColumn: next_6_total
+
+	column last_6_actual
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 3b5146cf-9acf-50b5-aedb-12f265e24320
+		summarizeBy: sum
+		sourceColumn: last_6_actual
+
+	column backtest_wape
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b05a0cab-9d2a-5a55-9e47-d5fca608847a
+		summarizeBy: sum
+		sourceColumn: backtest_wape
+
+	column holdout_wape
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 9e48b78b-e6d5-5293-900f-cbf1a4cd101e
+		summarizeBy: sum
+		sourceColumn: holdout_wape
+
+	column change_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: e9a7e0cf-fbdc-5f58-97c3-295069115d23
+		summarizeBy: sum
+		sourceColumn: change_pct
+
+	partition forecast_summary = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\forecast_summary.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"measure", type text}, {"method", type text}, {"next_6_total", type number}, {"last_6_actual", type number}, {"backtest_wape", type number}, {"holdout_wape", type number}, {"change_pct", type number}})
+				in
+				    Typed

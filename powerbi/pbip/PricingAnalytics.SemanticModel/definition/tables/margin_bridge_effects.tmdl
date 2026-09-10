@@ -1,0 +1,38 @@
+table margin_bridge_effects
+	lineageTag: 576a390a-b9bf-57d4-aeee-909cb93a403c
+
+	column comparison
+		dataType: string
+		lineageTag: 66a44826-da6d-51e8-b986-bc82b4be0f13
+		summarizeBy: none
+		sourceColumn: comparison
+
+	column effect
+		dataType: string
+		lineageTag: 287a319f-c389-5d39-97d9-29bc3c2c29a7
+		summarizeBy: none
+		sourceColumn: effect
+
+	column amount
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: e1dc82af-c4b0-582c-bc21-28af011884fd
+		summarizeBy: sum
+		sourceColumn: amount
+
+	column pct_of_prior
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 137f1b25-f114-5193-965f-83c51c7f2fbe
+		summarizeBy: sum
+		sourceColumn: pct_of_prior
+
+	partition margin_bridge_effects = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\margin_bridge_effects.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"comparison", type text}, {"effect", type text}, {"amount", type number}, {"pct_of_prior", type number}})
+				in
+				    Typed

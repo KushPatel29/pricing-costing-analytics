@@ -1,0 +1,150 @@
+table customer_profitability
+	lineageTag: c4c218ca-a9d2-5347-aca7-0e559baa2934
+
+	column customer_id
+		dataType: string
+		lineageTag: f7cb8e4f-a3ff-5ff8-8ea3-00551113542d
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column customer_name
+		dataType: string
+		lineageTag: d7591efe-29be-5dd2-bbb6-a1178cc0e1b5
+		summarizeBy: none
+		sourceColumn: customer_name
+
+	column segment
+		dataType: string
+		lineageTag: 7d78181d-1860-5e69-b24a-96204d7bce98
+		summarizeBy: none
+		sourceColumn: segment
+
+	column channel
+		dataType: string
+		lineageTag: d405d51a-3525-53c6-a53e-b52d57a2763e
+		summarizeBy: none
+		sourceColumn: channel
+
+	column region
+		dataType: string
+		lineageTag: 1948ed94-1ba4-58a3-a29f-63375ba17556
+		summarizeBy: none
+		sourceColumn: region
+
+	column tier
+		dataType: string
+		lineageTag: 7a978b5b-1bd1-5e7a-8a48-15c5f54432ea
+		summarizeBy: none
+		sourceColumn: tier
+
+	column volume_units
+		dataType: double
+		formatString: #,0
+		lineageTag: 1d3f4291-6fd9-5231-b9a7-6d611aa45245
+		summarizeBy: sum
+		sourceColumn: volume_units
+
+	column list_value
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: ea8b22cf-ce1e-50aa-ae33-41bd06ad899e
+		summarizeBy: sum
+		sourceColumn: list_value
+
+	column invoice_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 5f64a124-fad2-5d85-917e-35f894f55dcb
+		summarizeBy: sum
+		sourceColumn: invoice_revenue
+
+	column pocket_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 600f7da8-4980-552a-8bac-fb58b31e3434
+		summarizeBy: sum
+		sourceColumn: pocket_revenue
+
+	column cogs
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 19fbdb77-6599-54d2-9432-df6391210590
+		summarizeBy: sum
+		sourceColumn: cogs
+
+	column lines
+		dataType: int64
+		formatString: 0
+		lineageTag: 39a21d1f-de7e-5f99-9597-b3a942930928
+		summarizeBy: sum
+		sourceColumn: lines
+
+	column products
+		dataType: int64
+		formatString: 0
+		lineageTag: 93f5824a-7c03-59bc-8735-e68f677fd035
+		summarizeBy: sum
+		sourceColumn: products
+
+	column cost_to_serve
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 02e4e831-83e3-5ba5-994b-cd7975f329c4
+		summarizeBy: sum
+		sourceColumn: cost_to_serve
+
+	column pocket_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 37d5784d-6752-5055-b551-e53063327486
+		summarizeBy: sum
+		sourceColumn: pocket_margin
+
+	column pocket_margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: ea7be2c0-5b24-5301-99ef-2285910d52d9
+		summarizeBy: sum
+		sourceColumn: pocket_margin_pct
+
+	column leakage_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: ffc7c099-af9d-5f25-a941-d59907c5342e
+		summarizeBy: sum
+		sourceColumn: leakage_pct
+
+	column avg_drop_units
+		dataType: double
+		formatString: #,0
+		lineageTag: 1fac5dbd-9e23-5606-b296-6cfd725a8faf
+		summarizeBy: sum
+		sourceColumn: avg_drop_units
+
+	column price_list
+		dataType: string
+		lineageTag: 1d336541-295f-5de3-bd5a-34ad0eba9607
+		summarizeBy: none
+		sourceColumn: price_list
+
+	column payment_terms
+		dataType: string
+		lineageTag: 79949893-2392-56b9-af42-5718cafaddb3
+		summarizeBy: none
+		sourceColumn: payment_terms
+
+	column quadrant
+		dataType: string
+		lineageTag: 8efb6060-e4e5-5afd-9804-ced3ec65e73d
+		summarizeBy: none
+		sourceColumn: quadrant
+
+	partition customer_profitability = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\customer_profitability.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"customer_id", type text}, {"customer_name", type text}, {"segment", type text}, {"channel", type text}, {"region", type text}, {"tier", type text}, {"volume_units", type number}, {"list_value", type number}, {"invoice_revenue", type number}, {"pocket_revenue", type number}, {"cogs", type number}, {"lines", Int64.Type}, {"products", Int64.Type}, {"cost_to_serve", type number}, {"pocket_margin", type number}, {"pocket_margin_pct", type number}, {"leakage_pct", type number}, {"avg_drop_units", type number}, {"price_list", type text}, {"payment_terms", type text}, {"quadrant", type text}})
+				in
+				    Typed

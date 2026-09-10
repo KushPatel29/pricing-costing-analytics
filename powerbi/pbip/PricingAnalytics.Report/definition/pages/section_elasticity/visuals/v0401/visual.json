@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0401",
+  "position": {
+    "x": 20,
+    "y": 20,
+    "z": 1300,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 1300
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Elasticity"
+                }
+              },
+              "queryRef": "_Measures.Elasticity",
+              "nativeQueryRef": "Elasticity"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Average own-price elasticity across the selection.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

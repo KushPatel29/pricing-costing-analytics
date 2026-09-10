@@ -1,0 +1,46 @@
+table price_list_coverage
+	lineageTag: 9135aeac-70f1-5804-a39b-ad01d3974d74
+
+	column review_cadence
+		dataType: string
+		lineageTag: dcfe7629-f68a-5216-a38d-d808045b66c0
+		summarizeBy: none
+		sourceColumn: review_cadence
+
+	column products
+		dataType: int64
+		formatString: 0
+		lineageTag: 0cbf4dc7-3c42-5c08-95de-f1f9f6a6cc22
+		summarizeBy: sum
+		sourceColumn: products
+
+	column median_days_since_change
+		dataType: double
+		formatString: #,0
+		lineageTag: 0d2f1eef-7a81-583b-856b-560c071d7983
+		summarizeBy: sum
+		sourceColumn: median_days_since_change
+
+	column median_margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 19709e56-67f7-5c66-82f1-515343bccda8
+		summarizeBy: sum
+		sourceColumn: median_margin_pct
+
+	column stale
+		dataType: int64
+		formatString: 0
+		lineageTag: 249f3a77-36a7-519d-adca-c7a378a7225f
+		summarizeBy: sum
+		sourceColumn: stale
+
+	partition price_list_coverage = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\price_list_coverage.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"review_cadence", type text}, {"products", Int64.Type}, {"median_days_since_change", type number}, {"median_margin_pct", type number}, {"stale", Int64.Type}})
+				in
+				    Typed

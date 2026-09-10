@@ -1,0 +1,157 @@
+table profitability
+	lineageTag: 87309136-dfc9-55f9-8c11-f756122a55d2
+
+	column dimension
+		dataType: string
+		lineageTag: 6f35dd46-7494-5f2b-a6a4-0b0ce565e46a
+		summarizeBy: none
+		sourceColumn: dimension
+
+	column member
+		dataType: string
+		lineageTag: 7e45a888-15b2-5c24-a4d1-54ed6bf57e77
+		summarizeBy: none
+		sourceColumn: member
+
+	column volume_units
+		dataType: double
+		formatString: #,0
+		lineageTag: 2a40aed4-3a16-5ee4-ab91-b64f5b7fe45d
+		summarizeBy: sum
+		sourceColumn: volume_units
+
+	column list_value
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 6e49117a-a6dc-5dc1-a9ea-327249591f89
+		summarizeBy: sum
+		sourceColumn: list_value
+
+	column invoice_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 924ed39f-a76f-554b-9050-f6bb539052b3
+		summarizeBy: sum
+		sourceColumn: invoice_revenue
+
+	column pocket_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 19bccf4f-b5eb-5d62-912e-5f1afaf080c3
+		summarizeBy: sum
+		sourceColumn: pocket_revenue
+
+	column cogs
+		dataType: double
+		formatString: #,0.00
+		lineageTag: cfa148f2-3560-5973-b253-250590e316b4
+		summarizeBy: sum
+		sourceColumn: cogs
+
+	column lines
+		dataType: int64
+		formatString: 0
+		lineageTag: 513eed9d-24f5-5f44-b502-48230a98208c
+		summarizeBy: sum
+		sourceColumn: lines
+
+	column products
+		dataType: int64
+		formatString: 0
+		lineageTag: de5816b9-f74c-5a5f-8bb6-da245db36372
+		summarizeBy: sum
+		sourceColumn: products
+
+	column customers
+		dataType: int64
+		formatString: 0
+		lineageTag: 9751be9b-be85-5360-82ff-9d9d869bf20d
+		summarizeBy: sum
+		sourceColumn: customers
+
+	column cost_to_serve
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 19d3d77d-e60a-5ee3-9e94-6f3ada828f41
+		summarizeBy: sum
+		sourceColumn: cost_to_serve
+
+	column gross_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: fbc2aafa-baa2-5d3b-95c3-32d457a98f0f
+		summarizeBy: sum
+		sourceColumn: gross_margin
+
+	column gross_margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: f0da11a9-1ddf-546f-97c4-fd30e744f3c9
+		summarizeBy: sum
+		sourceColumn: gross_margin_pct
+
+	column contribution
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b10017ee-47c7-5b6d-8b49-6a44b70c62cb
+		summarizeBy: sum
+		sourceColumn: contribution
+
+	column fixed_allocated_by_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: a7a58043-f941-546e-84e6-0663831524ad
+		summarizeBy: sum
+		sourceColumn: fixed_allocated_by_revenue
+
+	column operating_profit
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 682ce491-2cd0-5409-8f96-879d0ed7c184
+		summarizeBy: sum
+		sourceColumn: operating_profit
+
+	column operating_margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 4627d1cf-92d0-5700-81ab-8c8590b992ef
+		summarizeBy: sum
+		sourceColumn: operating_margin_pct
+
+	column leakage_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 06777858-5d08-5d8e-be81-7b3e4ca43d41
+		summarizeBy: sum
+		sourceColumn: leakage_pct
+
+	column price_unit
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 70ea92c4-9ccc-53d8-bc1d-5d33e46f1024
+		summarizeBy: sum
+		sourceColumn: price_unit
+
+	column revenue_share
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 9808f991-8272-5d74-bd23-c481d1edf1fb
+		summarizeBy: sum
+		sourceColumn: revenue_share
+
+	column avg_drop_units
+		dataType: double
+		formatString: #,0
+		lineageTag: 9f11f60c-6663-518d-94d9-f9c71857c3ab
+		summarizeBy: sum
+		sourceColumn: avg_drop_units
+
+	partition profitability = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\profitability.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dimension", type text}, {"member", type text}, {"volume_units", type number}, {"list_value", type number}, {"invoice_revenue", type number}, {"pocket_revenue", type number}, {"cogs", type number}, {"lines", Int64.Type}, {"products", Int64.Type}, {"customers", Int64.Type}, {"cost_to_serve", type number}, {"gross_margin", type number}, {"gross_margin_pct", type number}, {"contribution", type number}, {"fixed_allocated_by_revenue", type number}, {"operating_profit", type number}, {"operating_margin_pct", type number}, {"leakage_pct", type number}, {"price_unit", type number}, {"revenue_share", type number}, {"avg_drop_units", type number}})
+				in
+				    Typed

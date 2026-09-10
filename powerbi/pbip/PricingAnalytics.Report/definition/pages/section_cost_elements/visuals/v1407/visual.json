@@ -1,0 +1,115 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1407",
+  "position": {
+    "x": 654,
+    "y": 442,
+    "z": 2306,
+    "height": 258,
+    "width": 410,
+    "tabOrder": 2306
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cost_element_by_category"
+                    }
+                  },
+                  "Property": "category"
+                }
+              },
+              "queryRef": "cost_element_by_category.category",
+              "nativeQueryRef": "category"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cost_element_by_category"
+                    }
+                  },
+                  "Property": "cost_element"
+                }
+              },
+              "queryRef": "cost_element_by_category.cost_element",
+              "nativeQueryRef": "cost_element"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Category standard cost"
+                }
+              },
+              "queryRef": "_Measures.Category standard cost",
+              "nativeQueryRef": "Category standard cost"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Category cost variance"
+                }
+              },
+              "queryRef": "_Measures.Category cost variance",
+              "nativeQueryRef": "Category cost variance"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Which categories carry it'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled Which categories carry it. Category standard cost and Category cost variance for every category and element pair.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

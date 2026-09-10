@@ -1,0 +1,16 @@
+table VolumeChange
+	lineageTag: 0bfc3c70-0c3c-5a2d-b6f7-90d1c119a88e
+
+	column 'Volume change %'
+		dataType: double
+		isNameInferred
+		formatString: 0.0%
+		lineageTag: bc36e93d-e842-5263-b0ee-5a90e7ac70fe
+		summarizeBy: none
+		sourceColumn: [Volume change %]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VolumeChange = calculated
+		mode: import
+		source = SELECTCOLUMNS(GENERATESERIES(-0.25, 0.25, 0.01), "Volume change %", [Value])

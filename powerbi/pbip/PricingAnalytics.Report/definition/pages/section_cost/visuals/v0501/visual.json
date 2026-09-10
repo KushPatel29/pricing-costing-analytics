@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0501",
+  "position": {
+    "x": 20,
+    "y": 20,
+    "z": 1400,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 1400
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Purchase price variance"
+                }
+              },
+              "queryRef": "_Measures.Purchase price variance",
+              "nativeQueryRef": "Purchase price variance"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Purchase price variance. Positive is unfavourable.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

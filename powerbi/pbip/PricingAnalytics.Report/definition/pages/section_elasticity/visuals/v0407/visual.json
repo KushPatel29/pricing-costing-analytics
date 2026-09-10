@@ -1,0 +1,143 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0407",
+  "position": {
+    "x": 20,
+    "y": 442,
+    "z": 1306,
+    "height": 258,
+    "width": 826,
+    "tabOrder": 1306
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "price_change_hurdles"
+                    }
+                  },
+                  "Property": "category"
+                }
+              },
+              "queryRef": "price_change_hurdles.category",
+              "nativeQueryRef": "category"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "price_change_hurdles"
+                    }
+                  },
+                  "Property": "price_change_pct"
+                }
+              },
+              "queryRef": "price_change_hurdles.price_change_pct",
+              "nativeQueryRef": "price_change_pct"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Break-even volume %"
+                }
+              },
+              "queryRef": "_Measures.Break-even volume %",
+              "nativeQueryRef": "Break-even volume %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Expected volume %"
+                }
+              },
+              "queryRef": "_Measures.Expected volume %",
+              "nativeQueryRef": "Expected volume %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Expected margin change"
+                }
+              },
+              "queryRef": "_Measures.Expected margin change",
+              "nativeQueryRef": "Expected margin change"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "price_change_hurdles"
+                    }
+                  },
+                  "Property": "verdict"
+                }
+              },
+              "queryRef": "price_change_hurdles.verdict",
+              "nativeQueryRef": "verdict"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'The volume a price change has to find'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled The volume a price change has to find. Lists category, price change, break-even volume, expected volume, margin change and verdict.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1073 @@
+table _Measures
+	lineageTag: b3af0e1a-e074-5138-8219-b2afbf523da6
+
+	measure 'List value' = SUM(fact_sales[list_value])
+		formatString: \$#,0
+		lineageTag: 66317ac7-1984-52ca-a184-53e5236a8dc1
+		displayFolder: 01 Revenue
+
+	measure 'Invoice revenue' = SUM(fact_sales[revenue])
+		formatString: \$#,0
+		lineageTag: 5be1f2d2-fab9-5f83-af0b-0fad399b394d
+		displayFolder: 01 Revenue
+
+	measure 'Pocket revenue' = SUM(fact_sales[pocket_revenue])
+		formatString: \$#,0
+		lineageTag: b4e3b927-eaa7-5ac7-b115-d2c6b70980bd
+		displayFolder: 01 Revenue
+
+	measure 'COGS' = SUM(fact_sales[cogs])
+		formatString: \$#,0
+		lineageTag: 79c508ef-1800-58d0-a2a1-f9adb4293aee
+		displayFolder: 01 Revenue
+
+	measure 'Volume (units)' = SUM(fact_sales[quantity_units])
+		formatString: #,0
+		lineageTag: b0686662-f974-5d5c-b37e-389ace72e46e
+		displayFolder: 01 Revenue
+
+	measure 'Invoice lines' = COUNTROWS(fact_sales)
+		formatString: #,0
+		lineageTag: 4f46ce28-3d11-5c51-987f-5e901696d8b6
+		displayFolder: 01 Revenue
+
+	measure 'Pocket margin $' = [Pocket revenue] - [COGS]
+		formatString: \$#,0
+		lineageTag: 9ac815dd-f79f-5e90-9f36-54f16f0fa1e0
+		displayFolder: 01 Revenue
+
+	measure 'Pocket margin %' = DIVIDE([Pocket margin $], [Pocket revenue])
+		formatString: 0.0%
+		lineageTag: 64b82a52-1866-51e2-b266-eedbe18b5792
+		displayFolder: 01 Revenue
+
+	measure 'Invoice margin %' = DIVIDE([Invoice revenue] - [COGS], [Invoice revenue])
+		formatString: 0.0%
+		lineageTag: caacbf41-08dc-5967-bfa8-13c2b093654e
+		displayFolder: 01 Revenue
+
+	measure 'Leakage $' = [List value] - [Pocket revenue]
+		formatString: \$#,0
+		lineageTag: 63ed84d6-2b88-5621-a2db-39a83a7918f9
+		displayFolder: 02 Waterfall
+
+	measure 'Leakage %' = DIVIDE([Leakage $], [List value])
+		formatString: 0.0%
+		lineageTag: 31abbf78-afa1-5f50-8871-8460d32cf3da
+		displayFolder: 02 Waterfall
+
+	measure 'On-invoice discounts' = SUMX(fact_sales, fact_sales[on_invoice_discounts] * fact_sales[quantity_units])
+		formatString: \$#,0
+		lineageTag: e65dde4c-bf2b-55a6-8150-717885631e3f
+		displayFolder: 02 Waterfall
+
+	measure 'Off-invoice deductions' = SUMX(fact_sales, fact_sales[off_invoice_deductions] * fact_sales[quantity_units])
+		formatString: \$#,0
+		lineageTag: ea4f59a0-b022-5dbf-a366-a95b3ae7788d
+		displayFolder: 02 Waterfall
+
+	measure 'Cost to serve' = SUMX(fact_sales, fact_sales[cost_to_serve] * fact_sales[quantity_units])
+		formatString: \$#,0
+		lineageTag: 2f1b5bf6-5655-5ab1-84cd-127c91510d49
+		displayFolder: 02 Waterfall
+
+	measure 'Waterfall amount' = SUM(price_waterfall[amount])
+		formatString: \$#,0
+		lineageTag: b6ee1565-c442-5d7c-8af8-9734d06ec046
+		displayFolder: 02 Waterfall
+
+	measure 'Waterfall step' = SUM(price_waterfall[delta])
+		formatString: \$#,0
+		lineageTag: cf4ece98-bdf4-5c7f-b6e6-c52bf9e39398
+		displayFolder: 02 Waterfall
+
+	measure 'Deduction amount' = SUM(leakage_by_dimension[amount])
+		formatString: \$#,0
+		lineageTag: ed2320b0-9835-5acd-9762-b7cf77086147
+		displayFolder: 02 Waterfall
+
+	measure 'Deduction % of list' = SUM(leakage_by_dimension[pct_of_list])
+		formatString: 0.00%
+		lineageTag: 1da6ab68-4d65-5d73-915c-f8c0a4a1948c
+		displayFolder: 02 Waterfall
+
+	measure 'List price per unit' = DIVIDE([List value], [Volume (units)])
+		formatString: \$#,0.00
+		lineageTag: 316b9f16-e307-5eb4-ac87-82daecfd4d44
+		displayFolder: 03 Price
+
+	measure 'Pocket price per unit' = DIVIDE([Pocket revenue], [Volume (units)])
+		formatString: \$#,0.00
+		lineageTag: 6a9d1e76-e2af-5ce1-9f42-a9c879122459
+		displayFolder: 03 Price
+
+	measure 'Unit cost' = DIVIDE([COGS], [Volume (units)])
+		formatString: \$#,0.00
+		lineageTag: d82c2a45-a32f-50ec-aac3-937777793bf6
+		displayFolder: 03 Price
+
+	measure 'Pocket revenue LY' =
+			VAR vShift = 12
+			RETURN CALCULATE(
+			    [Pocket revenue],
+			    ALL(dim_month),
+			    TREATAS(
+			        SELECTCOLUMNS(VALUES(dim_month[month_index]),
+			                      "month_index", dim_month[month_index] - vShift),
+			        dim_month[month_index]
+			    )
+			)
+		formatString: \$#,0
+		lineageTag: 745a49b0-e1ad-5c5b-96f7-6031e189bacd
+		displayFolder: 04 Comparison
+
+	measure 'Pocket revenue YoY %' = DIVIDE([Pocket revenue] - [Pocket revenue LY], [Pocket revenue LY])
+		formatString: 0.0%
+		lineageTag: c72e4c0b-6947-5e3f-92eb-8bf75e8fbfc7
+		displayFolder: 04 Comparison
+
+	measure 'Pocket margin $ LY' =
+			VAR vShift = 12
+			RETURN CALCULATE(
+			    [Pocket margin $],
+			    ALL(dim_month),
+			    TREATAS(
+			        SELECTCOLUMNS(VALUES(dim_month[month_index]),
+			                      "month_index", dim_month[month_index] - vShift),
+			        dim_month[month_index]
+			    )
+			)
+		formatString: \$#,0
+		lineageTag: 8592b7ad-400c-5c27-b78c-c780e54375f1
+		displayFolder: 04 Comparison
+
+	measure 'Pocket margin YoY pts' =
+			VAR vNow = [Pocket margin %]
+			VAR vThen = DIVIDE([Pocket margin $ LY], [Pocket revenue LY])
+			RETURN vNow - vThen
+		formatString: 0.0%
+		lineageTag: cda14cc8-e975-5569-9725-0b1ca8a9e161
+		displayFolder: 04 Comparison
+
+	measure 'Price index' = MEDIANX(competitive_index, competitive_index[price_index])
+		formatString: #,0.0
+		lineageTag: 17849347-68b5-51af-916b-707a1ccdb7c4
+		displayFolder: 05 Competitive
+
+	measure 'Price index target' = 100
+		formatString: #,0
+		lineageTag: 45aafccf-564d-577c-94a8-f326b29f0e27
+		displayFolder: 05 Competitive
+
+	measure 'Products under market' =
+			CALCULATE(DISTINCTCOUNT(competitive_index[product_id]),
+			          competitive_index[price_index] < 96)
+		formatString: #,0
+		lineageTag: 0257b8c7-6d86-57dc-bb37-acefe8ac1d53
+		displayFolder: 05 Competitive
+
+	measure 'Products over market' =
+			CALCULATE(DISTINCTCOUNT(competitive_index[product_id]),
+			          competitive_index[price_index] > 115)
+		formatString: #,0
+		lineageTag: 3d8c687f-e391-5ca3-b7ba-5edff8b848d7
+		displayFolder: 05 Competitive
+
+	measure 'Market price' = AVERAGE(competitive_index[market_price])
+		formatString: \$#,0.00
+		lineageTag: 1ec17d63-6a47-5e50-a3bc-05c6420cfd36
+		displayFolder: 05 Competitive
+
+	measure 'Gap to market %' = AVERAGE(competitive_index[gap_pct])
+		formatString: 0.0%
+		lineageTag: 5261cd4c-7d2d-5b2b-b3e5-3dbb53a217b6
+		displayFolder: 05 Competitive
+
+	measure 'Pass-through to list' = AVERAGE(passthrough[passthrough_to_list])
+		formatString: 0.00
+		lineageTag: b800b85c-9f8a-5c79-a489-0d576e0da64d
+		displayFolder: 05 Competitive
+
+	measure 'Pass-through to pocket' = AVERAGE(passthrough[passthrough_to_pocket])
+		formatString: 0.00
+		lineageTag: edc7073d-89f5-544a-b5c0-f29a6f458f29
+		displayFolder: 05 Competitive
+
+	measure 'Cost variance' = SUM(cost_variance_long[variance])
+		formatString: \$#,0
+		lineageTag: e17023e1-96e4-5cb2-8899-129923252652
+		displayFolder: 06 Cost
+
+	measure 'Purchase price variance' = CALCULATE([Cost variance], cost_variance_long[variance_type] = "Purchase price")
+		formatString: \$#,0
+		lineageTag: d76e16d7-0656-55eb-b327-a6a5a67b9b9b
+		displayFolder: 06 Cost
+
+	measure 'Yield variance' = CALCULATE([Cost variance], cost_variance_long[variance_type] = "Yield")
+		formatString: \$#,0
+		lineageTag: b5d027c6-3bfc-5c34-b0bb-88b578c7756b
+		displayFolder: 06 Cost
+
+	measure 'Labour variance' =
+			CALCULATE([Cost variance],
+			          cost_variance_long[variance_type] IN {"Labour rate", "Labour efficiency"})
+		formatString: \$#,0
+		lineageTag: 6c562cd2-852b-5608-8a6c-56e4ffcfb7e7
+		displayFolder: 06 Cost
+
+	measure 'Budget revenue' = SUM(budget_variance[budget_revenue])
+		formatString: \$#,0
+		lineageTag: 6f8c4b05-c7c4-5597-a369-0b67daa14d93
+		displayFolder: 06 Cost
+
+	measure 'Actual revenue' = SUM(budget_variance[actual_revenue])
+		formatString: \$#,0
+		lineageTag: e4b23ceb-a87e-5464-98ce-bad7d8b40653
+		displayFolder: 06 Cost
+
+	measure 'Revenue vs budget' = [Actual revenue] - [Budget revenue]
+		formatString: \$#,0
+		lineageTag: 86edc8a2-01de-5275-a03f-905a5920f150
+		displayFolder: 06 Cost
+
+	measure 'Margin vs budget' = SUM(budget_variance[actual_margin]) - SUM(budget_variance[budget_margin])
+		formatString: \$#,0
+		lineageTag: 5f093d67-bb69-5c78-9d7a-7c9d810d2c82
+		displayFolder: 06 Cost
+
+	measure 'Overhead spending variance' = SUM(overhead_variance[spending_variance])
+		formatString: \$#,0
+		lineageTag: 1463670f-aa14-5fdf-8271-5d55e282d226
+		displayFolder: 06 Cost
+
+	measure 'Overhead volume variance' = SUM(overhead_variance[volume_variance])
+		formatString: \$#,0
+		lineageTag: 654ec057-892f-54b3-8e88-8242dae1776a
+		displayFolder: 06 Cost
+
+	measure 'Bridge amount' = SUM(margin_bridge_effects[amount])
+		formatString: \$#,0
+		lineageTag: ddea1109-08eb-503e-85df-948fbd51db80
+		displayFolder: 07 Bridge
+
+	measure 'Elasticity' = AVERAGE(elasticity_estimates[elasticity])
+		formatString: 0.00
+		lineageTag: 54475c38-7d86-5f04-b86b-9060b25bb99c
+		displayFolder: 08 Elasticity
+
+	measure 'Elasticity fit' = AVERAGE(elasticity_estimates[r_squared])
+		formatString: 0.000
+		lineageTag: 09c08f42-911c-50bb-85c5-7efd106c2575
+		displayFolder: 08 Elasticity
+
+	measure 'Break-even volume %' = AVERAGE(price_change_hurdles[break_even_volume_pct])
+		formatString: 0.0%
+		lineageTag: 3eaa7e8e-47c9-539e-a145-9390e6dd3158
+		displayFolder: 08 Elasticity
+
+	measure 'Expected volume %' = AVERAGE(price_change_hurdles[expected_volume_pct])
+		formatString: 0.0%
+		lineageTag: 2616ec40-35b4-5d97-a1d0-1f9f89845d6d
+		displayFolder: 08 Elasticity
+
+	measure 'Expected margin change' = SUM(price_change_hurdles[expected_margin_change])
+		formatString: \$#,0
+		lineageTag: e1d0468a-a30c-5c5c-ac6f-7a420fe83961
+		displayFolder: 08 Elasticity
+
+	measure 'Response revenue' = SUM(price_response_curve[revenue])
+		formatString: \$#,0
+		lineageTag: 43f7fd95-b2d8-5cf6-b12e-8608c8e14891
+		displayFolder: 08 Elasticity
+
+	measure 'Response profit' = SUM(price_response_curve[profit])
+		formatString: \$#,0
+		lineageTag: 34c3a82e-63cb-53d9-95cf-e994a4949de5
+		displayFolder: 08 Elasticity
+
+	measure 'Response volume' = SUM(price_response_curve[quantity])
+		formatString: #,0
+		lineageTag: 6a3bbc85-7018-587d-a548-5efa07f123d8
+		displayFolder: 08 Elasticity
+
+	measure 'Realisation opportunity' = SUM(price_bands[realisation_opportunity])
+		formatString: \$#,0
+		lineageTag: ddee99f9-0651-5837-ad08-6154cd49a78a
+		displayFolder: 09 Bands
+
+	measure 'Band width %' = AVERAGE(price_bands[band_width_pct])
+		formatString: 0.0%
+		lineageTag: 72f56b6b-fee5-5355-8693-5d0c5f8f5c23
+		displayFolder: 09 Bands
+
+	measure 'Band p10' = AVERAGE(price_bands[p10_price])
+		formatString: \$#,0.00
+		lineageTag: 16d04f03-8f87-51c4-97ce-698e231d34e0
+		displayFolder: 09 Bands
+
+	measure 'Band median' = AVERAGE(price_bands[median_price])
+		formatString: \$#,0.00
+		lineageTag: 37a8951f-09a6-585d-8d6a-550d7bea2247
+		displayFolder: 09 Bands
+
+	measure 'Band p90' = AVERAGE(price_bands[p90_price])
+		formatString: \$#,0.00
+		lineageTag: a0f5b36f-8f11-53f6-b127-aa84f1962f93
+		displayFolder: 09 Bands
+
+	measure 'Win rate' = AVERAGE(wtp_curve[win_rate])
+		formatString: 0.0%
+		lineageTag: e00154f1-86ce-5155-b447-75ee363808ad
+		displayFolder: 09 Bands
+
+	measure 'Quote win rate' = AVERAGE(wtp_fits[win_rate])
+		formatString: 0.0%
+		lineageTag: a5314788-bd28-557e-9d77-ed868383d2b5
+		displayFolder: 09 Bands
+
+	measure 'Indifference price ratio' = AVERAGE(wtp_fits[indifference_price_ratio])
+		formatString: 0.000
+		lineageTag: 19209833-3f05-5cd9-98ec-407a67a20c89
+		displayFolder: 09 Bands
+
+	measure 'Customer pocket margin %' = AVERAGE(customer_profitability[pocket_margin_pct])
+		formatString: 0.0%
+		lineageTag: 420b1761-8360-5979-befe-c38ec4f40af1
+		displayFolder: 09 Bands
+
+	measure 'Customer volume (units)' = SUM(customer_profitability[volume_units])
+		formatString: #,0
+		lineageTag: 33e593ea-0224-5290-a905-2f313c41a893
+		displayFolder: 09 Bands
+
+	measure 'Lines scored' = COUNTROWS(deal_scores)
+		formatString: #,0
+		lineageTag: 99094596-e7c7-5797-bc96-2ae4d15e1d66
+		displayFolder: 10 Guardrails
+
+	measure 'Within guardrail %' =
+			VAR vClear = CALCULATE(COUNTROWS(deal_scores), deal_scores[within_guardrail] = TRUE())
+			RETURN DIVIDE(vClear, [Lines scored])
+		formatString: 0.0%
+		lineageTag: dc79f1ff-ff1b-54ef-a427-632eafa60ec4
+		displayFolder: 10 Guardrails
+
+	measure 'Guardrail breaches' = SUM(guardrail_summary[count])
+		formatString: #,0
+		lineageTag: 72d0f200-0140-55d7-a6b5-a93532a1409f
+		displayFolder: 10 Guardrails
+
+	measure 'Margin at risk' = SUM(guardrail_summary[margin_at_risk])
+		formatString: \$#,0
+		lineageTag: adb37202-a0e7-5f33-8708-f53581b40795
+		displayFolder: 10 Guardrails
+
+	measure 'Deal margin %' = AVERAGE(deal_scores[pocket_margin_pct])
+		formatString: 0.0%
+		lineageTag: f3fc8104-8ee4-5754-add3-c719a2929372
+		displayFolder: 10 Guardrails
+
+	measure 'Extended margin' = SUM(deal_scores[extended_margin])
+		formatString: \$#,0
+		lineageTag: 401330aa-f346-55dd-8e0c-948d4083f33c
+		displayFolder: 10 Guardrails
+
+	measure 'Margin gap $' = SUM(deal_scores[margin_gap_dollars])
+		formatString: \$#,0
+		lineageTag: 92c3b985-c9a0-54d3-b65d-bae20f1a72b2
+		displayFolder: 10 Guardrails
+
+	measure 'Incremental margin' = SUM(bundle_candidates[incremental_margin])
+		formatString: \$#,0
+		lineageTag: e485613f-76ce-51c9-9504-27fdd6b78e71
+		displayFolder: 11 Bundles
+
+	measure 'Break-even cannibalisation' = AVERAGE(bundle_candidates[break_even_cannibalisation])
+		formatString: 0.0%
+		lineageTag: 2f0dcf29-96a8-5030-8ff1-a0fafbb1c560
+		displayFolder: 11 Bundles
+
+	measure 'Price change value' = SELECTEDVALUE(PriceChange[Price change %], 0)
+		formatString: 0.0%
+		lineageTag: 15197279-9ed1-5fc8-b1cb-90514fa10d87
+		displayFolder: 13 What-if
+
+	measure 'Cost change value' = SELECTEDVALUE(CostChange[Cost change %], 0)
+		formatString: 0.0%
+		lineageTag: 11589f39-e11b-5ef9-8f38-d2d0a73365fb
+		displayFolder: 13 What-if
+
+	measure 'Volume change value' = SELECTEDVALUE(VolumeChange[Volume change %], 0)
+		formatString: 0.0%
+		lineageTag: 1b430b2a-c036-52ff-9d80-0d9f2941f673
+		displayFolder: 13 What-if
+
+	measure 'Discount change value' = SELECTEDVALUE(DiscountChange[Discount change pts], 0)
+		formatString: 0.0%
+		lineageTag: bd5fe0f9-b7c4-576c-b977-9a937b6ce9d5
+		displayFolder: 13 What-if
+
+	measure 'Scenario price factor' = 1 + [Price change value] - [Discount change value]
+		formatString: 0.000
+		lineageTag: 9993bda3-90da-564b-b1ba-8e49d788e484
+		displayFolder: 13 What-if
+
+	measure 'Scenario volume factor' = 1 + [Volume change value]
+		formatString: 0.000
+		lineageTag: 79958b78-b002-543a-aedb-394c809c4605
+		displayFolder: 13 What-if
+
+	measure 'Scenario revenue' = [Pocket revenue] * [Scenario price factor] * [Scenario volume factor]
+		formatString: \$#,0
+		lineageTag: 520c31e6-a515-59c5-bdc9-54ae957a445c
+		displayFolder: 13 What-if
+
+	measure 'Scenario cost' = [COGS] * (1 + [Cost change value]) * [Scenario volume factor]
+		formatString: \$#,0
+		lineageTag: 2b3a2e80-117d-5f58-bc00-a08d3bd36a3f
+		displayFolder: 13 What-if
+
+	measure 'Scenario margin $' = [Scenario revenue] - [Scenario cost]
+		formatString: \$#,0
+		lineageTag: 9f848d00-6378-57c4-a69b-6fad30b18c75
+		displayFolder: 13 What-if
+
+	measure 'Scenario margin %' = DIVIDE([Scenario margin $], [Scenario revenue])
+		formatString: 0.0%
+		lineageTag: aa04fba9-bd99-580f-bbbd-25b911aa4384
+		displayFolder: 13 What-if
+
+	measure 'Scenario margin delta' = [Scenario margin $] - [Pocket margin $]
+		formatString: \$#,0
+		lineageTag: 1520a2ce-6538-5311-99e8-a895170beb1e
+		displayFolder: 13 What-if
+
+	measure 'Scenario revenue delta' = [Scenario revenue] - [Pocket revenue]
+		formatString: \$#,0
+		lineageTag: 1bcfac83-9334-52ec-b3b8-c621701d752f
+		displayFolder: 13 What-if
+
+	measure 'Scenario margin pts' = [Scenario margin %] - [Pocket margin %]
+		formatString: 0.0%
+		lineageTag: 681fd884-2535-57a3-9611-8b62f63842c9
+		displayFolder: 13 What-if
+
+	measure 'Three-point operating profit' = SUM(scenario_three_point[operating_profit])
+		formatString: \$#,0
+		lineageTag: ae6bb0d0-af1b-567a-ab47-f0fb49d306da
+		displayFolder: 13 What-if
+
+	measure 'Three-point contribution %' = AVERAGE(scenario_three_point[contribution_pct])
+		formatString: 0.0%
+		lineageTag: ae8fd650-f715-5efe-8e7d-2f1b03725991
+		displayFolder: 13 What-if
+
+	measure 'Three-point delta' = SUM(scenario_three_point[delta])
+		formatString: \$#,0
+		lineageTag: bf8fbd9b-d30d-595e-bd72-d4e9b8db5c8e
+		displayFolder: 13 What-if
+
+	measure 'Tornado swing' = SUM(scenario_tornado[swing])
+		formatString: \$#,0
+		lineageTag: 777249d9-c029-5308-9ca7-65fb3d919609
+		displayFolder: 13 What-if
+
+	measure 'Tornado upside' = SUM(scenario_tornado[upside_delta])
+		formatString: \$#,0
+		lineageTag: 8bfe410b-a331-50df-9097-ac682bdbc5a2
+		displayFolder: 13 What-if
+
+	measure 'Tornado downside' = SUM(scenario_tornado[downside_delta])
+		formatString: \$#,0
+		lineageTag: ba6894aa-a236-5e05-a48b-3b31bbee0f36
+		displayFolder: 13 What-if
+
+	measure 'Tornado share of swing' = AVERAGE(scenario_tornado[share_of_swing])
+		formatString: 0.0%
+		lineageTag: d2c9c0a8-23cd-5d9a-94b9-e1a176b6c483
+		displayFolder: 13 What-if
+
+	measure 'Break-even input' = AVERAGE(scenario_thresholds[threshold])
+		formatString: 0.0%
+		lineageTag: bb9a9a91-3ab4-540c-a47b-a243fb8940eb
+		displayFolder: 13 What-if
+
+	measure 'Contribution $' = SUM(unit_economics[contribution])
+		formatString: \$#,0
+		lineageTag: 28caa126-07ef-58f9-88d8-a36fd8814ab8
+		displayFolder: 14 Unit economics
+
+	measure 'Contribution %' = DIVIDE([Contribution $], SUM(unit_economics[pocket_revenue]))
+		formatString: 0.0%
+		lineageTag: 15a8c6d4-50b4-5423-94bd-316956879ba0
+		displayFolder: 14 Unit economics
+
+	measure 'Contribution per unit' = DIVIDE([Contribution $], SUM(unit_economics[volume_units]))
+		formatString: \$#,0.00
+		lineageTag: 17283ecf-79ab-5456-8e07-d7ef6ba70696
+		displayFolder: 14 Unit economics
+
+	measure 'Variable cost per unit' = DIVIDE(SUM(unit_economics[variable_cost]), SUM(unit_economics[volume_units]))
+		formatString: \$#,0.00
+		lineageTag: 9243d75c-d5dc-5494-bd07-25bd799a7e6b
+		displayFolder: 14 Unit economics
+
+	measure 'Markup %' = AVERAGE(unit_economics[markup_pct])
+		formatString: 0.0%
+		lineageTag: 669e750c-c72d-5585-9bf6-0cfb3e754366
+		displayFolder: 14 Unit economics
+
+	measure 'Cost to serve %' = AVERAGE(unit_economics[cost_to_serve_pct])
+		formatString: 0.0%
+		lineageTag: 786d4e5d-38b6-5c28-9cf7-dca20f4e3a83
+		displayFolder: 14 Unit economics
+
+	measure 'Operating profit' = SUM(unit_economics[operating_profit])
+		formatString: \$#,0
+		lineageTag: 29b292a4-2ddc-5007-8605-8d7b6cd3ee6c
+		displayFolder: 14 Unit economics
+
+	measure 'Operating margin %' = DIVIDE([Operating profit], SUM(unit_economics[pocket_revenue]))
+		formatString: 0.0%
+		lineageTag: 5f64adc2-2b5b-5d69-9b44-9b2e37349d60
+		displayFolder: 14 Unit economics
+
+	measure 'Break-even revenue' = SUM(break_even_portfolio[break_even_revenue])
+		formatString: \$#,0
+		lineageTag: 5bf2a5ff-e699-5ddf-a168-5a97d3a97288
+		displayFolder: 14 Unit economics
+
+	measure 'Break-even units' = SUM(break_even_portfolio[break_even_volume])
+		formatString: #,0
+		lineageTag: daf8ca35-a9c3-5b79-a5da-8a32b7497293
+		displayFolder: 14 Unit economics
+
+	measure 'Margin of safety' = AVERAGE(break_even_portfolio[margin_of_safety])
+		formatString: 0.0%
+		lineageTag: d5d9f24d-5ed5-53d1-8902-684458a856a7
+		displayFolder: 14 Unit economics
+
+	measure 'Operating leverage' = AVERAGE(break_even_portfolio[operating_leverage])
+		formatString: 0.00
+		lineageTag: 494fcc16-84a9-5c00-9565-be8ea5472277
+		displayFolder: 14 Unit economics
+
+	measure 'Curve revenue' = SUM(break_even_curve[revenue])
+		formatString: \$#,0
+		lineageTag: c5831c0d-6773-5354-b0a4-38552de784cf
+		displayFolder: 14 Unit economics
+
+	measure 'Curve fixed cost' = SUM(break_even_curve[fixed_cost])
+		formatString: \$#,0
+		lineageTag: d8eb425d-adfe-548f-822c-4bfe4a4f7b6a
+		displayFolder: 14 Unit economics
+
+	measure 'Curve variable cost' = SUM(break_even_curve[variable_cost])
+		formatString: \$#,0
+		lineageTag: 852bc0a8-d149-5617-b8d1-51bef85ae019
+		displayFolder: 14 Unit economics
+
+	measure 'Curve total cost' = SUM(break_even_curve[total_cost])
+		formatString: \$#,0
+		lineageTag: 52b373e5-200c-5461-960c-89298b87fa89
+		displayFolder: 14 Unit economics
+
+	measure 'Curve profit' = SUM(break_even_curve[profit])
+		formatString: \$#,0
+		lineageTag: fa7cf9be-ca65-5be1-861c-523238989fc6
+		displayFolder: 14 Unit economics
+
+	measure 'Product break-even units' = SUM(break_even_products[break_even_units])
+		formatString: #,0
+		lineageTag: 004abddc-5bd0-544d-acd8-1c2159519977
+		displayFolder: 14 Unit economics
+
+	measure 'Margin read as markup' = AVERAGE(markup_vs_margin[margin_if_read_as_markup])
+		formatString: 0.0%
+		lineageTag: 5380aac3-ce30-520b-a9e6-e7f6722c622c
+		displayFolder: 14 Unit economics
+
+	measure 'Markup needed' = AVERAGE(markup_vs_margin[markup_needed_for_that_margin])
+		formatString: 0.0%
+		lineageTag: ca9e4ee8-8ae4-5d52-ac2e-58f81996dd8d
+		displayFolder: 14 Unit economics
+
+	measure 'Markup margin gap' = AVERAGE(markup_vs_margin[gap])
+		formatString: 0.0%
+		lineageTag: 95ed266e-ad64-5b88-888e-35fdb1123446
+		displayFolder: 14 Unit economics
+
+	measure 'Forecast' = SUM(forecast_series[forecast])
+		formatString: #,0
+		lineageTag: 4abbf483-824f-5be2-99fb-bcc59a44c7bb
+		displayFolder: 15 Forecast
+
+	measure 'Actual' = SUM(forecast_series[actual])
+		formatString: #,0
+		lineageTag: ff0c6657-84eb-58f4-b654-cc81feaf1f1c
+		displayFolder: 15 Forecast
+
+	measure 'Forecast low' = SUM(forecast_series[low])
+		formatString: #,0
+		lineageTag: 4986797d-f8a5-5392-884b-04ee86fc4096
+		displayFolder: 15 Forecast
+
+	measure 'Forecast high' = SUM(forecast_series[high])
+		formatString: #,0
+		lineageTag: 9fe4165c-4a80-5370-b76a-025fa04e3d4a
+		displayFolder: 15 Forecast
+
+	measure 'Method WAPE' = AVERAGE(forecast_accuracy[wape])
+		formatString: 0.0%
+		lineageTag: 9ac0c107-e3f9-5eaa-b74f-436b98d8b7c7
+		displayFolder: 15 Forecast
+
+	measure 'Method bias' = AVERAGE(forecast_accuracy[bias])
+		formatString: 0.0%
+		lineageTag: 72e19594-fa14-51ff-bd11-c35a76850381
+		displayFolder: 15 Forecast
+
+	measure 'Backtest WAPE' = AVERAGE(forecast_summary[backtest_wape])
+		formatString: 0.0%
+		lineageTag: 23946e86-3df3-5cf3-8708-13440c04705e
+		displayFolder: 15 Forecast
+
+	measure 'Holdout WAPE' = AVERAGE(forecast_summary[holdout_wape])
+		formatString: 0.0%
+		lineageTag: 9b6cbf63-b318-566c-afbd-76973cd3a542
+		displayFolder: 15 Forecast
+
+	measure 'Next six months' = SUM(forecast_summary[next_6_total])
+		formatString: #,0
+		lineageTag: d7123b34-a440-56fe-9e94-fa85c961b6ab
+		displayFolder: 15 Forecast
+
+	measure 'Last six months' = SUM(forecast_summary[last_6_actual])
+		formatString: #,0
+		lineageTag: 7ba2b864-66eb-505c-be17-5744ae0950b3
+		displayFolder: 15 Forecast
+
+	measure 'Forecast change %' = AVERAGE(forecast_summary[change_pct])
+		formatString: 0.0%
+		lineageTag: cc6e5eb4-7e0b-5648-ab77-9c5773489968
+		displayFolder: 15 Forecast
+
+	measure 'Revenue actual' = CALCULATE([Actual], forecast_series[measure] = "Pocket revenue")
+		formatString: \$#,0
+		lineageTag: a801cfec-e4a2-5a03-9439-8fcd81f65ca3
+		displayFolder: 15 Forecast
+
+	measure 'Revenue forecast' = CALCULATE([Forecast], forecast_series[measure] = "Pocket revenue")
+		formatString: \$#,0
+		lineageTag: 9f6c921d-660f-5d7a-8c11-615adbd398e6
+		displayFolder: 15 Forecast
+
+	measure 'Revenue forecast low' = CALCULATE([Forecast low], forecast_series[measure] = "Pocket revenue")
+		formatString: \$#,0
+		lineageTag: 8168c5fe-469b-5bc5-8ebf-19dab1171347
+		displayFolder: 15 Forecast
+
+	measure 'Revenue forecast high' = CALCULATE([Forecast high], forecast_series[measure] = "Pocket revenue")
+		formatString: \$#,0
+		lineageTag: 27bdd1a3-4ba0-5ec8-b8f0-78ed9ecbebf7
+		displayFolder: 15 Forecast
+
+	measure 'Volume actual' = CALCULATE([Actual], forecast_series[measure] = "Volume (units)")
+		formatString: #,0
+		lineageTag: d7b1098b-9d9b-50fc-a3af-01a12b697853
+		displayFolder: 15 Forecast
+
+	measure 'Volume forecast' = CALCULATE([Forecast], forecast_series[measure] = "Volume (units)")
+		formatString: #,0
+		lineageTag: e7711aeb-81d4-5631-bd63-61ecf3ad5a15
+		displayFolder: 15 Forecast
+
+	measure 'Revenue next six months' = CALCULATE([Next six months], forecast_summary[measure] = "Pocket revenue")
+		formatString: \$#,0
+		lineageTag: 60151208-913b-521c-83c5-4b7011a49dda
+		displayFolder: 15 Forecast
+
+	measure 'Revenue forecast change %' = CALCULATE([Forecast change %], forecast_summary[measure] = "Pocket revenue")
+		formatString: 0.0%
+		lineageTag: d4b9cea3-7703-5bee-81fa-882bf5a717c3
+		displayFolder: 15 Forecast
+
+	measure 'Revenue backtest WAPE' = CALCULATE([Backtest WAPE], forecast_summary[measure] = "Pocket revenue")
+		formatString: 0.0%
+		lineageTag: 513b9c05-84c4-5c48-b880-bad1eb5aebac
+		displayFolder: 15 Forecast
+
+	measure 'Revenue holdout WAPE' = CALCULATE([Holdout WAPE], forecast_summary[measure] = "Pocket revenue")
+		formatString: 0.0%
+		lineageTag: 8910d953-e7de-56fb-ac18-d7b13918ed89
+		displayFolder: 15 Forecast
+
+	measure 'Profitability revenue' = SUM(profitability[pocket_revenue])
+		formatString: \$#,0
+		lineageTag: a92fda1e-3a7f-59c2-a4cf-ea7b249e6d90
+		displayFolder: 16 Profitability
+
+	measure 'Profitability margin $' = SUM(profitability[gross_margin])
+		formatString: \$#,0
+		lineageTag: 8af2d1b6-cbe4-53ba-ade7-218ea818dad0
+		displayFolder: 16 Profitability
+
+	measure 'Profitability margin %' = DIVIDE([Profitability margin $], [Profitability revenue])
+		formatString: 0.0%
+		lineageTag: cd112d3e-a50e-5c5f-96a0-e2970a21ee12
+		displayFolder: 16 Profitability
+
+	measure 'Profitability operating margin %' = DIVIDE(SUM(profitability[operating_profit]), [Profitability revenue])
+		formatString: 0.0%
+		lineageTag: 6a39e9f3-1ca9-5006-bfd4-b1e15e204159
+		displayFolder: 16 Profitability
+
+	measure 'Profitability contribution' = SUM(profitability[contribution])
+		formatString: \$#,0
+		lineageTag: 95df86b4-e997-586e-bc01-b2bd0ffa1b7f
+		displayFolder: 16 Profitability
+
+	measure 'Profitability leakage %' = AVERAGE(profitability[leakage_pct])
+		formatString: 0.0%
+		lineageTag: 8d0c7733-9a17-541e-908e-7e6452b8e387
+		displayFolder: 16 Profitability
+
+	measure 'Revenue share' = SUM(profitability[revenue_share])
+		formatString: 0.0%
+		lineageTag: f6e99ebd-f0b6-5cff-8d65-69e9febee548
+		displayFolder: 16 Profitability
+
+	measure 'Segment revenue' = SUM(profit_heatmap[pocket_revenue])
+		formatString: \$#,0
+		lineageTag: 251c46fb-282e-5de4-8df3-42c0d63f3440
+		displayFolder: 16 Profitability
+
+	measure 'Segment margin $' = SUM(profit_heatmap[gross_margin])
+		formatString: \$#,0
+		lineageTag: 6896a504-c52a-5b9e-a31d-be6804c73c37
+		displayFolder: 16 Profitability
+
+	measure 'Segment margin %' = DIVIDE([Segment margin $], [Segment revenue])
+		formatString: 0.0%
+		lineageTag: 15a0e225-69ce-51a1-9271-6dc8ab65bef4
+		displayFolder: 16 Profitability
+
+	measure 'Segment leakage %' = AVERAGE(profit_heatmap[leakage_pct])
+		formatString: 0.0%
+		lineageTag: b703cea9-517c-59e1-918c-b4226bac3b7a
+		displayFolder: 16 Profitability
+
+	measure 'Banded revenue' = SUM(discount_margin_matrix[pocket_revenue])
+		formatString: \$#,0
+		lineageTag: 44ff86c6-8df0-527c-b158-cb7fde7efa2a
+		displayFolder: 17 Discount
+
+	measure 'Banded margin $' = SUM(discount_margin_matrix[gross_margin])
+		formatString: \$#,0
+		lineageTag: 7e8144a3-21be-5d21-8453-5f5c7ca0cdfe
+		displayFolder: 17 Discount
+
+	measure 'Banded margin %' = DIVIDE([Banded margin $], [Banded revenue])
+		formatString: 0.0%
+		lineageTag: 29ab1eb9-1e96-5e14-a5f4-0dc6dc2485a1
+		displayFolder: 17 Discount
+
+	measure 'Banded lines' = SUM(discount_margin_matrix[lines])
+		formatString: #,0
+		lineageTag: 79780a3b-98c7-51d8-b075-388739737e70
+		displayFolder: 17 Discount
+
+	measure 'Banded share of revenue' = SUM(discount_margin_matrix[share_of_revenue])
+		formatString: 0.0%
+		lineageTag: 4fb0bcae-3d03-5913-967e-1c31851d8ca7
+		displayFolder: 17 Discount
+
+	measure 'Promotions run' = SUM(promotion_summary[promotions])
+		formatString: #,0
+		lineageTag: d8b51cfe-b39b-591b-adfd-52df3c7c3ad4
+		displayFolder: 17 Discount
+
+	measure 'Incremental promo units' = SUM(promotion_summary[incremental_volume_units])
+		formatString: #,0
+		lineageTag: 6d284bc3-9811-5164-b83e-c9e25bb6a35e
+		displayFolder: 17 Discount
+
+	measure 'Incremental promo margin' = SUM(promotion_summary[incremental_margin])
+		formatString: \$#,0
+		lineageTag: 86e8d7b4-6465-58da-969a-60c80d8a62ed
+		displayFolder: 17 Discount
+
+	measure 'Discount on baseline' = SUM(promotion_summary[discount_on_baseline])
+		formatString: \$#,0
+		lineageTag: 3378d78a-6613-5ae3-9c1d-88dfbb25f8e1
+		displayFolder: 17 Discount
+
+	measure 'Net promo margin' = SUM(promotion_summary[net_promo_margin])
+		formatString: \$#,0
+		lineageTag: cc6a174f-88bc-5572-80af-04263e0ed399
+		displayFolder: 17 Discount
+
+	measure 'Promo ROI' = DIVIDE([Net promo margin], [Discount on baseline])
+		formatString: 0.00
+		lineageTag: 22e2e314-21e6-5b09-a00d-5369e11b452e
+		displayFolder: 17 Discount
+
+	measure 'Units sold' = SUM(price_vs_volume[volume_units])
+		formatString: #,0
+		lineageTag: 9a701cbc-17eb-55e5-9c65-fda006815d79
+		displayFolder: 17 Discount
+
+	measure 'Price point' = AVERAGE(price_vs_volume[list_price])
+		formatString: \$#,0.00
+		lineageTag: 417aeebf-4e2d-50c4-9137-570b64a52446
+		displayFolder: 17 Discount
+
+	measure 'Price point revenue' = SUM(price_vs_volume[pocket_revenue])
+		formatString: \$#,0
+		lineageTag: f4545d49-a240-508a-994d-3f4b114fdacd
+		displayFolder: 17 Discount
+
+	measure 'Standard cost' = SUM(cost_element_summary[standard_cost])
+		formatString: \$#,0
+		lineageTag: f97644cb-681d-5a68-bfed-64304014a534
+		displayFolder: 18 Cost elements
+
+	measure 'Actual cost' = SUM(cost_element_summary[actual_cost])
+		formatString: \$#,0
+		lineageTag: 1ee79c3a-0d34-50ce-a1a4-1e557c8ae842
+		displayFolder: 18 Cost elements
+
+	measure 'Cost element variance' = SUM(cost_element_summary[variance])
+		formatString: \$#,0
+		lineageTag: 8c2e7942-4d23-5cdf-8578-23fa67f5ef29
+		displayFolder: 18 Cost elements
+
+	measure 'Cost element variance %' = DIVIDE([Cost element variance], [Standard cost])
+		formatString: 0.0%
+		lineageTag: eb3b5837-a0eb-587d-82e1-a3f4bcda6328
+		displayFolder: 18 Cost elements
+
+	measure 'Element waterfall amount' = SUM(cost_element_waterfall[amount])
+		formatString: \$#,0
+		lineageTag: bc381b37-77f1-5d99-9562-e8c999a79a16
+		displayFolder: 18 Cost elements
+
+	measure 'Element waterfall step' = SUM(cost_element_waterfall[delta])
+		formatString: \$#,0
+		lineageTag: 1364eb5c-c28f-5467-9011-cd1275c776b0
+		displayFolder: 18 Cost elements
+
+	measure 'Category cost variance' = SUM(cost_element_by_category[variance])
+		formatString: \$#,0
+		lineageTag: aab2de3e-0c9e-5980-9422-94e224215da5
+		displayFolder: 18 Cost elements
+
+	measure 'Category standard cost' = SUM(cost_element_by_category[standard_cost])
+		formatString: \$#,0
+		lineageTag: 9368958a-0e33-585c-969a-4f1c62579d9f
+		displayFolder: 18 Cost elements
+
+	measure 'Price changes' = COUNTROWS(price_change_log)
+		formatString: #,0
+		lineageTag: b9d0836d-5307-5f3c-9f68-72fa5f3de61b
+		displayFolder: 19 Operations
+
+	measure 'Price increases' = CALCULATE([Price changes], price_change_log[direction] = "Increase")
+		formatString: #,0
+		lineageTag: 277d6ff8-9d0b-5403-9533-5753c81ac2c9
+		displayFolder: 19 Operations
+
+	measure 'Price decreases' = CALCULATE([Price changes], price_change_log[direction] = "Decrease")
+		formatString: #,0
+		lineageTag: 9fb0d27b-f5b0-5d33-886a-6b3b9d8384dd
+		displayFolder: 19 Operations
+
+	measure 'Median price change %' = MEDIANX(price_change_log, price_change_log[pct_change])
+		formatString: 0.0%
+		lineageTag: 77f99b96-fa97-5f5b-8f35-f0e80469a204
+		displayFolder: 19 Operations
+
+	measure 'Median days to approve' = MEDIANX(price_change_log, price_change_log[days_to_approve])
+		formatString: #,0
+		lineageTag: 70f58fa3-4906-5117-8c1e-4bdfcdf1a4c1
+		displayFolder: 19 Operations
+
+	measure 'Products on the price list' = SUM(price_list_coverage[products])
+		formatString: #,0
+		lineageTag: 3f19a7a4-9a2b-591e-b29a-c370091d109c
+		displayFolder: 19 Operations
+
+	measure 'Stale products' = SUM(price_list_coverage[stale])
+		formatString: #,0
+		lineageTag: 77609b82-4501-53b8-b109-32a26eee0f77
+		displayFolder: 19 Operations
+
+	measure 'Days since price change' = MEDIANX(price_list_coverage, price_list_coverage[median_days_since_change])
+		formatString: #,0
+		lineageTag: a53e0655-35fd-591a-9fa4-a0c9e914e873
+		displayFolder: 19 Operations
+
+	measure 'Coverage margin %' = AVERAGE(price_list_coverage[median_margin_pct])
+		formatString: 0.0%
+		lineageTag: 517f9d4a-d4e8-514e-8f11-07fdd6f9dddd
+		displayFolder: 19 Operations
+
+	measure 'Rows checked' = SUM(data_quality_checks[rows_checked])
+		formatString: #,0
+		lineageTag: 88c85e5a-5e31-559b-82ad-17bc088b341f
+		displayFolder: 20 Data quality
+
+	measure 'Rows failing' = SUM(data_quality_checks[rows_failing])
+		formatString: #,0
+		lineageTag: 8d7120eb-2ad9-54c7-aaad-da3492fa64fd
+		displayFolder: 20 Data quality
+
+	measure 'Quality score' = DIVIDE([Rows checked] - [Rows failing], [Rows checked])
+		formatString: 0.00%
+		lineageTag: 228042d8-86d5-5c83-a44c-0d9d7ab2a999
+		displayFolder: 20 Data quality
+
+	measure 'Checks run' = COUNTROWS(data_quality_checks)
+		formatString: #,0
+		lineageTag: 760e22af-fec6-5447-9a22-1436cd581bb9
+		displayFolder: 20 Data quality
+
+	measure 'Critical checks failing' = CALCULATE([Checks run], data_quality_checks[severity] = "Critical")
+		formatString: #,0
+		lineageTag: c453018a-d680-5c44-9681-847047959347
+		displayFolder: 20 Data quality
+
+	measure 'Fail rate' = AVERAGE(data_quality_checks[fail_rate])
+		formatString: 0.00%
+		lineageTag: 1e25f694-cd94-58d8-93b4-fbb72655f737
+		displayFolder: 20 Data quality
+
+	measure 'Dimension score' = AVERAGE(data_quality_score[score])
+		formatString: 0.00%
+		lineageTag: 3c30f2fd-8c4d-5a09-992a-2a4a8016702d
+		displayFolder: 20 Data quality
+
+	measure 'Reconciliation amount' = SUM(reconciliation[amount])
+		formatString: \$#,0
+		lineageTag: 55f8b069-8019-5797-88ea-4bcee90a8892
+		displayFolder: 20 Data quality
+
+	measure 'Reconciliation step' = SUM(reconciliation[delta])
+		formatString: \$#,0
+		lineageTag: 9ed3a89f-e23b-5e5f-bb48-1f763d2c67e0
+		displayFolder: 20 Data quality
+
+	measure 'Unexplained' = SUM(reconciliation[unexplained])
+		formatString: \$#,0.00
+		lineageTag: 698d26e8-ad5e-5efc-a63e-3e727eb194a2
+		displayFolder: 20 Data quality
+
+	measure 'Products reviewed' = COUNTROWS(recommendations)
+		formatString: #,0
+		lineageTag: 019eba04-9fd1-5fb7-99d2-859730ce5919
+		displayFolder: 21 Recommendations
+
+	measure 'Margin delta' = SUM(recommendations[margin_delta])
+		formatString: \$#,0
+		lineageTag: cfb4294d-b7a9-54d5-a8dc-781890bcf7cb
+		displayFolder: 21 Recommendations
+
+	measure 'Revenue delta' = SUM(recommendations[revenue_delta])
+		formatString: \$#,0
+		lineageTag: f24f426f-c6ca-5ebc-b543-aacd46759214
+		displayFolder: 21 Recommendations
+
+	measure 'Recommended price' = AVERAGE(recommendations[recommended_price])
+		formatString: \$#,0.00
+		lineageTag: 22fb56e1-d3ba-55a6-b54f-8c0f4418a172
+		displayFolder: 21 Recommendations
+
+	measure 'Recommended move %' = AVERAGE(recommendations[price_change_pct])
+		formatString: 0.0%
+		lineageTag: 88185eac-c96b-5863-8366-3bcba8e3f21b
+		displayFolder: 21 Recommendations
+
+	measure 'Action products' = SUM(recommendation_summary[products])
+		formatString: #,0
+		lineageTag: cecd74d0-96e8-578a-82c9-2b384ff23e7f
+		displayFolder: 21 Recommendations
+
+	measure 'Action margin delta' = SUM(recommendation_summary[margin_delta])
+		formatString: \$#,0
+		lineageTag: 71b6c5f4-ac5c-5806-9563-193f8f51c043
+		displayFolder: 21 Recommendations
+
+	measure 'Action revenue delta' = SUM(recommendation_summary[revenue_delta])
+		formatString: \$#,0
+		lineageTag: 8f935997-9647-5e97-9261-73b99a7f0875
+		displayFolder: 21 Recommendations
+
+	measure 'Action volume' = SUM(recommendation_summary[volume_units])
+		formatString: #,0
+		lineageTag: 4bed71a7-dbd8-5c73-b247-492187fb8441
+		displayFolder: 21 Recommendations
+
+	measure 'Exceptions' = COUNTROWS(guardrail_exceptions)
+		formatString: #,0
+		lineageTag: c77979ba-ce0c-524c-9841-031fdc0bcf7a
+		displayFolder: 21 Recommendations
+
+	measure 'Exception margin at risk' = SUM(guardrail_exceptions[margin_at_risk])
+		formatString: \$#,0
+		lineageTag: bc847659-6c1c-550a-9fd2-7bb80111126e
+		displayFolder: 21 Recommendations
+
+	measure 'Red exceptions' = CALCULATE([Exceptions], guardrail_exceptions[alert] = "Red")
+		formatString: #,0
+		lineageTag: d46b362d-6237-5329-88c6-cd0326804300
+		displayFolder: 21 Recommendations
+
+	measure 'Exception margin %' = AVERAGE(guardrail_exceptions[pocket_margin_pct])
+		formatString: 0.0%
+		lineageTag: c8ec977e-e288-597b-bd63-525baaf24d83
+		displayFolder: 21 Recommendations
+
+	measure 'Margin reference' =
+			VAR vGap = [Pocket margin YoY pts]
+			RETURN IF(ISBLANK(vGap), "no prior year",
+			          FORMAT(vGap, "+0.0%;-0.0%;0.0%") & " on last year")
+		lineageTag: 84208099-eb07-587d-b120-8c5e338497cf
+		displayFolder: 12 Labels
+
+	measure 'Leakage reference' = "every point is " & FORMAT([List value] * 0.01, "\$#,0")
+		lineageTag: 96a77788-a87d-5a49-8c39-d583204447f3
+		displayFolder: 12 Labels
+
+	measure 'Index reference' =
+			VAR vIndex = [Price index]
+			RETURN FORMAT(vIndex - 100, "+0.0;-0.0;0.0") & " against parity"
+		lineageTag: 55c9d59e-afac-5bd1-a0cd-2d41070eb373
+		displayFolder: 12 Labels
+
+	measure 'Scenario reference' =
+			"price " & FORMAT([Price change value], "+0.0%;-0.0%;0.0%") &
+			", cost " & FORMAT([Cost change value], "+0.0%;-0.0%;0.0%") &
+			", volume " & FORMAT([Volume change value], "+0.0%;-0.0%;0.0%")
+		lineageTag: a395fefd-15fc-5e4c-ad62-6b5d19630a04
+		displayFolder: 12 Labels
+
+	measure 'Quality reference' =
+			VAR vFailing = [Rows failing]
+			RETURN FORMAT(vFailing, "#,0") & " rows of " & FORMAT([Rows checked], "#,0") & " need a fix"
+		lineageTag: 956d6dc8-ba19-51dc-899f-c5a59bb311cb
+		displayFolder: 12 Labels
+
+	column _placeholder
+		isHidden
+		formatString: 0
+		lineageTag: e1366f0d-34fb-5d66-ab46-e8e9e22bfa9a
+		summarizeBy: none
+		sourceColumn: _placeholder
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = #table(type table [_placeholder = Int64.Type], {{0}})
+				in
+				    Source

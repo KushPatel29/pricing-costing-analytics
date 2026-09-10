@@ -1,0 +1,115 @@
+table guardrail_exceptions
+	lineageTag: 2c91e125-b23b-5716-bae8-a76ba82e681f
+
+	column code
+		dataType: string
+		lineageTag: 91728045-5b33-571d-bf7e-a66abcd3054d
+		summarizeBy: none
+		sourceColumn: code
+
+	column severity
+		dataType: int64
+		formatString: 0
+		lineageTag: b351375a-018b-5888-bb9b-85f61db66dc8
+		summarizeBy: sum
+		sourceColumn: severity
+
+	column alert
+		dataType: string
+		lineageTag: 554dbce7-19c9-5ca7-8a49-1af8ec14a053
+		summarizeBy: none
+		sourceColumn: alert
+
+	column product_id
+		dataType: string
+		lineageTag: dd226c94-87cc-569b-bbf3-29af857b7989
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column customer_id
+		dataType: string
+		lineageTag: 44bd52a7-009e-5c1f-8ad2-43f4688b3cb6
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column description
+		dataType: string
+		lineageTag: cfa2adf0-f353-5b7a-b08d-21d87e5da673
+		summarizeBy: none
+		sourceColumn: description
+
+	column pocket_margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 3a4ae532-ae0b-5177-ac60-0f2ab172b778
+		summarizeBy: sum
+		sourceColumn: pocket_margin_pct
+
+	column price_index
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 0f104061-70db-5eae-9a2e-6a66c8ea2231
+		summarizeBy: none
+		sourceColumn: price_index
+
+	column margin_at_risk
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: c789ad14-35dd-58ca-b449-cc7b8c7794df
+		summarizeBy: sum
+		sourceColumn: margin_at_risk
+
+	column action
+		dataType: string
+		lineageTag: 2179daed-514b-557f-8deb-d37b1d867dbd
+		summarizeBy: none
+		sourceColumn: action
+
+	column category
+		dataType: string
+		lineageTag: 742c06fd-d813-571b-acf0-036a1d4096c2
+		summarizeBy: none
+		sourceColumn: category
+
+	column segment
+		dataType: string
+		lineageTag: bf6ce253-2b50-57f3-ae04-4ba57b8ed498
+		summarizeBy: none
+		sourceColumn: segment
+
+	column customer_name
+		dataType: string
+		lineageTag: ea75163c-5d7b-5599-8634-6d7766194f56
+		summarizeBy: none
+		sourceColumn: customer_name
+
+	column quantity_units
+		dataType: double
+		formatString: #,0
+		lineageTag: c9da82d8-9d37-58e3-9386-a8389cd2aac7
+		summarizeBy: sum
+		sourceColumn: quantity_units
+
+	column list_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: ef7b2e15-1f87-5347-a776-8dbcc8a072ed
+		summarizeBy: sum
+		sourceColumn: list_price
+
+	column pocket_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 1b2d7a16-4615-5763-b388-5eb0da9ffb72
+		summarizeBy: sum
+		sourceColumn: pocket_price
+
+	partition guardrail_exceptions = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\guardrail_exceptions.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"code", type text}, {"severity", Int64.Type}, {"alert", type text}, {"product_id", type text}, {"customer_id", type text}, {"description", type text}, {"pocket_margin_pct", type number}, {"price_index", type number}, {"margin_at_risk", type number}, {"action", type text}, {"category", type text}, {"segment", type text}, {"customer_name", type text}, {"quantity_units", type number}, {"list_price", type number}, {"pocket_price", type number}})
+				in
+				    Typed

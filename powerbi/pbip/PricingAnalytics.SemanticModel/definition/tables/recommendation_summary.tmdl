@@ -1,0 +1,46 @@
+table recommendation_summary
+	lineageTag: 27c96f44-8bb1-58ba-a8a9-864a9758e8b8
+
+	column action
+		dataType: string
+		lineageTag: f3f7c612-cc80-51b9-bb00-3644db3f3850
+		summarizeBy: none
+		sourceColumn: action
+
+	column products
+		dataType: int64
+		formatString: 0
+		lineageTag: 1833d012-4a7a-5f18-b1b4-f92b8cd3f2c4
+		summarizeBy: sum
+		sourceColumn: products
+
+	column volume_units
+		dataType: double
+		formatString: #,0
+		lineageTag: 54432cc1-15cd-5471-9c3e-64d925a939ea
+		summarizeBy: sum
+		sourceColumn: volume_units
+
+	column revenue_delta
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: cd6ff9ee-c19a-5224-a3b3-fd8840e7a347
+		summarizeBy: sum
+		sourceColumn: revenue_delta
+
+	column margin_delta
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 8440051b-ff2d-5d49-90f2-b37e7595f062
+		summarizeBy: sum
+		sourceColumn: margin_delta
+
+	partition recommendation_summary = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\recommendation_summary.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"action", type text}, {"products", Int64.Type}, {"volume_units", type number}, {"revenue_delta", type number}, {"margin_delta", type number}})
+				in
+				    Typed

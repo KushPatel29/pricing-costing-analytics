@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0602",
+  "position": {
+    "x": 330,
+    "y": 20,
+    "z": 1501,
+    "height": 118,
+    "width": 296,
+    "tabOrder": 1501
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Pocket margin $ LY"
+                }
+              },
+              "queryRef": "_Measures.Pocket margin $ LY",
+              "nativeQueryRef": "Pocket margin $ LY"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Pocket margin $ LY: pocket margin twelve months earlier.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

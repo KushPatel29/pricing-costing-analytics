@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0404",
+  "position": {
+    "x": 942,
+    "y": 20,
+    "z": 1303,
+    "height": 118,
+    "width": 318,
+    "tabOrder": 1303
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Expected margin change"
+                }
+              },
+              "queryRef": "_Measures.Expected margin change",
+              "nativeQueryRef": "Expected margin change"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Expected margin change: what the elasticity implies for the selected price move.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -85,7 +85,8 @@ class TestRecoveryNormalisation:
         assert as_percent == pytest.approx(10.20 / 0.85)
 
     def test_waste_output_reads_both_forms_the_same(self):
-        assert calculate_waste_output(100.0, 80) == pytest.approx(calculate_waste_output(100.0, 0.80))
+        assert calculate_waste_output(100.0, 80) == pytest.approx(
+            calculate_waste_output(100.0, 0.80))
 
     def test_trim_recovery_reads_both_forms_the_same(self):
         assert calculate_trim_recovery(2.0, 10, 80) == pytest.approx(
@@ -100,7 +101,7 @@ class TestRecoveryNormalisation:
 
 class TestRecoveryMaths:
     def test_lower_recovery_costs_more(self):
-        """Losing more to trim means buying more raw material per saleable lb."""
+        """A lower sellable rate means buying more units for every one shipped."""
         high = calculate_recovery_input(10.0, 0.0, 0.90)
         low = calculate_recovery_input(10.0, 0.0, 0.60)
         assert low > high
@@ -158,12 +159,13 @@ class TestFreight:
     @pytest.mark.parametrize(
         "vendor,expected",
         [
-            ("Inbound Consolidator", FREIGHT_RATES["Inbound Consolidator"]),
-            ("Local Pickup", FREIGHT_RATES["Local Pickup"]),
-            ("Customer Pickup", FREIGHT_RATES["Local Pickup"]),
-            ("Alberta LTL", FREIGHT_RATES["Alberta"]),
-            ("Ontario/Quebec", FREIGHT_RATES["Ontario/Quebec"]),
-            ("Quebec run", FREIGHT_RATES["Ontario/Quebec"]),
+            ("Import Ocean FCL", FREIGHT_RATES["Import Ocean FCL"]),
+            ("FCL Shanghai", FREIGHT_RATES["Import Ocean FCL"]),
+            ("Import Ocean LCL", FREIGHT_RATES["Import Ocean LCL"]),
+            ("Import Air Freight", FREIGHT_RATES["Import Air Freight"]),
+            ("Domestic LTL", FREIGHT_RATES["Domestic LTL"]),
+            ("Domestic FTL", FREIGHT_RATES["Domestic FTL"]),
+            ("Cross-dock Consolidator", FREIGHT_RATES["Cross-dock Consolidator"]),
             ("", 0.0),
             (None, 0.0),
             ("Somewhere else", 0.0),
@@ -174,16 +176,17 @@ class TestFreight:
 
     def test_farther_lanes_cost_more(self):
         assert (
-            FREIGHT_RATES["Inbound Consolidator"]
-            < FREIGHT_RATES["Local Pickup"]
-            < FREIGHT_RATES["Alberta"]
-            < FREIGHT_RATES["Ontario/Quebec"]
+            FREIGHT_RATES["Domestic FTL"]
+            < FREIGHT_RATES["Domestic LTL"]
+            < FREIGHT_RATES["Import Ocean FCL"]
+            < FREIGHT_RATES["Import Ocean LCL"]
+            < FREIGHT_RATES["Import Air Freight"]
         )
 
 
 class TestUnitConversion:
     def test_invoice_price_converts_to_per_pound(self):
-        # A $110 case holding 10 lb is $11/lb.
+        # A $110 case holding 10 lb is $11/unit.
         assert calculate_actual_inv_cost(110.0, 10.0) == pytest.approx(11.0)
 
     def test_zero_weight_leaves_the_price_alone(self):
@@ -195,33 +198,33 @@ class TestCostStack:
     def test_walks_invoice_to_price(self):
         stack = build_cost_stack(
             vendor_invoice_price=110.0,
-            lb_per_billing_uom=10.0,
+            units_per_billing_uom=10.0,
             adj=0.50,
-            vendor="Alberta",
+            vendor="Import Ocean FCL",
             recovery=0.80,
-            labour_per_lb=0.35,
-            sticker_per_lb=0.05,
+            handling_per_unit=0.35,
+            labelling_per_unit=0.05,
             base_margin=0.17,
         )
         assert stack["actual_inv_cost"] == pytest.approx(11.0)
         assert stack["market_cost"] == pytest.approx(11.50)
-        assert stack["freight"] == pytest.approx(0.205)
-        assert stack["landed_cost"] == pytest.approx(11.705)
-        # Grossed up for 80% recovery, then labour and sticker.
-        assert stack["recovery_input"] == pytest.approx(11.705 / 0.80)
-        assert stack["final_cost"] == pytest.approx(11.705 / 0.80 + 0.40)
+        assert stack["freight"] == pytest.approx(0.42)
+        assert stack["landed_cost"] == pytest.approx(11.92)
+        # Grossed up for an 80% sellable rate, then handling and labelling.
+        assert stack["recovery_input"] == pytest.approx(11.92 / 0.80)
+        assert stack["final_cost"] == pytest.approx(11.92 / 0.80 + 0.40)
         assert stack["realised_base_margin"] == pytest.approx(0.17)
 
     def test_every_step_is_monotonic(self):
         """Cost only accumulates: no step in the stack may reduce it."""
         stack = build_cost_stack(
             vendor_invoice_price=90.0,
-            lb_per_billing_uom=9.0,
+            units_per_billing_uom=9.0,
             adj=0.25,
-            vendor="Ontario/Quebec",
+            vendor="Import Air Freight",
             recovery=0.72,
-            labour_per_lb=0.40,
-            sticker_per_lb=0.10,
+            handling_per_unit=0.40,
+            labelling_per_unit=0.10,
         )
         assert (
             stack["actual_inv_cost"]
@@ -236,7 +239,7 @@ class TestCostStack:
         for margin in (0.05, 0.17, 0.25, 0.35):
             stack = build_cost_stack(
                 vendor_invoice_price=100.0,
-                lb_per_billing_uom=10.0,
+                units_per_billing_uom=10.0,
                 recovery=0.75,
                 base_margin=margin,
             )

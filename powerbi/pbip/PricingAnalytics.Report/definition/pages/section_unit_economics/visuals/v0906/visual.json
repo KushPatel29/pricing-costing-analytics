@@ -1,0 +1,115 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0906",
+  "position": {
+    "x": 814,
+    "y": 152,
+    "z": 1805,
+    "height": 272,
+    "width": 446,
+    "tabOrder": 1805
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "markup_vs_margin"
+                    }
+                  },
+                  "Property": "rate"
+                }
+              },
+              "queryRef": "markup_vs_margin.rate",
+              "nativeQueryRef": "rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Margin read as markup"
+                }
+              },
+              "queryRef": "_Measures.Margin read as markup",
+              "nativeQueryRef": "Margin read as markup"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Markup needed"
+                }
+              },
+              "queryRef": "_Measures.Markup needed",
+              "nativeQueryRef": "Markup needed"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Markup margin gap"
+                }
+              },
+              "queryRef": "_Measures.Markup margin gap",
+              "nativeQueryRef": "Markup margin gap"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Markup is not margin'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled Markup is not margin. For each rate, shows the Margin read as markup, the Markup needed for that margin, and the Markup margin gap between the two readings.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

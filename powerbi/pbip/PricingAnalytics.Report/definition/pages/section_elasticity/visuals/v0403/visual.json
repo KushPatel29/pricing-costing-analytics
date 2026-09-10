@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0403",
+  "position": {
+    "x": 634,
+    "y": 20,
+    "z": 1302,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 1302
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Break-even volume %"
+                }
+              },
+              "queryRef": "_Measures.Break-even volume %",
+              "nativeQueryRef": "Break-even volume %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Break-even volume %: the volume a price change needs to hold contribution flat.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

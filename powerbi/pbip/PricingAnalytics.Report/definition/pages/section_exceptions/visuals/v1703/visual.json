@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1703",
+  "position": {
+    "x": 634,
+    "y": 20,
+    "z": 2602,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 2602
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Exception margin at risk"
+                }
+              },
+              "queryRef": "_Measures.Exception margin at risk",
+              "nativeQueryRef": "Exception margin at risk"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Exception margin at risk in dollars.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

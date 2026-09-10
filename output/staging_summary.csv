@@ -1,0 +1,13 @@
+metric,value,unit
+Billing lines received,17643.0,count
+Billing lines staged,17502.0,count
+Lines priceable,16284.0,count
+Lines held for master data,1218.0,count
+Checks run,12.0,count
+Checks passed,0.0,count
+Rows failing a check,2656.0,count
+Overall quality score,0.9833386654622328,percent
+Value received,261314697.02,currency
+Value staged,259859112.25,currency
+Value excluded,1455584.77,currency
+Unexplained difference,1.0710209608078003e-08,currency

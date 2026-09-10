@@ -1,0 +1,151 @@
+customer,customer_name,account_group,sales_org,distribution_channel,sales_district,payment_terms,price_group,price_list_type,sales_employee,created_on
+CU2000,Sunshine Table,Independent Retailer,1000,20,Southwest,Net 45,D,List,Tom Beauchemin,2019-04-01
+CU2001,Coastal Market,Subscription Box Operator,1000,30,West,Net 45,C,Contract,Priya Raghunathan,2019-04-01
+CU2002,Riverside Trading Co,Marketplace Seller,1000,,Midwest,Net 15,C,List,Simone Delacroix,2019-04-01
+CU2003,Alder Butchery,Regional Retail Chain,1000,20,Midwest,2/10 Net 30,C,List,Jonah Stavrides,2019-04-01
+CU2004,Stanley Butchery,Independent Retailer,1000,20,West,Net 45,D,List,Dana Whitfield,2019-04-01
+CU2005,Coastal Supply,Independent Retailer,1000,20,Southeast,2/10 Net 30,C,List,Hollis Marchetti,2019-04-01
+CU2006,Coastal Larder,Independent Retailer,1000,20,West,Net 45,A,Contract,Dana Whitfield,2019-04-01
+CU2007,Juniper Kitchen Group,Sub-Distributor,1000,30,Southeast,Net 45,D,List,Hollis Marchetti,2019-04-01
+CU2008,Kitsilano Table,Independent Retailer,1000,20,West,Net 30,C,Contract,Priya Raghunathan,2019-04-01
+CU2009,Sunshine Kitchen Group,Marketplace Seller,1000,,West,Net 30,D,List,Dana Whitfield,2019-04-01
+CU2010,Coastal Table,Sub-Distributor,1000,30,West,Net 45,A,Contract,Dana Whitfield,2019-04-01
+CU2011,Okanagan Larder,Regional Retail Chain,1000,20,Northeast,Net 30,C,Negotiated,Nikita Petrenko,2019-04-01
+CU2012,Burrard Grill House,Government & Education,1000,,West,Net 45,C,List,Priya Raghunathan,2019-04-01
+CU2013,Stanley Bistro,Independent Retailer,1000,20,Southeast,Net 45,D,List,Hollis Marchetti,2019-04-01
+CU2014,Salish Foods,Marketplace Seller,1000,,Southwest,Net 30,C,List,Alix Fontaine,2019-04-01
+CU2015,Alder Hospitality,Corporate & B2B Buyer,1000,,West,Net 30,B,Contract,Dana Whitfield,2019-04-01
+CU2016,Alder Trading Co,Corporate & B2B Buyer,1000,,Midwest,Net 45,A,List,Simone Delacroix,2019-04-01
+CU2017,Kootenay Larder,Government & Education,1000,,West,Net 45,C,List,Priya Raghunathan,2019-04-01
+CU2018,Chilcotin Hospitality,Independent Retailer,1000,20,West,Net 30,C,List,Dana Whitfield,2019-04-01
+CU2019,Kootenay Grill House,E-commerce Pure-Play,1000,,Northeast,Net 45,C,List,Yusuf Kandemir,2019-04-01
+CU2020,Cedar Larder,Marketplace Seller,1000,,Southwest,2/10 Net 30,C,List,Tom Beauchemin,2019-04-01
+CU2021,Marine Larder,Corporate & B2B Buyer,1000,,Southeast,Net 30,D,List,Bea Okonkwo,2019-04-01
+CU2022,Summit Supply,Regional Retail Chain,1000,20,West,Net 30,A,Contract,Priya Raghunathan,2019-04-01
+CU2023,Summit Provisions,E-commerce Pure-Play,1000,,Northeast,2/10 Net 30,A,Negotiated,Yusuf Kandemir,2019-04-01
+CU2024,Granville Foods,Corporate & B2B Buyer,1000,,Northeast,Net 15,D,List,Simone Delacroix,2019-04-01
+CU2025,Fraser Larder,E-commerce Pure-Play,1000,,Southeast,Net 45,C,List,Hollis Marchetti,2019-04-01
+CU2026,Riverside Kitchen Group,Marketplace Seller,1000,,Northeast,Net 30,D,List,Nikita Petrenko,2019-04-01
+CU2027,Summit Catering,Marketplace Seller,1000,,,2/10 Net 30,C,List,Rowan Achterberg,2019-04-01
+CU2028,Riverside Butchery,Independent Retailer,1000,20,Southeast,Net 30,C,Negotiated,Priya Raghunathan,2019-04-01
+CU2029,Kootenay Fine Foods,Independent Retailer,1000,20,West,Net 60,D,List,Marcus Oyelaran,2019-04-01
+CU2030,Mount Catering,Independent Retailer,1000,20,West,Net 60,B,Negotiated,Marcus Oyelaran,2019-04-01
+CU2031,Juniper Public House,Corporate & B2B Buyer,1000,,Northeast,Net 30,D,List,Nikita Petrenko,2019-04-01
+CU2032,Mount Foods,Sub-Distributor,1000,30,Southeast,Net 30,D,Negotiated,Hollis Marchetti,2019-04-01
+CU2033,Selkirk Butchery,Independent Retailer,1000,20,Midwest,2/10 Net 30,D,List,Simone Delacroix,2019-04-01
+CU2034,Harbour Foods,Marketplace Seller,1000,,Midwest,Net 45,D,Contract,Bea Okonkwo,2019-04-01
+CU2035,Salish Bistro,Corporate & B2B Buyer,1000,,Southeast,Net 45,D,List,Hollis Marchetti,2019-04-01
+CU2036,Fraser Provisions,Regional Retail Chain,1000,20,Midwest,Net 30,C,List,Yusuf Kandemir,2019-04-01
+CU2037,Harbour Provisions,Marketplace Seller,1000,,Northeast,2/10 Net 30,B,List,Yusuf Kandemir,2019-04-01
+CU2038,Chilcotin Market,Marketplace Seller,1000,,Midwest,Net 30,D,List,Simone Delacroix,2019-04-01
+CU2039,Okanagan Public House,Marketplace Seller,1000,,West,Net 60,D,Negotiated,Marcus Oyelaran,2019-04-01
+CU2040,Alder Market,Independent Retailer,1000,20,Southwest,2/10 Net 30,D,Negotiated,Alix Fontaine,2019-04-01
+CU2041,Okanagan Butchery,Sub-Distributor,1000,30,West,Net 30,C,List,Dana Whitfield,2019-04-01
+CU2042,Okanagan Provisions,Corporate & B2B Buyer,1000,,Southwest,Net 30,D,Negotiated,Hollis Marchetti,2019-04-01
+CU2043,Kootenay Hospitality,Government & Education,1000,,Midwest,Net 60,B,Negotiated,Simone Delacroix,2019-04-01
+CU2044,Harbour Public House,Corporate & B2B Buyer,1000,,West,Net 15,C,List,Dana Whitfield,2019-04-01
+CU2045,Sunshine Butchery,Subscription Box Operator,1000,30,Southeast,Net 15,C,List,Hollis Marchetti,2019-04-01
+CU2046,Kitsilano Catering,Marketplace Seller,1000,,Northeast,Net 30,D,List,Yusuf Kandemir,2019-04-01
+CU2047,Kitsilano Kitchen Group,Corporate & B2B Buyer,1000,,West,Net 45,D,Negotiated,Marcus Oyelaran,2019-04-01
+CU2048,Coastal Butchery,E-commerce Pure-Play,1000,,Midwest,Net 30,D,Negotiated,Dana Whitfield,2019-04-01
+CU2049,Mount Market,Independent Retailer,1000,20,West,Net 30,C,List,Marcus Oyelaran,2019-04-01
+CU2050,Cedar Butchery,Marketplace Seller,1000,,Southwest,Net 30,A,Contract,Alix Fontaine,2019-04-01
+CU2051,Mount Butchery,Subscription Box Operator,1000,30,West,Net 30,C,List,Nikita Petrenko,2019-04-01
+CU2052,Selkirk Supply,Marketplace Seller,1000,,Midwest,Net 15,D,Negotiated,Simone Delacroix,2019-04-01
+CU2053,Selkirk Foods,Corporate & B2B Buyer,1000,,Midwest,Net 15,C,List,Rowan Achterberg,2019-04-01
+CU2054,Cedar Public House,Marketplace Seller,1000,,Southwest,Net 15,C,Contract,Alix Fontaine,2019-04-01
+CU2055,Riverside Foods,Marketplace Seller,1000,,Northeast,Net 30,C,List,Yusuf Kandemir,2019-04-01
+CU2056,Juniper Bistro,Regional Retail Chain,1000,20,West,Net 30,D,List,Priya Raghunathan,2019-04-01
+CU2057,Okanagan Hospitality,Subscription Box Operator,1000,30,Southeast,Net 30,C,Negotiated,Bea Okonkwo,2019-04-01
+CU2058,Selkirk Trading Co,Corporate & B2B Buyer,1000,,West,Net 30,C,List,Alix Fontaine,2019-04-01
+CU2059,Granville Bistro,Independent Retailer,1000,20,Northeast,2/10 Net 30,D,List,Nikita Petrenko,2019-04-01
+CU2060,Fraser Hospitality,Subscription Box Operator,1000,30,Midwest,Net 30,D,List,Simone Delacroix,2019-04-01
+CU2061,Marine Trading Co,Marketplace Seller,1000,,Southwest,Net 30,D,Negotiated,Alix Fontaine,2019-04-01
+CU2062,Summit Trading Co,Independent Retailer,1000,20,Southeast,Net 30,C,List,Hollis Marchetti,2019-04-01
+CU2063,Stanley Table,Sub-Distributor,1000,30,Northeast,Net 30,B,Contract,Dana Whitfield,2019-04-01
+CU2064,Cedar Trading Co,Independent Retailer,1000,20,Southeast,Net 30,D,List,Jonah Stavrides,2019-04-01
+CU2065,Juniper Table,Government & Education,1000,,West,Net 30,C,Negotiated,Dana Whitfield,2019-04-01
+CU2066,Marine Provisions,Corporate & B2B Buyer,1000,,Midwest,Net 30,D,Contract,Rowan Achterberg,2019-04-01
+CU2067,Alder Bistro,Independent Retailer,1000,20,Northeast,Net 30,D,Negotiated,Jonah Stavrides,2019-04-01
+CU2068,Burrard Trading Co,E-commerce Pure-Play,1000,,Southwest,2/10 Net 30,D,List,Alix Fontaine,2019-04-01
+CU2069,Harbour Supply,E-commerce Pure-Play,1000,,West,2/10 Net 30,C,List,Priya Raghunathan,2019-04-01
+CU2070,Riverside Public House,Marketplace Seller,1000,,West,Net 45,B,Negotiated,Priya Raghunathan,2019-04-01
+CU2071,Harbour Table,Regional Retail Chain,1000,20,West,Net 60,B,List,Dana Whitfield,2019-04-01
+CU2072,Chilcotin Public House,Marketplace Seller,1000,,Southeast,Net 45,B,Negotiated,Hollis Marchetti,2019-04-01
+CU2073,Marine Hospitality,Marketplace Seller,1000,,Southwest,Net 30,D,Contract,Tom Beauchemin,2019-04-01
+CU2074,Burrard Provisions,Corporate & B2B Buyer,1000,,Northeast,Net 60,C,List,Alix Fontaine,2019-04-01
+CU2075,Coastal Catering,Independent Retailer,1000,20,West,Net 30,D,List,Dana Whitfield,2019-04-01
+CU2076,Mount Grill House,Government & Education,1000,,Southeast,Net 30,C,List,Tom Beauchemin,2019-04-01
+CU2077,Burrard Public House,Corporate & B2B Buyer,1000,,Southeast,Net 60,B,Negotiated,Bea Okonkwo,2019-04-01
+CU2078,Juniper Market,E-commerce Pure-Play,1000,,West,Net 30,C,List,Dana Whitfield,2019-04-01
+CU2079,Harbour Fine Foods,Marketplace Seller,1000,,Midwest,2/10 Net 30,D,List,Jonah Stavrides,2019-04-01
+CU2080,Cedar Catering,Government & Education,1000,,Midwest,Net 60,A,Contract,Jonah Stavrides,2019-04-01
+CU2081,Kootenay Public House,Regional Retail Chain,1000,20,West,2/10 Net 30,C,List,Dana Whitfield,2019-04-01
+CU2082,Harbour Butchery,E-commerce Pure-Play,1000,,Northeast,Net 45,D,List,Nikita Petrenko,2019-04-01
+CU2083,Granville Supply,Marketplace Seller,1000,,Southeast,Net 30,B,Contract,Bea Okonkwo,2019-04-01
+CU2084,Stanley Supply,Marketplace Seller,1000,,Southeast,Net 45,D,List,Hollis Marchetti,2019-04-01
+CU2085,Chilcotin Fine Foods,Government & Education,1000,,Northeast,2/10 Net 30,D,List,Yusuf Kandemir,2019-04-01
+CU2086,Coastal Foods,Marketplace Seller,1000,,Northeast,Net 30,C,List,Yusuf Kandemir,2019-04-01
+CU2087,Selkirk Fine Foods,Sub-Distributor,1000,30,Southwest,Net 15,C,Contract,Alix Fontaine,2019-04-01
+CU2088,Juniper Grill House,Independent Retailer,1000,20,Southeast,Net 30,D,List,Bea Okonkwo,2019-04-01
+CU2089,Granville Market,Marketplace Seller,1000,,Midwest,Net 30,D,List,Dana Whitfield,2019-04-01
+CU2090,Fraser Trading Co,Sub-Distributor,1000,30,Southwest,Net 45,D,Negotiated,Priya Raghunathan,2019-04-01
+CU2091,Selkirk Catering,Independent Retailer,1000,20,Southeast,Net 45,B,Negotiated,Hollis Marchetti,2019-04-01
+CU2092,Alder Fine Foods,Marketplace Seller,1000,,Northeast,Net 30,D,List,Yusuf Kandemir,2019-04-01
+CU2093,Burrard Hospitality,Independent Retailer,1000,20,Southwest,2/10 Net 30,D,Negotiated,Alix Fontaine,2019-04-01
+CU2094,Harbour Hospitality,Regional Retail Chain,1000,20,Midwest,Net 30,C,List,Rowan Achterberg,2019-04-01
+CU2095,Riverside Fine Foods,Sub-Distributor,1000,30,Midwest,Net 15,C,Negotiated,Rowan Achterberg,2019-04-01
+CU2096,Riverside Market,Marketplace Seller,1000,,Southeast,Net 30,A,List,Bea Okonkwo,2019-04-01
+CU2097,Summit Butchery,Subscription Box Operator,1000,30,Southwest,Net 45,C,List,Alix Fontaine,2019-04-01
+CU2098,Fraser Catering,Subscription Box Operator,1000,30,Northeast,Net 60,C,List,Nikita Petrenko,2019-04-01
+CU2099,Cedar Provisions,E-commerce Pure-Play,1000,,West,Net 30,B,Negotiated,Priya Raghunathan,2019-04-01
+CU2100,Alder Catering,Independent Retailer,1000,20,West,Net 15,C,List,Priya Raghunathan,2019-04-01
+CU2101,Marine Market,Independent Retailer,1000,20,West,Net 30,D,Negotiated,Dana Whitfield,2019-04-01
+CU2102,Harbour Bistro,Sub-Distributor,1000,30,Southeast,Net 30,D,Contract,Bea Okonkwo,2019-04-01
+CU2103,Summit Grill House,Marketplace Seller,1000,,Southwest,Net 45,D,Contract,Alix Fontaine,2019-04-01
+CU2104,Summit Table,Corporate & B2B Buyer,1000,,Southwest,2/10 Net 30,C,List,Alix Fontaine,2019-04-01
+CU2105,Stanley Fine Foods,Marketplace Seller,1000,,Southwest,Net 30,D,Negotiated,Alix Fontaine,2019-04-01
+CU2106,Fraser Kitchen Group,Sub-Distributor,1000,30,West,Net 30,D,Negotiated,Marcus Oyelaran,2019-04-01
+CU2107,Selkirk Bistro,E-commerce Pure-Play,1000,,Midwest,2/10 Net 30,A,List,Hollis Marchetti,2019-04-01
+CU2108,Okanagan Market,Sub-Distributor,1000,30,West,Net 45,B,List,Priya Raghunathan,2019-04-01
+CU2109,Kootenay Trading Co,Subscription Box Operator,1000,30,Southwest,Net 30,C,Contract,Alix Fontaine,2019-04-01
+CU2110,Chilcotin Table,Independent Retailer,1000,20,Midwest,Net 30,D,List,Simone Delacroix,2019-04-01
+CU2111,Kitsilano Fine Foods,Independent Retailer,1000,20,West,Net 15,C,List,Dana Whitfield,2019-04-01
+CU2112,Stanley Provisions,Government & Education,1000,,Northeast,Net 30,C,Negotiated,Nikita Petrenko,2019-04-01
+CU2113,Coastal Hospitality,Independent Retailer,1000,20,Southeast,Net 60,B,List,Hollis Marchetti,2019-04-01
+CU2114,Mount Hospitality,Corporate & B2B Buyer,1000,,Southwest,Net 15,D,Negotiated,Tom Beauchemin,2019-04-01
+CU2115,Riverside Hospitality,Sub-Distributor,1000,30,West,Net 45,C,Contract,Marcus Oyelaran,2019-04-01
+CU2116,Stanley Grill House,Independent Retailer,1000,20,Northeast,Net 30,D,Contract,Nikita Petrenko,2019-04-01
+CU2117,Summit Market,Marketplace Seller,1000,,West,Net 15,C,Negotiated,Dana Whitfield,2019-04-01
+CU2118,Marine Bistro,Regional Retail Chain,1000,20,West,Net 15,D,List,Marcus Oyelaran,2019-04-01
+CU2119,Granville Trading Co,Marketplace Seller,1000,,Southeast,Net 60,C,List,Bea Okonkwo,2019-04-01
+CU2120,Stanley Hospitality,Independent Retailer,1000,20,West,Net 15,D,List,Marcus Oyelaran,2019-04-01
+CU2121,Riverside Table,Corporate & B2B Buyer,1000,,Northeast,Net 30,B,Contract,Nikita Petrenko,2019-04-01
+CU2122,Chilcotin Catering,Marketplace Seller,1000,,Southeast,2/10 Net 30,C,List,Bea Okonkwo,2019-04-01
+CU2123,Fraser Public House,Independent Retailer,1000,20,West,Net 30,D,Contract,Dana Whitfield,2019-04-01
+CU2124,Mount Fine Foods,Marketplace Seller,1000,,West,2/10 Net 30,B,List,Yusuf Kandemir,2019-04-01
+CU2125,Mount Bistro,Marketplace Seller,1000,,Northeast,Net 30,B,Negotiated,Nikita Petrenko,2019-04-01
+CU2126,Sunshine Foods,Marketplace Seller,1000,,Southwest,Net 30,C,Contract,Alix Fontaine,2019-04-01
+CU2127,Sunshine Public House,Corporate & B2B Buyer,1000,,Southeast,Net 30,A,List,Bea Okonkwo,2019-04-01
+CU2128,Granville Table,Marketplace Seller,1000,,Southeast,Net 30,D,List,Bea Okonkwo,2019-04-01
+CU2129,Okanagan Foods,Regional Retail Chain,1000,20,West,Net 30,C,List,Dana Whitfield,2019-04-01
+CU2130,Salish Supply,Corporate & B2B Buyer,1000,,Southeast,Net 30,C,List,Bea Okonkwo,2019-04-01
+CU2131,Sunshine Bistro,Regional Retail Chain,1000,20,Midwest,Net 30,C,List,Simone Delacroix,2019-04-01
+CU2132,Salish Provisions,Subscription Box Operator,1000,30,Southwest,2/10 Net 30,D,List,Alix Fontaine,2019-04-01
+CU2133,Okanagan Bistro,Marketplace Seller,1000,,Northeast,Net 60,D,List,Nikita Petrenko,2019-04-01
+CU2134,Stanley Public House,Marketplace Seller,1000,,Southwest,Net 30,C,List,Alix Fontaine,2019-04-01
+CU2135,Okanagan Table,Sub-Distributor,1000,30,Southeast,2/10 Net 30,B,Negotiated,Nikita Petrenko,2019-04-01
+CU2136,Alder Table,Government & Education,1000,,West,Net 30,C,Negotiated,Dana Whitfield,2019-04-01
+CU2137,Juniper Fine Foods,E-commerce Pure-Play,1000,,Southeast,2/10 Net 30,D,List,Bea Okonkwo,2019-04-01
+CU2138,Okanagan Grill House,Marketplace Seller,1000,,Southeast,Net 30,D,List,Bea Okonkwo,2019-04-01
+CU2139,Cedar Fine Foods,E-commerce Pure-Play,1000,,Northeast,2/10 Net 30,C,Negotiated,Nikita Petrenko,2019-04-01
+CU2140,Kitsilano Foods,Subscription Box Operator,1000,30,Southwest,Net 30,D,Negotiated,Alix Fontaine,2019-04-01
+CU2141,Sunshine Supply,Marketplace Seller,1000,,Midwest,Net 30,C,Negotiated,Simone Delacroix,2019-04-01
+CU2142,Mount Public House,Marketplace Seller,1000,,Midwest,Net 15,B,Negotiated,Jonah Stavrides,2019-04-01
+CU2143,Burrard Foods,Sub-Distributor,1000,30,Southeast,Net 30,B,Negotiated,Hollis Marchetti,2019-04-01
+CU2144,Coastal Fine Foods,Marketplace Seller,1000,,West,2/10 Net 30,C,List,Priya Raghunathan,2019-04-01
+CU2145,Harbour Trading Co,Regional Retail Chain,1000,20,West,Net 15,D,Negotiated,Dana Whitfield,2019-04-01
+CU2146,Kootenay Table,E-commerce Pure-Play,1000,,West,Net 15,D,List,Dana Whitfield,2019-04-01
+CU2147,Cedar Hospitality,Marketplace Seller,1000,,West,Net 15,D,List,Dana Whitfield,2019-04-01
+CU2148,Salish Kitchen Group,Regional Retail Chain,1000,20,Midwest,2/10 Net 30,C,Negotiated,Simone Delacroix,2019-04-01
+CU2149,Mount Supply,Corporate & B2B Buyer,1000,,Northeast,Net 30,D,List,Yusuf Kandemir,2019-04-01

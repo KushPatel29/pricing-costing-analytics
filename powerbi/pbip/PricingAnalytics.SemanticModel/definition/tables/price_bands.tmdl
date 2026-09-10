@@ -1,0 +1,93 @@
+table price_bands
+	lineageTag: b6a14dac-7d68-5e21-b290-d13e8a62a5c6
+
+	column product_id
+		dataType: string
+		lineageTag: 1e0da981-2689-55c7-a9bc-953d68e31039
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column description
+		dataType: string
+		lineageTag: 1c010f19-147b-5c6d-9141-137351f32d96
+		summarizeBy: none
+		sourceColumn: description
+
+	column category
+		dataType: string
+		lineageTag: 68777396-80cc-5c6e-a47d-3a784a6c7822
+		summarizeBy: none
+		sourceColumn: category
+
+	column customers
+		dataType: int64
+		formatString: 0
+		lineageTag: da4dad72-28e1-51fb-a795-a797181d6603
+		summarizeBy: sum
+		sourceColumn: customers
+
+	column lines
+		dataType: int64
+		formatString: 0
+		lineageTag: a0ae31d3-c2d1-5659-8040-62be5edbf5bb
+		summarizeBy: sum
+		sourceColumn: lines
+
+	column volume_units
+		dataType: double
+		formatString: #,0
+		lineageTag: bca0d90b-5377-5eb0-a90e-615e5043c93b
+		summarizeBy: sum
+		sourceColumn: volume_units
+
+	column p10_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: af0bba3b-8140-55ff-871f-88b2b67c1697
+		summarizeBy: sum
+		sourceColumn: p10_price
+
+	column median_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: ef954a22-63b6-58d4-b228-a554341b40b5
+		summarizeBy: sum
+		sourceColumn: median_price
+
+	column p90_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 14a6040f-687a-5ea6-910e-050b5dc88bec
+		summarizeBy: sum
+		sourceColumn: p90_price
+
+	column band_width_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 3edc0558-60cb-5d95-985f-41cdb3767458
+		summarizeBy: sum
+		sourceColumn: band_width_pct
+
+	column realisation_opportunity
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: bf673712-2a6b-5895-b71a-2185a71de1c6
+		summarizeBy: sum
+		sourceColumn: realisation_opportunity
+
+	column lines_below_median
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b41b31f-f87a-507b-b383-2d22111eac82
+		summarizeBy: sum
+		sourceColumn: lines_below_median
+
+	partition price_bands = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\price_bands.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"product_id", type text}, {"description", type text}, {"category", type text}, {"customers", Int64.Type}, {"lines", Int64.Type}, {"volume_units", type number}, {"p10_price", type number}, {"median_price", type number}, {"p90_price", type number}, {"band_width_pct", type number}, {"realisation_opportunity", type number}, {"lines_below_median", Int64.Type}})
+				in
+				    Typed

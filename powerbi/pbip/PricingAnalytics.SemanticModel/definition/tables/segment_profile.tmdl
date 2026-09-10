@@ -1,0 +1,94 @@
+table segment_profile
+	lineageTag: f1812ccc-68fd-58ff-892e-9b8795d5ee9d
+
+	column dimension
+		dataType: string
+		lineageTag: 83aa362a-fded-5f64-935e-15c15c0c43c8
+		summarizeBy: none
+		sourceColumn: dimension
+
+	column member
+		dataType: string
+		lineageTag: 8ba0a813-53a2-5656-add2-8e1612d4dad3
+		summarizeBy: none
+		sourceColumn: member
+
+	column lines
+		dataType: int64
+		formatString: 0
+		lineageTag: c23684b7-c254-5747-bbe8-7d9143cc0f3d
+		summarizeBy: sum
+		sourceColumn: lines
+
+	column volume
+		dataType: double
+		formatString: #,0
+		lineageTag: 8ca2891b-1440-557a-9bf6-8f3439d61310
+		summarizeBy: sum
+		sourceColumn: volume
+
+	column revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: fc1847a7-1a89-567d-9791-83b94071d129
+		summarizeBy: sum
+		sourceColumn: revenue
+
+	column cogs
+		dataType: double
+		formatString: #,0.00
+		lineageTag: e50ca3ed-2fba-5966-96db-3ddc1daa2b36
+		summarizeBy: sum
+		sourceColumn: cogs
+
+	column margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: c0944fdc-9467-562c-b91b-394860b1ac57
+		summarizeBy: sum
+		sourceColumn: margin
+
+	column margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: c7d71442-42f5-578d-8fd3-243dbb7f51e5
+		summarizeBy: sum
+		sourceColumn: margin_pct
+
+	column avg_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 478f4c7a-003e-5ca3-bc0e-7a0f5b00beaf
+		summarizeBy: sum
+		sourceColumn: avg_price
+
+	column median_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: b8eeb422-398c-5259-8b1c-ccaf9336d1e0
+		summarizeBy: sum
+		sourceColumn: median_price
+
+	column band_width_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 777cecdf-2302-5634-82f0-1fd73dfd878a
+		summarizeBy: sum
+		sourceColumn: band_width_pct
+
+	column realisation_opportunity
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 83d32be0-d387-55be-a569-17af75f0a385
+		summarizeBy: sum
+		sourceColumn: realisation_opportunity
+
+	partition segment_profile = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\segment_profile.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dimension", type text}, {"member", type text}, {"lines", Int64.Type}, {"volume", type number}, {"revenue", type number}, {"cogs", type number}, {"margin", type number}, {"margin_pct", type number}, {"avg_price", type number}, {"median_price", type number}, {"band_width_pct", type number}, {"realisation_opportunity", type number}})
+				in
+				    Typed

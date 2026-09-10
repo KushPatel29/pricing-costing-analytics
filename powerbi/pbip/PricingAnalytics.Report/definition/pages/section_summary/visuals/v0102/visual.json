@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0102",
+  "position": {
+    "x": 330,
+    "y": 20,
+    "z": 1001,
+    "height": 118,
+    "width": 296,
+    "tabOrder": 1001
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Pocket margin %"
+                }
+              },
+              "queryRef": "_Measures.Pocket margin %",
+              "nativeQueryRef": "Pocket margin %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Pocket margin as a share of pocket revenue.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

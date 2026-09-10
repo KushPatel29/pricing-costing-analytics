@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1504",
+  "position": {
+    "x": 942,
+    "y": 20,
+    "z": 2403,
+    "height": 118,
+    "width": 318,
+    "tabOrder": 2403
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Stale products"
+                }
+              },
+              "queryRef": "_Measures.Stale products",
+              "nativeQueryRef": "Stale products"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Stale products: items whose price has not been reviewed inside its own cadence.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

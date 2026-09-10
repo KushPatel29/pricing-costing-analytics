@@ -1,0 +1,1423 @@
+week_start,index_name,index_value,trend_value
+2023-06-26,Semiconductor & Components,99.6355,101.1528
+2023-07-03,Semiconductor & Components,100.7471,100.7471
+2023-07-10,Semiconductor & Components,100.8917,100.8917
+2023-07-17,Semiconductor & Components,102.1277,102.1277
+2023-07-24,Semiconductor & Components,101.6363,101.6363
+2023-07-31,Semiconductor & Components,100.3376,100.3376
+2023-08-07,Semiconductor & Components,101.3085,99.8113
+2023-08-14,Semiconductor & Components,101.5448,100.0441
+2023-08-21,Semiconductor & Components,101.4877,99.9878
+2023-08-28,Semiconductor & Components,102.015,100.5074
+2023-09-04,Semiconductor & Components,103.2385,100.6242
+2023-09-11,Semiconductor & Components,103.9092,101.2779
+2023-09-18,Semiconductor & Components,103.614,100.9902
+2023-09-25,Semiconductor & Components,102.5237,99.9275
+2023-10-02,Semiconductor & Components,101.5788,98.6202
+2023-10-09,Semiconductor & Components,101.5071,98.5506
+2023-10-16,Semiconductor & Components,101.0939,98.1495
+2023-10-23,Semiconductor & Components,100.9332,97.9934
+2023-10-30,Semiconductor & Components,101.8994,98.9315
+2023-11-06,Semiconductor & Components,101.5572,98.9854
+2023-11-13,Semiconductor & Components,100.3078,97.7677
+2023-11-20,Semiconductor & Components,101.2542,98.6901
+2023-11-27,Semiconductor & Components,100.5145,97.9692
+2023-12-04,Semiconductor & Components,100.0837,98.6047
+2023-12-11,Semiconductor & Components,99.601,98.1291
+2023-12-18,Semiconductor & Components,99.5294,98.0585
+2023-12-25,Semiconductor & Components,98.8047,97.3445
+2024-01-01,Semiconductor & Components,96.9005,96.9005
+2024-01-08,Semiconductor & Components,97.0468,97.0468
+2024-01-15,Semiconductor & Components,96.4219,96.4219
+2024-01-22,Semiconductor & Components,96.7446,96.7446
+2024-01-29,Semiconductor & Components,97.4566,97.4566
+2024-02-05,Semiconductor & Components,95.364,96.8162
+2024-02-12,Semiconductor & Components,93.8486,95.2778
+2024-02-19,Semiconductor & Components,93.4579,94.8811
+2024-02-26,Semiconductor & Components,93.1508,94.5693
+2024-03-04,Semiconductor & Components,93.6617,96.16
+2024-03-11,Semiconductor & Components,91.3855,93.8231
+2024-03-18,Semiconductor & Components,92.9505,95.4299
+2024-03-25,Semiconductor & Components,91.9611,94.4141
+2024-04-01,Semiconductor & Components,90.8567,93.6667
+2024-04-08,Semiconductor & Components,87.959,90.6794
+2024-04-15,Semiconductor & Components,90.1919,92.9813
+2024-04-22,Semiconductor & Components,90.3884,93.1839
+2024-04-29,Semiconductor & Components,91.6079,94.4411
+2024-05-06,Semiconductor & Components,91.1502,93.5815
+2024-05-13,Semiconductor & Components,89.2239,91.6038
+2024-05-20,Semiconductor & Components,89.6256,92.0163
+2024-05-27,Semiconductor & Components,88.9758,91.3491
+2024-06-03,Semiconductor & Components,90.3529,91.7288
+2024-06-10,Semiconductor & Components,86.8145,88.1366
+2024-06-17,Semiconductor & Components,86.8334,88.1557
+2024-06-24,Semiconductor & Components,84.9012,86.1941
+2024-07-01,Semiconductor & Components,86.1035,86.1035
+2024-07-08,Semiconductor & Components,86.7745,86.7745
+2024-07-15,Semiconductor & Components,87.4149,87.4149
+2024-07-22,Semiconductor & Components,85.8123,85.8123
+2024-07-29,Semiconductor & Components,86.1262,86.1262
+2024-08-05,Semiconductor & Components,87.8176,86.5198
+2024-08-12,Semiconductor & Components,88.7856,87.4735
+2024-08-19,Semiconductor & Components,88.1627,86.8598
+2024-08-26,Semiconductor & Components,87.098,85.8109
+2024-09-02,Semiconductor & Components,87.5272,85.3107
+2024-09-09,Semiconductor & Components,88.1124,85.8812
+2024-09-16,Semiconductor & Components,88.111,85.8798
+2024-09-23,Semiconductor & Components,86.9194,84.7184
+2024-09-30,Semiconductor & Components,86.9847,84.782
+2024-10-07,Semiconductor & Components,89.075,86.4805
+2024-10-14,Semiconductor & Components,88.0778,85.5124
+2024-10-21,Semiconductor & Components,87.2286,84.688
+2024-10-28,Semiconductor & Components,87.1468,84.6085
+2024-11-04,Semiconductor & Components,88.484,86.2433
+2024-11-11,Semiconductor & Components,89.2491,86.989
+2024-11-18,Semiconductor & Components,89.3613,87.0984
+2024-11-25,Semiconductor & Components,91.6042,89.2845
+2024-12-02,Semiconductor & Components,91.3976,90.0469
+2024-12-09,Semiconductor & Components,91.4989,90.1467
+2024-12-16,Semiconductor & Components,92.117,90.7556
+2024-12-23,Semiconductor & Components,93.4335,92.0528
+2024-12-30,Semiconductor & Components,93.4071,92.0267
+2025-01-06,Semiconductor & Components,92.7803,92.7803
+2025-01-13,Semiconductor & Components,91.011,91.011
+2025-01-20,Semiconductor & Components,91.4022,91.4022
+2025-01-27,Semiconductor & Components,92.3313,92.3313
+2025-02-03,Semiconductor & Components,89.7005,91.0665
+2025-02-10,Semiconductor & Components,89.2754,90.6349
+2025-02-17,Semiconductor & Components,88.4347,89.7814
+2025-02-24,Semiconductor & Components,88.4539,89.8009
+2025-03-03,Semiconductor & Components,87.9151,90.2601
+2025-03-10,Semiconductor & Components,87.607,89.9438
+2025-03-17,Semiconductor & Components,87.89,90.2344
+2025-03-24,Semiconductor & Components,87.9452,90.291
+2025-03-31,Semiconductor & Components,90.0587,92.4609
+2025-04-07,Semiconductor & Components,88.1042,90.829
+2025-04-14,Semiconductor & Components,88.7481,91.4929
+2025-04-21,Semiconductor & Components,87.721,90.434
+2025-04-28,Semiconductor & Components,86.0142,88.6744
+2025-05-05,Semiconductor & Components,85.9031,88.1944
+2025-05-12,Semiconductor & Components,85.6971,87.983
+2025-05-19,Semiconductor & Components,85.8056,88.0943
+2025-05-26,Semiconductor & Components,86.6493,88.9606
+2025-06-02,Semiconductor & Components,86.1169,87.4283
+2025-06-09,Semiconductor & Components,85.1929,86.4903
+2025-06-16,Semiconductor & Components,83.9795,85.2584
+2025-06-23,Semiconductor & Components,84.8896,86.1824
+2025-06-30,Semiconductor & Components,83.8221,85.0986
+2025-07-07,Semiconductor & Components,86.7556,86.7556
+2025-07-14,Semiconductor & Components,86.7695,86.7695
+2025-07-21,Semiconductor & Components,87.7942,87.7942
+2025-07-28,Semiconductor & Components,87.5497,87.5497
+2025-08-04,Semiconductor & Components,88.0454,86.7442
+2025-08-11,Semiconductor & Components,89.6433,88.3185
+2025-08-18,Semiconductor & Components,91.1002,89.7539
+2025-08-25,Semiconductor & Components,91.6323,90.2781
+2025-09-01,Semiconductor & Components,89.2664,87.0059
+2025-09-08,Semiconductor & Components,88.2296,85.9954
+2025-09-15,Semiconductor & Components,85.8811,83.7064
+2025-09-22,Semiconductor & Components,86.4581,84.2687
+2025-09-29,Semiconductor & Components,86.87,84.6702
+2025-10-06,Semiconductor & Components,86.2343,83.7226
+2025-10-13,Semiconductor & Components,86.0498,83.5435
+2025-10-20,Semiconductor & Components,85.6964,83.2004
+2025-10-27,Semiconductor & Components,85.3563,82.8702
+2025-11-03,Semiconductor & Components,86.6295,84.4358
+2025-11-10,Semiconductor & Components,84.3698,82.2333
+2025-11-17,Semiconductor & Components,83.568,81.4518
+2025-11-24,Semiconductor & Components,85.1849,83.0278
+2025-12-01,Semiconductor & Components,83.9468,82.7062
+2025-12-08,Semiconductor & Components,84.0565,82.8143
+2025-12-15,Semiconductor & Components,83.1481,81.9193
+2025-12-22,Semiconductor & Components,81.6165,80.4104
+2025-12-29,Semiconductor & Components,81.43,80.2266
+2026-01-05,Semiconductor & Components,78.4175,78.4175
+2026-01-12,Semiconductor & Components,78.6468,78.6468
+2026-01-19,Semiconductor & Components,78.2711,78.2711
+2026-01-26,Semiconductor & Components,79.2953,79.2953
+2026-02-02,Semiconductor & Components,76.8389,78.0091
+2026-02-09,Semiconductor & Components,75.7022,76.855
+2026-02-16,Semiconductor & Components,74.347,75.4792
+2026-02-23,Semiconductor & Components,72.5775,73.6827
+2026-03-02,Semiconductor & Components,71.9749,73.8948
+2026-03-09,Semiconductor & Components,72.6777,74.6163
+2026-03-16,Semiconductor & Components,72.5773,74.5132
+2026-03-23,Semiconductor & Components,70.8477,72.7375
+2026-03-30,Semiconductor & Components,70.6058,72.4891
+2026-04-06,Semiconductor & Components,69.839,71.999
+2026-04-13,Semiconductor & Components,69.2336,71.3749
+2026-04-20,Semiconductor & Components,67.9866,70.0892
+2026-04-27,Semiconductor & Components,67.3622,69.4455
+2026-05-04,Semiconductor & Components,68.8419,70.6782
+2026-05-11,Semiconductor & Components,69.0858,70.9286
+2026-05-18,Semiconductor & Components,68.6648,70.4963
+2026-05-25,Semiconductor & Components,69.9203,71.7854
+2026-06-01,Semiconductor & Components,71.5935,72.6838
+2026-06-08,Semiconductor & Components,71.2706,72.3559
+2026-06-15,Semiconductor & Components,70.8628,71.9419
+2026-06-22,Semiconductor & Components,71.1895,72.2736
+2026-06-29,Semiconductor & Components,71.984,73.0802
+2023-06-26,Resin & Plastics,102.2213,98.6692
+2023-07-03,Resin & Plastics,99.7178,96.7029
+2023-07-10,Resin & Plastics,98.9722,95.9798
+2023-07-17,Resin & Plastics,97.8056,94.8485
+2023-07-24,Resin & Plastics,97.9296,94.9688
+2023-07-31,Resin & Plastics,98.4956,95.5177
+2023-08-07,Resin & Plastics,98.0195,96.2864
+2023-08-14,Resin & Plastics,97.8334,96.1035
+2023-08-21,Resin & Plastics,96.3898,94.6855
+2023-08-28,Resin & Plastics,96.3381,94.6347
+2023-09-04,Resin & Plastics,94.8471,94.8471
+2023-09-11,Resin & Plastics,94.0326,94.0326
+2023-09-18,Resin & Plastics,92.4343,92.4343
+2023-09-25,Resin & Plastics,92.4862,92.4862
+2023-10-02,Resin & Plastics,91.6128,93.292
+2023-10-09,Resin & Plastics,92.3864,94.0798
+2023-10-16,Resin & Plastics,92.4024,94.0961
+2023-10-23,Resin & Plastics,91.3374,93.0116
+2023-10-30,Resin & Plastics,89.883,91.5306
+2023-11-06,Resin & Plastics,88.0704,90.9046
+2023-11-13,Resin & Plastics,89.2525,92.1246
+2023-11-20,Resin & Plastics,87.6031,90.4222
+2023-11-27,Resin & Plastics,89.1215,91.9894
+2023-12-04,Resin & Plastics,88.4348,91.7374
+2023-12-11,Resin & Plastics,87.2724,90.5316
+2023-12-18,Resin & Plastics,86.8009,90.0424
+2023-12-25,Resin & Plastics,88.9652,92.2875
+2024-01-01,Resin & Plastics,90.662,93.5795
+2024-01-08,Resin & Plastics,91.1936,94.1282
+2024-01-15,Resin & Plastics,92.1879,95.1545
+2024-01-22,Resin & Plastics,94.2865,97.3206
+2024-01-29,Resin & Plastics,92.9985,95.9912
+2024-02-05,Resin & Plastics,92.6902,94.3892
+2024-02-12,Resin & Plastics,94.7981,96.5358
+2024-02-19,Resin & Plastics,93.0924,94.7988
+2024-02-26,Resin & Plastics,94.0342,95.7578
+2024-03-04,Resin & Plastics,94.797,94.797
+2024-03-11,Resin & Plastics,93.8345,93.8345
+2024-03-18,Resin & Plastics,95.4989,95.4989
+2024-03-25,Resin & Plastics,98.3519,98.3519
+2024-04-01,Resin & Plastics,101.0248,99.2385
+2024-04-08,Resin & Plastics,103.1751,101.3508
+2024-04-15,Resin & Plastics,101.8073,100.0072
+2024-04-22,Resin & Plastics,99.0254,97.2744
+2024-04-29,Resin & Plastics,96.4593,94.7537
+2024-05-06,Resin & Plastics,96.156,93.2488
+2024-05-13,Resin & Plastics,96.9286,93.9981
+2024-05-20,Resin & Plastics,98.8834,95.8937
+2024-05-27,Resin & Plastics,99.552,96.5421
+2024-06-03,Resin & Plastics,97.8737,94.4727
+2024-06-10,Resin & Plastics,97.7296,94.3336
+2024-06-17,Resin & Plastics,99.8689,96.3985
+2024-06-24,Resin & Plastics,99.4131,95.9586
+2024-07-01,Resin & Plastics,98.7805,95.7939
+2024-07-08,Resin & Plastics,99.1441,96.1465
+2024-07-15,Resin & Plastics,100.1854,97.1563
+2024-07-22,Resin & Plastics,100.0405,97.0158
+2024-07-29,Resin & Plastics,100.8814,97.8313
+2024-08-05,Resin & Plastics,98.98,97.2299
+2024-08-12,Resin & Plastics,102.1669,100.3604
+2024-08-19,Resin & Plastics,103.3236,101.4966
+2024-08-26,Resin & Plastics,103.9911,102.1523
+2024-09-02,Resin & Plastics,101.5719,101.5719
+2024-09-09,Resin & Plastics,102.8302,102.8302
+2024-09-16,Resin & Plastics,105.1622,105.1622
+2024-09-23,Resin & Plastics,107.047,107.047
+2024-09-30,Resin & Plastics,107.685,107.685
+2024-10-07,Resin & Plastics,103.8717,105.7757
+2024-10-14,Resin & Plastics,102.4781,104.3565
+2024-10-21,Resin & Plastics,102.4995,104.3783
+2024-10-28,Resin & Plastics,101.5667,103.4284
+2024-11-04,Resin & Plastics,100.293,103.5204
+2024-11-11,Resin & Plastics,98.636,101.8101
+2024-11-18,Resin & Plastics,99.2859,102.481
+2024-11-25,Resin & Plastics,99.5151,102.7175
+2024-12-02,Resin & Plastics,97.9013,101.5573
+2024-12-09,Resin & Plastics,99.3063,103.0148
+2024-12-16,Resin & Plastics,99.321,103.0301
+2024-12-23,Resin & Plastics,98.8001,102.4897
+2024-12-30,Resin & Plastics,95.18,98.7344
+2025-01-06,Resin & Plastics,96.0926,99.1849
+2025-01-13,Resin & Plastics,95.7861,98.8685
+2025-01-20,Resin & Plastics,96.4989,99.6043
+2025-01-27,Resin & Plastics,95.0321,98.0902
+2025-02-03,Resin & Plastics,95.5472,97.2985
+2025-02-10,Resin & Plastics,94.6306,96.3651
+2025-02-17,Resin & Plastics,93.853,95.5733
+2025-02-24,Resin & Plastics,95.0291,96.771
+2025-03-03,Resin & Plastics,97.6699,97.6699
+2025-03-10,Resin & Plastics,97.5084,97.5084
+2025-03-17,Resin & Plastics,99.927,99.927
+2025-03-24,Resin & Plastics,102.2993,102.2993
+2025-03-31,Resin & Plastics,100.7865,100.7865
+2025-04-07,Resin & Plastics,101.6792,99.8813
+2025-04-14,Resin & Plastics,101.1978,99.4085
+2025-04-21,Resin & Plastics,101.9984,100.1949
+2025-04-28,Resin & Plastics,102.5056,100.6931
+2025-05-05,Resin & Plastics,104.7398,101.573
+2025-05-12,Resin & Plastics,104.995,101.8206
+2025-05-19,Resin & Plastics,105.09,101.9127
+2025-05-26,Resin & Plastics,104.2735,101.1209
+2025-06-02,Resin & Plastics,104.8835,101.2389
+2025-06-09,Resin & Plastics,104.5489,100.9159
+2025-06-16,Resin & Plastics,104.9188,101.273
+2025-06-23,Resin & Plastics,104.3707,100.7439
+2025-06-30,Resin & Plastics,101.9646,98.4214
+2025-07-07,Resin & Plastics,101.1981,98.1385
+2025-07-14,Resin & Plastics,101.7292,98.6535
+2025-07-21,Resin & Plastics,102.4852,99.3866
+2025-07-28,Resin & Plastics,101.8747,98.7946
+2025-08-04,Resin & Plastics,101.7598,99.9605
+2025-08-11,Resin & Plastics,102.5275,100.7146
+2025-08-18,Resin & Plastics,102.7374,100.9208
+2025-08-25,Resin & Plastics,100.2156,98.4437
+2025-09-01,Resin & Plastics,96.3219,96.3219
+2025-09-08,Resin & Plastics,96.3555,96.3555
+2025-09-15,Resin & Plastics,94.5377,94.5377
+2025-09-22,Resin & Plastics,95.0413,95.0413
+2025-09-29,Resin & Plastics,94.5176,94.5176
+2025-10-06,Resin & Plastics,92.6451,94.3432
+2025-10-13,Resin & Plastics,92.0035,93.6899
+2025-10-20,Resin & Plastics,93.1494,94.8568
+2025-10-27,Resin & Plastics,93.6343,95.3506
+2025-11-03,Resin & Plastics,90.662,93.5795
+2025-11-10,Resin & Plastics,91.0552,93.9854
+2025-11-17,Resin & Plastics,91.1094,94.0414
+2025-11-24,Resin & Plastics,90.9903,93.9184
+2025-12-01,Resin & Plastics,88.8033,92.1196
+2025-12-08,Resin & Plastics,90.1171,93.4825
+2025-12-15,Resin & Plastics,90.8831,94.2771
+2025-12-22,Resin & Plastics,92.8556,96.3232
+2025-12-29,Resin & Plastics,95.2795,98.8377
+2026-01-05,Resin & Plastics,94.7281,97.7765
+2026-01-12,Resin & Plastics,94.5347,97.5768
+2026-01-19,Resin & Plastics,94.2326,97.265
+2026-01-26,Resin & Plastics,95.5917,98.6678
+2026-02-02,Resin & Plastics,98.183,99.9827
+2026-02-09,Resin & Plastics,98.8307,100.6422
+2026-02-16,Resin & Plastics,96.1789,97.9419
+2026-02-23,Resin & Plastics,97.0245,98.8029
+2026-03-02,Resin & Plastics,99.3937,99.3937
+2026-03-09,Resin & Plastics,97.7136,97.7136
+2026-03-16,Resin & Plastics,98.5891,98.5891
+2026-03-23,Resin & Plastics,100.9025,100.9025
+2026-03-30,Resin & Plastics,100.9808,100.9808
+2026-04-06,Resin & Plastics,104.6775,102.8266
+2026-04-13,Resin & Plastics,104.43,102.5835
+2026-04-20,Resin & Plastics,103.4757,101.6461
+2026-04-27,Resin & Plastics,102.1438,100.3377
+2026-05-04,Resin & Plastics,104.9195,101.7474
+2026-05-11,Resin & Plastics,105.44,102.2521
+2026-05-18,Resin & Plastics,104.1506,101.0016
+2026-05-25,Resin & Plastics,105.0935,101.9161
+2026-06-01,Resin & Plastics,101.2833,97.7638
+2026-06-08,Resin & Plastics,101.9027,98.3617
+2026-06-15,Resin & Plastics,102.791,99.2191
+2026-06-22,Resin & Plastics,104.5168,100.885
+2026-06-29,Resin & Plastics,105.1267,101.4737
+2023-06-26,Steel & Fabricated Metal,102.2913,100.0893
+2023-07-03,Steel & Fabricated Metal,98.6614,98.6614
+2023-07-10,Steel & Fabricated Metal,97.6044,97.6044
+2023-07-17,Steel & Fabricated Metal,96.2513,96.2513
+2023-07-24,Steel & Fabricated Metal,99.0298,99.0298
+2023-07-31,Steel & Fabricated Metal,99.5196,99.5196
+2023-08-07,Steel & Fabricated Metal,98.6417,100.8607
+2023-08-14,Steel & Fabricated Metal,97.13,99.315
+2023-08-21,Steel & Fabricated Metal,97.4996,99.6928
+2023-08-28,Steel & Fabricated Metal,96.6007,98.7737
+2023-09-04,Steel & Fabricated Metal,94.8896,98.6486
+2023-09-11,Steel & Fabricated Metal,96.0227,99.8266
+2023-09-18,Steel & Fabricated Metal,94.6126,98.3607
+2023-09-25,Steel & Fabricated Metal,96.2529,100.0659
+2023-10-02,Steel & Fabricated Metal,95.7157,100.121
+2023-10-09,Steel & Fabricated Metal,93.7089,98.0219
+2023-10-16,Steel & Fabricated Metal,93.8778,98.1986
+2023-10-23,Steel & Fabricated Metal,94.7148,99.0741
+2023-10-30,Steel & Fabricated Metal,95.0258,99.3993
+2023-11-06,Steel & Fabricated Metal,96.4738,100.2956
+2023-11-13,Steel & Fabricated Metal,99.698,103.6475
+2023-11-20,Steel & Fabricated Metal,99.9171,103.8752
+2023-11-27,Steel & Fabricated Metal,98.9938,102.9154
+2023-12-04,Steel & Fabricated Metal,99.2449,101.4774
+2023-12-11,Steel & Fabricated Metal,99.7497,101.9936
+2023-12-18,Steel & Fabricated Metal,101.4673,103.7498
+2023-12-25,Steel & Fabricated Metal,104.3054,106.6518
+2024-01-01,Steel & Fabricated Metal,105.2895,105.2895
+2024-01-08,Steel & Fabricated Metal,102.2189,102.2189
+2024-01-15,Steel & Fabricated Metal,104.2853,104.2853
+2024-01-22,Steel & Fabricated Metal,102.9268,102.9268
+2024-01-29,Steel & Fabricated Metal,100.9924,100.9924
+2024-02-05,Steel & Fabricated Metal,103.4759,101.2485
+2024-02-12,Steel & Fabricated Metal,101.2162,99.0374
+2024-02-19,Steel & Fabricated Metal,101.047,98.8718
+2024-02-26,Steel & Fabricated Metal,98.0775,95.9663
+2024-03-04,Steel & Fabricated Metal,99.1079,95.47
+2024-03-11,Steel & Fabricated Metal,99.8248,96.1606
+2024-03-18,Steel & Fabricated Metal,96.1341,92.6054
+2024-03-25,Steel & Fabricated Metal,95.2449,91.7488
+2024-04-01,Steel & Fabricated Metal,96.132,92.0804
+2024-04-08,Steel & Fabricated Metal,94.369,90.3917
+2024-04-15,Steel & Fabricated Metal,94.3848,90.4069
+2024-04-22,Steel & Fabricated Metal,93.8977,89.9403
+2024-04-29,Steel & Fabricated Metal,94.1161,90.1495
+2024-05-06,Steel & Fabricated Metal,93.7474,90.3062
+2024-05-13,Steel & Fabricated Metal,93.5245,90.0916
+2024-05-20,Steel & Fabricated Metal,92.8592,89.4506
+2024-05-27,Steel & Fabricated Metal,91.9336,88.5591
+2024-06-03,Steel & Fabricated Metal,89.8651,87.9306
+2024-06-10,Steel & Fabricated Metal,89.7592,87.827
+2024-06-17,Steel & Fabricated Metal,89.5575,87.6296
+2024-06-24,Steel & Fabricated Metal,88.9166,87.0025
+2024-07-01,Steel & Fabricated Metal,89.0142,89.0142
+2024-07-08,Steel & Fabricated Metal,89.1638,89.1638
+2024-07-15,Steel & Fabricated Metal,89.2408,89.2408
+2024-07-22,Steel & Fabricated Metal,88.199,88.199
+2024-07-29,Steel & Fabricated Metal,86.1821,86.1821
+2024-08-05,Steel & Fabricated Metal,83.9408,85.829
+2024-08-12,Steel & Fabricated Metal,83.1375,85.0077
+2024-08-19,Steel & Fabricated Metal,82.5004,84.3562
+2024-08-26,Steel & Fabricated Metal,82.1837,84.0324
+2024-09-02,Steel & Fabricated Metal,79.0757,82.2083
+2024-09-09,Steel & Fabricated Metal,77.4869,80.5566
+2024-09-16,Steel & Fabricated Metal,77.6365,80.7121
+2024-09-23,Steel & Fabricated Metal,76.8316,79.8753
+2024-09-30,Steel & Fabricated Metal,78.0087,81.099
+2024-10-07,Steel & Fabricated Metal,77.3282,80.8872
+2024-10-14,Steel & Fabricated Metal,79.4584,83.1155
+2024-10-21,Steel & Fabricated Metal,79.5573,83.2189
+2024-10-28,Steel & Fabricated Metal,78.6366,82.2559
+2024-11-04,Steel & Fabricated Metal,77.0527,80.1051
+2024-11-11,Steel & Fabricated Metal,77.0056,80.0562
+2024-11-18,Steel & Fabricated Metal,75.9095,78.9166
+2024-11-25,Steel & Fabricated Metal,75.5347,78.527
+2024-12-02,Steel & Fabricated Metal,76.7734,78.5004
+2024-12-09,Steel & Fabricated Metal,77.9044,79.6569
+2024-12-16,Steel & Fabricated Metal,77.2929,79.0316
+2024-12-23,Steel & Fabricated Metal,76.7027,78.4281
+2024-12-30,Steel & Fabricated Metal,77.1461,78.8815
+2025-01-06,Steel & Fabricated Metal,77.548,77.548
+2025-01-13,Steel & Fabricated Metal,77.5987,77.5987
+2025-01-20,Steel & Fabricated Metal,77.1874,77.1874
+2025-01-27,Steel & Fabricated Metal,76.8131,76.8131
+2025-02-03,Steel & Fabricated Metal,76.8903,75.2351
+2025-02-10,Steel & Fabricated Metal,76.583,74.9344
+2025-02-17,Steel & Fabricated Metal,76.5635,74.9153
+2025-02-24,Steel & Fabricated Metal,76.7421,75.0901
+2025-03-03,Steel & Fabricated Metal,78.862,75.9672
+2025-03-10,Steel & Fabricated Metal,77.8109,74.9548
+2025-03-17,Steel & Fabricated Metal,78.4567,75.5769
+2025-03-24,Steel & Fabricated Metal,77.0712,74.2422
+2025-03-31,Steel & Fabricated Metal,76.6168,73.8044
+2025-04-07,Steel & Fabricated Metal,78.0919,74.8007
+2025-04-14,Steel & Fabricated Metal,75.918,72.7184
+2025-04-21,Steel & Fabricated Metal,75.5879,72.4022
+2025-04-28,Steel & Fabricated Metal,77.0793,73.8307
+2025-05-05,Steel & Fabricated Metal,76.4625,73.6558
+2025-05-12,Steel & Fabricated Metal,75.6723,72.8947
+2025-05-19,Steel & Fabricated Metal,77.3131,74.4752
+2025-05-26,Steel & Fabricated Metal,77.611,74.7621
+2025-06-02,Steel & Fabricated Metal,75.5979,73.9706
+2025-06-09,Steel & Fabricated Metal,75.2855,73.6649
+2025-06-16,Steel & Fabricated Metal,75.1688,73.5507
+2025-06-23,Steel & Fabricated Metal,76.7324,75.0806
+2025-06-30,Steel & Fabricated Metal,78.3991,76.7114
+2025-07-07,Steel & Fabricated Metal,74.9877,74.9877
+2025-07-14,Steel & Fabricated Metal,75.1731,75.1731
+2025-07-21,Steel & Fabricated Metal,73.966,73.966
+2025-07-28,Steel & Fabricated Metal,75.1872,75.1872
+2025-08-04,Steel & Fabricated Metal,73.0907,74.7349
+2025-08-11,Steel & Fabricated Metal,75.6304,77.3317
+2025-08-18,Steel & Fabricated Metal,74.5716,76.2491
+2025-08-25,Steel & Fabricated Metal,77.323,79.0623
+2025-09-01,Steel & Fabricated Metal,77.5953,80.6693
+2025-09-08,Steel & Fabricated Metal,79.1341,82.2689
+2025-09-15,Steel & Fabricated Metal,79.0753,82.2079
+2025-09-22,Steel & Fabricated Metal,78.5757,81.6884
+2025-09-29,Steel & Fabricated Metal,78.9517,82.0794
+2025-10-06,Steel & Fabricated Metal,78.0848,81.6787
+2025-10-13,Steel & Fabricated Metal,80.9888,84.7163
+2025-10-20,Steel & Fabricated Metal,81.9469,85.7185
+2025-10-27,Steel & Fabricated Metal,79.4926,83.1513
+2025-11-03,Steel & Fabricated Metal,80.7054,83.9025
+2025-11-10,Steel & Fabricated Metal,78.617,81.7314
+2025-11-17,Steel & Fabricated Metal,78.7734,81.8939
+2025-11-24,Steel & Fabricated Metal,79.3258,82.4683
+2025-12-01,Steel & Fabricated Metal,80.6626,82.4771
+2025-12-08,Steel & Fabricated Metal,82.335,84.1871
+2025-12-15,Steel & Fabricated Metal,82.3594,84.2121
+2025-12-22,Steel & Fabricated Metal,86.2334,88.1732
+2025-12-29,Steel & Fabricated Metal,85.1318,87.0469
+2026-01-05,Steel & Fabricated Metal,86.6575,86.6575
+2026-01-12,Steel & Fabricated Metal,87.896,87.896
+2026-01-19,Steel & Fabricated Metal,89.1514,89.1514
+2026-01-26,Steel & Fabricated Metal,90.9786,90.9786
+2026-02-02,Steel & Fabricated Metal,93.3011,91.2926
+2026-02-09,Steel & Fabricated Metal,93.4855,91.4731
+2026-02-16,Steel & Fabricated Metal,91.3169,89.3512
+2026-02-23,Steel & Fabricated Metal,89.7733,87.8408
+2026-03-02,Steel & Fabricated Metal,90.1221,86.814
+2026-03-09,Steel & Fabricated Metal,91.3637,88.01
+2026-03-16,Steel & Fabricated Metal,91.8794,88.5069
+2026-03-23,Steel & Fabricated Metal,92.7261,89.3225
+2026-03-30,Steel & Fabricated Metal,91.2761,87.9257
+2026-04-06,Steel & Fabricated Metal,90.7573,86.9323
+2026-04-13,Steel & Fabricated Metal,88.5455,84.8137
+2026-04-20,Steel & Fabricated Metal,91.6344,87.7725
+2026-04-27,Steel & Fabricated Metal,89.3915,85.624
+2026-05-04,Steel & Fabricated Metal,89.6931,86.4008
+2026-05-11,Steel & Fabricated Metal,89.3576,86.0776
+2026-05-18,Steel & Fabricated Metal,90.1705,86.8607
+2026-05-25,Steel & Fabricated Metal,88.7656,85.5074
+2026-06-01,Steel & Fabricated Metal,85.1139,83.2817
+2026-06-08,Steel & Fabricated Metal,85.0873,83.2556
+2026-06-15,Steel & Fabricated Metal,86.2273,84.3711
+2026-06-22,Steel & Fabricated Metal,90.3304,88.3859
+2026-06-29,Steel & Fabricated Metal,92.5713,90.5785
+2023-06-26,Cotton & Textiles,99.4391,99.4391
+2023-07-03,Cotton & Textiles,101.6718,99.0953
+2023-07-10,Cotton & Textiles,100.7983,98.2439
+2023-07-17,Cotton & Textiles,101.4807,98.909
+2023-07-24,Cotton & Textiles,100.4216,97.8768
+2023-07-31,Cotton & Textiles,100.4923,97.9457
+2023-08-07,Cotton & Textiles,104.5264,100.022
+2023-08-14,Cotton & Textiles,106.9212,102.3137
+2023-08-21,Cotton & Textiles,109.0333,104.3347
+2023-08-28,Cotton & Textiles,109.3144,104.6038
+2023-09-04,Cotton & Textiles,111.0711,105.5809
+2023-09-11,Cotton & Textiles,108.221,102.8716
+2023-09-18,Cotton & Textiles,107.3568,102.0502
+2023-09-25,Cotton & Textiles,107.458,102.1464
+2023-10-02,Cotton & Textiles,108.2581,103.5929
+2023-10-09,Cotton & Textiles,107.7132,103.0716
+2023-10-16,Cotton & Textiles,109.716,104.9881
+2023-10-23,Cotton & Textiles,110.3974,105.6401
+2023-10-30,Cotton & Textiles,110.4077,105.6499
+2023-11-06,Cotton & Textiles,108.1779,105.4365
+2023-11-13,Cotton & Textiles,107.7299,104.9999
+2023-11-20,Cotton & Textiles,108.2643,105.5208
+2023-11-27,Cotton & Textiles,105.722,103.0429
+2023-12-04,Cotton & Textiles,104.2148,104.2148
+2023-12-11,Cotton & Textiles,103.8647,103.8647
+2023-12-18,Cotton & Textiles,102.764,102.764
+2023-12-25,Cotton & Textiles,100.7027,100.7027
+2024-01-01,Cotton & Textiles,97.4436,100.0448
+2024-01-08,Cotton & Textiles,98.2396,100.862
+2024-01-15,Cotton & Textiles,98.1425,100.7623
+2024-01-22,Cotton & Textiles,99.8741,102.5402
+2024-01-29,Cotton & Textiles,100.179,102.8532
+2024-02-05,Cotton & Textiles,97.6529,102.2579
+2024-02-12,Cotton & Textiles,99.1868,103.8642
+2024-02-19,Cotton & Textiles,99.4838,104.1751
+2024-02-26,Cotton & Textiles,99.7009,104.4024
+2024-03-04,Cotton & Textiles,98.8255,104.2463
+2024-03-11,Cotton & Textiles,99.3306,104.7791
+2024-03-18,Cotton & Textiles,100.7893,106.3179
+2024-03-25,Cotton & Textiles,99.9196,105.4004
+2024-04-01,Cotton & Textiles,99.3542,104.0395
+2024-04-08,Cotton & Textiles,100.201,104.9262
+2024-04-15,Cotton & Textiles,99.5796,104.2755
+2024-04-22,Cotton & Textiles,98.0658,102.6903
+2024-04-29,Cotton & Textiles,98.3353,102.9725
+2024-05-06,Cotton & Textiles,102.4215,105.1555
+2024-05-13,Cotton & Textiles,104.8245,107.6227
+2024-05-20,Cotton & Textiles,104.3593,107.1451
+2024-05-27,Cotton & Textiles,106.755,109.6047
+2024-06-03,Cotton & Textiles,110.3282,110.3282
+2024-06-10,Cotton & Textiles,110.7257,110.7257
+2024-06-17,Cotton & Textiles,110.1846,110.1846
+2024-06-24,Cotton & Textiles,111.3534,111.3534
+2024-07-01,Cotton & Textiles,112.6886,109.8329
+2024-07-08,Cotton & Textiles,113.9078,111.0213
+2024-07-15,Cotton & Textiles,112.5786,109.7257
+2024-07-22,Cotton & Textiles,109.7078,106.9276
+2024-07-29,Cotton & Textiles,108.439,105.6911
+2024-08-05,Cotton & Textiles,112.7417,107.8833
+2024-08-12,Cotton & Textiles,112.8768,108.0127
+2024-08-19,Cotton & Textiles,110.6816,105.912
+2024-08-26,Cotton & Textiles,112.6974,107.841
+2024-09-02,Cotton & Textiles,111.5022,105.9907
+2024-09-09,Cotton & Textiles,110.3276,104.8742
+2024-09-16,Cotton & Textiles,108.5003,103.1372
+2024-09-23,Cotton & Textiles,110.8881,105.407
+2024-09-30,Cotton & Textiles,109.8728,104.4418
+2024-10-07,Cotton & Textiles,109.7427,105.0136
+2024-10-14,Cotton & Textiles,108.1681,103.5068
+2024-10-21,Cotton & Textiles,109.4166,104.7016
+2024-10-28,Cotton & Textiles,110.4978,105.7362
+2024-11-04,Cotton & Textiles,107.1229,104.4083
+2024-11-11,Cotton & Textiles,106.0574,103.3698
+2024-11-18,Cotton & Textiles,105.9122,103.2283
+2024-11-25,Cotton & Textiles,105.6106,102.9343
+2024-12-02,Cotton & Textiles,102.5405,102.5405
+2024-12-09,Cotton & Textiles,102.0102,102.0102
+2024-12-16,Cotton & Textiles,101.8415,101.8415
+2024-12-23,Cotton & Textiles,103.2343,103.2343
+2024-12-30,Cotton & Textiles,103.0848,103.0848
+2025-01-06,Cotton & Textiles,100.09,102.7618
+2025-01-13,Cotton & Textiles,100.086,102.7577
+2025-01-20,Cotton & Textiles,96.7182,99.3
+2025-01-27,Cotton & Textiles,98.3366,100.9616
+2025-02-03,Cotton & Textiles,96.3592,100.9032
+2025-02-10,Cotton & Textiles,98.5295,103.1758
+2025-02-17,Cotton & Textiles,98.5427,103.1897
+2025-02-24,Cotton & Textiles,97.4303,102.0248
+2025-03-03,Cotton & Textiles,95.2284,100.4518
+2025-03-10,Cotton & Textiles,94.9945,100.2051
+2025-03-17,Cotton & Textiles,92.74,97.827
+2025-03-24,Cotton & Textiles,92.2501,97.3102
+2025-03-31,Cotton & Textiles,94.925,100.1318
+2025-04-07,Cotton & Textiles,96.9519,101.5239
+2025-04-14,Cotton & Textiles,96.4404,100.9882
+2025-04-21,Cotton & Textiles,97.3179,101.9071
+2025-04-28,Cotton & Textiles,96.8144,101.3799
+2025-05-05,Cotton & Textiles,97.7268,100.3355
+2025-05-12,Cotton & Textiles,96.4345,99.0088
+2025-05-19,Cotton & Textiles,95.6951,98.2495
+2025-05-26,Cotton & Textiles,95.7387,98.2944
+2025-06-02,Cotton & Textiles,97.6431,97.6431
+2025-06-09,Cotton & Textiles,98.374,98.374
+2025-06-16,Cotton & Textiles,100.1701,100.1701
+2025-06-23,Cotton & Textiles,101.5652,101.5652
+2025-06-30,Cotton & Textiles,102.2421,102.2421
+2025-07-07,Cotton & Textiles,105.3142,102.6454
+2025-07-14,Cotton & Textiles,105.2099,102.5438
+2025-07-21,Cotton & Textiles,106.1107,103.4217
+2025-07-28,Cotton & Textiles,104.2791,101.6366
+2025-08-04,Cotton & Textiles,106.7375,102.1379
+2025-08-11,Cotton & Textiles,107.8621,103.2141
+2025-08-18,Cotton & Textiles,109.3732,104.66
+2025-08-25,Cotton & Textiles,108.3967,103.7256
+2025-09-01,Cotton & Textiles,109.2783,103.8767
+2025-09-08,Cotton & Textiles,109.3047,103.9018
+2025-09-15,Cotton & Textiles,109.4377,104.0282
+2025-09-22,Cotton & Textiles,111.4274,105.9196
+2025-09-29,Cotton & Textiles,111.3421,105.8385
+2025-10-06,Cotton & Textiles,110.5661,105.8015
+2025-10-13,Cotton & Textiles,110.9477,106.1666
+2025-10-20,Cotton & Textiles,110.5482,105.7844
+2025-10-27,Cotton & Textiles,111.2926,106.4967
+2025-11-03,Cotton & Textiles,107.0962,104.3822
+2025-11-10,Cotton & Textiles,108.1851,105.4436
+2025-11-17,Cotton & Textiles,110.1627,107.3711
+2025-11-24,Cotton & Textiles,109.9239,107.1383
+2025-12-01,Cotton & Textiles,103.6971,103.6971
+2025-12-08,Cotton & Textiles,103.9187,103.9187
+2025-12-15,Cotton & Textiles,104.6258,104.6258
+2025-12-22,Cotton & Textiles,103.0244,103.0244
+2025-12-29,Cotton & Textiles,103.5666,103.5666
+2026-01-05,Cotton & Textiles,103.1868,105.9413
+2026-01-12,Cotton & Textiles,100.7005,103.3886
+2026-01-19,Cotton & Textiles,102.2497,104.9792
+2026-01-26,Cotton & Textiles,103.4115,106.1719
+2026-02-02,Cotton & Textiles,100.5946,105.3384
+2026-02-09,Cotton & Textiles,100.0244,104.7412
+2026-02-16,Cotton & Textiles,100.1842,104.9086
+2026-02-23,Cotton & Textiles,101.8031,106.6038
+2026-03-02,Cotton & Textiles,100.1778,105.6728
+2026-03-09,Cotton & Textiles,101.5299,107.0991
+2026-03-16,Cotton & Textiles,102.0902,107.6901
+2026-03-23,Cotton & Textiles,101.1823,106.7324
+2026-03-30,Cotton & Textiles,99.6506,105.1167
+2026-04-06,Cotton & Textiles,99.4894,104.181
+2026-04-13,Cotton & Textiles,99.8797,104.5897
+2026-04-20,Cotton & Textiles,102.7851,107.6321
+2026-04-27,Cotton & Textiles,102.436,107.2666
+2026-05-04,Cotton & Textiles,102.9455,105.6935
+2026-05-11,Cotton & Textiles,102.3362,105.0679
+2026-05-18,Cotton & Textiles,101.0825,103.7808
+2026-05-25,Cotton & Textiles,98.0596,100.6772
+2026-06-01,Cotton & Textiles,101.1465,101.1465
+2026-06-08,Cotton & Textiles,99.551,99.551
+2026-06-15,Cotton & Textiles,99.8707,99.8707
+2026-06-22,Cotton & Textiles,99.4208,99.4208
+2026-06-29,Cotton & Textiles,100.8769,100.8769
+2023-06-26,Paper & Pulp,100.424,99.0375
+2023-07-03,Paper & Pulp,101.5604,99.156
+2023-07-10,Paper & Pulp,101.2646,98.8672
+2023-07-17,Paper & Pulp,99.3283,96.9767
+2023-07-24,Paper & Pulp,100.0357,97.6674
+2023-07-31,Paper & Pulp,100.6894,98.3056
+2023-08-07,Paper & Pulp,101.9123,99.1365
+2023-08-14,Paper & Pulp,101.4312,98.6685
+2023-08-21,Paper & Pulp,101.7413,98.9702
+2023-08-28,Paper & Pulp,101.077,98.3239
+2023-09-04,Paper & Pulp,100.5639,98.1831
+2023-09-11,Paper & Pulp,100.4578,98.0795
+2023-09-18,Paper & Pulp,101.255,98.8579
+2023-09-25,Paper & Pulp,101.4684,99.0662
+2023-10-02,Paper & Pulp,100.0689,98.6872
+2023-10-09,Paper & Pulp,100.0634,98.6819
+2023-10-16,Paper & Pulp,100.5212,99.1333
+2023-10-23,Paper & Pulp,102.836,101.4162
+2023-10-30,Paper & Pulp,102.7685,101.3496
+2023-11-06,Paper & Pulp,100.8829,100.8829
+2023-11-13,Paper & Pulp,101.7065,101.7065
+2023-11-20,Paper & Pulp,102.6201,102.6201
+2023-11-27,Paper & Pulp,103.1696,103.1696
+2023-12-04,Paper & Pulp,101.43,102.8702
+2023-12-11,Paper & Pulp,100.6736,102.1031
+2023-12-18,Paper & Pulp,99.6855,101.1009
+2023-12-25,Paper & Pulp,98.6276,100.028
+2024-01-01,Paper & Pulp,96.966,99.3757
+2024-01-08,Paper & Pulp,97.3754,99.7953
+2024-01-15,Paper & Pulp,98.3044,100.7474
+2024-01-22,Paper & Pulp,99.5638,102.0381
+2024-01-29,Paper & Pulp,99.4997,101.9724
+2024-02-05,Paper & Pulp,99.7465,102.6198
+2024-02-12,Paper & Pulp,99.1456,102.0016
+2024-02-19,Paper & Pulp,99.4004,102.2638
+2024-02-26,Paper & Pulp,100.3498,103.2406
+2024-03-04,Paper & Pulp,100.1801,102.6697
+2024-03-11,Paper & Pulp,99.367,101.8364
+2024-03-18,Paper & Pulp,98.4048,100.8503
+2024-03-25,Paper & Pulp,98.3424,100.7863
+2024-04-01,Paper & Pulp,99.6732,101.0884
+2024-04-08,Paper & Pulp,100.2498,101.6732
+2024-04-15,Paper & Pulp,100.7402,102.1706
+2024-04-22,Paper & Pulp,99.2614,100.6707
+2024-04-29,Paper & Pulp,99.1637,100.5718
+2024-05-06,Paper & Pulp,102.9486,102.9486
+2024-05-13,Paper & Pulp,102.6162,102.6162
+2024-05-20,Paper & Pulp,103.0161,103.0161
+2024-05-27,Paper & Pulp,102.7942,102.7942
+2024-06-03,Paper & Pulp,103.8128,102.3795
+2024-06-10,Paper & Pulp,103.6364,102.2055
+2024-06-17,Paper & Pulp,104.7061,103.2604
+2024-06-24,Paper & Pulp,104.9404,103.4915
+2024-07-01,Paper & Pulp,107.2896,104.7495
+2024-07-08,Paper & Pulp,107.7354,105.1848
+2024-07-15,Paper & Pulp,108.898,106.3199
+2024-07-22,Paper & Pulp,107.3676,104.8257
+2024-07-29,Paper & Pulp,106.3179,103.8009
+2024-08-05,Paper & Pulp,107.7062,104.7726
+2024-08-12,Paper & Pulp,107.4674,104.5403
+2024-08-19,Paper & Pulp,107.6299,104.6983
+2024-08-26,Paper & Pulp,108.5295,105.5734
+2024-09-02,Paper & Pulp,107.5491,105.0029
+2024-09-09,Paper & Pulp,108.1338,105.5738
+2024-09-16,Paper & Pulp,108.4067,105.8402
+2024-09-23,Paper & Pulp,109.0734,106.4912
+2024-09-30,Paper & Pulp,110.8244,108.2007
+2024-10-07,Paper & Pulp,109.1495,107.6425
+2024-10-14,Paper & Pulp,108.9624,107.458
+2024-10-21,Paper & Pulp,108.3387,106.8429
+2024-10-28,Paper & Pulp,109.4537,107.9425
+2024-11-04,Paper & Pulp,107.8491,107.8491
+2024-11-11,Paper & Pulp,105.9591,105.9591
+2024-11-18,Paper & Pulp,107.2497,107.2497
+2024-11-25,Paper & Pulp,107.9712,107.9712
+2024-12-02,Paper & Pulp,107.735,109.2647
+2024-12-09,Paper & Pulp,109.8582,111.4181
+2024-12-16,Paper & Pulp,110.5423,112.1118
+2024-12-23,Paper & Pulp,110.8751,112.4494
+2024-12-30,Paper & Pulp,109.7571,111.3156
+2025-01-06,Paper & Pulp,109.4254,112.1448
+2025-01-13,Paper & Pulp,110.6627,113.4128
+2025-01-20,Paper & Pulp,112.0898,114.8754
+2025-01-27,Paper & Pulp,112.9402,115.7469
+2025-02-03,Paper & Pulp,111.8514,115.0735
+2025-02-10,Paper & Pulp,111.7905,115.0108
+2025-02-17,Paper & Pulp,112.7739,116.0225
+2025-02-24,Paper & Pulp,112.8319,116.0822
+2025-03-03,Paper & Pulp,113.9636,116.7958
+2025-03-10,Paper & Pulp,115.7574,118.6341
+2025-03-17,Paper & Pulp,115.421,118.2893
+2025-03-24,Paper & Pulp,115.9124,118.7929
+2025-03-31,Paper & Pulp,116.1817,119.069
+2025-04-07,Paper & Pulp,117.9511,119.6258
+2025-04-14,Paper & Pulp,119.928,121.6309
+2025-04-21,Paper & Pulp,120.1467,121.8526
+2025-04-28,Paper & Pulp,118.2138,119.8923
+2025-05-05,Paper & Pulp,119.1612,119.1612
+2025-05-12,Paper & Pulp,120.1611,120.1611
+2025-05-19,Paper & Pulp,120.6042,120.6042
+2025-05-26,Paper & Pulp,120.0849,120.0849
+2025-06-02,Paper & Pulp,123.0613,121.3622
+2025-06-09,Paper & Pulp,122.7235,121.0291
+2025-06-16,Paper & Pulp,122.8732,121.1767
+2025-06-23,Paper & Pulp,123.449,121.7446
+2025-06-30,Paper & Pulp,121.5785,119.8999
+2025-07-07,Paper & Pulp,123.2658,120.3475
+2025-07-14,Paper & Pulp,123.7005,120.772
+2025-07-21,Paper & Pulp,124.9617,122.0032
+2025-07-28,Paper & Pulp,126.2012,123.2134
+2025-08-04,Paper & Pulp,126.6357,123.1865
+2025-08-11,Paper & Pulp,125.9293,122.4993
+2025-08-18,Paper & Pulp,124.8286,121.4286
+2025-08-25,Paper & Pulp,123.8508,120.4775
+2025-09-01,Paper & Pulp,123.8792,120.9464
+2025-09-08,Paper & Pulp,124.3357,121.3921
+2025-09-15,Paper & Pulp,125.0911,122.1296
+2025-09-22,Paper & Pulp,126.014,123.0307
+2025-09-29,Paper & Pulp,125.2648,122.2992
+2025-10-06,Paper & Pulp,123.2,121.4991
+2025-10-13,Paper & Pulp,123.2558,121.5541
+2025-10-20,Paper & Pulp,125.1403,123.4125
+2025-10-27,Paper & Pulp,125.8423,124.1048
+2025-11-03,Paper & Pulp,124.2618,124.2618
+2025-11-10,Paper & Pulp,126.0111,126.0111
+2025-11-17,Paper & Pulp,124.9776,124.9776
+2025-11-24,Paper & Pulp,127.0711,127.0711
+2025-12-01,Paper & Pulp,125.4909,127.2727
+2025-12-08,Paper & Pulp,125.6614,127.4456
+2025-12-15,Paper & Pulp,124.7197,126.4906
+2025-12-22,Paper & Pulp,125.4497,127.231
+2025-12-29,Paper & Pulp,124.9196,126.6933
+2026-01-05,Paper & Pulp,121.5787,124.6001
+2026-01-12,Paper & Pulp,121.6589,124.6823
+2026-01-19,Paper & Pulp,122.5171,125.5618
+2026-01-26,Paper & Pulp,122.9762,126.0323
+2026-02-02,Paper & Pulp,123.8442,127.4118
+2026-02-09,Paper & Pulp,123.2197,126.7693
+2026-02-16,Paper & Pulp,124.3192,127.9004
+2026-02-23,Paper & Pulp,123.3989,126.9536
+2026-03-02,Paper & Pulp,123.3782,126.4443
+2026-03-09,Paper & Pulp,122.1745,125.2107
+2026-03-16,Paper & Pulp,121.8929,124.9221
+2026-03-23,Paper & Pulp,124.6054,127.702
+2026-03-30,Paper & Pulp,123.4883,126.5572
+2026-04-06,Paper & Pulp,125.2018,126.9795
+2026-04-13,Paper & Pulp,126.4514,128.2468
+2026-04-20,Paper & Pulp,127.0373,128.8411
+2026-04-27,Paper & Pulp,128.4702,130.2943
+2026-05-04,Paper & Pulp,131.7635,131.7635
+2026-05-11,Paper & Pulp,130.9483,130.9483
+2026-05-18,Paper & Pulp,132.0553,132.0553
+2026-05-25,Paper & Pulp,133.7445,133.7445
+2026-06-01,Paper & Pulp,138.1699,136.2622
+2026-06-08,Paper & Pulp,138.9775,137.0587
+2026-06-15,Paper & Pulp,136.9523,135.0615
+2026-06-22,Paper & Pulp,136.4526,134.5687
+2026-06-29,Paper & Pulp,135.4926,133.6219
+2023-06-26,Chemicals & Actives,96.765,98.6444
+2023-07-03,Chemicals & Actives,96.6706,98.8452
+2023-07-10,Chemicals & Actives,99.1881,101.4193
+2023-07-17,Chemicals & Actives,100.0193,102.2692
+2023-07-24,Chemicals & Actives,98.1162,100.3233
+2023-07-31,Chemicals & Actives,97.0511,99.2343
+2023-08-07,Chemicals & Actives,97.2858,99.1753
+2023-08-14,Chemicals & Actives,97.1153,99.0015
+2023-08-21,Chemicals & Actives,97.2963,99.186
+2023-08-28,Chemicals & Actives,98.338,100.248
+2023-09-04,Chemicals & Actives,98.5459,99.642
+2023-09-11,Chemicals & Actives,97.9413,99.0306
+2023-09-18,Chemicals & Actives,97.4994,98.5838
+2023-09-25,Chemicals & Actives,96.7239,97.7997
+2023-10-02,Chemicals & Actives,100.2721,100.2721
+2023-10-09,Chemicals & Actives,99.1093,99.1093
+2023-10-16,Chemicals & Actives,98.2538,98.2538
+2023-10-23,Chemicals & Actives,97.7997,97.7997
+2023-10-30,Chemicals & Actives,97.8199,97.8199
+2023-11-06,Chemicals & Actives,97.2607,96.2025
+2023-11-13,Chemicals & Actives,97.2262,96.1683
+2023-11-20,Chemicals & Actives,98.1618,97.0938
+2023-11-27,Chemicals & Actives,97.7643,96.7006
+2023-12-04,Chemicals & Actives,98.4054,96.5656
+2023-12-11,Chemicals & Actives,95.7881,93.9972
+2023-12-18,Chemicals & Actives,95.1147,93.3364
+2023-12-25,Chemicals & Actives,96.0373,94.2417
+2024-01-01,Chemicals & Actives,97.5959,95.495
+2024-01-08,Chemicals & Actives,97.4274,95.3302
+2024-01-15,Chemicals & Actives,97.3057,95.2111
+2024-01-22,Chemicals & Actives,96.6828,94.6015
+2024-01-29,Chemicals & Actives,96.745,94.6624
+2024-02-05,Chemicals & Actives,95.0866,93.3088
+2024-02-12,Chemicals & Actives,95.2152,93.435
+2024-02-19,Chemicals & Actives,95.2781,93.4968
+2024-02-26,Chemicals & Actives,96.8353,95.0249
+2024-03-04,Chemicals & Actives,95.2663,94.2298
+2024-03-11,Chemicals & Actives,95.4049,94.3668
+2024-03-18,Chemicals & Actives,93.7031,92.6836
+2024-03-25,Chemicals & Actives,94.9759,93.9425
+2024-04-01,Chemicals & Actives,91.7429,91.7429
+2024-04-08,Chemicals & Actives,90.5305,90.5305
+2024-04-15,Chemicals & Actives,89.68,89.68
+2024-04-22,Chemicals & Actives,90.6925,90.6925
+2024-04-29,Chemicals & Actives,92.1322,92.1322
+2024-05-06,Chemicals & Actives,91.1815,92.1956
+2024-05-13,Chemicals & Actives,91.8674,92.8892
+2024-05-20,Chemicals & Actives,94.0319,95.0777
+2024-05-27,Chemicals & Actives,94.5548,95.6064
+2024-06-03,Chemicals & Actives,95.1295,96.9771
+2024-06-10,Chemicals & Actives,94.4711,96.306
+2024-06-17,Chemicals & Actives,93.0542,94.8616
+2024-06-24,Chemicals & Actives,94.6924,96.5316
+2024-07-01,Chemicals & Actives,95.0633,97.2018
+2024-07-08,Chemicals & Actives,95.8294,97.985
+2024-07-15,Chemicals & Actives,95.8249,97.9805
+2024-07-22,Chemicals & Actives,95.2674,97.4104
+2024-07-29,Chemicals & Actives,95.9913,98.1506
+2024-08-05,Chemicals & Actives,96.557,98.4323
+2024-08-12,Chemicals & Actives,98.9987,100.9215
+2024-08-19,Chemicals & Actives,98.8057,100.7248
+2024-08-26,Chemicals & Actives,99.9815,101.9234
+2024-09-02,Chemicals & Actives,100.7943,101.9153
+2024-09-09,Chemicals & Actives,101.13,102.2548
+2024-09-16,Chemicals & Actives,100.5305,101.6486
+2024-09-23,Chemicals & Actives,99.6297,100.7378
+2024-09-30,Chemicals & Actives,100.111,101.2245
+2024-10-07,Chemicals & Actives,101.7238,101.7238
+2024-10-14,Chemicals & Actives,101.3843,101.3843
+2024-10-21,Chemicals & Actives,97.7261,97.7261
+2024-10-28,Chemicals & Actives,99.4276,99.4276
+2024-11-04,Chemicals & Actives,100.542,99.4481
+2024-11-11,Chemicals & Actives,98.6812,97.6076
+2024-11-18,Chemicals & Actives,98.3213,97.2515
+2024-11-25,Chemicals & Actives,97.3293,96.2703
+2024-12-02,Chemicals & Actives,100.6787,98.7964
+2024-12-09,Chemicals & Actives,102.7754,100.8539
+2024-12-16,Chemicals & Actives,100.8998,99.0133
+2024-12-23,Chemicals & Actives,101.059,99.1695
+2024-12-30,Chemicals & Actives,101.4323,99.5358
+2025-01-06,Chemicals & Actives,101.63,99.4423
+2025-01-13,Chemicals & Actives,99.7399,97.5929
+2025-01-20,Chemicals & Actives,99.7693,97.6216
+2025-01-27,Chemicals & Actives,99.0516,96.9194
+2025-02-03,Chemicals & Actives,98.4609,96.62
+2025-02-10,Chemicals & Actives,99.516,97.6554
+2025-02-17,Chemicals & Actives,98.604,96.7605
+2025-02-24,Chemicals & Actives,97.7768,95.9487
+2025-03-03,Chemicals & Actives,95.9684,94.9243
+2025-03-10,Chemicals & Actives,95.4866,94.4477
+2025-03-17,Chemicals & Actives,95.817,94.7744
+2025-03-24,Chemicals & Actives,94.351,93.3244
+2025-03-31,Chemicals & Actives,92.9379,91.9267
+2025-04-07,Chemicals & Actives,91.0104,91.0104
+2025-04-14,Chemicals & Actives,91.2375,91.2375
+2025-04-21,Chemicals & Actives,91.301,91.301
+2025-04-28,Chemicals & Actives,89.6843,89.6843
+2025-05-05,Chemicals & Actives,89.0046,89.9946
+2025-05-12,Chemicals & Actives,88.1053,89.0852
+2025-05-19,Chemicals & Actives,88.6941,89.6805
+2025-05-26,Chemicals & Actives,88.485,89.4692
+2025-06-02,Chemicals & Actives,90.0283,91.7769
+2025-06-09,Chemicals & Actives,90.5466,92.3053
+2025-06-16,Chemicals & Actives,91.4435,93.2196
+2025-06-23,Chemicals & Actives,91.3836,93.1585
+2025-06-30,Chemicals & Actives,91.3679,93.1425
+2025-07-07,Chemicals & Actives,92.3747,94.4527
+2025-07-14,Chemicals & Actives,92.7878,94.8751
+2025-07-21,Chemicals & Actives,91.9633,94.032
+2025-07-28,Chemicals & Actives,90.8997,92.9445
+2025-08-04,Chemicals & Actives,91.1039,92.8734
+2025-08-11,Chemicals & Actives,90.7848,92.5481
+2025-08-18,Chemicals & Actives,90.2462,91.999
+2025-08-25,Chemicals & Actives,91.1698,92.9405
+2025-09-01,Chemicals & Actives,90.5928,91.6004
+2025-09-08,Chemicals & Actives,90.3306,91.3353
+2025-09-15,Chemicals & Actives,91.2372,92.252
+2025-09-22,Chemicals & Actives,90.8671,91.8778
+2025-09-29,Chemicals & Actives,88.3395,89.322
+2025-10-06,Chemicals & Actives,89.9113,89.9113
+2025-10-13,Chemicals & Actives,90.4358,90.4358
+2025-10-20,Chemicals & Actives,92.3829,92.3829
+2025-10-27,Chemicals & Actives,93.3933,93.3933
+2025-11-03,Chemicals & Actives,94.9482,93.9152
+2025-11-10,Chemicals & Actives,95.3654,94.3278
+2025-11-17,Chemicals & Actives,92.1011,91.099
+2025-11-24,Chemicals & Actives,91.029,90.0386
+2025-12-01,Chemicals & Actives,94.0129,92.2552
+2025-12-08,Chemicals & Actives,95.2628,93.4817
+2025-12-15,Chemicals & Actives,95.9903,94.1956
+2025-12-22,Chemicals & Actives,96.9012,95.0895
+2025-12-29,Chemicals & Actives,95.3277,93.5455
+2026-01-05,Chemicals & Actives,96.2734,94.2009
+2026-01-12,Chemicals & Actives,96.4961,94.4189
+2026-01-19,Chemicals & Actives,96.5279,94.45
+2026-01-26,Chemicals & Actives,96.8873,94.8016
+2026-02-02,Chemicals & Actives,96.6474,94.8404
+2026-02-09,Chemicals & Actives,97.5487,95.7249
+2026-02-16,Chemicals & Actives,98.9173,97.0679
+2026-02-23,Chemicals & Actives,98.2536,96.4167
+2026-03-02,Chemicals & Actives,97.8136,96.7494
+2026-03-09,Chemicals & Actives,96.9157,95.8612
+2026-03-16,Chemicals & Actives,96.6706,95.6188
+2026-03-23,Chemicals & Actives,96.0599,95.0147
+2026-03-30,Chemicals & Actives,97.2893,96.2308
+2026-04-06,Chemicals & Actives,97.8184,97.8184
+2026-04-13,Chemicals & Actives,98.6623,98.6623
+2026-04-20,Chemicals & Actives,98.4695,98.4695
+2026-04-27,Chemicals & Actives,99.995,99.995
+2026-05-04,Chemicals & Actives,97.977,99.0667
+2026-05-11,Chemicals & Actives,99.0443,100.1459
+2026-05-18,Chemicals & Actives,97.6189,98.7046
+2026-05-25,Chemicals & Actives,100.0386,101.1513
+2026-06-01,Chemicals & Actives,99.3887,101.3191
+2026-06-08,Chemicals & Actives,101.0588,103.0217
+2026-06-15,Chemicals & Actives,101.6611,103.6357
+2026-06-22,Chemicals & Actives,99.5517,101.4853
+2026-06-29,Chemicals & Actives,100.9129,102.8729
+2023-06-26,Agricultural Inputs,102.7227,99.2004
+2023-07-03,Agricultural Inputs,99.7438,95.8154
+2023-07-10,Agricultural Inputs,98.3703,94.496
+2023-07-17,Agricultural Inputs,96.6679,92.8607
+2023-07-24,Agricultural Inputs,97.6209,93.7761
+2023-07-31,Agricultural Inputs,99.2114,95.3039
+2023-08-07,Agricultural Inputs,99.8713,96.4468
+2023-08-14,Agricultural Inputs,100.6549,97.2035
+2023-08-21,Agricultural Inputs,102.1287,98.6268
+2023-08-28,Agricultural Inputs,100.4833,97.0377
+2023-09-04,Agricultural Inputs,98.022,96.0529
+2023-09-11,Agricultural Inputs,98.0251,96.056
+2023-09-18,Agricultural Inputs,97.4166,95.4597
+2023-09-25,Agricultural Inputs,98.6512,96.6695
+2023-10-02,Agricultural Inputs,96.6656,96.6656
+2023-10-09,Agricultural Inputs,95.7275,95.7275
+2023-10-16,Agricultural Inputs,96.5833,96.5833
+2023-10-23,Agricultural Inputs,97.1127,97.1127
+2023-10-30,Agricultural Inputs,95.5818,95.5818
+2023-11-06,Agricultural Inputs,94.2037,96.1753
+2023-11-13,Agricultural Inputs,95.6972,97.7001
+2023-11-20,Agricultural Inputs,95.4557,97.4535
+2023-11-27,Agricultural Inputs,97.2364,99.2715
+2023-12-04,Agricultural Inputs,94.033,97.4947
+2023-12-11,Agricultural Inputs,94.7268,98.2141
+2023-12-18,Agricultural Inputs,93.653,97.1007
+2023-12-25,Agricultural Inputs,93.7843,97.2369
+2024-01-01,Agricultural Inputs,94.4992,98.5394
+2024-01-08,Agricultural Inputs,94.351,98.3848
+2024-01-15,Agricultural Inputs,94.7506,98.8015
+2024-01-22,Agricultural Inputs,96.2515,100.3665
+2024-01-29,Agricultural Inputs,94.2122,98.2401
+2024-02-05,Agricultural Inputs,95.0448,98.5438
+2024-02-12,Agricultural Inputs,95.6403,99.1612
+2024-02-19,Agricultural Inputs,96.2477,99.7909
+2024-02-26,Agricultural Inputs,94.1867,97.6541
+2024-03-04,Agricultural Inputs,94.9368,96.9237
+2024-03-11,Agricultural Inputs,97.6977,99.7424
+2024-03-18,Agricultural Inputs,99.7668,101.8549
+2024-03-25,Agricultural Inputs,100.5046,102.6081
+2024-04-01,Agricultural Inputs,103.8405,103.8405
+2024-04-08,Agricultural Inputs,104.0863,104.0863
+2024-04-15,Agricultural Inputs,104.4256,104.4256
+2024-04-22,Agricultural Inputs,103.3894,103.3894
+2024-04-29,Agricultural Inputs,102.6071,102.6071
+2024-05-06,Agricultural Inputs,105.2039,103.0905
+2024-05-13,Agricultural Inputs,106.581,104.44
+2024-05-20,Agricultural Inputs,107.5527,105.3922
+2024-05-27,Agricultural Inputs,107.1319,104.9799
+2024-06-03,Agricultural Inputs,108.8328,105.101
+2024-06-10,Agricultural Inputs,108.7994,105.0688
+2024-06-17,Agricultural Inputs,107.6177,103.9275
+2024-06-24,Agricultural Inputs,106.6938,103.0353
+2024-07-01,Agricultural Inputs,107.1354,102.9159
+2024-07-08,Agricultural Inputs,107.7647,103.5203
+2024-07-15,Agricultural Inputs,107.0571,102.8406
+2024-07-22,Agricultural Inputs,108.7257,104.4435
+2024-07-29,Agricultural Inputs,110.363,106.0163
+2024-08-05,Agricultural Inputs,108.6756,104.9491
+2024-08-12,Agricultural Inputs,108.6628,104.9368
+2024-08-19,Agricultural Inputs,111.263,107.4478
+2024-08-26,Agricultural Inputs,110.3059,106.5236
+2024-09-02,Agricultural Inputs,109.6602,107.4573
+2024-09-09,Agricultural Inputs,109.8208,107.6147
+2024-09-16,Agricultural Inputs,111.3054,109.0695
+2024-09-23,Agricultural Inputs,113.9511,111.662
+2024-09-30,Agricultural Inputs,113.1506,110.8776
+2024-10-07,Agricultural Inputs,112.1032,112.1032
+2024-10-14,Agricultural Inputs,111.2549,111.2549
+2024-10-21,Agricultural Inputs,114.9955,114.9955
+2024-10-28,Agricultural Inputs,115.1421,115.1421
+2024-11-04,Agricultural Inputs,113.1498,115.5179
+2024-11-11,Agricultural Inputs,111.8551,114.1961
+2024-11-18,Agricultural Inputs,111.8909,114.2327
+2024-11-25,Agricultural Inputs,110.3578,112.6675
+2024-12-02,Agricultural Inputs,104.8423,108.702
+2024-12-09,Agricultural Inputs,103.4154,107.2225
+2024-12-16,Agricultural Inputs,104.5615,108.4108
+2024-12-23,Agricultural Inputs,107.0864,111.0287
+2024-12-30,Agricultural Inputs,107.0937,111.0362
+2025-01-06,Agricultural Inputs,107.144,111.7248
+2025-01-13,Agricultural Inputs,107.0752,111.6529
+2025-01-20,Agricultural Inputs,106.5412,111.0961
+2025-01-27,Agricultural Inputs,107.8858,112.4982
+2025-02-03,Agricultural Inputs,108.0326,112.0098
+2025-02-10,Agricultural Inputs,109.6236,113.6593
+2025-02-17,Agricultural Inputs,109.3705,113.3969
+2025-02-24,Agricultural Inputs,109.4174,113.4455
+2025-03-03,Agricultural Inputs,110.3469,112.6564
+2025-03-10,Agricultural Inputs,111.6048,113.9406
+2025-03-17,Agricultural Inputs,112.4322,114.7853
+2025-03-24,Agricultural Inputs,113.3212,115.6929
+2025-03-31,Agricultural Inputs,112.5204,114.8754
+2025-04-07,Agricultural Inputs,116.8674,116.8674
+2025-04-14,Agricultural Inputs,117.7197,117.7197
+2025-04-21,Agricultural Inputs,119.2791,119.2791
+2025-04-28,Agricultural Inputs,120.098,120.098
+2025-05-05,Agricultural Inputs,120.8285,118.4013
+2025-05-12,Agricultural Inputs,120.0018,117.5912
+2025-05-19,Agricultural Inputs,119.4008,117.0023
+2025-05-26,Agricultural Inputs,121.0002,118.5695
+2025-06-02,Agricultural Inputs,123.1499,118.9272
+2025-06-09,Agricultural Inputs,124.2437,119.9835
+2025-06-16,Agricultural Inputs,125.2385,120.9442
+2025-06-23,Agricultural Inputs,125.6042,121.2973
+2025-06-30,Agricultural Inputs,126.2071,121.8795
+2025-07-07,Agricultural Inputs,125.954,120.9933
+2025-07-14,Agricultural Inputs,121.6995,116.9063
+2025-07-21,Agricultural Inputs,123.3078,118.4513
+2025-07-28,Agricultural Inputs,123.9464,119.0648
+2025-08-04,Agricultural Inputs,125.4046,121.1045
+2025-08-11,Agricultural Inputs,122.848,118.6356
+2025-08-18,Agricultural Inputs,123.7805,119.5362
+2025-08-25,Agricultural Inputs,123.0941,118.8733
+2025-09-01,Agricultural Inputs,121.5222,119.081
+2025-09-08,Agricultural Inputs,120.3642,117.9463
+2025-09-15,Agricultural Inputs,120.305,117.8883
+2025-09-22,Agricultural Inputs,121.0081,118.5773
+2025-09-29,Agricultural Inputs,119.7721,117.3661
+2025-10-06,Agricultural Inputs,117.4192,117.4192
+2025-10-13,Agricultural Inputs,116.3083,116.3083
+2025-10-20,Agricultural Inputs,117.7295,117.7295
+2025-10-27,Agricultural Inputs,117.138,117.138
+2025-11-03,Agricultural Inputs,113.2027,115.572
+2025-11-10,Agricultural Inputs,112.8197,115.1809
+2025-11-17,Agricultural Inputs,113.0035,115.3685
+2025-11-24,Agricultural Inputs,113.7381,116.1186
+2025-12-01,Agricultural Inputs,110.6515,114.725
+2025-12-08,Agricultural Inputs,109.3972,113.4246
+2025-12-15,Agricultural Inputs,110.7298,114.8062
+2025-12-22,Agricultural Inputs,112.71,116.8594
+2025-12-29,Agricultural Inputs,113.8274,118.0178
+2026-01-05,Agricultural Inputs,113.1195,117.9557
+2026-01-12,Agricultural Inputs,113.6333,118.4915
+2026-01-19,Agricultural Inputs,114.8052,119.7135
+2026-01-26,Agricultural Inputs,115.442,120.3775
+2026-02-02,Agricultural Inputs,116.8014,121.1014
+2026-02-09,Agricultural Inputs,116.4327,120.719
+2026-02-16,Agricultural Inputs,117.7177,122.0514
+2026-02-23,Agricultural Inputs,118.4302,122.7901
+2026-03-02,Agricultural Inputs,120.8696,123.3993
+2026-03-09,Agricultural Inputs,118.6339,121.1168
+2026-03-16,Agricultural Inputs,117.2536,119.7076
+2026-03-23,Agricultural Inputs,115.722,118.1439
+2026-03-30,Agricultural Inputs,115.7925,118.216
+2026-04-06,Agricultural Inputs,117.1691,117.1691
+2026-04-13,Agricultural Inputs,118.2254,118.2254
+2026-04-20,Agricultural Inputs,118.187,118.187
+2026-04-27,Agricultural Inputs,119.8046,119.8046
+2026-05-04,Agricultural Inputs,122.1676,119.7135
+2026-05-11,Agricultural Inputs,122.0488,119.5971
+2026-05-18,Agricultural Inputs,123.3521,120.8742
+2026-05-25,Agricultural Inputs,125.0621,122.5498
+2026-06-01,Agricultural Inputs,127.8048,123.4224
+2026-06-08,Agricultural Inputs,127.9692,123.5812
+2026-06-15,Agricultural Inputs,128.0454,123.6547
+2026-06-22,Agricultural Inputs,128.7956,124.3792
+2026-06-29,Agricultural Inputs,128.539,124.1314
+2023-06-26,Aluminium & Composites,103.8305,100.9456
+2023-07-03,Aluminium & Composites,102.2207,100.5614
+2023-07-10,Aluminium & Composites,102.1833,100.5247
+2023-07-17,Aluminium & Composites,101.4188,99.7725
+2023-07-24,Aluminium & Composites,106.1743,104.4509
+2023-07-31,Aluminium & Composites,107.1865,105.4466
+2023-08-07,Aluminium & Composites,105.2414,105.2414
+2023-08-14,Aluminium & Composites,106.3727,106.3727
+2023-08-21,Aluminium & Composites,108.0793,108.0793
+2023-08-28,Aluminium & Composites,108.7811,108.7811
+2023-09-04,Aluminium & Composites,106.2925,108.0758
+2023-09-11,Aluminium & Composites,104.9964,106.7579
+2023-09-18,Aluminium & Composites,103.0421,104.7708
+2023-09-25,Aluminium & Composites,103.8338,105.5758
+2023-10-02,Aluminium & Composites,103.8744,106.9303
+2023-10-09,Aluminium & Composites,104.4578,107.5309
+2023-10-16,Aluminium & Composites,105.5056,108.6095
+2023-10-23,Aluminium & Composites,109.2226,112.4359
+2023-10-30,Aluminium & Composites,110.415,113.6633
+2023-11-06,Aluminium & Composites,108.4888,112.1911
+2023-11-13,Aluminium & Composites,108.1963,111.8886
+2023-11-20,Aluminium & Composites,106.5338,110.1694
+2023-11-27,Aluminium & Composites,106.6639,110.3039
+2023-12-04,Aluminium & Composites,106.3692,109.4985
+2023-12-11,Aluminium & Composites,107.3314,110.4891
+2023-12-18,Aluminium & Composites,105.8161,108.9291
+2023-12-25,Aluminium & Composites,106.6658,109.8039
+2024-01-01,Aluminium & Composites,108.1294,109.9434
+2024-01-08,Aluminium & Composites,107.6519,109.4579
+2024-01-15,Aluminium & Composites,104.344,106.0946
+2024-01-22,Aluminium & Composites,106.1927,107.9742
+2024-01-29,Aluminium & Composites,108.1636,109.9783
+2024-02-05,Aluminium & Composites,110.0467,110.0467
+2024-02-12,Aluminium & Composites,108.6215,108.6215
+2024-02-19,Aluminium & Composites,111.1625,111.1625
+2024-02-26,Aluminium & Composites,110.4334,110.4334
+2024-03-04,Aluminium & Composites,112.8885,111.056
+2024-03-11,Aluminium & Composites,111.4761,109.6666
+2024-03-18,Aluminium & Composites,113.0126,111.1782
+2024-03-25,Aluminium & Composites,115.2062,113.3362
+2024-04-01,Aluminium & Composites,116.8197,113.5739
+2024-04-08,Aluminium & Composites,116.8026,113.5572
+2024-04-15,Aluminium & Composites,119.9703,116.6369
+2024-04-22,Aluminium & Composites,121.8359,118.4507
+2024-04-29,Aluminium & Composites,119.2405,115.9274
+2024-05-06,Aluminium & Composites,122.3757,118.4663
+2024-05-13,Aluminium & Composites,120.6246,116.7711
+2024-05-20,Aluminium & Composites,122.6309,118.7134
+2024-05-27,Aluminium & Composites,126.3408,122.3048
+2024-06-03,Aluminium & Composites,127.303,123.7659
+2024-06-10,Aluminium & Composites,127.6606,124.1136
+2024-06-17,Aluminium & Composites,126.6167,123.0987
+2024-06-24,Aluminium & Composites,127.9604,124.4051
+2024-07-01,Aluminium & Composites,125.4749,123.4382
+2024-07-08,Aluminium & Composites,129.4299,127.3289
+2024-07-15,Aluminium & Composites,131.1217,128.9933
+2024-07-22,Aluminium & Composites,130.8789,128.7545
+2024-07-29,Aluminium & Composites,128.6508,126.5625
+2024-08-05,Aluminium & Composites,124.4553,124.4553
+2024-08-12,Aluminium & Composites,125.3065,125.3065
+2024-08-19,Aluminium & Composites,125.4892,125.4892
+2024-08-26,Aluminium & Composites,127.8264,127.8264
+2024-09-02,Aluminium & Composites,126.5404,128.6634
+2024-09-09,Aluminium & Composites,128.1642,130.3144
+2024-09-16,Aluminium & Composites,127.8405,129.9853
+2024-09-23,Aluminium & Composites,126.8673,128.9957
+2024-09-30,Aluminium & Composites,126.1949,128.3121
+2024-10-07,Aluminium & Composites,121.5468,125.1226
+2024-10-14,Aluminium & Composites,118.9458,122.4452
+2024-10-21,Aluminium & Composites,117.2905,120.7412
+2024-10-28,Aluminium & Composites,119.7066,123.2283
+2024-11-04,Aluminium & Composites,121.3727,125.5147
+2024-11-11,Aluminium & Composites,121.7983,125.9548
+2024-11-18,Aluminium & Composites,118.0252,122.0529
+2024-11-25,Aluminium & Composites,119.0889,123.1529
+2024-12-02,Aluminium & Composites,123.3902,127.0203
+2024-12-09,Aluminium & Composites,122.1675,125.7617
+2024-12-16,Aluminium & Composites,123.3263,126.9545
+2024-12-23,Aluminium & Composites,126.7738,130.5034
+2024-12-30,Aluminium & Composites,127.5199,131.2714
+2025-01-06,Aluminium & Composites,129.3524,131.5226
+2025-01-13,Aluminium & Composites,128.6968,130.8559
+2025-01-20,Aluminium & Composites,127.4384,129.5764
+2025-01-27,Aluminium & Composites,127.6656,129.8074
+2025-02-03,Aluminium & Composites,128.2634,128.2634
+2025-02-10,Aluminium & Composites,126.8965,126.8965
+2025-02-17,Aluminium & Composites,125.904,125.904
+2025-02-24,Aluminium & Composites,125.9314,125.9314
+2025-03-03,Aluminium & Composites,128.6868,126.5979
+2025-03-10,Aluminium & Composites,129.9447,127.8354
+2025-03-17,Aluminium & Composites,130.834,128.7103
+2025-03-24,Aluminium & Composites,130.8054,128.6822
+2025-03-31,Aluminium & Composites,129.651,127.5465
+2025-04-07,Aluminium & Composites,131.5071,127.8532
+2025-04-14,Aluminium & Composites,133.6789,129.9646
+2025-04-21,Aluminium & Composites,133.9685,130.2463
+2025-04-28,Aluminium & Composites,132.4729,128.7921
+2025-05-05,Aluminium & Composites,134.4626,130.167
+2025-05-12,Aluminium & Composites,137.2847,132.8991
+2025-05-19,Aluminium & Composites,137.1793,132.797
+2025-05-26,Aluminium & Composites,132.5859,128.3504
+2025-06-02,Aluminium & Composites,127.7312,124.1822
+2025-06-09,Aluminium & Composites,128.2679,124.704
+2025-06-16,Aluminium & Composites,125.2198,121.7406
+2025-06-23,Aluminium & Composites,128.0334,124.476
+2025-06-30,Aluminium & Composites,129.2755,125.6836
+2025-07-07,Aluminium & Composites,125.8742,123.831
+2025-07-14,Aluminium & Composites,125.2522,123.219
+2025-07-21,Aluminium & Composites,122.703,120.7112
+2025-07-28,Aluminium & Composites,121.9657,119.9859
+2025-08-04,Aluminium & Composites,119.9089,119.9089
+2025-08-11,Aluminium & Composites,119.6297,119.6297
+2025-08-18,Aluminium & Composites,119.8972,119.8972
+2025-08-25,Aluminium & Composites,122.2135,122.2135
+2025-09-01,Aluminium & Composites,119.7253,121.7339
+2025-09-08,Aluminium & Composites,121.0902,123.1217
+2025-09-15,Aluminium & Composites,125.2801,127.3819
+2025-09-22,Aluminium & Composites,125.2045,127.3051
+2025-09-29,Aluminium & Composites,123.3464,125.4158
+2025-10-06,Aluminium & Composites,122.7425,126.3536
+2025-10-13,Aluminium & Composites,120.7518,124.3043
+2025-10-20,Aluminium & Composites,121.6825,125.2623
+2025-10-27,Aluminium & Composites,120.6472,124.1966
+2025-11-03,Aluminium & Composites,122.3964,126.5733
+2025-11-10,Aluminium & Composites,121.1255,125.2591
+2025-11-17,Aluminium & Composites,123.0279,127.2263
+2025-11-24,Aluminium & Composites,122.9321,127.1273
+2025-12-01,Aluminium & Composites,122.1522,125.7459
+2025-12-08,Aluminium & Composites,125.792,129.4928
+2025-12-15,Aluminium & Composites,126.3003,130.016
+2025-12-22,Aluminium & Composites,124.7696,128.4403
+2025-12-29,Aluminium & Composites,122.857,126.4714
+2026-01-05,Aluminium & Composites,124.761,126.8541
+2026-01-12,Aluminium & Composites,127.1977,129.3317
+2026-01-19,Aluminium & Composites,128.1708,130.3211
+2026-01-26,Aluminium & Composites,128.6219,130.7798
+2026-02-02,Aluminium & Composites,125.4449,125.4449
+2026-02-09,Aluminium & Composites,124.7644,124.7644
+2026-02-16,Aluminium & Composites,124.2289,124.2289
+2026-02-23,Aluminium & Composites,125.7635,125.7635
+2026-03-02,Aluminium & Composites,127.7781,125.704
+2026-03-09,Aluminium & Composites,128.2619,126.1799
+2026-03-16,Aluminium & Composites,125.3407,123.3061
+2026-03-23,Aluminium & Composites,125.3326,123.2982
+2026-03-30,Aluminium & Composites,125.5094,123.4721
+2026-04-06,Aluminium & Composites,128.6752,125.1
+2026-04-13,Aluminium & Composites,126.2227,122.7156
+2026-04-20,Aluminium & Composites,125.9658,122.4659
+2026-04-27,Aluminium & Composites,126.7054,123.1849
+2026-05-04,Aluminium & Composites,125.3559,121.3513
+2026-05-11,Aluminium & Composites,124.228,120.2595
+2026-05-18,Aluminium & Composites,122.787,118.8645
+2026-05-25,Aluminium & Composites,121.5191,117.6371
+2026-06-01,Aluminium & Composites,119.8581,116.5279
+2026-06-08,Aluminium & Composites,121.3388,117.9675
+2026-06-15,Aluminium & Composites,123.5415,120.1089
+2026-06-22,Aluminium & Composites,122.4371,119.0352
+2026-06-29,Aluminium & Composites,124.0439,120.5974
+2023-06-26,Ocean Freight Container,104.9508,104.9508
+2023-07-03,Ocean Freight Container,109.1265,104.6777
+2023-07-10,Ocean Freight Container,109.599,105.1309
+2023-07-17,Ocean Freight Container,107.3269,102.9514
+2023-07-24,Ocean Freight Container,104.3088,100.0564
+2023-07-31,Ocean Freight Container,102.0573,97.8967
+2023-08-07,Ocean Freight Container,99.209,92.4068
+2023-08-14,Ocean Freight Container,100.3445,93.4644
+2023-08-21,Ocean Freight Container,102.1973,95.1901
+2023-08-28,Ocean Freight Container,99.7885,92.9465
+2023-09-04,Ocean Freight Container,99.1904,91.4197
+2023-09-11,Ocean Freight Container,98.5944,90.8704
+2023-09-18,Ocean Freight Container,103.285,95.1935
+2023-09-25,Ocean Freight Container,103.8101,95.6775
+2023-10-02,Ocean Freight Container,103.9272,96.8014
+2023-10-09,Ocean Freight Container,103.7593,96.6451
+2023-10-16,Ocean Freight Container,105.0975,97.8915
+2023-10-23,Ocean Freight Container,103.4302,96.3385
+2023-10-30,Ocean Freight Container,103.5006,96.4041
+2023-11-06,Ocean Freight Container,106.4549,102.115
+2023-11-13,Ocean Freight Container,108.7805,104.3458
+2023-11-20,Ocean Freight Container,105.3831,101.0869
+2023-11-27,Ocean Freight Container,102.1133,97.9504
+2023-12-04,Ocean Freight Container,96.0499,96.0499
+2023-12-11,Ocean Freight Container,93.2966,93.2966
+2023-12-18,Ocean Freight Container,92.5979,92.5979
+2023-12-25,Ocean Freight Container,94.6724,94.6724
+2024-01-01,Ocean Freight Container,89.3098,93.2739
+2024-01-08,Ocean Freight Container,88.4055,92.3295
+2024-01-15,Ocean Freight Container,89.2844,93.2474
+2024-01-22,Ocean Freight Container,89.9992,93.994
+2024-01-29,Ocean Freight Container,90.4545,94.4694
+2024-02-05,Ocean Freight Container,89.0852,96.1641
+2024-02-12,Ocean Freight Container,91.3762,98.6371
+2024-02-19,Ocean Freight Container,90.8277,98.045
+2024-02-26,Ocean Freight Container,90.3443,97.5232
+2024-03-04,Ocean Freight Container,91.5759,100.083
+2024-03-11,Ocean Freight Container,91.1076,99.5711
+2024-03-18,Ocean Freight Container,94.24,102.9946
+2024-03-25,Ocean Freight Container,89.9503,98.3063
+2024-04-01,Ocean Freight Container,97.5653,105.318
+2024-04-08,Ocean Freight Container,95.8526,103.4692
+2024-04-15,Ocean Freight Container,92.8609,100.2397
+2024-04-22,Ocean Freight Container,91.1008,98.3398
+2024-04-29,Ocean Freight Container,88.4095,95.4347
+2024-05-06,Ocean Freight Container,95.7231,99.9719
+2024-05-13,Ocean Freight Container,92.907,97.0308
+2024-05-20,Ocean Freight Container,97.0892,101.3987
+2024-05-27,Ocean Freight Container,104.8394,109.4929
+2024-06-03,Ocean Freight Container,109.8464,109.8464
+2024-06-10,Ocean Freight Container,107.8545,107.8545
+2024-06-17,Ocean Freight Container,111.7095,111.7095
+2024-06-24,Ocean Freight Container,116.268,116.268
+2024-07-01,Ocean Freight Container,123.8733,118.8233
+2024-07-08,Ocean Freight Container,124.157,119.0954
+2024-07-15,Ocean Freight Container,124.5131,119.437
+2024-07-22,Ocean Freight Container,127.224,122.0374
+2024-07-29,Ocean Freight Container,128.6346,123.3905
+2024-08-05,Ocean Freight Container,129.8309,120.9291
+2024-08-12,Ocean Freight Container,133.2167,124.0827
+2024-08-19,Ocean Freight Container,135.0006,125.7443
+2024-08-26,Ocean Freight Container,135.1106,125.8468
+2024-09-02,Ocean Freight Container,140.5583,129.5468
+2024-09-09,Ocean Freight Container,142.2298,131.0874
+2024-09-16,Ocean Freight Container,146.7311,135.236
+2024-09-23,Ocean Freight Container,153.3801,141.3641
+2024-09-30,Ocean Freight Container,155.1631,143.0074
+2024-10-07,Ocean Freight Container,151.8438,141.4327
+2024-10-14,Ocean Freight Container,151.2438,140.8738
+2024-10-21,Ocean Freight Container,146.5744,136.5246
+2024-10-28,Ocean Freight Container,151.0808,140.722
+2024-11-04,Ocean Freight Container,143.5727,137.7196
+2024-11-11,Ocean Freight Container,138.5361,132.8883
+2024-11-18,Ocean Freight Container,141.9104,136.1251
+2024-11-25,Ocean Freight Container,142.4994,136.6901
+2024-12-02,Ocean Freight Container,135.7619,135.7619
+2024-12-09,Ocean Freight Container,135.8982,135.8982
+2024-12-16,Ocean Freight Container,142.1028,142.1028
+2024-12-23,Ocean Freight Container,141.3096,141.3096
+2024-12-30,Ocean Freight Container,143.1568,143.1568
+2025-01-06,Ocean Freight Container,137.4588,143.5601
+2025-01-13,Ocean Freight Container,139.8054,146.0109
+2025-01-20,Ocean Freight Container,144.5988,151.0171
+2025-01-27,Ocean Freight Container,144.0312,150.4242
+2025-02-03,Ocean Freight Container,139.1117,150.1658
+2025-02-10,Ocean Freight Container,135.5633,146.3353
+2025-02-17,Ocean Freight Container,136.1379,146.9556
+2025-02-24,Ocean Freight Container,136.5981,147.4524
+2025-03-03,Ocean Freight Container,138.3339,151.1846
+2025-03-10,Ocean Freight Container,136.977,149.7017
+2025-03-17,Ocean Freight Container,138.9522,151.8603
+2025-03-24,Ocean Freight Container,138.7792,151.6713
+2025-03-31,Ocean Freight Container,142.2433,155.4572
+2025-04-07,Ocean Freight Container,144.5078,155.9906
+2025-04-14,Ocean Freight Container,147.6815,159.4165
+2025-04-21,Ocean Freight Container,147.4773,159.196
+2025-04-28,Ocean Freight Container,152.294,164.3955
+2025-05-05,Ocean Freight Container,163.1171,170.3573
+2025-05-12,Ocean Freight Container,172.1782,179.8206
+2025-05-19,Ocean Freight Container,171.5258,179.1393
+2025-05-26,Ocean Freight Container,169.0761,176.5807
+2025-06-02,Ocean Freight Container,171.368,171.368
+2025-06-09,Ocean Freight Container,167.9163,167.9163
+2025-06-16,Ocean Freight Container,172.1871,172.1871
+2025-06-23,Ocean Freight Container,175.6687,175.6687
+2025-06-30,Ocean Freight Container,174.2498,174.2498
+2025-07-07,Ocean Freight Container,190.5413,182.7734
+2025-07-14,Ocean Freight Container,186.0135,178.4302
+2025-07-21,Ocean Freight Container,190.07,182.3214
+2025-07-28,Ocean Freight Container,196.0604,188.0676
+2025-08-04,Ocean Freight Container,203.5351,189.5797
+2025-08-11,Ocean Freight Container,202.0805,188.2249
+2025-08-18,Ocean Freight Container,212.0466,197.5077
+2025-08-25,Ocean Freight Container,213.1606,198.5453
+2025-09-01,Ocean Freight Container,218.5961,201.4711
+2025-09-08,Ocean Freight Container,214.6662,197.849
+2025-09-15,Ocean Freight Container,212.8426,196.1683
+2025-09-22,Ocean Freight Container,210.8523,194.3339
+2025-09-29,Ocean Freight Container,210.318,193.8415
+2025-10-06,Ocean Freight Container,204.829,190.7849
+2025-10-13,Ocean Freight Container,209.4277,195.0683
+2025-10-20,Ocean Freight Container,209.4894,195.1258
+2025-10-27,Ocean Freight Container,208.1311,193.8606
+2025-11-03,Ocean Freight Container,201.4847,193.2707
+2025-11-10,Ocean Freight Container,205.4399,197.0647
+2025-11-17,Ocean Freight Container,202.4711,194.2169
+2025-11-24,Ocean Freight Container,212.0148,203.3716
+2025-12-01,Ocean Freight Container,203.9884,203.9884
+2025-12-08,Ocean Freight Container,208.473,208.473
+2025-12-15,Ocean Freight Container,212.3089,212.3089
+2025-12-22,Ocean Freight Container,214.046,214.046
+2025-12-29,Ocean Freight Container,209.9117,209.9117
+2026-01-05,Ocean Freight Container,191.664,200.1713
+2026-01-12,Ocean Freight Container,195.9126,204.6084
+2026-01-19,Ocean Freight Container,192.1487,200.6775
+2026-01-26,Ocean Freight Container,190.3466,198.7954
+2026-02-02,Ocean Freight Container,184.7229,199.4013
+2026-02-09,Ocean Freight Container,196.0323,211.6094
+2026-02-16,Ocean Freight Container,193.1971,208.5489
+2026-02-23,Ocean Freight Container,186.1927,200.9878
+2026-03-02,Ocean Freight Container,186.3869,203.7015
+2026-03-09,Ocean Freight Container,190.1689,207.8349
+2026-03-16,Ocean Freight Container,198.982,217.4666
+2026-03-23,Ocean Freight Container,195.4026,213.5548
+2026-03-30,Ocean Freight Container,195.753,213.9377
+2026-04-06,Ocean Freight Container,199.5264,215.3811
+2026-04-13,Ocean Freight Container,204.1731,220.397
+2026-04-20,Ocean Freight Container,209.6452,226.3039
+2026-04-27,Ocean Freight Container,211.583,228.3957
+2026-05-04,Ocean Freight Container,209.024,218.3018
+2026-05-11,Ocean Freight Container,199.5268,208.383
+2026-05-18,Ocean Freight Container,198.0919,206.8844
+2026-05-25,Ocean Freight Container,192.5488,201.0954
+2026-06-01,Ocean Freight Container,196.129,196.129
+2026-06-08,Ocean Freight Container,201.4196,201.4196
+2026-06-15,Ocean Freight Container,208.8851,208.8851
+2026-06-22,Ocean Freight Container,211.8823,211.8823
+2026-06-29,Ocean Freight Container,209.7733,209.7733

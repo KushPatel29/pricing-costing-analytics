@@ -1,0 +1,17 @@
+line-length = 100
+target-version = "py312"
+
+[lint]
+select = ["E", "F", "I", "UP", "B", "W"]
+
+[lint.per-file-ignores]
+# Streamlit views must put the repository root on sys.path before importing
+# anything from it, so their imports cannot all sit at the top of the file.
+# The alternative is a package install step for an app that is run with
+# `streamlit run`, which is a worse trade.
+"app/**" = ["E402"]
+# The Excel engine is probed by import, and the name is used only to decide
+# which engine string to pass to pandas. E501 is exempted here alone: this is
+# the original tool, carried over unchanged, and reflowing thirty lines of it
+# would bury the parts that did change under formatting noise.
+"app/views/cost_to_price_calculator.py" = ["E402", "E501", "F401", "B007"]

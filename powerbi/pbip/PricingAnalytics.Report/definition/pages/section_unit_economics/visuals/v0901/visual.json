@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0901",
+  "position": {
+    "x": 20,
+    "y": 20,
+    "z": 1800,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 1800
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Contribution per unit"
+                }
+              },
+              "queryRef": "_Measures.Contribution per unit",
+              "nativeQueryRef": "Contribution per unit"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Contribution per unit: what one unit leaves after every cost that moves with it.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

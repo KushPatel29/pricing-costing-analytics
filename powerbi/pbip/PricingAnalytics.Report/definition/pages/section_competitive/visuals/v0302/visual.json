@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0302",
+  "position": {
+    "x": 330,
+    "y": 20,
+    "z": 1201,
+    "height": 118,
+    "width": 296,
+    "tabOrder": 1201
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Products under market"
+                }
+              },
+              "queryRef": "_Measures.Products under market",
+              "nativeQueryRef": "Products under market"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Products under market: priced below 96 on the index.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

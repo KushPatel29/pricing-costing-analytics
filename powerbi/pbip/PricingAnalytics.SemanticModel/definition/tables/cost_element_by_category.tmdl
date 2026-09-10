@@ -1,0 +1,45 @@
+table cost_element_by_category
+	lineageTag: 33391448-6e68-5c43-bf69-482a9e001ba9
+
+	column category
+		dataType: string
+		lineageTag: a0ba713f-75ee-54e7-96f3-d1ba639d2619
+		summarizeBy: none
+		sourceColumn: category
+
+	column cost_element
+		dataType: string
+		lineageTag: 59b8baa7-54ff-59b6-bcbb-5142969a5a2f
+		summarizeBy: none
+		sourceColumn: cost_element
+
+	column standard_cost
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: a7731132-bc5a-513a-84e7-263f8d5344f9
+		summarizeBy: sum
+		sourceColumn: standard_cost
+
+	column actual_cost
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 2f0bc547-0702-59a6-8670-570d7a0e7d71
+		summarizeBy: sum
+		sourceColumn: actual_cost
+
+	column variance
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 99626b45-6b02-56a3-981a-6f604b59e931
+		summarizeBy: sum
+		sourceColumn: variance
+
+	partition cost_element_by_category = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\cost_element_by_category.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"category", type text}, {"cost_element", type text}, {"standard_cost", type number}, {"actual_cost", type number}, {"variance", type number}})
+				in
+				    Typed

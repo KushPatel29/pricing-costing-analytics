@@ -1,0 +1,25 @@
+category,product_id,description,tier,cost,target_margin,price,margin,step_from_previous,step_pct
+Apparel & Accessories,20108,Cotton T-Shirt 5pk - Value,Good,12.3049,0.16,14.6487,2.3438,0.0,0.0
+Apparel & Accessories,20108,Cotton T-Shirt 5pk - Value,Better,13.0432,0.24,17.1622,4.1189,2.5134,0.1716
+Apparel & Accessories,20108,Cotton T-Shirt 5pk - Value,Best,14.1507,0.33,21.1204,6.9697,3.9583,0.2306
+Consumer Electronics,20111,27in Monitor - Private label,Good,20.3317,0.16,24.2044,3.8727,0.0,0.0
+Consumer Electronics,20111,27in Monitor - Private label,Better,21.5516,0.24,28.3573,6.8058,4.153,0.1716
+Consumer Electronics,20111,27in Monitor - Private label,Best,23.3814,0.33,34.8977,11.5162,6.5403,0.2306
+Health & Beauty,20101,Multivitamin - Premium brand,Good,8.3983,0.16,9.998,1.5997,0.0,0.0
+Health & Beauty,20101,Multivitamin - Premium brand,Better,8.9022,0.24,11.7134,2.8112,1.7154,0.1716
+Health & Beauty,20101,Multivitamin - Premium brand,Best,9.658,0.33,14.415,4.7569,2.7016,0.2306
+Home & Kitchen,20117,LED Floor Lamp - National brand,Good,8.5711,0.16,10.2036,1.6326,0.0,0.0
+Home & Kitchen,20117,LED Floor Lamp - National brand,Better,9.0853,0.24,11.9544,2.8691,1.7507,0.1716
+Home & Kitchen,20117,LED Floor Lamp - National brand,Best,9.8567,0.33,14.7115,4.8548,2.7571,0.2306
+Office & Stationery,20132,Gel Pens - Value,Good,7.1149,0.16,8.4701,1.3552,0.0,0.0
+Office & Stationery,20132,Gel Pens - Value,Better,7.5417,0.24,9.9233,2.3816,1.4533,0.1716
+Office & Stationery,20132,Gel Pens - Value,Best,8.1821,0.33,12.2121,4.03,2.2887,0.2306
+Pet Supplies,20175,Cat Litter - Private label,Good,9.4307,0.16,11.2271,1.7963,0.0,0.0
+Pet Supplies,20175,Cat Litter - Private label,Better,9.9966,0.24,13.1534,3.1568,1.9263,0.1716
+Pet Supplies,20175,Cat Litter - Private label,Best,10.8454,0.33,16.1871,5.3417,3.0337,0.2306
+Sporting Goods,20149,Cycling Helmet - National brand,Good,40.2893,0.16,47.9635,7.6742,0.0,0.0
+Sporting Goods,20149,Cycling Helmet - National brand,Better,42.7067,0.24,56.193,13.4863,8.2295,0.1716
+Sporting Goods,20149,Cycling Helmet - National brand,Best,46.3327,0.33,69.1533,22.8206,12.9603,0.2306
+Tools & Hardware,20112,Safety Glasses - National brand,Good,26.0488,0.16,31.0104,4.9617,0.0,0.0
+Tools & Hardware,20112,Safety Glasses - National brand,Better,27.6117,0.24,36.3312,8.7195,5.3207,0.1716
+Tools & Hardware,20112,Safety Glasses - National brand,Best,29.9561,0.33,44.7106,14.7545,8.3794,0.2306

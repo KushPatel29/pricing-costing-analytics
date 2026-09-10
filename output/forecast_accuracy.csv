@@ -1,0 +1,29 @@
+measure,method,wape,mape,bias,folds,rank,is_best
+Volume (units),Seasonal naive with drift,0.04648,0.04713,-0.0127,12,1,True
+Volume (units),Seasonal naive,0.05071,0.05036,-0.04598,12,2,False
+Volume (units),Holt-Winters,0.06436,0.06371,-0.04693,12,3,False
+Volume (units),Moving average (3),0.09028,0.0881,-0.04146,12,4,False
+Volume (units),Drift,0.09794,0.09669,-0.02376,12,5,False
+Volume (units),Naive,0.09805,0.09554,-0.04611,12,6,False
+Volume (units),Seasonal naive with drift (held out),0.04279,0.04102,-0.00395,6,0,False
+Pocket revenue,Seasonal naive,0.085,0.08479,-0.03828,12,1,True
+Pocket revenue,Seasonal naive with drift,0.09254,0.09207,-0.00512,12,2,False
+Pocket revenue,Holt-Winters,0.1271,0.12291,-0.08538,12,3,False
+Pocket revenue,Moving average (3),0.14187,0.13806,-0.06248,12,4,False
+Pocket revenue,Naive,0.15415,0.15167,-0.07311,12,5,False
+Pocket revenue,Drift,0.15595,0.15557,-0.05223,12,6,False
+Pocket revenue,Seasonal naive (held out),0.11003,0.10345,-0.09975,6,0,False
+Cost of goods,Seasonal naive,0.12367,0.12037,-0.07712,12,1,True
+Cost of goods,Seasonal naive with drift,0.12994,0.12812,-0.01956,12,2,False
+Cost of goods,Moving average (3),0.1534,0.14676,-0.07384,12,3,False
+Cost of goods,Naive,0.17534,0.17208,-0.07767,12,4,False
+Cost of goods,Drift,0.17596,0.17592,-0.0447,12,5,False
+Cost of goods,Holt-Winters,0.17654,0.16877,-0.13188,12,6,False
+Cost of goods,Seasonal naive (held out),0.12506,0.11955,-0.08207,6,0,False
+Gross margin,Holt-Winters,0.11589,0.12135,0.05962,12,1,True
+Gross margin,Seasonal naive with drift,0.12223,0.12874,0.06231,12,2,False
+Gross margin,Seasonal naive,0.12551,0.13326,0.10383,12,3,False
+Gross margin,Naive,0.1624,0.15899,-0.05641,12,4,False
+Gross margin,Moving average (3),0.17642,0.17496,-0.02089,12,5,False
+Gross margin,Drift,0.18258,0.17854,-0.07978,12,6,False
+Gross margin,Holt-Winters (held out),0.26544,0.26076,-0.26544,6,0,False

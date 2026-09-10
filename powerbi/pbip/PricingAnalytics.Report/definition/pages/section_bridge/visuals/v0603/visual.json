@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0603",
+  "position": {
+    "x": 634,
+    "y": 20,
+    "z": 1502,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 1502
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Pocket margin YoY pts"
+                }
+              },
+              "queryRef": "_Measures.Pocket margin YoY pts",
+              "nativeQueryRef": "Pocket margin YoY pts"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Pocket margin YoY pts: the change in pocket margin, in percentage points, against last year.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,73 @@
+table profit_heatmap
+	lineageTag: 56a52bd0-d2dd-5bb6-aa4b-cc43099519ee
+
+	column segment
+		dataType: string
+		lineageTag: 14f7d392-4bcb-53d5-a3d5-2c713857b9f6
+		summarizeBy: none
+		sourceColumn: segment
+
+	column category
+		dataType: string
+		lineageTag: 5570c6e0-bda6-562d-83f0-7ed424b3255c
+		summarizeBy: none
+		sourceColumn: category
+
+	column pocket_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 50a30f2c-1aa5-583a-b7d8-09d4a3afe908
+		summarizeBy: sum
+		sourceColumn: pocket_revenue
+
+	column cogs
+		dataType: double
+		formatString: #,0.00
+		lineageTag: abf22c96-1776-586c-a2e5-9f3eaf6d3ec9
+		summarizeBy: sum
+		sourceColumn: cogs
+
+	column volume_units
+		dataType: double
+		formatString: #,0
+		lineageTag: e138de9b-38e0-52b9-aa09-368c7b9b7163
+		summarizeBy: sum
+		sourceColumn: volume_units
+
+	column list_value
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: b7f69111-5aa0-5c98-8c17-e4983a5b136e
+		summarizeBy: sum
+		sourceColumn: list_value
+
+	column gross_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 4d434b1c-9894-516d-95b4-b19f89640e38
+		summarizeBy: sum
+		sourceColumn: gross_margin
+
+	column gross_margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: d8e57b73-594c-5adf-bb64-fd848591f15e
+		summarizeBy: sum
+		sourceColumn: gross_margin_pct
+
+	column leakage_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 46bc3105-e182-590f-b03d-5448a115c80c
+		summarizeBy: sum
+		sourceColumn: leakage_pct
+
+	partition profit_heatmap = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\profit_heatmap.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"segment", type text}, {"category", type text}, {"pocket_revenue", type number}, {"cogs", type number}, {"volume_units", type number}, {"list_value", type number}, {"gross_margin", type number}, {"gross_margin_pct", type number}, {"leakage_pct", type number}})
+				in
+				    Typed

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1003",
+  "position": {
+    "x": 634,
+    "y": 20,
+    "z": 1902,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 1902
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Scenario margin %"
+                }
+              },
+              "queryRef": "_Measures.Scenario margin %",
+              "nativeQueryRef": "Scenario margin %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Scenario margin as a share of scenario revenue.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

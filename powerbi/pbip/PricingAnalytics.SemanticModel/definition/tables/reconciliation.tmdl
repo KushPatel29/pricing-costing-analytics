@@ -1,0 +1,52 @@
+table reconciliation
+	lineageTag: 181fe3bf-8f01-5f1c-906e-5af516101134
+
+	column line
+		dataType: string
+		lineageTag: 5578d799-ca83-5858-b3f5-9ae15764f7a5
+		summarizeBy: none
+		sourceColumn: line
+
+	column amount
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 3882f9a7-04ed-5649-ab8e-bddc80baa5d8
+		summarizeBy: sum
+		sourceColumn: amount
+
+	column running
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 8a0df7ea-686d-5ef4-9190-b247d2d68070
+		summarizeBy: sum
+		sourceColumn: running
+
+	column delta
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 24809b85-b96d-59ce-bdd9-b9b8fc5e6100
+		summarizeBy: sum
+		sourceColumn: delta
+
+	column balanced
+		dataType: boolean
+		lineageTag: 06c39c03-6bb1-5de4-96f0-d77d07ce656a
+		summarizeBy: none
+		sourceColumn: balanced
+
+	column unexplained
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 87cf9308-2580-570b-ad39-0a242f2e372b
+		summarizeBy: sum
+		sourceColumn: unexplained
+
+	partition reconciliation = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\reconciliation.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"line", type text}, {"amount", type number}, {"running", type number}, {"delta", type number}, {"balanced", type logical}, {"unexplained", type number}})
+				in
+				    Typed

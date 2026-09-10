@@ -3,5 +3,30 @@ __pycache__/
 .venv/
 .pytest_cache/
 .ruff_cache/
-sample_data/
 .env
+
+# Generated on demand by `python -m seed.generate_sheets`. Not committed
+# because an .xlsx is a zip archive: regenerating it changes the bytes without
+# changing the data, so every rebuild would show as a binary diff.
+sample_data/
+
+# Editor and agent scratch
+.claude/
+
+# Power BI Desktop's machine-local state, created when the .pbip is opened.
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+**/.pbi/unappliedChanges.json
+
+# data/, raw/ and output/ ARE committed. They are generated, but the Power BI
+# model reads them off disk and the hosted app starts from them, so a clone has
+# to arrive with them present. In order:
+#
+#   python -m seed.generate_market            -> data/
+#   python -m seed.generate_erp               -> raw/
+#   python -m engine.build_pricing_analytics  -> output/
+#   python -m engine.stage_erp                -> output/ (quality, reconciliation)
+#   python -m engine.run_sql                  -> output/ (the SQL marts)
+#
+# All five are deterministic from a fixed seed and rebuild the committed files
+# identically.

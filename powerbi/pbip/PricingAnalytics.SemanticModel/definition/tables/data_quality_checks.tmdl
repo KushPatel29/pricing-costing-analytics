@@ -1,0 +1,89 @@
+table data_quality_checks
+	lineageTag: 719ad18d-e92b-51f4-9e60-a1d0a3812206
+
+	column code
+		dataType: string
+		lineageTag: 174a5f5b-186f-5fa1-8888-da8e6a9478e9
+		summarizeBy: none
+		sourceColumn: code
+
+	column dimension
+		dataType: string
+		lineageTag: 0ad3eb34-1d4d-5ca1-9d13-7ebd5539ef6f
+		summarizeBy: none
+		sourceColumn: dimension
+
+	column severity
+		dataType: string
+		lineageTag: 3763316a-d989-5fa5-af85-6c9ddb19f272
+		summarizeBy: none
+		sourceColumn: severity
+
+	column severity_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: d05ca439-bd91-5136-8020-4029b0f672a3
+		summarizeBy: sum
+		sourceColumn: severity_rank
+
+	column table
+		dataType: string
+		lineageTag: b150540f-6cd3-503c-a5a3-97dc9ffb6be7
+		summarizeBy: none
+		sourceColumn: table
+
+	column check
+		dataType: string
+		lineageTag: 4ab04cd6-418c-54e0-aa56-e39aaa35a47e
+		summarizeBy: none
+		sourceColumn: check
+
+	column rows_checked
+		dataType: int64
+		formatString: 0
+		lineageTag: 4cae36f3-da4e-5542-8af1-deb6e258bdf2
+		summarizeBy: sum
+		sourceColumn: rows_checked
+
+	column rows_failing
+		dataType: int64
+		formatString: 0
+		lineageTag: 89143f6b-d70b-5415-b504-e4750d5b7976
+		summarizeBy: sum
+		sourceColumn: rows_failing
+
+	column fail_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: c9542e3b-a50b-56f4-86b5-d10a7d826bce
+		summarizeBy: sum
+		sourceColumn: fail_rate
+
+	column passed
+		dataType: boolean
+		lineageTag: 85546c65-0143-5cf4-a50b-2903303b5934
+		summarizeBy: none
+		sourceColumn: passed
+
+	column action
+		dataType: string
+		lineageTag: ddcfd952-a3be-5ac6-92af-7f9633cdc4be
+		summarizeBy: none
+		sourceColumn: action
+
+	column error
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b3e3d8f2-53e2-5424-bc95-35bf6323a0b9
+		summarizeBy: sum
+		sourceColumn: error
+
+	partition data_quality_checks = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\data_quality_checks.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"code", type text}, {"dimension", type text}, {"severity", type text}, {"severity_rank", Int64.Type}, {"table", type text}, {"check", type text}, {"rows_checked", Int64.Type}, {"rows_failing", Int64.Type}, {"fail_rate", type number}, {"passed", type logical}, {"action", type text}, {"error", type number}})
+				in
+				    Typed

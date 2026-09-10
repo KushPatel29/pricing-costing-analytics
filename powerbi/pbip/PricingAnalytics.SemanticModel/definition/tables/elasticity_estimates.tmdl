@@ -1,0 +1,163 @@
+table elasticity_estimates
+	lineageTag: a9933c94-1e2c-5f50-9af8-a6f379ec24bf
+
+	column scope
+		dataType: string
+		lineageTag: 3983043a-ad10-5223-b06c-9fc64116a7e8
+		summarizeBy: none
+		sourceColumn: scope
+
+	column member
+		dataType: string
+		lineageTag: 19b59c76-3c32-59d6-b34b-3585c020435b
+		summarizeBy: none
+		sourceColumn: member
+
+	column products
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d6f5ede-87e7-531e-983e-28bf611eb53a
+		summarizeBy: sum
+		sourceColumn: products
+
+	column observations
+		dataType: int64
+		formatString: 0
+		lineageTag: 821205cc-4334-54d6-95a9-4a30a6040bbe
+		summarizeBy: sum
+		sourceColumn: observations
+
+	column elasticity
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 261e09d3-f8a7-5209-9639-25549c43ebb6
+		summarizeBy: sum
+		sourceColumn: elasticity
+
+	column r_squared
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 7b414e43-f35d-57f8-9b62-b1d17b4435f9
+		summarizeBy: sum
+		sourceColumn: r_squared
+
+	column price_cv
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: f92e6559-1d25-581d-8e6c-7d2e5b3e5430
+		summarizeBy: sum
+		sourceColumn: price_cv
+
+	column usable
+		dataType: boolean
+		lineageTag: 930213fe-117c-59e8-8765-4372359725f4
+		summarizeBy: none
+		sourceColumn: usable
+
+	column reason
+		dataType: string
+		lineageTag: 150e37c1-14d5-5569-94a5-3ae6a9f638d6
+		summarizeBy: none
+		sourceColumn: reason
+
+	column volume_units
+		dataType: double
+		formatString: #,0
+		lineageTag: 0ad5f8ed-7d55-5499-96d1-edf567cffa72
+		summarizeBy: sum
+		sourceColumn: volume_units
+
+	column pocket_revenue
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: fb7edc1b-0fd0-522d-a6fe-f2d547bc829d
+		summarizeBy: sum
+		sourceColumn: pocket_revenue
+
+	column avg_pocket_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 48c69d58-1aa1-5059-b5a7-68235375cbba
+		summarizeBy: sum
+		sourceColumn: avg_pocket_price
+
+	column avg_unit_cost
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: e1bfaed5-7847-5568-9a80-0c7b71d2f96d
+		summarizeBy: sum
+		sourceColumn: avg_unit_cost
+
+	column optimal_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 5f728d4c-64a4-5714-be30-2eada6b7f72b
+		summarizeBy: sum
+		sourceColumn: optimal_price
+
+	column optimal_exists
+		dataType: boolean
+		lineageTag: 5d9260eb-10af-5f1c-bbdc-c9afabf8a720
+		summarizeBy: none
+		sourceColumn: optimal_exists
+
+	column optimal_actionable
+		dataType: boolean
+		lineageTag: d8a6be40-8b0c-5d66-b763-3d52f6bb1897
+		summarizeBy: none
+		sourceColumn: optimal_actionable
+
+	column implied_markup
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 7f7149e5-72b3-555c-a085-f271f51baa70
+		summarizeBy: sum
+		sourceColumn: implied_markup
+
+	column optimal_note
+		dataType: string
+		lineageTag: 213af66c-43f3-534b-99f0-b46d234999da
+		summarizeBy: none
+		sourceColumn: optimal_note
+
+	column price_vs_optimal_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: e50e9637-a296-5ddc-8f36-aa0e5d870d1a
+		summarizeBy: sum
+		sourceColumn: price_vs_optimal_pct
+
+	column description
+		dataType: string
+		lineageTag: 5064e5d5-e703-56fd-af04-819c69deb7cb
+		summarizeBy: none
+		sourceColumn: description
+
+	column category
+		dataType: string
+		lineageTag: 5fb0558a-526f-55f3-9d6e-ba443da41ec9
+		summarizeBy: none
+		sourceColumn: category
+
+	column brand_tier
+		dataType: string
+		lineageTag: 31c2b1d9-9c9e-5481-b119-2577e1a1a127
+		summarizeBy: none
+		sourceColumn: brand_tier
+
+	column seeded_elasticity
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 937fc1c5-db33-55aa-922a-4bad281deb6f
+		summarizeBy: sum
+		sourceColumn: seeded_elasticity
+
+	partition elasticity_estimates = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\elasticity_estimates.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"scope", type text}, {"member", type text}, {"products", Int64.Type}, {"observations", Int64.Type}, {"elasticity", type number}, {"r_squared", type number}, {"price_cv", type number}, {"usable", type logical}, {"reason", type text}, {"volume_units", type number}, {"pocket_revenue", type number}, {"avg_pocket_price", type number}, {"avg_unit_cost", type number}, {"optimal_price", type number}, {"optimal_exists", type logical}, {"optimal_actionable", type logical}, {"implied_markup", type number}, {"optimal_note", type text}, {"price_vs_optimal_pct", type number}, {"description", type text}, {"category", type text}, {"brand_tier", type text}, {"seeded_elasticity", type number}})
+				in
+				    Typed

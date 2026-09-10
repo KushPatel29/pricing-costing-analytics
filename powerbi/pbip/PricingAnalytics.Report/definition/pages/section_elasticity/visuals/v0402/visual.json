@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0402",
+  "position": {
+    "x": 330,
+    "y": 20,
+    "z": 1301,
+    "height": 118,
+    "width": 296,
+    "tabOrder": 1301
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Elasticity fit"
+                }
+              },
+              "queryRef": "_Measures.Elasticity fit",
+              "nativeQueryRef": "Elasticity fit"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. R-squared of the elasticity fit.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

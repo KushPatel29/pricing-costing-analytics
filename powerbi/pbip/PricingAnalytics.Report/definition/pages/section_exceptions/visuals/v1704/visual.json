@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1704",
+  "position": {
+    "x": 942,
+    "y": 20,
+    "z": 2603,
+    "height": 118,
+    "width": 318,
+    "tabOrder": 2603
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Exception margin %"
+                }
+              },
+              "queryRef": "_Measures.Exception margin %",
+              "nativeQueryRef": "Exception margin %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Exception margin %: the average pocket margin on breaching lines.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v0903",
+  "position": {
+    "x": 634,
+    "y": 20,
+    "z": 1802,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 1802
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Cost to serve %"
+                }
+              },
+              "queryRef": "_Measures.Cost to serve %",
+              "nativeQueryRef": "Cost to serve %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Cost to serve as a share of revenue: freight, handling and returns.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,142 @@
+table dim_product
+	lineageTag: 640f7e63-756d-58cd-ba34-2f8be9f06150
+
+	column product_id
+		dataType: string
+		lineageTag: dd40bfd0-974e-5b57-8bcf-f0cfde3ed196
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column description
+		dataType: string
+		lineageTag: aaa1e67c-ee20-57ce-af31-cbe45dec1afe
+		summarizeBy: none
+		sourceColumn: description
+
+	column category
+		dataType: string
+		lineageTag: 3c1cd53d-a758-5702-97e4-bc1df5637260
+		summarizeBy: none
+		sourceColumn: category
+
+	column sub_category
+		dataType: string
+		lineageTag: 88f1a900-6606-5174-b188-bd271056401c
+		summarizeBy: none
+		sourceColumn: sub_category
+
+	column brand_tier
+		dataType: string
+		lineageTag: 5beccaea-706f-503c-b7fb-6d3471b09bdc
+		summarizeBy: none
+		sourceColumn: brand_tier
+
+	column pack_format
+		dataType: string
+		lineageTag: 9c0278ce-e2ad-5c50-ba1f-44a1110247cb
+		summarizeBy: none
+		sourceColumn: pack_format
+
+	column units_per_billing_uom
+		dataType: double
+		formatString: #,0
+		lineageTag: 13391321-eca8-5286-8c27-36572f7c7a04
+		summarizeBy: sum
+		sourceColumn: units_per_billing_uom
+
+	column lifecycle
+		dataType: string
+		lineageTag: 6ace326d-886d-5295-aaa5-a80ed9ae78c2
+		summarizeBy: none
+		sourceColumn: lifecycle
+
+	column supplier
+		dataType: string
+		lineageTag: afe32843-2eee-5024-99a7-058aa4cadfb3
+		summarizeBy: none
+		sourceColumn: supplier
+
+	column inbound_lane
+		dataType: string
+		lineageTag: 4101b9b1-af3a-5e7a-a8a9-96fd52618545
+		summarizeBy: none
+		sourceColumn: inbound_lane
+
+	column commodity_index
+		dataType: string
+		lineageTag: 3017ad7e-e12d-5157-bd06-13529a3cc122
+		summarizeBy: none
+		sourceColumn: commodity_index
+
+	column elasticity
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 23251179-abb6-50d6-baa1-4283ebd0551b
+		summarizeBy: sum
+		sourceColumn: elasticity
+
+	column target_margin
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: ff9ba4a2-7a33-5295-991b-bce0272a9614
+		summarizeBy: sum
+		sourceColumn: target_margin
+
+	column standard_sellable_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: ece08413-e987-530c-a3b2-97cb6a712548
+		summarizeBy: sum
+		sourceColumn: standard_sellable_rate
+
+	column base_input_cost_unit
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 67a56f1e-b6de-5af7-afc4-385b3f7bd907
+		summarizeBy: sum
+		sourceColumn: base_input_cost_unit
+
+	column handling_cost_unit
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: b747fde0-53f9-5f0c-811f-f490703841aa
+		summarizeBy: sum
+		sourceColumn: handling_cost_unit
+
+	column labelling_cost_unit
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: b765bf6b-e7ab-564b-97ec-3f0d338547f3
+		summarizeBy: sum
+		sourceColumn: labelling_cost_unit
+
+	column damage_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: f45b869e-500c-5c0c-ab79-da04272c508c
+		summarizeBy: sum
+		sourceColumn: damage_rate
+
+	column adj_unit
+		dataType: double
+		formatString: #,0.00
+		lineageTag: a1808004-15c5-55e2-9ab3-caac4c24f88a
+		summarizeBy: sum
+		sourceColumn: adj_unit
+
+	column base_volume_units
+		dataType: double
+		formatString: #,0
+		lineageTag: 277288ed-a731-54fd-b2fc-61c92992d5fc
+		summarizeBy: sum
+		sourceColumn: base_volume_units
+
+	partition dim_product = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\data\dim_product.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"product_id", type text}, {"description", type text}, {"category", type text}, {"sub_category", type text}, {"brand_tier", type text}, {"pack_format", type text}, {"units_per_billing_uom", type number}, {"lifecycle", type text}, {"supplier", type text}, {"inbound_lane", type text}, {"commodity_index", type text}, {"elasticity", type number}, {"target_margin", type number}, {"standard_sellable_rate", type number}, {"base_input_cost_unit", type number}, {"handling_cost_unit", type number}, {"labelling_cost_unit", type number}, {"damage_rate", type number}, {"adj_unit", type number}, {"base_volume_units", type number}})
+				in
+				    Typed

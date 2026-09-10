@@ -175,3 +175,33 @@ class TestAmountsRead:
         assert dollars(-450.5) == "-$450.50"
         assert money(2_650_000, 2) == "$2.65M"
         assert money(0) == "$0"
+
+
+class TestWhichRendererEatsDollars:
+    r"""
+    Measured against a running Streamlit, not assumed. `st.markdown`,
+    `st.caption` and the callouts parse markdown and lose `$...$` pairs; text
+    inside an `unsafe_allow_html` tag does not go through the parser and keeps
+    them. Escaping the second kind puts a visible backslash on the page, which
+    is how the leakage caption on the landing page came to read "\$2.2M".
+    """
+
+    def test_the_html_helpers_do_not_escape(self):
+        import inspect
+
+        from app import shared as sh
+
+        for helper in (sh.lede, sh.caption):
+            source = inspect.getsource(helper)
+            assert "unsafe_allow_html=True" in source, helper.__name__
+            assert "escape_money" not in source, (
+                f"{helper.__name__} writes into a tag, where an escape renders "
+                "as a literal backslash"
+            )
+
+    def test_the_callout_helper_does_escape(self):
+        import inspect
+
+        from app import shared as sh
+
+        assert "escape_money" in inspect.getsource(sh.note)

@@ -314,23 +314,33 @@ def escape_money(text: str) -> str:
     Escaping happens here, at the render boundary, rather than in the analysis:
     a generated paragraph should be plain prose, and the escaping is a property
     of the renderer it is going into.
+
+    Which renderer matters. Streamlit parses markdown in `st.markdown`,
+    `st.caption` and the callouts, so those need this. Text handed to
+    `unsafe_allow_html` inside a tag does **not** go through the markdown
+    parser -- it keeps its dollar signs, and escaping it puts a visible
+    backslash on the page. `lede` and `caption` below take that path, so they
+    do not call this.
     """
     return text.replace("$", r"\$")
 
 
 def lede(text: str) -> None:
-    st.markdown(f'<div class="lede">{escape_money(text)}</div>',
-                unsafe_allow_html=True)
+    st.markdown(f'<div class="lede">{text}</div>', unsafe_allow_html=True)
 
 
 def caption(text: str) -> None:
-    st.markdown(f'<div class="caption">{escape_money(text)}</div>',
-                unsafe_allow_html=True)
+    st.markdown(f'<div class="caption">{text}</div>', unsafe_allow_html=True)
 
 
 def note(text: str, *, kind: str = "info") -> None:
-    """A callout carrying generated prose. Use this rather than `st.info` and
-    friends directly whenever the text can contain an amount."""
+    """
+    A callout carrying generated prose.
+
+    Use this rather than `st.info` and friends directly whenever the text can
+    contain an amount: those parse markdown, so `$2.6M ... $2.4M` loses both
+    dollar signs and sets the words between them in a maths font.
+    """
     {"info": st.info, "success": st.success,
      "warning": st.warning, "error": st.error}[kind](escape_money(text))
 

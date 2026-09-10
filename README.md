@@ -1,7 +1,7 @@
 # Pricing & Costing Analytics
 
 [![CI](https://github.com/KushPatel29/pricing-costing-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/pricing-costing-analytics/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-2626%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-2627%20passing-3B8C6E)
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![Streamlit](https://img.shields.io/badge/streamlit-1.60-ff4b4b)
 ![Power BI](https://img.shields.io/badge/Power%20BI-PBIP%20%2F%20TMDL-F2C811)
@@ -378,6 +378,17 @@ divergence deliberate.
 Every mart also ends on a **total order** — one no two rows can tie on — because
 these CSVs are committed and the same query returned a different first row on
 Linux than on Windows.
+
+A total order fixes the *rows*. It does not fix the *values*: `SUM(x) OVER ()`
+is an unordered aggregate, DuckDB adds the per-thread partial sums back in
+whatever order the threads finish, and float addition is not associative. The
+same query on the same machine put a share of a grand total at
+`0.34695177092808505` one run and `0.346951770928085` the next. Nothing that
+reads the column can tell those apart and the 1e-8 gate above is six orders of
+magnitude coarser — but the data dictionary samples a real value out of a mart
+and CI diffs it, so the last two bits of a number nobody reads decided whether
+the build was green. The two places a grand total is a divisor now round at
+1e-12, and a test runs the marts twice and compares.
 
 ---
 

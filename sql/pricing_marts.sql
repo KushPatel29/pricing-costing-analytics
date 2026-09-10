@@ -176,7 +176,11 @@ SELECT
     (pocket_revenue - cogs) / NULLIF(pocket_revenue, 0)          AS gross_margin_pct,
     1 - pocket_revenue / NULLIF(list_value, 0)                   AS leakage_pct,
     pocket_revenue / NULLIF(volume_units, 0)                     AS price_unit,
-    pocket_revenue / SUM(pocket_revenue) OVER (PARTITION BY
+    -- ROUND because the divisor is an unordered SUM OVER: DuckDB adds the
+    -- per-thread partial sums in completion order, so the last two bits of
+    -- this ratio change between runs on one machine. See the note in the
+    -- Pareto mart below.
+    ROUND(pocket_revenue / SUM(pocket_revenue) OVER (PARTITION BY
         CASE
             WHEN category   <> '(all)' THEN 'category'
             WHEN brand_tier <> '(all)' THEN 'brand_tier'
@@ -184,7 +188,7 @@ SELECT
             WHEN channel    <> '(all)' THEN 'channel'
             WHEN region     <> '(all)' THEN 'region'
             ELSE 'salesperson'
-        END)                                                     AS revenue_share
+        END), 12)                                                AS revenue_share
 FROM cuts
 ORDER BY dimension, member;
 
@@ -335,10 +339,18 @@ SELECT
     -- ROWS, not the default RANGE. With RANGE, tied margins are lumped into
     -- one step and the concentration curve jumps; ROWS advances one product at
     -- a time, which is what a Pareto curve means.
-    SUM(gross_margin) OVER (
+    -- The numerator is a running total over an ordered frame and is
+    -- reproducible; the denominator is `SUM() OVER ()`, an unordered
+    -- aggregate DuckDB splits across threads and adds back in whatever order
+    -- they finish. Float addition is not associative, so the same query on
+    -- the same machine returns answers that differ in the last two bits.
+    -- Nothing that reads this column can tell 1e-12 apart -- but the data
+    -- dictionary samples a value out of the mart and CI checks it still
+    -- matches, so without the ROUND the build goes red on noise.
+    ROUND(SUM(gross_margin) OVER (
         ORDER BY gross_margin DESC, product_id
         ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
-        / NULLIF(SUM(gross_margin) OVER (), 0)                       AS running_margin_share,
+        / NULLIF(SUM(gross_margin) OVER (), 0), 12)                  AS running_margin_share,
     ROW_NUMBER() OVER (ORDER BY gross_margin DESC, product_id)
         * 1.0 / COUNT(*) OVER ()                                     AS running_product_share
 FROM by_product

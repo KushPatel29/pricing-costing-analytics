@@ -293,3 +293,48 @@ def test_the_committed_mart_is_the_one_the_sql_produces(name, marts):
                 f"sql_{name.removeprefix('mart_')}.csv is in a different order "
                 "than the SQL returns. Run: python -m engine.run_sql"
             )
+
+
+def test_the_marts_come_out_the_same_twice(marts):
+    """
+    The same query, the same data, the same machine -- and a different answer.
+
+    `SUM(x) OVER ()` is an unordered aggregate: DuckDB splits it across threads
+    and adds the partial sums back in whatever order they finish. Float
+    addition is not associative, so a share of a grand total landed on
+    0.34695177092808505 one run and 0.346951770928085 the next.
+
+    Nothing that reads those columns can tell the difference, and the check
+    that SQL agrees with Python is six orders of magnitude coarser. What
+    noticed was the data dictionary, which samples a real value out of a mart
+    and is regenerated and diffed in CI -- so the last two bits of a number
+    nobody reads decided whether the build was green. The fix is a ROUND in
+    the two places a grand total is a divisor; this is the test that would
+    have caught it.
+    """
+    again = run_sql.run(ROOT)
+    assert set(again) == set(marts)
+    unstable = []
+    for name, frame in marts.items():
+        other = again[name]
+        if frame.shape != other.shape:
+            unstable.append(f"{name}: {frame.shape} then {other.shape}")
+            continue
+        for column in frame.columns:
+            if not frame[column].equals(other[column]):
+                left = frame[column]
+                right = other[column]
+                first = next(
+                    (i for i in range(len(left))
+                     if not (left.iloc[i] == right.iloc[i]
+                             or (pd.isna(left.iloc[i]) and pd.isna(right.iloc[i])))),
+                    None,
+                )
+                unstable.append(
+                    f"{name}.{column}: row {first} was {left.iloc[first]!r} "
+                    f"then {right.iloc[first]!r}"
+                )
+    assert not unstable, (
+        "the SQL marts are not reproducible run to run -- an unordered "
+        "aggregate is reaching a stored column:\n  " + "\n  ".join(unstable)
+    )

@@ -1703,7 +1703,7 @@ Margin concentration in SQL: rank overall and within category, with the running 
 | `gross_margin_pct` | decimal | 0.2965681551782 |
 | `margin_rank` | integer | 1 |
 | `rank_in_category` | integer | 1 |
-| `running_margin_share` | decimal | 0.0443949292772817 |
+| `running_margin_share` | decimal | 0.044394929277 |
 | `running_product_share` | decimal | 0.0041666666666666 |
 
 ### `sql_monthly_trend`
@@ -1768,7 +1768,7 @@ The profitability cut, in SQL, using GROUPING SETS.
 | `gross_margin_pct` | decimal | 0.227133009706697 |
 | `leakage_pct` | decimal | 0.1829742922074448 |
 | `price_unit` | decimal | 33.62790654616354 |
-| `revenue_share` | decimal | 0.346951770928085 |
+| `revenue_share` | decimal | 0.346951770928 |
 
 ### `sql_waterfall`
 

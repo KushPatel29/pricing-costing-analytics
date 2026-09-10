@@ -82,7 +82,24 @@ jobs:
         run: python -m powerbi.build_pbip --check
 
       - name: Data dictionary matches the CSVs
-        run: python -m docs.build_dictionary --check
+        run: |
+          set -o pipefail
+          python -m docs.build_dictionary --check 2>&1 | tee dictionary.log
+
+      - name: Report the dictionary diff where it can be read
+        if: failure()
+        run: |
+          test -f dictionary.log || exit 0
+          {
+            echo "### data dictionary"
+            echo ""
+            echo '```'
+            tail -80 dictionary.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          grep -E "^[-+]\|" dictionary.log | head -n 15 | while IFS= read -r line; do
+            echo "::error::${line}"
+          done
 
       # Parsing is not running. Every view is also executed headlessly by
       # tests/test_app_views_render.py, which is the step that catches a

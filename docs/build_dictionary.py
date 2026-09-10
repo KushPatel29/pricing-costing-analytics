@@ -16,6 +16,7 @@ Usage::
 from __future__ import annotations
 
 import argparse
+import difflib
 import sys
 from pathlib import Path
 
@@ -334,9 +335,21 @@ def main(argv: list[str] | None = None) -> int:
             print(f"{TARGET} does not exist. Run: python -m docs.build_dictionary",
                   file=sys.stderr)
             return 1
-        if TARGET.read_text(encoding="utf-8") != content:
+        committed = TARGET.read_text(encoding="utf-8")
+        if committed != content:
+            # Print the diff, not just the verdict. "Out of date" is fine when
+            # you can run the command yourself; it is useless when the failure
+            # is in CI on another operating system and the log needs
+            # credentials to read. The lines themselves say whether this is a
+            # real change or a float that formatted differently.
             print("docs/DATA_DICTIONARY.md is out of date.\n"
-                  "run: python -m docs.build_dictionary", file=sys.stderr)
+                  "run: python -m docs.build_dictionary\n", file=sys.stderr)
+            diff = difflib.unified_diff(
+                committed.splitlines(), content.splitlines(),
+                fromfile="committed", tofile="regenerated", lineterm="", n=1,
+            )
+            for line in list(diff)[:60]:
+                print(line, file=sys.stderr)
             return 1
         print("data dictionary matches the CSVs")
         return 0

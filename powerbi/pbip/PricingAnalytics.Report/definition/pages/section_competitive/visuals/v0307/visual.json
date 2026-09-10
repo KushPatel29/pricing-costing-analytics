@@ -28,6 +28,7 @@
               },
               "queryRef": "passthrough.commodity_index",
               "nativeQueryRef": "commodity_index",
+              "displayName": "Commodity index",
               "active": true
             }
           ]

@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 764" width="1280" height="764" role="img" aria-label="Layout of the Cost elements page: 10 visuals on a 1280 by 720 canvas">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 764" width="1280" height="764" role="img" aria-label="Layout of the Cost elements page: 9 visuals on a 1280 by 720 canvas">
   <rect width="1280" height="764" fill="#0c0c0f"/>
   <text x="20" y="27" fill="#f2f2f4" font-size="15" font-weight="700">Cost elements</text>
-  <text x="1260" y="27" fill="#7d7d85" font-size="11.5" text-anchor="end">page 14 of 19 · 10 visuals · bar, card, slicer, table, waterfall</text>
+  <text x="1260" y="27" fill="#7d7d85" font-size="11.5" text-anchor="end">page 14 of 19 · 9 visuals · bar, card, slicer, table, waterfall</text>
   <g transform="translate(0 44)">
   <g><rect x="20" y="20" width="300" height="118" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
   <rect x="20" y="20" width="4" height="118" rx="2" fill="#3987e5"/>
@@ -36,10 +36,10 @@
   </g>
   <g><rect x="20" y="442" width="620" height="258" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
   <rect x="20" y="442" width="4" height="258" rx="2" fill="#c98500"/>
-  <text x="34" y="463" fill="#f2f2f4" font-size="12.5" font-weight="600">By element, on whichever measure</text>
+  <text x="34" y="463" fill="#f2f2f4" font-size="12.5" font-weight="600">Variance by element</text>
   <text x="34" y="479" fill="#c98500" font-size="10.5" letter-spacing="0.06em">BAR</text>
   <text x="34" y="497" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">cost_element_summary[cost_element]</text>
-  <text x="34" y="512" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">CostMetric[Cost metric Fields]</text>
+  <text x="34" y="512" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">[Cost element variance]</text>
   </g>
   <g><rect x="654" y="442" width="410" height="258" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
   <rect x="654" y="442" width="4" height="258" rx="2" fill="#7d7d85"/>
@@ -52,15 +52,9 @@
   </g>
   <g><rect x="1068" y="442" width="192" height="76" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
   <rect x="1068" y="442" width="4" height="76" rx="2" fill="#d55181"/>
-  <text x="1082" y="463" fill="#f2f2f4" font-size="12.5" font-weight="600">Metric</text>
+  <text x="1082" y="463" fill="#f2f2f4" font-size="12.5" font-weight="600">Behaviour</text>
   <text x="1082" y="479" fill="#d55181" font-size="10.5" letter-spacing="0.06em">SLICER</text>
-  <text x="1082" y="497" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">CostMetric[Cost metric]</text>
-  </g>
-  <g><rect x="1068" y="614" width="192" height="76" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
-  <rect x="1068" y="614" width="4" height="76" rx="2" fill="#d55181"/>
-  <text x="1082" y="635" fill="#f2f2f4" font-size="12.5" font-weight="600">Behaviour</text>
-  <text x="1082" y="651" fill="#d55181" font-size="10.5" letter-spacing="0.06em">SLICER</text>
-  <text x="1082" y="669" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">cost_element_summary[behaviour]</text>
+  <text x="1082" y="497" fill="#a6a6ad" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">cost_element_summary[behaviour]</text>
   </g>
   <g><rect x="1068" y="528" width="192" height="76" rx="8" fill="#141416" stroke="#2c2c31" stroke-width="1"/>
   <rect x="1068" y="528" width="4" height="76" rx="2" fill="#d55181"/>

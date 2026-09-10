@@ -28,6 +28,7 @@
               },
               "queryRef": "wtp_curve.price_ratio",
               "nativeQueryRef": "price_ratio",
+              "displayName": "Price ratio",
               "active": true
             }
           ]
@@ -65,6 +66,7 @@
               },
               "queryRef": "wtp_curve.segment",
               "nativeQueryRef": "segment",
+              "displayName": "Segment",
               "active": true
             }
           ]

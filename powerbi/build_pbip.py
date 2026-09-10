@@ -42,6 +42,7 @@ from powerbi.model_spec import (
     FIELD_PARAMETERS,
     MEASURES,
     RELATIONSHIPS,
+    SORT_BY,
     TABLES,
     WHATIF_PARAMETERS,
 )
@@ -66,6 +67,7 @@ SCHEMA = {
     "pbip": "https://developer.microsoft.com/json-schemas/fabric/pbip/pbipProperties/1.0.0/schema.json",
     "platform": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
     "pbism": "https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/definitionProperties/1.0.0/schema.json",
+    "pbir": "https://developer.microsoft.com/json-schemas/fabric/item/report/definitionProperties/1.0.0/schema.json",
     "report": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
     "version": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/versionMetadata/1.0.0/schema.json",
     "pages": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
@@ -101,6 +103,13 @@ FORMAT_RULES: tuple[tuple[tuple[str, ...], str], ...] = (
 # These are identifiers that happen to be numeric. Summing a product code is
 # never what anyone meant.
 ID_SUFFIXES = ("_id", "_code", "_index", "_order")
+
+# Ordering keys. They must stay *numeric*: a sort column read as text sorts
+# lexicographically, so a fourteen-step waterfall ordered by `sort_order` came
+# out 0, 1, 10, 11, 12, 13, 2, 3 -- with the closing subtotals in the middle
+# and no error anywhere. They still summarise to nothing; that is a separate
+# rule below.
+SORT_SUFFIXES = ("_order", "_rank")
 
 
 def format_for(column: str, dtype: str) -> str:
@@ -141,12 +150,14 @@ def infer_columns(path: Path) -> list[dict]:
 
         # Ids are read as text so a code with a leading zero survives, and so
         # nothing offers to sum them.
-        if any(name.lower().endswith(s) for s in ID_SUFFIXES) and name != "month_index":
-            if not name.endswith("_index") or name == "sort_order":
+        is_sort_key = any(name.lower().endswith(s) for s in SORT_SUFFIXES)
+        if (any(name.lower().endswith(s) for s in ID_SUFFIXES)
+                and name != "month_index" and not is_sort_key):
+            if not name.endswith("_index"):
                 dtype, m_type = "string", "type text"
 
         summarize = "none" if dtype in ("string", "dateTime", "boolean") else "sum"
-        if any(name.lower().endswith(s) for s in ID_SUFFIXES):
+        if any(name.lower().endswith(s) for s in (*ID_SUFFIXES, *SORT_SUFFIXES)):
             summarize = "none"
         columns.append(
             {"name": name, "dataType": dtype, "mType": m_type,
@@ -169,10 +180,13 @@ def table_tmdl(name: str, meta: dict, columns: list[dict]) -> str:
         lines.append(f"\t\tlineageTag: {tag('column', name, column['name'])}")
         lines.append(f"\t\tsummarizeBy: {column['summarizeBy']}")
         lines.append(f"\t\tsourceColumn: {column['name']}")
-        if name == "dim_month" and column["name"] in ("month_name", "fiscal_quarter"):
-            # Without this, "Apr 2025" sorts before "Aug 2024" on every axis in
-            # the report, and nothing about the chart says it is alphabetical.
-            lines.append("\t\tsortByColumn: month_index")
+        sort_column = SORT_BY.get(name, {}).get(column["name"])
+        if sort_column:
+            # Without this a text column sorts alphabetically on every axis in
+            # the report, and nothing about the chart says so: "Apr 2025"
+            # before "Aug 2024", a waterfall with its opening bar in the
+            # middle, a traffic light reading amber, green, red.
+            lines.append(f"\t\tsortByColumn: {sort_column}")
         lines.append("")
 
     types = ", ".join(f'{{"{c["name"]}", {c["mType"]}}}' for c in columns)
@@ -213,6 +227,11 @@ def measures_tmdl() -> str:
     # the field list at all.
     lines += [
         "\tcolumn _placeholder",
+        # dataType is not optional on a column fed by an M partition. Without
+        # it the column loads as type Empty, which Power BI allows only on a
+        # calculated column, and it refuses the entire project on open:
+        # "The column '_Measures[_placeholder]' cannot be of type Empty".
+        "\t\tdataType: int64",
         "\t\tisHidden",
         "\t\tformatString: 0",
         f"\t\tlineageTag: {tag('column', '_Measures', '_placeholder')}",
@@ -288,12 +307,15 @@ def field_parameter_tmdl(table: str, column: str,
         f"table {table}",
         f"\tlineageTag: {tag('table', table)}",
         "",
+        # sourceColumn is Value1/Value2/Value3, NOT the display name. A DAX
+        # table constructor names its columns that way, and declaring them
+        # against the display names is what made both pages that used a field
+        # parameter render "Something's wrong with one or more fields".
         f"\tcolumn '{column}'",
         "\t\tdataType: string",
-        "\t\tisNameInferred",
         f"\t\tlineageTag: {tag('column', table, column)}",
         "\t\tsummarizeBy: none",
-        f"\t\tsourceColumn: [{column}]",
+        "\t\tsourceColumn: [Value1]",
         f"\t\tsortByColumn: '{column} Order'",
         "",
         "\t\tannotation SummarizationSetBy = Automatic",
@@ -301,10 +323,9 @@ def field_parameter_tmdl(table: str, column: str,
         f"\tcolumn '{column} Fields'",
         "\t\tdataType: string",
         "\t\tisHidden",
-        "\t\tisNameInferred",
         f"\t\tlineageTag: {tag('column', table, column + ' Fields')}",
         "\t\tsummarizeBy: none",
-        f"\t\tsourceColumn: [{column} Fields]",
+        "\t\tsourceColumn: [Value2]",
         "",
         "\t\textendedProperty ParameterMetadata =",
         "\t\t\t\t{",
@@ -317,11 +338,10 @@ def field_parameter_tmdl(table: str, column: str,
         f"\tcolumn '{column} Order'",
         "\t\tdataType: int64",
         "\t\tisHidden",
-        "\t\tisNameInferred",
         "\t\tformatString: 0",
         f"\t\tlineageTag: {tag('column', table, column + ' Order')}",
         "\t\tsummarizeBy: sum",
-        f"\t\tsourceColumn: [{column} Order]",
+        "\t\tsourceColumn: [Value3]",
         "",
         "\t\tannotation SummarizationSetBy = Automatic",
         "",
@@ -421,9 +441,55 @@ def field_expr(reference: str) -> tuple[dict, str, str]:
     )
 
 
+# Tokens that are not words. Sentence-casing "sku" gives "Sku", which reads
+# as a typo rather than as an abbreviation.
+LABEL_TOKENS = {
+    "pct": "%", "id": "ID", "sku": "SKU", "wtp": "WTP", "cogs": "COGS",
+    "uom": "UoM", "moq": "MOQ", "yoy": "YoY", "asp": "ASP", "roi": "ROI",
+    "wape": "WAPE", "mape": "MAPE", "rag": "RAG", "erp": "ERP", "qty": "Qty",
+    "a": "A", "b": "B",
+}
+
+# Where sentence case is right but the source name carries a word that only
+# meant something to the pipeline.
+LABEL_OVERRIDES = {
+    "fiscal_year_label": "Fiscal year",
+    "category_a": "Category A",
+    "month_name": "Month",
+}
+
+
+def display_name(column: str) -> str:
+    """
+    The label a column wears in a visual.
+
+    A model built from CSVs inherits their spelling, and `customer_name` on a
+    table header is the clearest sign that nobody looked at the report. This
+    is applied per projection rather than by renaming the column, because the
+    column name is also what DAX, the relationships and every `sortByColumn`
+    refer to.
+    """
+    if column in LABEL_OVERRIDES:
+        return LABEL_OVERRIDES[column]
+    # Already a display name: the what-if parameter columns are written by
+    # hand ("Price change %") and re-casing them would only damage them.
+    if " " in column or any(c.isupper() for c in column):
+        return column
+    words = [LABEL_TOKENS.get(w, w) for w in column.split("_")]
+    first, rest = words[0], words[1:]
+    first = first if first in LABEL_TOKENS.values() else first.capitalize()
+    return " ".join([first, *rest]).strip()
+
+
 def projection(reference: str, *, active: bool = False) -> dict:
     expression, query_ref, native = field_expr(reference)
     out = {"field": expression, "queryRef": query_ref, "nativeQueryRef": native}
+    if not reference.strip().startswith("["):
+        # Columns only. A measure is already named by hand, and an override
+        # that repeats the name is a second place to keep in step.
+        label = display_name(reference.split("[", 1)[1].rstrip("]"))
+        if label != native:
+            out["displayName"] = label
     if active:
         out["active"] = True
     return out
@@ -462,6 +528,13 @@ def visual_json(spec: dict, index: int) -> dict:
         query_state["Y"] = {"projections": [projection(f) for f in spec["y"]]}
         if spec.get("size"):
             query_state["Size"] = {"projections": [projection(spec["size"])]}
+    elif kind == "treemap":
+        # Group and Values, not Category and Y. A treemap given the cartesian
+        # role names binds nothing and draws an empty box with a title on it --
+        # no error, no warning, and it passes every structural check because
+        # the fields it names all exist.
+        query_state["Group"] = {"projections": [projection(spec["x"], active=True)]}
+        query_state["Values"] = {"projections": [projection(f) for f in spec["y"]]}
     else:
         query_state["Category"] = {"projections": [projection(spec["x"], active=True)]}
         query_state["Y"] = {"projections": [projection(f) for f in spec["y"]]}
@@ -493,9 +566,26 @@ def visual_json(spec: dict, index: int) -> dict:
         objects["data"] = [{"properties": {"mode": literal("Dropdown")}}]
         objects["items"] = [{"properties": {"textSize": literal(10)}}]
 
+    query: dict = {"queryState": query_state}
+    if spec.get("sort"):
+        # A waterfall, a traffic light and a banded cross-tab all mean their
+        # own order, not the order of their values. `sortByColumn` in the model
+        # is necessary and not sufficient: it decides how the *column* sorts,
+        # while the visual keeps sorting by its measure until this says
+        # otherwise. Both are needed, and only one of them is visible in TMDL.
+        field, direction = spec["sort"]
+        expression, _ref, _native = field_expr(field)
+        # The sort field is the bare query expression, not the `{"expr": ...}`
+        # wrapper a formatting property takes. The schema catches the
+        # difference; Desktop would have ignored the sort silently.
+        query["sortDefinition"] = {
+            "sort": [{"field": expression, "direction": direction}],
+            "isDefaultSort": False,
+        }
+
     body: dict = {
         "visualType": visual_type,
-        "query": {"queryState": query_state},
+        "query": query,
         "drillFilterOtherVisuals": True,
         "visualContainerObjects": container_objects,
     }
@@ -623,8 +713,17 @@ def theme_json() -> dict:
                 "*": {
                     "background": [{"show": True, "color": {"solid": {"color": SURFACE}},
                                     "transparency": 0}],
-                    "items": [{"fontColor": {"solid": {"color": INK_2}},
-                               "background": {"solid": {"color": "#1b1b20"}}}],
+                    # `items` styles the list rows; a dropdown slicer draws its
+                    # closed control from these instead, which is why every
+                    # slicer came out white on a dark page.
+                    "items": [{"fontColor": {"solid": {"color": INK}},
+                               "background": {"solid": {"color": "#1b1b20"}},
+                               "outlineColor": {"solid": {"color": HAIRLINE}}}],
+                    # Off. It prints the *field* name under a visual title
+                    # that already names the filter, and the two stacked leave
+                    # a 76px slicer with its dropdown hanging off the bottom.
+                    "header": [{"show": False}],
+                    "selection": [{"strokeColor": {"solid": {"color": SERIES[0]}}}],
                 }
             },
         },
@@ -754,6 +853,16 @@ def build(out_dir: Path, data_root: Path) -> dict[str, int]:
         },
     })
     write_json(report_dir / "StaticResources" / "RegisteredResources" / THEME, theme_json())
+    # definition.pbir binds the report to its semantic model, and the schema
+    # calls it "required" in as many words. Without it Power BI Desktop refuses
+    # the whole project on open -- "Required artifact is missing" -- and every
+    # other check in this repo passed while it was absent, because they all
+    # validate the files that ARE there. Nothing had opened the project.
+    write_json(report_dir / "definition.pbir", {
+        "$schema": SCHEMA["pbir"],
+        "version": "4.0",
+        "datasetReference": {"byPath": {"path": f"../{PROJECT}.SemanticModel"}},
+    })
     write_json(report_dir / ".platform", {
         "$schema": SCHEMA["platform"],
         "metadata": {"type": "Report", "displayName": PROJECT},

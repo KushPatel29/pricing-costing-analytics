@@ -28,6 +28,7 @@
               },
               "queryRef": "margin_bridge_effects.comparison",
               "nativeQueryRef": "comparison",
+              "displayName": "Comparison",
               "active": true
             }
           ]

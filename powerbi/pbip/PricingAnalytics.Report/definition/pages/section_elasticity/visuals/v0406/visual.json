@@ -28,6 +28,7 @@
               },
               "queryRef": "price_response_curve.price_change_pct",
               "nativeQueryRef": "price_change_pct",
+              "displayName": "Price change %",
               "active": true
             }
           ]

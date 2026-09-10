@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "guardrail_summary.code",
-              "nativeQueryRef": "code"
+              "nativeQueryRef": "code",
+              "displayName": "Code"
             },
             {
               "field": {
@@ -69,7 +70,8 @@
                 }
               },
               "queryRef": "guardrail_summary.action",
-              "nativeQueryRef": "action"
+              "nativeQueryRef": "action",
+              "displayName": "Action"
             }
           ]
         }

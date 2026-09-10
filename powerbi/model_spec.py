@@ -101,6 +101,37 @@ TABLES: dict[str, dict] = {
 }
 
 # --------------------------------------------------------------------------
+# Ordered categoricals, and the column that orders them.
+#
+# A text column on an axis sorts alphabetically. That is invisible in a test
+# and obvious the moment the report is opened: the price waterfall came out
+# "Contract discount, Co-op marketing, Cost of goods, ... List value ..." with
+# the opening bar seventh, and the red/amber/green chart read "Amber, Green,
+# Red". Neither is wrong so much as meaningless.
+#
+# Every entry here is a column whose *order carries meaning* -- a sequence of
+# steps, a severity, a band. A column whose members have no natural order is
+# not in this map and sorts alphabetically on purpose.
+# --------------------------------------------------------------------------
+
+SORT_BY: dict[str, dict[str, str]] = {
+    "dim_month": {"month_name": "month_index", "fiscal_quarter": "month_index"},
+    "price_waterfall": {"step": "sort_order"},
+    "cost_element_waterfall": {"step": "sort_order"},
+    "reconciliation": {"line": "sort_order"},
+    "margin_bridge_steps": {"label": "sort_order"},
+    "guardrail_exceptions": {"alert": "alert_rank"},
+    "guardrail_summary": {"alert": "alert_rank", "code": "severity"},
+    "data_quality_checks": {"severity": "severity_rank"},
+    "recommendation_summary": {"action": "sort_order"},
+    "discount_margin_matrix": {"discount_band": "discount_band_order",
+                               "margin_band": "margin_band_order"},
+    "scenario_tornado": {"input": "share_of_swing"},
+    "forecast_accuracy": {"method": "rank"},
+}
+
+
+# --------------------------------------------------------------------------
 # Relationships. All single-direction many-to-one, which is the only kind that
 # cannot create an ambiguous filter path in a star.
 # --------------------------------------------------------------------------
@@ -231,8 +262,17 @@ WHATIF_PARAMETERS: tuple[tuple[str, str, float, float, float, str, str], ...] = 
 )
 
 
+# Field parameters are NOT here, and the absence is deliberate. A calculated
+# table of NAMEOF() references is easy to write and the report loads it, but
+# Power BI would not bind it: the two visuals that used one rendered
+# "Something's wrong with one or more fields", and once the column names were
+# corrected to Value1/Value2/Value3, "Can't determine relationships between the
+# fields". Desktop appears to need to create the parameter itself. The charts
+# that wanted one bind their measure directly, which works, and this comment is
+# here so the idea is not re-attempted from scratch.
+#
 # --------------------------------------------------------------------------
-# Field parameters. (table, column, ((label, measure), ...))
+# (removed) Field parameters. (table, column, ((label, measure), ...))
 #
 # A field parameter is a calculated table of NAMEOF() references. Dropped into
 # a visual's value well it does not show text -- Power BI substitutes whichever
@@ -246,21 +286,7 @@ WHATIF_PARAMETERS: tuple[tuple[str, str, float, float, float, str, str], ...] = 
 # it. `build_pbip.field_parameter_tmdl` writes it, and a test asserts it.
 # --------------------------------------------------------------------------
 
-FIELD_PARAMETERS: tuple[tuple[str, str, tuple[tuple[str, str], ...]], ...] = (
-    ("ProfitMetric", "Profit metric", (
-        ("Pocket revenue", "Profitability revenue"),
-        ("Margin $", "Profitability margin $"),
-        ("Margin %", "Profitability margin %"),
-        ("Operating margin %", "Profitability operating margin %"),
-        ("Leakage %", "Profitability leakage %"),
-    )),
-    ("CostMetric", "Cost metric", (
-        ("Standard cost", "Standard cost"),
-        ("Actual cost", "Actual cost"),
-        ("Variance", "Cost element variance"),
-        ("Variance %", "Cost element variance %"),
-    )),
-)
+FIELD_PARAMETERS: tuple[tuple[str, str, tuple[tuple[str, str], ...]], ...] = ()
 
 
 def field_parameter_columns() -> dict[str, set[str]]:

@@ -20,14 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CostMetric"
+                      "Entity": "cost_element_summary"
                     }
                   },
-                  "Property": "Cost metric"
+                  "Property": "behaviour"
                 }
               },
-              "queryRef": "CostMetric.Cost metric",
-              "nativeQueryRef": "Cost metric",
+              "queryRef": "cost_element_summary.behaviour",
+              "nativeQueryRef": "behaviour",
+              "displayName": "Behaviour",
               "active": true
             }
           ]
@@ -42,7 +43,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Metric'"
+                  "Value": "'Behaviour'"
                 }
               }
             },
@@ -62,7 +63,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Slicer. Chooses the Cost metric the element chart shows: standard cost, actual cost, the variance, or the variance as a percent.'"
+                  "Value": "'Slicer. Filters by cost behaviour: variable or fixed.'"
                 }
               }
             }

@@ -28,6 +28,7 @@
               },
               "queryRef": "data_quality_checks.dimension",
               "nativeQueryRef": "dimension",
+              "displayName": "Dimension",
               "active": true
             }
           ]

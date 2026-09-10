@@ -28,6 +28,7 @@
               },
               "queryRef": "dim_customer.segment",
               "nativeQueryRef": "segment",
+              "displayName": "Segment",
               "active": true
             }
           ]

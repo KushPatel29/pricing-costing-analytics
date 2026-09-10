@@ -342,6 +342,8 @@ def summarise(recommendations: Sequence[Mapping[str, Any]]) -> list[dict[str, An
         entry["revenue_delta"] += safe_float(row.get("revenue_delta"), 0.0)
         entry["margin_delta"] += safe_float(row.get("margin_delta"), 0.0)
     order = {name: i for i, name in enumerate(ACTIONS)}
+    for entry in buckets.values():
+        entry["sort_order"] = order.get(entry["action"], len(ACTIONS))
     return sorted(buckets.values(), key=lambda r: order.get(r["action"], 99))
 
 

@@ -373,9 +373,12 @@ def build_customers(rng: np.random.Generator, n: int) -> pd.DataFrame:
     prefixes = ("Cedar", "Harbour", "Granville", "Kitsilano", "Mount", "Fraser", "Salish",
                 "Okanagan", "Selkirk", "Burrard", "Chilcotin", "Sunshine", "Stanley",
                 "Kootenay", "Alder", "Juniper", "Marine", "Coastal", "Riverside", "Summit")
-    suffixes = ("Bistro", "Kitchen Group", "Provisions", "Market", "Hospitality",
-                "Grill House", "Larder", "Trading Co", "Foods", "Table", "Butchery",
-                "Fine Foods", "Catering", "Public House", "Supply")
+    # One suffix per kind of buyer in SEGMENTS: marketplace sellers, e-commerce,
+    # independent retailers, regional chains, corporate and B2B, government and
+    # education, sub-distributors, subscription boxes.
+    suffixes = ("Trading Co", "Supply", "Wholesale", "Distribution", "Retail Group",
+                "Commerce", "Merchants", "Logistics", "Outfitters", "Marketplace",
+                "Import Co", "Procurement", "Depot", "Direct", "Ventures")
     rows = []
     used: set[str] = set()
     for i in range(n):

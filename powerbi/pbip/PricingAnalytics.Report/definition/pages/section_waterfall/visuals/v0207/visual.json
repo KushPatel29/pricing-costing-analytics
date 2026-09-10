@@ -28,6 +28,7 @@
               },
               "queryRef": "leakage_by_dimension.member",
               "nativeQueryRef": "member",
+              "displayName": "Member",
               "active": true
             }
           ]

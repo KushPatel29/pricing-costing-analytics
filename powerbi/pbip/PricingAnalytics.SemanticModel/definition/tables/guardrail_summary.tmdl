@@ -6,6 +6,7 @@ table guardrail_summary
 		lineageTag: f2074fd5-ba55-5c6c-a831-222a13ef4d10
 		summarizeBy: none
 		sourceColumn: code
+		sortByColumn: severity
 
 	column count
 		dataType: int64
@@ -33,6 +34,14 @@ table guardrail_summary
 		lineageTag: 914b7524-1d2b-59fe-9d5c-125726fc845a
 		summarizeBy: none
 		sourceColumn: alert
+		sortByColumn: alert_rank
+
+	column alert_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 301ecfbb-b7d1-5a80-978a-d8d933aec730
+		summarizeBy: none
+		sourceColumn: alert_rank
 
 	column action
 		dataType: string
@@ -46,6 +55,6 @@ table guardrail_summary
 				let
 				    Source = Csv.Document(File.Contents(DataPath & "\output\guardrail_summary.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				    Typed = Table.TransformColumnTypes(Promoted, {{"code", type text}, {"count", Int64.Type}, {"margin_at_risk", type number}, {"severity", Int64.Type}, {"alert", type text}, {"action", type text}})
+				    Typed = Table.TransformColumnTypes(Promoted, {{"code", type text}, {"count", Int64.Type}, {"margin_at_risk", type number}, {"severity", Int64.Type}, {"alert", type text}, {"alert_rank", Int64.Type}, {"action", type text}})
 				in
 				    Typed

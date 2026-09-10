@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "price_list_coverage.review_cadence",
-              "nativeQueryRef": "review_cadence"
+              "nativeQueryRef": "review_cadence",
+              "displayName": "Review cadence"
             },
             {
               "field": {

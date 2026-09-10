@@ -28,6 +28,7 @@
               },
               "queryRef": "recommendation_summary.action",
               "nativeQueryRef": "action",
+              "displayName": "Action",
               "active": true
             }
           ]

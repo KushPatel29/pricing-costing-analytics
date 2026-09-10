@@ -28,6 +28,7 @@
               },
               "queryRef": "guardrail_exceptions.alert",
               "nativeQueryRef": "alert",
+              "displayName": "Alert",
               "active": true
             }
           ]
@@ -50,6 +51,24 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "guardrail_exceptions"
+                  }
+                },
+                "Property": "alert"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": false
       }
     },
     "drillFilterOtherVisuals": true,

@@ -26,10 +26,10 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
+from powerbi.build_pbip import display_name
 from powerbi.model_spec import (
     MEASURES,
     TABLES,
-    field_parameter_columns,
     whatif_columns,
 )
 from powerbi.report_spec import PAGES, VISUAL_TYPES
@@ -70,7 +70,6 @@ def source_columns() -> dict[str, set[str]]:
         for name, meta in TABLES.items()
     }
     out.update(whatif_columns())
-    out.update(field_parameter_columns())
     return out
 
 
@@ -129,6 +128,32 @@ def test_query_refs_agree_with_the_field_they_describe(path):
             native = field["Column"]["Property"]
         assert projection["queryRef"] == expected, f"{role}: queryRef disagrees"
         assert projection["nativeQueryRef"] == native, f"{role}: nativeQueryRef disagrees"
+
+
+@pytest.mark.parametrize("path", VISUAL_CASES)
+def test_every_bound_column_carries_a_readable_label(path):
+    """
+    A column arrives in the model spelled the way the CSV spelled it, and that
+    is the name a visual shows: opening the report showed table headers reading
+    ``customer_name`` and ``cost_element``, and slicers titled "Fiscal year"
+    sitting over a field called ``fiscal_year_label``.
+
+    Measures are exempt -- they are named by hand and a ``displayName`` that
+    repeats the name is one more thing to keep in step.
+    """
+    visual = json.loads(path.read_text(encoding="utf-8"))
+    unlabelled = []
+    for role, projection in _projections(visual):
+        if "Column" not in projection["field"]:
+            continue
+        column = projection["field"]["Column"]["Property"]
+        label = projection.get("displayName", column)
+        if label != display_name(column):
+            unlabelled.append(f"{role}: {column} shows as {label!r}")
+    assert not unlabelled, (
+        f"{path.parent.name} shows a source column name:\n  "
+        + "\n  ".join(unlabelled)
+    )
 
 
 @pytest.mark.parametrize("path", VISUAL_CASES)

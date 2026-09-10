@@ -28,6 +28,7 @@
               },
               "queryRef": "dim_month.month_name",
               "nativeQueryRef": "month_name",
+              "displayName": "Month",
               "active": true
             }
           ]

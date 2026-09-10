@@ -28,6 +28,7 @@
               },
               "queryRef": "bundle_candidates.bundle_id",
               "nativeQueryRef": "bundle_id",
+              "displayName": "Bundle ID",
               "active": true
             }
           ]

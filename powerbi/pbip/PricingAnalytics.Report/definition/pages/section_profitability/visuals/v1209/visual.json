@@ -20,14 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ProfitMetric"
+                      "Entity": "profitability"
                     }
                   },
-                  "Property": "Profit metric"
+                  "Property": "dimension"
                 }
               },
-              "queryRef": "ProfitMetric.Profit metric",
-              "nativeQueryRef": "Profit metric",
+              "queryRef": "profitability.dimension",
+              "nativeQueryRef": "dimension",
+              "displayName": "Dimension",
               "active": true
             }
           ]
@@ -42,7 +43,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Metric'"
+                  "Value": "'Cut by'"
                 }
               }
             },
@@ -62,7 +63,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Slicer. Chooses the Profit metric the bar chart shows: revenue, margin in dollars, margin %, operating margin % or leakage %.'"
+                  "Value": "'Slicer. Chooses the dimension every member on this page is cut by: product, customer, region, channel, segment or salesperson.'"
                 }
               }
             }

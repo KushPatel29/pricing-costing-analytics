@@ -374,4 +374,9 @@ def reconciliation_rows(result: Mapping[str, Any]) -> pd.DataFrame:
                  "running": running})
     rows.append({"line": "Staged total", "amount": result["staged_total"],
                  "running": float(result["staged_total"])})
+    # A statement reads top to bottom; a chart axis sorts alphabetically unless
+    # a sort key says otherwise, which puts "Extract total" after "Duplicate
+    # billing lines" and makes the waterfall nonsense.
+    for order, row in enumerate(rows):
+        row["sort_order"] = order
     return pd.DataFrame(waterfall.add_deltas(rows))

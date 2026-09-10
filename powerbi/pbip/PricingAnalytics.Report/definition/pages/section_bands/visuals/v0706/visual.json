@@ -28,6 +28,7 @@
               },
               "queryRef": "price_bands.description",
               "nativeQueryRef": "description",
+              "displayName": "Description",
               "active": true
             }
           ]

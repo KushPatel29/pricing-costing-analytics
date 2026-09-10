@@ -28,6 +28,7 @@
               },
               "queryRef": "break_even_curve.quantity",
               "nativeQueryRef": "quantity",
+              "displayName": "Quantity",
               "active": true
             }
           ]

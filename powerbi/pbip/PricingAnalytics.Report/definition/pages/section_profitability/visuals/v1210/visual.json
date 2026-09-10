@@ -20,14 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "profitability"
+                      "Entity": "profit_heatmap"
                     }
                   },
-                  "Property": "dimension"
+                  "Property": "segment"
                 }
               },
-              "queryRef": "profitability.dimension",
-              "nativeQueryRef": "dimension",
+              "queryRef": "profit_heatmap.segment",
+              "nativeQueryRef": "segment",
+              "displayName": "Segment",
               "active": true
             }
           ]
@@ -42,7 +43,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Cut by'"
+                  "Value": "'Segment'"
                 }
               }
             },
@@ -62,7 +63,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Slicer. Chooses the dimension every member on this page is cut by: product, customer, region, channel, segment or salesperson.'"
+                  "Value": "'Slicer. Filters the segment and category grid by segment.'"
                 }
               }
             }

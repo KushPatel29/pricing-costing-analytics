@@ -28,6 +28,7 @@
               },
               "queryRef": "segment_profile.dimension",
               "nativeQueryRef": "dimension",
+              "displayName": "Dimension",
               "active": true
             }
           ]

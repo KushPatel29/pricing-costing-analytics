@@ -28,6 +28,7 @@
               },
               "queryRef": "price_waterfall.step",
               "nativeQueryRef": "step",
+              "displayName": "Step",
               "active": true
             }
           ]
@@ -50,6 +51,24 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "price_waterfall"
+                  }
+                },
+                "Property": "step"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": false
       }
     },
     "drillFilterOtherVisuals": true,

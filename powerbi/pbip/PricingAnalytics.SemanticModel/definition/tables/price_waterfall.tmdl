@@ -24,6 +24,7 @@ table price_waterfall
 		lineageTag: 72a3d418-2572-53df-9c6f-5087b77dbe94
 		summarizeBy: none
 		sourceColumn: step
+		sortByColumn: sort_order
 
 	column kind
 		dataType: string
@@ -52,7 +53,8 @@ table price_waterfall
 		sourceColumn: bucket
 
 	column sort_order
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: 88f0a2d8-8fdc-5e5b-bad5-88f611995991
 		summarizeBy: none
 		sourceColumn: sort_order
@@ -70,6 +72,6 @@ table price_waterfall
 				let
 				    Source = Csv.Document(File.Contents(DataPath & "\output\price_waterfall.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				    Typed = Table.TransformColumnTypes(Promoted, {{"scope", type text}, {"dimension", type text}, {"member", type text}, {"step", type text}, {"kind", type text}, {"amount", type number}, {"running", type number}, {"bucket", type text}, {"sort_order", type text}, {"delta", type number}})
+				    Typed = Table.TransformColumnTypes(Promoted, {{"scope", type text}, {"dimension", type text}, {"member", type text}, {"step", type text}, {"kind", type text}, {"amount", type number}, {"running", type number}, {"bucket", type text}, {"sort_order", Int64.Type}, {"delta", type number}})
 				in
 				    Typed

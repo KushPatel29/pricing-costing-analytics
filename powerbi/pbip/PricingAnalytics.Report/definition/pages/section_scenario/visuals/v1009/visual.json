@@ -28,6 +28,7 @@
               },
               "queryRef": "scenario_three_point.scenario",
               "nativeQueryRef": "scenario",
+              "displayName": "Scenario",
               "active": true
             }
           ]

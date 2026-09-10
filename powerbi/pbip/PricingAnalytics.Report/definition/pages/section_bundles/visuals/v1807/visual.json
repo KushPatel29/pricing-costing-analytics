@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "bundle_candidates.name_a",
-              "nativeQueryRef": "name_a"
+              "nativeQueryRef": "name_a",
+              "displayName": "Name A"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "bundle_candidates.name_b",
-              "nativeQueryRef": "name_b"
+              "nativeQueryRef": "name_b",
+              "displayName": "Name B"
             },
             {
               "field": {
@@ -111,7 +113,8 @@
                 }
               },
               "queryRef": "bundle_candidates.verdict",
-              "nativeQueryRef": "verdict"
+              "nativeQueryRef": "verdict",
+              "displayName": "Verdict"
             }
           ]
         }

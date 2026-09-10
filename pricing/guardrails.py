@@ -187,6 +187,9 @@ ALERT_LEVELS: dict[int, str] = {
     6: "Green", 7: "Green",
 }
 ALERT_ORDER: tuple[str, ...] = ("Red", "Amber", "Green")
+# A rank, because a chart axis sorts text alphabetically and "Amber, Green,
+# Red" is not a traffic light.
+ALERT_RANK: dict[str, int] = {name: i for i, name in enumerate(ALERT_ORDER)}
 
 
 def alert_level(severity: int) -> str:
@@ -269,6 +272,7 @@ def scan_exceptions(
                     "code": code,
                     "severity": severity,
                     "alert": alert_level(severity),
+                    "alert_rank": ALERT_RANK[alert_level(severity)],
                     "product_id": row.get("product_id"),
                     "customer_id": row.get("customer_id"),
                     "description": row.get("description"),
@@ -291,6 +295,8 @@ def exception_summary(findings: Sequence[Mapping[str, Any]]) -> list[dict[str, A
             code, {"code": code, "count": 0, "margin_at_risk": 0.0,
                    "severity": finding.get("severity", 9),
                    "alert": finding.get("alert", alert_level(finding.get("severity", 9))),
+                   "alert_rank": ALERT_RANK[finding.get(
+                       "alert", alert_level(finding.get("severity", 9)))],
                    "action": finding.get("action", "")}
         )
         entry["count"] += 1

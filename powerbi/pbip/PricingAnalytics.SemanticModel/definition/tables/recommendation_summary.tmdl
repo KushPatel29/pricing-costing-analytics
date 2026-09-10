@@ -6,6 +6,7 @@ table recommendation_summary
 		lineageTag: f3f7c612-cc80-51b9-bb00-3644db3f3850
 		summarizeBy: none
 		sourceColumn: action
+		sortByColumn: sort_order
 
 	column products
 		dataType: int64
@@ -35,12 +36,19 @@ table recommendation_summary
 		summarizeBy: sum
 		sourceColumn: margin_delta
 
+	column sort_order
+		dataType: int64
+		formatString: 0
+		lineageTag: b4ba1aac-dec6-5516-8c6e-2e05214145d7
+		summarizeBy: none
+		sourceColumn: sort_order
+
 	partition recommendation_summary = m
 		mode: import
 		source =
 				let
 				    Source = Csv.Document(File.Contents(DataPath & "\output\recommendation_summary.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				    Typed = Table.TransformColumnTypes(Promoted, {{"action", type text}, {"products", Int64.Type}, {"volume_units", type number}, {"revenue_delta", type number}, {"margin_delta", type number}})
+				    Typed = Table.TransformColumnTypes(Promoted, {{"action", type text}, {"products", Int64.Type}, {"volume_units", type number}, {"revenue_delta", type number}, {"margin_delta", type number}, {"sort_order", Int64.Type}})
 				in
 				    Typed

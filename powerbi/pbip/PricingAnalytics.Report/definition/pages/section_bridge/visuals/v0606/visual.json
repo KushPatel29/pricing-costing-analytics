@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "margin_bridge_effects.effect",
-              "nativeQueryRef": "effect"
+              "nativeQueryRef": "effect",
+              "displayName": "Effect"
             },
             {
               "field": {
@@ -55,7 +56,8 @@
                 }
               },
               "queryRef": "margin_bridge_effects.pct_of_prior",
-              "nativeQueryRef": "pct_of_prior"
+              "nativeQueryRef": "pct_of_prior",
+              "displayName": "% of prior"
             }
           ]
         }

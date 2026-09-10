@@ -28,6 +28,7 @@
               },
               "queryRef": "forecast_series.period",
               "nativeQueryRef": "period",
+              "displayName": "Period",
               "active": true
             }
           ]

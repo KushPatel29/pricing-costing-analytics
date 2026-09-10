@@ -68,5 +68,3 @@ ref table PriceChange
 ref table CostChange
 ref table VolumeChange
 ref table DiscountChange
-ref table ProfitMetric
-ref table CostMetric

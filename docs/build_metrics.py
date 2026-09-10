@@ -253,14 +253,15 @@ def build() -> str:
             f"| `{table}` | `{column}` | {low:+.0%} to {high:+.0%} | "
             f"{step:.3f} | `[{measure}]` |"
         )
-    lines += ["", "Field parameters swap the measure a visual shows, so one chart "
-                  "answers several questions instead of the page carrying several "
-                  "charts that differ by one field.", ""]
-    lines += ["| Field parameter | Column | Offers |", "|---|---|---|"]
-    for table, column, entries in FIELD_PARAMETERS:
-        offers = ", ".join(f"`{label}`" for label, _ in entries)
-        lines.append(f"| `{table}` | `{column}` | {offers} |")
-    lines.append("")
+    if FIELD_PARAMETERS:
+        lines += ["", "Field parameters swap the measure a visual shows, so one "
+                      "chart answers several questions instead of the page carrying "
+                      "several charts that differ by one field.", ""]
+        lines += ["| Field parameter | Column | Offers |", "|---|---|---|"]
+        for table, column, entries in FIELD_PARAMETERS:
+            offers = ", ".join(f"`{label}`" for label, _ in entries)
+            lines.append(f"| `{table}` | `{column}` | {offers} |")
+        lines.append("")
 
     total = len(MEASURES)
     lines += [

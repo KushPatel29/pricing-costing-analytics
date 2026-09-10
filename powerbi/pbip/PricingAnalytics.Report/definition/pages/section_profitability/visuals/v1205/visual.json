@@ -13,7 +13,7 @@
     "visualType": "treemap",
     "query": {
       "queryState": {
-        "Category": {
+        "Group": {
           "projections": [
             {
               "field": {
@@ -28,11 +28,12 @@
               },
               "queryRef": "profit_heatmap.segment",
               "nativeQueryRef": "segment",
+              "displayName": "Segment",
               "active": true
             }
           ]
         },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {

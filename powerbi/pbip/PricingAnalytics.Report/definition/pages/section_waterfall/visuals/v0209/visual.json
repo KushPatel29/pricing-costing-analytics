@@ -28,6 +28,7 @@
               },
               "queryRef": "leakage_by_dimension.bucket",
               "nativeQueryRef": "bucket",
+              "displayName": "Bucket",
               "active": true
             }
           ]

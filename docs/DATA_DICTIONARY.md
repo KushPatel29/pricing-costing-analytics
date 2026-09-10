@@ -50,7 +50,7 @@ The customer base, with everything that drives its deductions: segment, channel,
 | Column | Type | Example |
 |---|---|---|
 | `customer_id` | text | CU2000 |
-| `customer_name` | text | Sunshine Table |
+| `customer_name` | text | Sunshine Marketplace |
 | `segment` | text | Independent Retailer |
 | `channel` | text | Retail |
 | `region` | text | Southwest |
@@ -486,7 +486,7 @@ The sold-to party master, including the orphans that billing lines point at and 
 | Column | Type | Example |
 |---|---|---|
 | `customer` | text | CU2000 |
-| `customer_name` | text | Sunshine Table |
+| `customer_name` | text | Sunshine Marketplace |
 | `account_group` | text | Independent Retailer |
 | `sales_org` | integer | 1000 |
 | `distribution_channel` | decimal | 20.0 |
@@ -811,7 +811,7 @@ One row per customer with margin, leakage, cost to serve and a quadrant against 
 | Column | Type | Example |
 |---|---|---|
 | `customer_id` | text | CU2000 |
-| `customer_name` | text | Sunshine Table |
+| `customer_name` | text | Sunshine Marketplace |
 | `segment` | text | Independent Retailer |
 | `channel` | text | Retail |
 | `region` | text | Southwest |
@@ -881,7 +881,7 @@ The latest month's lines scored against floor, target and stretch, with the appr
 | `description` | text | Desk Organiser - National... |
 | `category` | text | Office & Stationery |
 | `customer_id` | text | CU2000 |
-| `customer_name` | text | Sunshine Table |
+| `customer_name` | text | Sunshine Marketplace |
 | `segment` | text | Independent Retailer |
 | `tier` | text | D |
 | `quantity_units` | decimal | 40.3 |
@@ -907,7 +907,7 @@ The latest month's lines scored against floor, target and stretch, with the appr
 
 Invoice lines banded by discount depth against margin achieved. The cells off the diagonal are the conversation.
 
-34 rows × 8 columns.
+34 rows × 10 columns.
 
 | Column | Type | Example |
 |---|---|---|
@@ -919,6 +919,8 @@ Invoice lines banded by discount depth against margin achieved. The cells off th
 | `cogs` | decimal | 96684.45 |
 | `gross_margin` | decimal | 17314.77 |
 | `share_of_revenue` | decimal | 0.0006 |
+| `discount_band_order` | integer | 0 |
+| `margin_band_order` | integer | 2 |
 
 ### `elasticity_estimates`
 
@@ -1020,13 +1022,14 @@ The chosen method per measure, its backtest and holdout error, and the next six 
 
 Every guardrail breach, ranked by margin at risk.
 
-1,301 rows × 16 columns.
+1,301 rows × 17 columns.
 
 | Column | Type | Example |
 |---|---|---|
 | `code` | text | UNDER_MARKET |
 | `severity` | integer | 4 |
 | `alert` | text | Amber |
+| `alert_rank` | integer | 1 |
 | `product_id` | integer | 20204 |
 | `customer_id` | text | CU2107 |
 | `description` | text | Adjustable Dumbbells - Pr... |
@@ -1036,7 +1039,7 @@ Every guardrail breach, ranked by margin at risk.
 | `action` | text | Priced well under the mar... |
 | `category` | text | Sporting Goods |
 | `segment` | text | E-commerce Pure-Play |
-| `customer_name` | text | Selkirk Bistro |
+| `customer_name` | text | Selkirk Trading Co |
 | `quantity_units` | decimal | 4169.52 |
 | `list_price` | decimal | 55.6615 |
 | `pocket_price` | decimal | 44.5433 |
@@ -1045,7 +1048,7 @@ Every guardrail breach, ranked by margin at risk.
 
 One row per rule: how many breaches and how much money.
 
-7 rows × 6 columns.
+7 rows × 7 columns.
 
 | Column | Type | Example |
 |---|---|---|
@@ -1054,6 +1057,7 @@ One row per rule: how many breaches and how much money.
 | `margin_at_risk` | decimal | 1320036.5600000008 |
 | `severity` | integer | 4 |
 | `alert` | text | Amber |
+| `alert_rank` | integer | 1 |
 | `action` | text | Priced well under the mar... |
 
 ### `leakage_by_dimension`
@@ -1478,7 +1482,7 @@ The written summary, in one row, so a card and the paragraph under it cannot dis
 
 The recommendations rolled up by action.
 
-5 rows × 5 columns.
+5 rows × 6 columns.
 
 | Column | Type | Example |
 |---|---|---|
@@ -1487,6 +1491,7 @@ The recommendations rolled up by action.
 | `volume_units` | decimal | 346532.88 |
 | `revenue_delta` | decimal | 0.0 |
 | `margin_delta` | decimal | 0.0 |
+| `sort_order` | integer | 0 |
 
 ### `recommendations`
 
@@ -1519,13 +1524,14 @@ One row per product: the action, the price it implies, what it is worth, the con
 
 Extract total down to staged total, with every exclusion named and the unexplained line at the bottom. It balances to zero or the staging is wrong.
 
-7 rows × 6 columns.
+7 rows × 7 columns.
 
 | Column | Type | Example |
 |---|---|---|
 | `line` | text | Extract total |
 | `amount` | decimal | 183875376.15 |
 | `running` | decimal | 183875376.15 |
+| `sort_order` | integer | 0 |
 | `delta` | decimal | 183875376.15 |
 | `balanced` | boolean | True |
 | `unexplained` | decimal | 0.0 |
@@ -1666,7 +1672,7 @@ The guardrail exceptions in SQL, for the same reason.
 | `description` | text | Fastener Assortment - Val... |
 | `category` | text | Tools & Hardware |
 | `customer_id` | text | CU2107 |
-| `customer_name` | text | Selkirk Bistro |
+| `customer_name` | text | Selkirk Trading Co |
 | `segment` | text | E-commerce Pure-Play |
 | `salesperson` | text | Hollis Marchetti |
 | `quantity_units` | decimal | 9294.55 |

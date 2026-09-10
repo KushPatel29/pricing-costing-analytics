@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "data_quality_checks.code",
-              "nativeQueryRef": "code"
+              "nativeQueryRef": "code",
+              "displayName": "Code"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "data_quality_checks.check",
-              "nativeQueryRef": "check"
+              "nativeQueryRef": "check",
+              "displayName": "Check"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "data_quality_checks.severity",
-              "nativeQueryRef": "severity"
+              "nativeQueryRef": "severity",
+              "displayName": "Severity"
             },
             {
               "field": {
@@ -97,7 +100,8 @@
                 }
               },
               "queryRef": "data_quality_checks.action",
-              "nativeQueryRef": "action"
+              "nativeQueryRef": "action",
+              "displayName": "Action"
             }
           ]
         }

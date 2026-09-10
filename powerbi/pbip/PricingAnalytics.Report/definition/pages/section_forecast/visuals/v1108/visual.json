@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "forecast_summary.measure",
-              "nativeQueryRef": "measure"
+              "nativeQueryRef": "measure",
+              "displayName": "Measure"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "forecast_summary.method",
-              "nativeQueryRef": "method"
+              "nativeQueryRef": "method",
+              "displayName": "Method"
             },
             {
               "field": {

@@ -111,30 +111,58 @@ check every failure mode Power BI does not report:
   property name;
 - every parameter table is a `calculated` partition (a `GENERATESERIES` in an M
   partition is not a syntax error -- it is a table that fails at refresh with a
-  message about an unknown function, on a model that opened cleanly), and every
-  field parameter carries the `ParameterMetadata` extended property that is the
-  entire difference between a field parameter and three columns of strings;
+  message about an unknown function, on a model that opened cleanly);
+- every bound column carries a `displayName`, because a column arrives in the
+  model spelled the way the CSV spelled it and that is the name a table header
+  shows;
 - no two visuals overlap, nothing falls off the 1280×720 canvas in either
   direction, and every slicer reaches something on its own page -- following
   measure references through, because a what-if slicer reaches the page only
   that way.
 
-**Not verified:** nobody has opened this project in Power BI Desktop and looked
-at it. Everything above is structural. The visual types used here
-(`card`, `clusteredBarChart`, `clusteredColumnChart`, `columnChart`, `lineChart`,
-`areaChart`, `scatterChart`, `donutChart`, `treemap`, `waterfallChart`,
-`tableEx`, `pivotTable`, `slicer`) have all been seen to render from
-hand-authored PBIR in sibling projects, and the role names are copied from
-working examples rather than guessed — a scatter's identity field goes in the
-role named `Category`, which is the field well Desktop labels "Details", and a
-matrix takes `Rows`, `Columns` and `Values`. But structural validity is not the
-same as looking right, and this file says so rather than implying otherwise.
+**Verified.** This project has been opened in Power BI Desktop, refreshed, and
+every page exported and looked at: 19 pages, 189 visuals, **0 that failed to
+render**. `docs/powerbi/screenshots/` is that export.
 
-The two features most worth a second look on first open are the **field
-parameters** and the **theme**. If a field parameter's extended property were
-wrong, the bar chart on the profitability page would draw the measure *names*
-along its axis rather than their values — scaled, titled, and meaningless. And
-the theme is the dark palette shared with the Streamlit app; if Desktop is
-rendering the report on a light canvas, the custom theme has not been picked up
-and the categorical hues are being shown on a surface they were not validated
-against.
+Every check in the list above passed before the first open, and the report was
+still wrong in nine ways, all of them invisible to a structural test. They are
+worth reading as a list of what a test on a report definition *cannot* tell you:
+
+1. **No `definition.pbir`.** The project would not open at all. It is the report
+   manifest, it is not referenced by any other file, and nothing that validates
+   what exists can notice what does not.
+2. **A field parameter Desktop would not bind.** Two pages rendered
+   "Something's wrong with one or more fields"; correcting the column names to
+   `Value1`/`Value2`/`Value3` changed it to "Can't determine relationships
+   between the fields". Desktop appears to need to create these itself. Both
+   charts now bind their measure directly, and `model_spec.py` carries the
+   finding so the idea is not re-attempted from scratch.
+3. **A treemap drawn as an empty box.** A cartesian chart takes `Category` and
+   `Y`; a treemap takes `Group` and `Values`. A role a visual does not recognise
+   is silently not bound, and every field named still existed, so every check
+   passed.
+4. **Alphabetical axes.** The price waterfall opened "Contract discount, Co-op
+   marketing, Cost of goods, ... List value ..." with the opening bar seventh,
+   and the red/amber/green chart read "Amber, Green, Red".
+5. **`sortByColumn` was necessary and not sufficient.** It orders a column's
+   members; the *visual* keeps sorting by its measure until the visual's own
+   `query.sortDefinition` says otherwise. Both are needed and only one is
+   visible in TMDL.
+6. **The sort keys were text.** `_order` matched the ID-suffix rule that reads
+   identifiers as strings, so a fourteen-step waterfall sorted 0, 1, 10, 11, 12,
+   13, 2, 3 — subtotals in the middle, no error.
+7. **White slicers on a dark canvas.** The theme styled a slicer's `items`;
+   a dropdown draws its closed control from those, and its container from
+   `background`.
+8. **Slicer headers.** Every slicer printed its *field* name under a visual
+   title that already named the filter — "Fiscal year" over
+   `fiscal_year_label` — and the two stacked left the dropdown hanging off the
+   bottom of a 76px slicer.
+9. **Source column names on every table header.** `customer_name`, `code`,
+   `action`. Measures were fine, because a measure is named by hand.
+
+Each fix is a change to the generator, not to the output, and each has a test
+that now fails without it. The theme is worth a glance on open all the same: it
+is the dark palette shared with the Streamlit app, and if Desktop is rendering
+on a light canvas the custom theme has not been picked up and the categorical
+hues are being shown on a surface they were not validated against.

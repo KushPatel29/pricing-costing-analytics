@@ -57,7 +57,6 @@ def source_columns() -> dict[str, set[str]]:
         path = ROOT / meta["source"] / f"{name}.csv"
         out[name] = set(pd.read_csv(path, nrows=1).columns)
     out.update(whatif_columns())
-    out.update(field_parameter_columns())
     return out
 
 
@@ -145,7 +144,7 @@ def test_every_measure_only_names_columns_that_exist(name, dax, source_columns):
 
 @pytest.mark.parametrize("name,dax", [(m[0], m[1]) for m in MEASURES])
 def test_every_measure_only_names_tables_in_the_model(name, dax):
-    known = set(TABLES) | {"_Measures"} | set(whatif_columns()) | set(field_parameter_columns())
+    known = set(TABLES) | {"_Measures"} | set(whatif_columns())
     unknown = sorted({t for t, _ in _referenced_columns(dax)} - known)
     assert not unknown, f"measure {name!r} reads tables not in the model: {unknown}"
 
@@ -269,48 +268,39 @@ def test_the_parameters_are_referenced_by_the_model_but_not_ordered():
         assert f'"{table}"' not in order, f"{table} is a calculated table, not a query"
 
 
-@pytest.mark.parametrize("parameter", FIELD_PARAMETERS,
-                         ids=[p[0] for p in FIELD_PARAMETERS])
-def test_every_field_parameter_declares_itself_as_one(parameter):
+def test_field_parameters_are_deliberately_absent():
     """
-    One extended property is the entire difference between a field parameter
-    and three columns of strings. Without it the table still loads, the visual
-    still binds it, and the chart draws the measure *names* along an axis --
-    scaled, titled and meaningless.
+    A calculated table of `NAMEOF()` references is easy to write, the model
+    loads it, and every structural check here passes -- and Power BI still will
+    not bind it. The two visuals that used one rendered "Something's wrong with
+    one or more fields"; with the column names corrected to Value1/Value2/Value3
+    they rendered "Can't determine relationships between the fields". Desktop
+    appears to need to create the parameter itself.
+
+    This test exists so the idea is not re-attempted from scratch. If you make
+    it work, delete the test with the commit that does.
     """
-    table, column, _entries = parameter
-    tmdl = _parameter_tmdl(table)
-    assert "extendedProperty ParameterMetadata" in tmdl
-    assert '"kind": 2' in tmdl, "kind 0 is a what-if; a field parameter is kind 2"
-    assert f"column '{column} Fields'" in tmdl
-    assert f"partition {table} = calculated" in tmdl
+    assert FIELD_PARAMETERS == (), (
+        "field parameters are back -- confirm the visuals actually bind in "
+        "Desktop before trusting the structural tests, because they passed "
+        "last time while both charts showed an error box"
+    )
+    assert field_parameter_columns() == {}
 
 
-@pytest.mark.parametrize("parameter", FIELD_PARAMETERS,
-                         ids=[p[0] for p in FIELD_PARAMETERS])
-def test_every_field_parameter_names_measures_that_exist(parameter):
-    """
-    NAMEOF() resolves at model load, so a renamed measure breaks the model
-    rather than blanking a visual -- but only if the name was right to begin
-    with, and only after someone opens the file.
-    """
-    _table, _column, entries = parameter
-    missing = [measure for _label, measure in entries if measure not in MEASURE_NAMES]
-    assert not missing, f"field parameter points at measures that do not exist: {missing}"
+def test_no_visual_binds_a_field_parameter_column():
+    """The other half of the same guard: a `... Fields` column on a visual is
+    the shape that did not work."""
+    from powerbi.report_spec import PAGES
 
-
-@pytest.mark.parametrize("parameter", FIELD_PARAMETERS,
-                         ids=[p[0] for p in FIELD_PARAMETERS])
-def test_every_field_parameter_sorts_by_its_own_order(parameter):
-    """
-    Without the sort column the slicer lists the metrics alphabetically, which
-    puts "Margin %" above "Pocket revenue" and reads as an accident.
-    """
-    table, column, entries = parameter
-    tmdl = _parameter_tmdl(table)
-    assert f"sortByColumn: '{column} Order'" in tmdl
-    for order, _ in enumerate(entries):
-        assert f", {order})" in tmdl
+    bound = []
+    for page in PAGES:
+        for spec in page["visuals"]:
+            fields = [spec[k] for k in ("x", "field", "rows", "columns_by", "category")
+                      if spec.get(k)]
+            fields += list(spec.get("y", ())) + list(spec.get("values", ()))
+            bound += [f for f in fields if f.endswith(" Fields]")]
+    assert not bound, f"visuals bound to a field-parameter column: {bound}"
 
 
 def test_no_parameter_is_related_to_anything():

@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "dim_competitor.competitor_name",
-              "nativeQueryRef": "competitor_name"
+              "nativeQueryRef": "competitor_name",
+              "displayName": "Competitor name"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "dim_competitor.positioning",
-              "nativeQueryRef": "positioning"
+              "nativeQueryRef": "positioning",
+              "displayName": "Positioning"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "dim_competitor.price_multiplier",
-              "nativeQueryRef": "price_multiplier"
+              "nativeQueryRef": "price_multiplier",
+              "displayName": "Price multiplier"
             },
             {
               "field": {
@@ -69,7 +72,8 @@
                 }
               },
               "queryRef": "dim_competitor.catalogue_coverage",
-              "nativeQueryRef": "catalogue_coverage"
+              "nativeQueryRef": "catalogue_coverage",
+              "displayName": "Catalogue coverage"
             }
           ]
         }

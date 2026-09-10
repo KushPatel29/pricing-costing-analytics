@@ -28,6 +28,7 @@
               },
               "queryRef": "recommendations.confidence",
               "nativeQueryRef": "confidence",
+              "displayName": "Confidence",
               "active": true
             }
           ]

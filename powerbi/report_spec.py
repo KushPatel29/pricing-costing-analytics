@@ -94,7 +94,8 @@ PAGES: list[dict] = [
             {"type": "card", "field": "[Leakage %]", "pos": (942, CARD_Y, 318, CARD_H),
              "alt": "Card. Leakage as a share of list price."},
 
-            {"type": "waterfall", "x": "price_waterfall[step]", "y": ["[Waterfall step]"],
+            {"type": "waterfall", "x": "price_waterfall[step]",
+             "sort": ("price_waterfall[step]", "Ascending"), "y": ["[Waterfall step]"],
              "title": "List value to pocket margin",
              "pos": (20, ROW1_Y, 1240, 288),
              "alt": "Waterfall chart titled List value to pocket margin. Plots Waterfall "
@@ -670,24 +671,18 @@ PAGES: list[dict] = [
                     "Profitability margin % on the y axis, sized by Profitability "
                     "contribution."},
             {"type": "bar", "x": "profitability[member]",
-             "y": ["ProfitMetric[Profit metric Fields]"],
-             "title": "Whichever measure you asked for, by member",
+             "y": ["[Profitability margin %]"],
+             "title": "Margin by member",
              "pos": (654, ROW2_Y, 410, 258),
-             "alt": "Bar chart titled Whichever measure you asked for by member. Its "
-                    "value well is Profit metric Fields, a field parameter, so the "
-                    "Metric slicer swaps the measure rather than the page carrying "
-                    "five charts that differ by one field."},
-            {"type": "slicer", "field": "ProfitMetric[Profit metric]", "title": "Metric",
-             "pos": (1068, ROW2_Y, 192, 76),
-             "alt": "Slicer. Chooses the Profit metric the bar chart shows: revenue, "
-                    "margin in dollars, margin %, operating margin % or leakage %."},
+             "alt": "Bar chart titled Margin by member. Plots Profitability margin % "
+                    "for each member of the chosen cut."},
             {"type": "slicer", "field": "profitability[dimension]", "title": "Cut by",
-             "pos": (1068, ROW2_Y + 86, 192, 76),
+             "pos": (1068, ROW2_Y, 192, 76),
              "alt": "Slicer. Chooses the dimension every member on this page is cut "
                     "by: product, customer, region, channel, segment or "
                     "salesperson."},
             {"type": "slicer", "field": "profit_heatmap[segment]", "title": "Segment",
-             "pos": (1068, ROW2_Y + 172, 192, 76),
+             "pos": (1068, ROW2_Y + 86, 192, 76),
              "alt": "Slicer. Filters the segment and category grid by segment."},
         ],
     },
@@ -708,12 +703,14 @@ PAGES: list[dict] = [
                     "baseline."},
 
             {"type": "column", "x": "discount_margin_matrix[discount_band]",
+             "sort": ("discount_margin_matrix[discount_band]", "Ascending"),
              "y": ["[Banded margin %]"],
              "title": "What each point of discount costs",
              "pos": (20, ROW1_Y, 500, 272),
              "alt": "Column chart titled What each point of discount costs. Plots "
                     "Banded margin % by discount band."},
             {"type": "matrix", "rows": "discount_margin_matrix[discount_band]",
+             "sort": ("discount_margin_matrix[discount_band]", "Ascending"),
              "columns_by": "discount_margin_matrix[margin_band]",
              "values": ["[Banded revenue]"],
              "title": "Discount against margin",
@@ -761,6 +758,7 @@ PAGES: list[dict] = [
              "alt": "Card. Cost element variance % against standard."},
 
             {"type": "waterfall", "x": "cost_element_waterfall[step]",
+             "sort": ("cost_element_waterfall[step]", "Ascending"),
              "y": ["[Element waterfall step]"],
              "title": "From standard cost to actual, element by element",
              "pos": (20, ROW1_Y, 1240, 272),
@@ -769,13 +767,11 @@ PAGES: list[dict] = [
                     "freight, handling, packaging and both overhead pools."},
 
             {"type": "bar", "x": "cost_element_summary[cost_element]",
-             "y": ["CostMetric[Cost metric Fields]"],
-             "title": "By element, on whichever measure",
+             "y": ["[Cost element variance]"],
+             "title": "Variance by element",
              "pos": (20, ROW2_Y, 620, 258),
-             "alt": "Bar chart titled By element on whichever measure. Its value well "
-                    "is Cost metric Fields, a field parameter, so the Metric slicer "
-                    "swaps between standard cost, actual cost, variance and variance "
-                    "percent on one chart."},
+             "alt": "Bar chart titled Variance by element. Plots Cost element variance "
+                    "for each element of the cost stack. Positive is unfavourable."},
             {"type": "table",
              "columns": ["cost_element_by_category[category]",
                          "cost_element_by_category[cost_element]",
@@ -784,13 +780,9 @@ PAGES: list[dict] = [
              "pos": (654, ROW2_Y, 410, 258),
              "alt": "Table titled Which categories carry it. Category standard cost and "
                     "Category cost variance for every category and element pair."},
-            {"type": "slicer", "field": "CostMetric[Cost metric]", "title": "Metric",
-             "pos": (1068, ROW2_Y, 192, 76),
-             "alt": "Slicer. Chooses the Cost metric the element chart shows: standard "
-                    "cost, actual cost, the variance, or the variance as a percent."},
             {"type": "slicer", "field": "cost_element_summary[behaviour]",
              "title": "Behaviour",
-             "pos": (1068, ROW2_Y + 172, 192, 76),
+             "pos": (1068, ROW2_Y, 192, 76),
              "alt": "Slicer. Filters by cost behaviour: variable or fixed."},
             {"type": "slicer", "field": "cost_element_by_category[category]",
              "title": "Category",
@@ -883,7 +875,8 @@ PAGES: list[dict] = [
                     "with its severity, Rows failing, Fail rate and the action to "
                     "take."},
 
-            {"type": "waterfall", "x": "reconciliation[line]", "y": ["[Reconciliation step]"],
+            {"type": "waterfall", "x": "reconciliation[line]",
+             "sort": ("reconciliation[line]", "Ascending"), "y": ["[Reconciliation step]"],
              "title": "Extract to staged, with every exclusion named",
              "pos": (20, ROW2_Y, 620, 258),
              "alt": "Waterfall chart titled Extract to staged with every exclusion "
@@ -922,7 +915,8 @@ PAGES: list[dict] = [
              "alt": "Card. Exception margin %: the average pocket margin on breaching "
                     "lines."},
 
-            {"type": "column", "x": "guardrail_exceptions[alert]", "y": ["[Exceptions]"],
+            {"type": "column", "x": "guardrail_exceptions[alert]",
+             "sort": ("guardrail_exceptions[alert]", "Ascending"), "y": ["[Exceptions]"],
              "title": "Red, amber, green",
              "pos": (20, ROW1_Y, 400, 272),
              "alt": "Column chart titled Red amber green. Plots Exceptions by alert "
@@ -1036,6 +1030,7 @@ PAGES: list[dict] = [
              "alt": "Card. Recommended move %: the average price change proposed."},
 
             {"type": "column", "x": "recommendation_summary[action]",
+             "sort": ("recommendation_summary[action]", "Ascending"),
              "y": ["[Action margin delta]"],
              "title": "What each action is worth",
              "pos": (20, ROW1_Y, 500, 272),

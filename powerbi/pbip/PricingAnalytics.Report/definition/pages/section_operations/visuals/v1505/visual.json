@@ -28,6 +28,7 @@
               },
               "queryRef": "price_change_log.reason",
               "nativeQueryRef": "reason",
+              "displayName": "Reason",
               "active": true
             }
           ]

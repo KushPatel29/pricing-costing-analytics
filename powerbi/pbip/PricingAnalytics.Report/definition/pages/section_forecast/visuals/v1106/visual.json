@@ -28,6 +28,7 @@
               },
               "queryRef": "forecast_accuracy.method",
               "nativeQueryRef": "method",
+              "displayName": "Method",
               "active": true
             }
           ]

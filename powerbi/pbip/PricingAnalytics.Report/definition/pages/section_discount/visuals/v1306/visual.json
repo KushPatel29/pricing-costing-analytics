@@ -28,6 +28,7 @@
               },
               "queryRef": "discount_margin_matrix.discount_band",
               "nativeQueryRef": "discount_band",
+              "displayName": "Discount band",
               "active": true
             }
           ]
@@ -47,6 +48,7 @@
               },
               "queryRef": "discount_margin_matrix.margin_band",
               "nativeQueryRef": "margin_band",
+              "displayName": "Margin band",
               "active": true
             }
           ]
@@ -69,6 +71,24 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "discount_margin_matrix"
+                  }
+                },
+                "Property": "discount_band"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": false
       }
     },
     "drillFilterOtherVisuals": true,

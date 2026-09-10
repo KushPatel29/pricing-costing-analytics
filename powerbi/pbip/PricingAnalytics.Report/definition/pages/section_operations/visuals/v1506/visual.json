@@ -28,6 +28,7 @@
               },
               "queryRef": "price_change_log.approval_state",
               "nativeQueryRef": "approval_state",
+              "displayName": "Approval state",
               "active": true
             }
           ]

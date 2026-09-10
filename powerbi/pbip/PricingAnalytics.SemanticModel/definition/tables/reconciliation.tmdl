@@ -6,6 +6,7 @@ table reconciliation
 		lineageTag: 5578d799-ca83-5858-b3f5-9ae15764f7a5
 		summarizeBy: none
 		sourceColumn: line
+		sortByColumn: sort_order
 
 	column amount
 		dataType: double
@@ -20,6 +21,13 @@ table reconciliation
 		lineageTag: 8a0df7ea-686d-5ef4-9190-b247d2d68070
 		summarizeBy: sum
 		sourceColumn: running
+
+	column sort_order
+		dataType: int64
+		formatString: 0
+		lineageTag: 43957cb4-43fe-5494-9b0c-16ddf0c6359a
+		summarizeBy: none
+		sourceColumn: sort_order
 
 	column delta
 		dataType: double
@@ -47,6 +55,6 @@ table reconciliation
 				let
 				    Source = Csv.Document(File.Contents(DataPath & "\output\reconciliation.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				    Typed = Table.TransformColumnTypes(Promoted, {{"line", type text}, {"amount", type number}, {"running", type number}, {"delta", type number}, {"balanced", type logical}, {"unexplained", type number}})
+				    Typed = Table.TransformColumnTypes(Promoted, {{"line", type text}, {"amount", type number}, {"running", type number}, {"sort_order", Int64.Type}, {"delta", type number}, {"balanced", type logical}, {"unexplained", type number}})
 				in
 				    Typed

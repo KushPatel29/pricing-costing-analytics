@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "dim_product.description",
-              "nativeQueryRef": "description"
+              "nativeQueryRef": "description",
+              "displayName": "Description"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "recommendations.action",
-              "nativeQueryRef": "action"
+              "nativeQueryRef": "action",
+              "displayName": "Action"
             },
             {
               "field": {
@@ -97,7 +99,8 @@
                 }
               },
               "queryRef": "recommendations.confidence",
-              "nativeQueryRef": "confidence"
+              "nativeQueryRef": "confidence",
+              "displayName": "Confidence"
             }
           ]
         }

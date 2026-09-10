@@ -6,12 +6,14 @@ table discount_margin_matrix
 		lineageTag: 86e26145-5aa0-582f-a5c8-cf4758b6f1bb
 		summarizeBy: none
 		sourceColumn: discount_band
+		sortByColumn: discount_band_order
 
 	column margin_band
 		dataType: string
 		lineageTag: 78a91eeb-a714-55cf-8856-0cbe6066228a
 		summarizeBy: none
 		sourceColumn: margin_band
+		sortByColumn: margin_band_order
 
 	column lines
 		dataType: int64
@@ -55,12 +57,26 @@ table discount_margin_matrix
 		summarizeBy: sum
 		sourceColumn: share_of_revenue
 
+	column discount_band_order
+		dataType: int64
+		formatString: 0
+		lineageTag: 582e545e-25dd-546e-9ab8-f031e9dfefe6
+		summarizeBy: none
+		sourceColumn: discount_band_order
+
+	column margin_band_order
+		dataType: int64
+		formatString: 0
+		lineageTag: 48fcf835-39b4-5f71-81c4-2ecbf775bfd0
+		summarizeBy: none
+		sourceColumn: margin_band_order
+
 	partition discount_margin_matrix = m
 		mode: import
 		source =
 				let
 				    Source = Csv.Document(File.Contents(DataPath & "\output\discount_margin_matrix.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				    Typed = Table.TransformColumnTypes(Promoted, {{"discount_band", type text}, {"margin_band", type text}, {"lines", Int64.Type}, {"volume_units", type number}, {"pocket_revenue", type number}, {"cogs", type number}, {"gross_margin", type number}, {"share_of_revenue", type number}})
+				    Typed = Table.TransformColumnTypes(Promoted, {{"discount_band", type text}, {"margin_band", type text}, {"lines", Int64.Type}, {"volume_units", type number}, {"pocket_revenue", type number}, {"cogs", type number}, {"gross_margin", type number}, {"share_of_revenue", type number}, {"discount_band_order", Int64.Type}, {"margin_band_order", Int64.Type}})
 				in
 				    Typed

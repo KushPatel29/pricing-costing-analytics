@@ -28,6 +28,7 @@
               },
               "queryRef": "competitive_index.position",
               "nativeQueryRef": "position",
+              "displayName": "Position",
               "active": true
             }
           ]

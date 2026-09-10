@@ -1,7 +1,7 @@
 # Pricing & Costing Analytics
 
 [![CI](https://github.com/KushPatel29/pricing-costing-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/pricing-costing-analytics/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-2455%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-2626%20passing-3B8C6E)
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![Streamlit](https://img.shields.io/badge/streamlit-1.60-ff4b4b)
 ![Power BI](https://img.shields.io/badge/Power%20BI-PBIP%20%2F%20TMDL-F2C811)
@@ -9,7 +9,7 @@
 **Live app:** [cost-to-price-calculator.streamlit.app](https://cost-to-price-calculator.streamlit.app/)
 · **[Metric reference](docs/METRICS.md)**
 · **[Data dictionary](docs/DATA_DICTIONARY.md)**
-· **[Report layouts](docs/powerbi/)**
+· **[Dashboard screenshots](docs/powerbi/screenshots/)**
 
 A pricing analyst's whole job for a multi-category B2B wholesale distributor,
 from a vendor invoice to a decision somebody has to defend on Monday.
@@ -444,36 +444,64 @@ file per visual and the model is TMDL, both reviewable in a diff.
 
 | | |
 |---:|---|
-| **19** | report pages |
-| **191** | visuals |
+| **19** | report pages, **0** visuals that fail to render |
+| **189** | visuals |
 | **51** | tables, plus a measures table |
 | **209** | measures across 21 display folders |
 | **22** | relationships, all single-direction many-to-one |
-| **6** | parameter tables — 4 what-if, 2 field parameters |
+| **4** | what-if parameter tables over `GENERATESERIES` |
 | **34** | tables unrelated on purpose, each with the reason in the spec |
 
 See [`powerbi/pbip/OPEN_ME_FIRST.md`](powerbi/pbip/OPEN_ME_FIRST.md) to open it.
 
-### What each page looks like
+### What it looks like
 
-Nobody has opened this project in Power BI Desktop, so there are no screenshots
-of it and this README does not pretend otherwise. What can be shown honestly is
-the **layout** — every visual's type, position, title and bound fields, rendered
-by `powerbi/render_layouts.py` from the same spec `build_pbip` generates the
-report from. A wireframe that disagrees with the report is impossible, because
-they are the same data, and CI fails if they drift.
+Opened in Power BI Desktop, refreshed against the CSVs, and exported page by
+page. All nineteen are in
+[`docs/powerbi/screenshots/`](docs/powerbi/screenshots/).
 
-![What-if simulator layout](docs/powerbi/10-scenario.svg)
+**1 — Executive summary.** Four cards, realised price against cost, leakage by
+month, and the margin bridge. `Where the work is` is the same guardrail summary
+the Streamlit app opens on, reading the same mart.
+
+![Executive summary](docs/powerbi/screenshots/01-summary.png)
+
+**2 — Price waterfall.** List value down through ten deductions to pocket
+revenue, then cost of goods to pocket margin. The step order is the model's,
+not the alphabet's, and getting it that way took a sort column, a numeric type
+on that column, and a sort definition on the visual — see OPEN_ME_FIRST.
+
+![Price waterfall](docs/powerbi/screenshots/02-waterfall.png)
+
+**10 — What-if simulator.** Four `GENERATESERIES` parameters — price, cost,
+volume, discount — read back by `SELECTEDVALUE`, driving a three-case
+comparison, a tornado of what moves profit most, and the break-even value of
+each input on its own.
+
+![What-if simulator](docs/powerbi/screenshots/10-scenario.png)
+
+**17 — Exceptions and alerts.** The full exception report under a red / amber /
+green split, money at risk by rule, and which segments carry it.
+
+![Exceptions and alerts](docs/powerbi/screenshots/17-exceptions.png)
 
 | | | |
 |---|---|---|
-| [1 Executive summary](docs/powerbi/01-summary.svg) | [2 Price waterfall](docs/powerbi/02-waterfall.svg) | [3 Competitive position](docs/powerbi/03-competitive.svg) |
-| [4 Elasticity](docs/powerbi/04-elasticity.svg) | [5 Cost variance](docs/powerbi/05-cost.svg) | [6 Margin bridge](docs/powerbi/06-bridge.svg) |
-| [7 Price bands and WTP](docs/powerbi/07-bands.svg) | [8 Deal guardrails](docs/powerbi/08-guardrails.svg) | [9 Unit economics](docs/powerbi/09-unit_economics.svg) |
-| [10 What-if simulator](docs/powerbi/10-scenario.svg) | [11 Forecast vs actual](docs/powerbi/11-forecast.svg) | [12 Profitability](docs/powerbi/12-profitability.svg) |
-| [13 Discount and promotion](docs/powerbi/13-discount.svg) | [14 Cost elements](docs/powerbi/14-cost_elements.svg) | [15 Pricing operations](docs/powerbi/15-operations.svg) |
-| [16 Data quality](docs/powerbi/16-quality.svg) | [17 Exceptions and alerts](docs/powerbi/17-exceptions.svg) | [18 Bundles](docs/powerbi/18-bundles.svg) |
-| [19 Recommendations](docs/powerbi/19-recommendations.svg) | | |
+| [1 Executive summary](docs/powerbi/screenshots/01-summary.png) | [2 Price waterfall](docs/powerbi/screenshots/02-waterfall.png) | [3 Competitive position](docs/powerbi/screenshots/03-competitive.png) |
+| [4 Elasticity](docs/powerbi/screenshots/04-elasticity.png) | [5 Cost variance](docs/powerbi/screenshots/05-cost.png) | [6 Margin bridge](docs/powerbi/screenshots/06-bridge.png) |
+| [7 Price bands and WTP](docs/powerbi/screenshots/07-bands.png) | [8 Deal guardrails](docs/powerbi/screenshots/08-guardrails.png) | [9 Unit economics](docs/powerbi/screenshots/09-unit-economics.png) |
+| [10 What-if simulator](docs/powerbi/screenshots/10-scenario.png) | [11 Forecast vs actual](docs/powerbi/screenshots/11-forecast.png) | [12 Profitability](docs/powerbi/screenshots/12-profitability.png) |
+| [13 Discount and promotion](docs/powerbi/screenshots/13-discount.png) | [14 Cost elements](docs/powerbi/screenshots/14-cost-elements.png) | [15 Pricing operations](docs/powerbi/screenshots/15-operations.png) |
+| [16 Data quality](docs/powerbi/screenshots/16-quality.png) | [17 Exceptions and alerts](docs/powerbi/screenshots/17-exceptions.png) | [18 Bundles](docs/powerbi/screenshots/18-bundles.png) |
+| [19 Recommendations](docs/powerbi/screenshots/19-recommendations.png) | | |
+
+There are also **wireframes** of all nineteen pages in
+[`docs/powerbi/`](docs/powerbi/) — every visual's type, position, title and
+bound fields, rendered by `powerbi/render_layouts.py` from the same spec
+`build_pbip` generates the report from. They are worth more than they sound:
+they review in a diff, a screenshot does not, and CI fails if the two drift.
+
+[![What-if simulator layout](docs/powerbi/10-scenario.svg)](docs/powerbi/)
 
 ### It is generated, not typed
 
@@ -490,11 +518,14 @@ Four things in it are worth the name "advanced":
   factor, because they move the realised price in opposite directions and
   keeping them apart is how a simulator reports a price rise and a deeper
   discount as if both were good news.
-- **Field parameters** — calculated tables of `NAMEOF()` references, so one
-  chart answers five questions instead of the page carrying five charts that
-  differ by one field. The `ParameterMetadata` extended property is the entire
-  mechanism; without it the visual draws the measure *names* along an axis, and
-  a test asserts it is there.
+- **Ordering that carries meaning.** A waterfall, a traffic light and a banded
+  cross-tab each mean their own order, not the order of their values. Three
+  things are needed and only one of them is visible in TMDL: a `sortByColumn`
+  on the column, a *numeric* type on that sort key, and a
+  `query.sortDefinition` on the visual — because `sortByColumn` orders a
+  column's members while the visual goes on sorting by its measure. Getting two
+  of the three right leaves a fourteen-step waterfall in dollar order with its
+  opening bar in the middle, which is what opening it showed.
 - **A real matrix**, with Rows, Columns and Values, for the segment-by-category
   profitability grid and the discount-to-margin cross-tab. A matrix with no
   Columns role is a table with extra chrome.
@@ -529,6 +560,9 @@ things it does not report:
 - every parameter table is a `calculated` partition and is related to nothing,
   because a parameter joined to a fact filters that fact to the parameter's own
   value, which is the opposite of what a what-if is for;
+- every bound column carries a readable `displayName` — a column arrives in the
+  model spelled the way the CSV spelled it, and that is the name a table header
+  shows until something overrides it;
 - the "one" side of every relationship is unique and the two sides share values;
 - nothing falls off the canvas, in either direction — a 76px slicer whose top is
   at y=712 on a 720px page shows eight pixels of itself and reads as a missing
@@ -541,9 +575,16 @@ things it does not report:
 - every file validates against the published JSON schema it names, and those
   schemas set `additionalProperties: false`, which is what catches a typo.
 
-**Not verified:** nobody has opened the project in Power BI Desktop and looked
-at it. Everything above is structural, and structural validity is not the same
-as looking right.
+All of that passed before the project was first opened, and the report was
+still wrong in nine ways — a missing manifest that stopped it opening at all, a
+field parameter Desktop would not bind, a treemap drawn as an empty box, four
+kinds of wrong sort, white slicers on a dark canvas, and source column names on
+every table header.
+[`OPEN_ME_FIRST.md`](powerbi/pbip/OPEN_ME_FIRST.md) lists all nine with what
+each one looked like. Every fix is a change to the generator rather than to its
+output, and each has a test that now fails without it — but the honest summary
+is that **structural validity is not the same as looking right, and the only
+way to find the difference was to open it.**
 
 ---
 

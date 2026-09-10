@@ -28,6 +28,7 @@
               },
               "queryRef": "price_response_curve.category",
               "nativeQueryRef": "category",
+              "displayName": "Category",
               "active": true
             }
           ]

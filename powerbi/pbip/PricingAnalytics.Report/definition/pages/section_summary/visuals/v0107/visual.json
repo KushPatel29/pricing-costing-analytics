@@ -28,6 +28,7 @@
               },
               "queryRef": "margin_bridge_effects.effect",
               "nativeQueryRef": "effect",
+              "displayName": "Effect",
               "active": true
             }
           ]

@@ -28,6 +28,7 @@
               },
               "queryRef": "deal_scores.approver",
               "nativeQueryRef": "approver",
+              "displayName": "Approver",
               "active": true
             }
           ]

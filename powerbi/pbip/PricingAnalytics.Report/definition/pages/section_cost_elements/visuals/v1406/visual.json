@@ -28,6 +28,7 @@
               },
               "queryRef": "cost_element_summary.cost_element",
               "nativeQueryRef": "cost_element",
+              "displayName": "Cost element",
               "active": true
             }
           ]
@@ -36,17 +37,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CostMetric"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "Cost metric Fields"
+                  "Property": "Cost element variance"
                 }
               },
-              "queryRef": "CostMetric.Cost metric Fields",
-              "nativeQueryRef": "Cost metric Fields"
+              "queryRef": "_Measures.Cost element variance",
+              "nativeQueryRef": "Cost element variance"
             }
           ]
         }
@@ -60,7 +61,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'By element, on whichever measure'"
+                  "Value": "'Variance by element'"
                 }
               }
             },
@@ -80,7 +81,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Bar chart titled By element on whichever measure. Its value well is Cost metric Fields, a field parameter, so the Metric slicer swaps between standard cost, actual cost, variance and variance percent on one chart.'"
+                  "Value": "'Bar chart titled Variance by element. Plots Cost element variance for each element of the cost stack. Positive is unfavourable.'"
                 }
               }
             }

@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "guardrail_exceptions.alert",
-              "nativeQueryRef": "alert"
+              "nativeQueryRef": "alert",
+              "displayName": "Alert"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "guardrail_exceptions.code",
-              "nativeQueryRef": "code"
+              "nativeQueryRef": "code",
+              "displayName": "Code"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "dim_product.description",
-              "nativeQueryRef": "description"
+              "nativeQueryRef": "description",
+              "displayName": "Description"
             },
             {
               "field": {
@@ -69,7 +72,8 @@
                 }
               },
               "queryRef": "dim_customer.customer_name",
-              "nativeQueryRef": "customer_name"
+              "nativeQueryRef": "customer_name",
+              "displayName": "Customer name"
             },
             {
               "field": {
@@ -111,7 +115,8 @@
                 }
               },
               "queryRef": "guardrail_exceptions.action",
-              "nativeQueryRef": "action"
+              "nativeQueryRef": "action",
+              "displayName": "Action"
             }
           ]
         }

@@ -28,6 +28,7 @@
               },
               "queryRef": "dim_customer.customer_name",
               "nativeQueryRef": "customer_name",
+              "displayName": "Customer name",
               "active": true
             }
           ]

@@ -28,6 +28,7 @@
               },
               "queryRef": "profit_heatmap.segment",
               "nativeQueryRef": "segment",
+              "displayName": "Segment",
               "active": true
             }
           ]
@@ -47,6 +48,7 @@
               },
               "queryRef": "profit_heatmap.category",
               "nativeQueryRef": "category",
+              "displayName": "Category",
               "active": true
             }
           ]

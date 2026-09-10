@@ -18,12 +18,13 @@ table data_quality_checks
 		lineageTag: 3763316a-d989-5fa5-af85-6c9ddb19f272
 		summarizeBy: none
 		sourceColumn: severity
+		sortByColumn: severity_rank
 
 	column severity_rank
 		dataType: int64
 		formatString: 0
 		lineageTag: d05ca439-bd91-5136-8020-4029b0f672a3
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: severity_rank
 
 	column table

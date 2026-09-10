@@ -28,6 +28,7 @@
               },
               "queryRef": "forecast_series.month",
               "nativeQueryRef": "month",
+              "displayName": "Month",
               "active": true
             }
           ]

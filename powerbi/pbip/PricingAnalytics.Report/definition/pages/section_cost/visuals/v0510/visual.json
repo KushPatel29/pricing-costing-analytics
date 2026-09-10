@@ -28,6 +28,7 @@
               },
               "queryRef": "dim_month.fiscal_year_label",
               "nativeQueryRef": "fiscal_year_label",
+              "displayName": "Fiscal year",
               "active": true
             }
           ]

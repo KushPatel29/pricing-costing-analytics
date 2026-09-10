@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "cost_element_by_category.category",
-              "nativeQueryRef": "category"
+              "nativeQueryRef": "category",
+              "displayName": "Category"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "cost_element_by_category.cost_element",
-              "nativeQueryRef": "cost_element"
+              "nativeQueryRef": "cost_element",
+              "displayName": "Cost element"
             },
             {
               "field": {

@@ -28,6 +28,7 @@
               },
               "queryRef": "wtp_curve.kind",
               "nativeQueryRef": "kind",
+              "displayName": "Kind",
               "active": true
             }
           ]

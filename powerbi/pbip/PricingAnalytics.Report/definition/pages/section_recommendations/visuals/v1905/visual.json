@@ -28,6 +28,7 @@
               },
               "queryRef": "recommendation_summary.action",
               "nativeQueryRef": "action",
+              "displayName": "Action",
               "active": true
             }
           ]
@@ -50,6 +51,24 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "recommendation_summary"
+                  }
+                },
+                "Property": "action"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": false
       }
     },
     "drillFilterOtherVisuals": true,

@@ -1,8 +1,8 @@
-line,amount,running,delta,balanced,unexplained
-Extract total,183875376.15,183875376.15,183875376.15,True,0.0
-Duplicate billing lines,-571281.52,183304094.63,-571281.5200000107,True,0.0
-Extended value recomputed,-511815.9799999999,182792278.65,-511815.9799999893,True,0.0
-Posted after the extract date,-123922.62000000001,182668356.03,-123922.62000000477,True,0.0
-Customer not in the master,-191888.88,182476467.15,-191888.87999999523,True,0.0
-Unexplained,-0.0,182476467.15,0.0,True,0.0
-Staged total,182476467.15,182476467.15,0.0,True,0.0
+line,amount,running,sort_order,delta,balanced,unexplained
+Extract total,183875376.15,183875376.15,0,183875376.15,True,0.0
+Duplicate billing lines,-571281.52,183304094.63,1,-571281.5200000107,True,0.0
+Extended value recomputed,-511815.9799999999,182792278.65,2,-511815.9799999893,True,0.0
+Posted after the extract date,-123922.62000000001,182668356.03,3,-123922.62000000477,True,0.0
+Customer not in the master,-191888.88,182476467.15,4,-191888.87999999523,True,0.0
+Unexplained,-0.0,182476467.15,5,0.0,True,0.0
+Staged total,182476467.15,182476467.15,6,0.0,True,0.0

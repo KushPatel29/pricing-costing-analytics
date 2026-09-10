@@ -411,6 +411,16 @@ def build_profitability(
     )
     matrix["gross_margin"] = matrix["pocket_revenue"] - matrix["cogs"]
     matrix["share_of_revenue"] = matrix["pocket_revenue"] / total_revenue
+    # Both band columns need a sort key. As text they order "0% to 5%", "10% to
+    # 15%", "15% to 20%", "20% to 30%", "30%+", "5% to 10%" -- so both axes of
+    # the cross-tab come out shuffled and the diagonal it exists to show is not
+    # a diagonal.
+    discount_order = {_band(low + 1e-9, DISCOUNT_BANDS): i
+                      for i, (low, _high) in enumerate(DISCOUNT_BANDS)}
+    margin_order = {_band(low + 1e-9, MARGIN_BANDS): i
+                    for i, (low, _high) in enumerate(MARGIN_BANDS)}
+    matrix["discount_band_order"] = matrix["discount_band"].map(discount_order)
+    matrix["margin_band_order"] = matrix["margin_band"].map(margin_order)
 
     # Price against units, per product, for the demand scatter.
     scatter = (

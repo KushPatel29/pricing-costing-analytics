@@ -12,6 +12,7 @@ table forecast_accuracy
 		lineageTag: efbafc85-710c-52e9-a4b8-1e65e11954a1
 		summarizeBy: none
 		sourceColumn: method
+		sortByColumn: rank
 
 	column wape
 		dataType: double

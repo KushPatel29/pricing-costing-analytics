@@ -28,6 +28,7 @@
               },
               "queryRef": "promotion_summary.mechanic",
               "nativeQueryRef": "mechanic",
+              "displayName": "Mechanic",
               "active": true
             }
           ]

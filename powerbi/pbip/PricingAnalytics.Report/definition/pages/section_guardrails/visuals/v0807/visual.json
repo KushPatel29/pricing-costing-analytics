@@ -28,6 +28,7 @@
               },
               "queryRef": "guardrail_summary.code",
               "nativeQueryRef": "code",
+              "displayName": "Code",
               "active": true
             }
           ]

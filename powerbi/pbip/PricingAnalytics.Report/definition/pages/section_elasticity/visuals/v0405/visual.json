@@ -28,6 +28,7 @@
               },
               "queryRef": "elasticity_estimates.member",
               "nativeQueryRef": "member",
+              "displayName": "Member",
               "active": true
             }
           ]

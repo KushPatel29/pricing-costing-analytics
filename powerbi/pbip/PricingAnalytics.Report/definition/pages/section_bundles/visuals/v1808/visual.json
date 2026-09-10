@@ -28,6 +28,7 @@
               },
               "queryRef": "bundle_candidates.verdict",
               "nativeQueryRef": "verdict",
+              "displayName": "Verdict",
               "active": true
             }
           ]

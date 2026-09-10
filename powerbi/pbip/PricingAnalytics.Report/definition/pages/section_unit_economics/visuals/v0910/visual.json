@@ -28,6 +28,7 @@
               },
               "queryRef": "break_even_portfolio.member",
               "nativeQueryRef": "member",
+              "displayName": "Member",
               "active": true
             }
           ]

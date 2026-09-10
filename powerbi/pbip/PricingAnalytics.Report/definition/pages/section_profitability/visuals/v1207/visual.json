@@ -28,6 +28,7 @@
               },
               "queryRef": "profitability.member",
               "nativeQueryRef": "member",
+              "displayName": "Member",
               "active": true
             }
           ]

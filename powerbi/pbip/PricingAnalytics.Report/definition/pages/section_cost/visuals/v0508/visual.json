@@ -28,6 +28,7 @@
               },
               "queryRef": "overhead_variance.cost_pool",
               "nativeQueryRef": "cost_pool",
+              "displayName": "Cost pool",
               "active": true
             }
           ]

@@ -28,6 +28,7 @@
               },
               "queryRef": "scenario_tornado.input",
               "nativeQueryRef": "input",
+              "displayName": "Input",
               "active": true
             }
           ]

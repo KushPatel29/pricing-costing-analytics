@@ -28,6 +28,7 @@
               },
               "queryRef": "profitability.member",
               "nativeQueryRef": "member",
+              "displayName": "Member",
               "active": true
             }
           ]
@@ -36,17 +37,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ProfitMetric"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "Profit metric Fields"
+                  "Property": "Profitability margin %"
                 }
               },
-              "queryRef": "ProfitMetric.Profit metric Fields",
-              "nativeQueryRef": "Profit metric Fields"
+              "queryRef": "_Measures.Profitability margin %",
+              "nativeQueryRef": "Profitability margin %"
             }
           ]
         }
@@ -60,7 +61,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Whichever measure you asked for, by member'"
+                  "Value": "'Margin by member'"
                 }
               }
             },
@@ -80,7 +81,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Bar chart titled Whichever measure you asked for by member. Its value well is Profit metric Fields, a field parameter, so the Metric slicer swaps the measure rather than the page carrying five charts that differ by one field.'"
+                  "Value": "'Bar chart titled Margin by member. Plots Profitability margin % for each member of the chosen cut.'"
                 }
               }
             }

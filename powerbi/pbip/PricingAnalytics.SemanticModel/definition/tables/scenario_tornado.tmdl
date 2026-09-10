@@ -6,6 +6,7 @@ table scenario_tornado
 		lineageTag: 46bbb1dc-77be-5e7c-9cb1-8fd0e4e2772b
 		summarizeBy: none
 		sourceColumn: input
+		sortByColumn: share_of_swing
 
 	column key
 		dataType: string

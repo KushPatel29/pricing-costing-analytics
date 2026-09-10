@@ -3,7 +3,7 @@
   "name": "v1409",
   "position": {
     "x": 1068,
-    "y": 614,
+    "y": 528,
     "z": 2308,
     "height": 76,
     "width": 192,
@@ -20,14 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "cost_element_summary"
+                      "Entity": "cost_element_by_category"
                     }
                   },
-                  "Property": "behaviour"
+                  "Property": "category"
                 }
               },
-              "queryRef": "cost_element_summary.behaviour",
-              "nativeQueryRef": "behaviour",
+              "queryRef": "cost_element_by_category.category",
+              "nativeQueryRef": "category",
+              "displayName": "Category",
               "active": true
             }
           ]
@@ -42,7 +43,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Behaviour'"
+                  "Value": "'Category'"
                 }
               }
             },
@@ -62,7 +63,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Slicer. Filters by cost behaviour: variable or fixed.'"
+                  "Value": "'Slicer. Filters the category table by category.'"
                 }
               }
             }

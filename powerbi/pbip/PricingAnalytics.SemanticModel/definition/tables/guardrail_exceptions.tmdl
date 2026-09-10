@@ -19,6 +19,14 @@ table guardrail_exceptions
 		lineageTag: 554dbce7-19c9-5ca7-8a49-1af8ec14a053
 		summarizeBy: none
 		sourceColumn: alert
+		sortByColumn: alert_rank
+
+	column alert_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b6957b4-b7a4-5979-9e3c-665b2ed54a4f
+		summarizeBy: none
+		sourceColumn: alert_rank
 
 	column product_id
 		dataType: string
@@ -110,6 +118,6 @@ table guardrail_exceptions
 				let
 				    Source = Csv.Document(File.Contents(DataPath & "\output\guardrail_exceptions.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				    Typed = Table.TransformColumnTypes(Promoted, {{"code", type text}, {"severity", Int64.Type}, {"alert", type text}, {"product_id", type text}, {"customer_id", type text}, {"description", type text}, {"pocket_margin_pct", type number}, {"price_index", type number}, {"margin_at_risk", type number}, {"action", type text}, {"category", type text}, {"segment", type text}, {"customer_name", type text}, {"quantity_units", type number}, {"list_price", type number}, {"pocket_price", type number}})
+				    Typed = Table.TransformColumnTypes(Promoted, {{"code", type text}, {"severity", Int64.Type}, {"alert", type text}, {"alert_rank", Int64.Type}, {"product_id", type text}, {"customer_id", type text}, {"description", type text}, {"pocket_margin_pct", type number}, {"price_index", type number}, {"margin_at_risk", type number}, {"action", type text}, {"category", type text}, {"segment", type text}, {"customer_name", type text}, {"quantity_units", type number}, {"list_price", type number}, {"pocket_price", type number}})
 				in
 				    Typed

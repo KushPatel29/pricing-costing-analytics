@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "dim_product.description",
-              "nativeQueryRef": "description"
+              "nativeQueryRef": "description",
+              "displayName": "Description"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "recommendations.action",
-              "nativeQueryRef": "action"
+              "nativeQueryRef": "action",
+              "displayName": "Action"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "recommendations.rationale",
-              "nativeQueryRef": "rationale"
+              "nativeQueryRef": "rationale",
+              "displayName": "Rationale"
             }
           ]
         }

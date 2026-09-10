@@ -28,6 +28,7 @@
               },
               "queryRef": "leakage_by_dimension.deduction",
               "nativeQueryRef": "deduction",
+              "displayName": "Deduction",
               "active": true
             }
           ]

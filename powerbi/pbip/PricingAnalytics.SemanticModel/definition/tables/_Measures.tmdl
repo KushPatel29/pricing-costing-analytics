@@ -1083,6 +1083,7 @@ table _Measures
 		displayFolder: 12 Labels
 
 	column _placeholder
+		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: e1366f0d-34fb-5d66-ab46-e8e9e22bfa9a

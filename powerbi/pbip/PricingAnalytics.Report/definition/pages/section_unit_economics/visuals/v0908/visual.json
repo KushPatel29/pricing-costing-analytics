@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "dim_product.description",
-              "nativeQueryRef": "description"
+              "nativeQueryRef": "description",
+              "displayName": "Description"
             },
             {
               "field": {
@@ -69,7 +70,8 @@
                 }
               },
               "queryRef": "break_even_products.margin_of_safety",
-              "nativeQueryRef": "margin_of_safety"
+              "nativeQueryRef": "margin_of_safety",
+              "displayName": "Margin of safety"
             }
           ]
         }

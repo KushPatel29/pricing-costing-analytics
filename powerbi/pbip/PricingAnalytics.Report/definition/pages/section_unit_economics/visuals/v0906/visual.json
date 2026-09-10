@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "markup_vs_margin.rate",
-              "nativeQueryRef": "rate"
+              "nativeQueryRef": "rate",
+              "displayName": "Rate"
             },
             {
               "field": {

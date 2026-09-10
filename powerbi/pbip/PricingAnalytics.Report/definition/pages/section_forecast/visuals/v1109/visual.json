@@ -28,6 +28,7 @@
               },
               "queryRef": "forecast_accuracy.measure",
               "nativeQueryRef": "measure",
+              "displayName": "Measure",
               "active": true
             }
           ]

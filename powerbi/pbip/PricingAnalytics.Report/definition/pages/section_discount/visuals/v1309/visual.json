@@ -28,6 +28,7 @@
               },
               "queryRef": "price_vs_volume.promoted",
               "nativeQueryRef": "promoted",
+              "displayName": "Promoted",
               "active": true
             }
           ]

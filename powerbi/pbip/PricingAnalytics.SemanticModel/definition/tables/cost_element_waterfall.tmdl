@@ -6,6 +6,7 @@ table cost_element_waterfall
 		lineageTag: 0503d7a0-c307-55a8-90c5-6305ffe75463
 		summarizeBy: none
 		sourceColumn: step
+		sortByColumn: sort_order
 
 	column kind
 		dataType: string
@@ -28,7 +29,8 @@ table cost_element_waterfall
 		sourceColumn: running
 
 	column sort_order
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: 31a3129a-1797-5759-a4fe-50a026aad50f
 		summarizeBy: none
 		sourceColumn: sort_order
@@ -46,6 +48,6 @@ table cost_element_waterfall
 				let
 				    Source = Csv.Document(File.Contents(DataPath & "\output\cost_element_waterfall.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				    Typed = Table.TransformColumnTypes(Promoted, {{"step", type text}, {"kind", type text}, {"amount", type number}, {"running", type number}, {"sort_order", type text}, {"delta", type number}})
+				    Typed = Table.TransformColumnTypes(Promoted, {{"step", type text}, {"kind", type text}, {"amount", type number}, {"running", type number}, {"sort_order", Int64.Type}, {"delta", type number}})
 				in
 				    Typed

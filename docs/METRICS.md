@@ -94,14 +94,6 @@ Calculated tables, not CSVs, and related to nothing on purpose: a parameter join
 | `CostChange` | `Cost change %` | -15% to +25% | 0.010 | `[Cost change value]` |
 | `VolumeChange` | `Volume change %` | -25% to +25% | 0.010 | `[Volume change value]` |
 | `DiscountChange` | `Discount change pts` | -5% to +10% | 0.005 | `[Discount change value]` |
-
-Field parameters swap the measure a visual shows, so one chart answers several questions instead of the page carrying several charts that differ by one field.
-
-| Field parameter | Column | Offers |
-|---|---|---|
-| `ProfitMetric` | `Profit metric` | `Pocket revenue`, `Margin $`, `Margin %`, `Operating margin %`, `Leakage %` |
-| `CostMetric` | `Cost metric` | `Standard cost`, `Actual cost`, `Variance`, `Variance %` |
-
 ## The 209 measures
 
 Grouped as they appear in the Power BI field list.

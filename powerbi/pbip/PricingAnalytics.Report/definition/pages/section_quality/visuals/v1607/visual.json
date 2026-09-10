@@ -28,6 +28,7 @@
               },
               "queryRef": "reconciliation.line",
               "nativeQueryRef": "line",
+              "displayName": "Line",
               "active": true
             }
           ]
@@ -50,6 +51,24 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "reconciliation"
+                  }
+                },
+                "Property": "line"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": false
       }
     },
     "drillFilterOtherVisuals": true,

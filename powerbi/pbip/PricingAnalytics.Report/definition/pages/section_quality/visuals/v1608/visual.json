@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "data_quality_score.dimension",
-              "nativeQueryRef": "dimension"
+              "nativeQueryRef": "dimension",
+              "displayName": "Dimension"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "data_quality_score.checks",
-              "nativeQueryRef": "checks"
+              "nativeQueryRef": "checks",
+              "displayName": "Checks"
             },
             {
               "field": {

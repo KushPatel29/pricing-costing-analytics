@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "dim_product.description",
-              "nativeQueryRef": "description"
+              "nativeQueryRef": "description",
+              "displayName": "Description"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "dim_product.category",
-              "nativeQueryRef": "category"
+              "nativeQueryRef": "category",
+              "displayName": "Category"
             },
             {
               "field": {

@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "dim_product.description",
-              "nativeQueryRef": "description"
+              "nativeQueryRef": "description",
+              "displayName": "Description"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "dim_customer.customer_name",
-              "nativeQueryRef": "customer_name"
+              "nativeQueryRef": "customer_name",
+              "displayName": "Customer name"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "deal_scores.verdict",
-              "nativeQueryRef": "verdict"
+              "nativeQueryRef": "verdict",
+              "displayName": "Verdict"
             },
             {
               "field": {
@@ -97,7 +100,8 @@
                 }
               },
               "queryRef": "deal_scores.approver",
-              "nativeQueryRef": "approver"
+              "nativeQueryRef": "approver",
+              "displayName": "Approver"
             }
           ]
         }

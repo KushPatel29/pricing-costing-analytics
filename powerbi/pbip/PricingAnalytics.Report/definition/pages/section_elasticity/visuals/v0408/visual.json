@@ -28,6 +28,7 @@
               },
               "queryRef": "elasticity_estimates.scope",
               "nativeQueryRef": "scope",
+              "displayName": "Scope",
               "active": true
             }
           ]

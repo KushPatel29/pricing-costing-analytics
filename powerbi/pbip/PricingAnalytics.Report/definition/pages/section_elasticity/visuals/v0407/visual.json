@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "price_change_hurdles.category",
-              "nativeQueryRef": "category"
+              "nativeQueryRef": "category",
+              "displayName": "Category"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "price_change_hurdles.price_change_pct",
-              "nativeQueryRef": "price_change_pct"
+              "nativeQueryRef": "price_change_pct",
+              "displayName": "Price change %"
             },
             {
               "field": {
@@ -97,7 +99,8 @@
                 }
               },
               "queryRef": "price_change_hurdles.verdict",
-              "nativeQueryRef": "verdict"
+              "nativeQueryRef": "verdict",
+              "displayName": "Verdict"
             }
           ]
         }

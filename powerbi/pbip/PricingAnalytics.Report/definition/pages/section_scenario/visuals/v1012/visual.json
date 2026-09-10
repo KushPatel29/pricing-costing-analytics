@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "scenario_thresholds.input",
-              "nativeQueryRef": "input"
+              "nativeQueryRef": "input",
+              "displayName": "Input"
             },
             {
               "field": {
@@ -55,7 +56,8 @@
                 }
               },
               "queryRef": "scenario_thresholds.reason",
-              "nativeQueryRef": "reason"
+              "nativeQueryRef": "reason",
+              "displayName": "Reason"
             }
           ]
         }

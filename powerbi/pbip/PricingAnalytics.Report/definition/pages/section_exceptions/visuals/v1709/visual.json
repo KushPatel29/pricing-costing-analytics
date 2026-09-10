@@ -28,6 +28,7 @@
               },
               "queryRef": "guardrail_exceptions.alert",
               "nativeQueryRef": "alert",
+              "displayName": "Alert",
               "active": true
             }
           ]

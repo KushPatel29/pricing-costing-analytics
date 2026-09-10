@@ -28,6 +28,7 @@
               },
               "queryRef": "dim_product.category",
               "nativeQueryRef": "category",
+              "displayName": "Category",
               "active": true
             }
           ]
@@ -65,6 +66,7 @@
               },
               "queryRef": "cost_variance_long.variance_type",
               "nativeQueryRef": "variance_type",
+              "displayName": "Variance type",
               "active": true
             }
           ]

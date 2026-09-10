@@ -28,6 +28,7 @@
               },
               "queryRef": "deal_scores.verdict",
               "nativeQueryRef": "verdict",
+              "displayName": "Verdict",
               "active": true
             }
           ]

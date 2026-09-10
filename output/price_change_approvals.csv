@@ -1,5 +1,5 @@
 approval_state,changes,median_days,median_pct
-Approved,1763,3.0,-0.00706
-Auto-approved,264,0.0,0.00861
-Pending,98,2.0,-0.00594
-Rejected,152,2.0,-0.00434
+Approved,1790,2.0,-0.00496
+Auto-approved,285,0.0,0.00776
+Pending,100,3.0,0.02484
+Rejected,139,2.0,-0.01628

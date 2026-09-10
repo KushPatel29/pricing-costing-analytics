@@ -26,7 +26,8 @@ sh.lede(
     f"Three complete fiscal years for a multi-category B2B wholesale distributor, "
     f"through FY{latest_fy}. "
     "The cost stack is the one the calculator has always run - vendor invoice, unit "
-    "conversion, freight lane, recovery, labour, margin. Everything else on these pages "
+    "conversion, inbound freight, sellable rate, handling, margin. Everything else on "
+    "these pages "
     "is what a pricing analyst does with it once the cost is known: what the market "
     "charges, what the customer actually pays after every deduction, how much volume "
     "moves when the price does, and which of last year's margin miss was price rather "
@@ -70,9 +71,14 @@ with left:
 
 with right:
     st.markdown("### Margin leakage")
+    # The same sentence appears on the KPI card above, where it is a single
+    # fiscal year. Averaging three years here put two different numbers for one
+    # claim on one screen.
+    latest_list_value = float(
+        monthly[monthly["fiscal_year"] == latest_fy]["list_value"].sum())
     sh.caption(
         "The share of list price that never arrives. Every point of it is "
-        f"{sh.money(float(monthly['list_value'].sum()) * 0.01 / 3, 1)} a year."
+        f"{sh.money(latest_list_value * 0.01, 1)} in FY{latest_fy}."
     )
     # The monthly series swings a point and a half either way on customer mix
     # alone -- which month the big discounted accounts happened to order. The
@@ -144,13 +150,14 @@ pages = pd.DataFrame(
         ("Unit economics and break-even",
          "Contribution, markup against margin, cost to serve, and the fixed pool."),
         ("Cost-to-price calculator",
-         "The original tool: reprice a book of items and push the result back to the ERP."),
+         "The original tool: reprice a book of items and hand the result back as a "
+         "price-list file."),
         ("Market and competitor benchmarking",
          "Our price against the market, and how much of a cost move ever reaches it."),
         ("Price bands and willingness to pay",
          "What different customers pay for the same thing, and what they would have paid."),
         ("Profitability and segmentation",
-         "Nine cuts of the book, down to operating profit after allocated fixed cost."),
+         "Eleven cuts of the book, down to operating profit after allocated fixed cost."),
         ("Price waterfall", "List to pocket, and which deduction costs the most."),
         ("Margin bridge", "Price, cost, volume, mix, launches and losses - summing exactly."),
         ("Pricing simulator", "Best, base and worst, and which assumption actually matters."),

@@ -1251,6 +1251,12 @@ def build_executive_summary(outputs: dict[str, pd.DataFrame], sales: pd.DataFram
     comp = outputs.get("competitive_summary", pd.DataFrame())
     passthrough = outputs.get("passthrough", pd.DataFrame())
     variances = outputs.get("cost_variance_detail", pd.DataFrame())
+    # Scoped to the same year as every other card on this row. Unscoped, the
+    # two variance cards summed all three fiscal years and were stamped with
+    # the latest one: -$5.6M sitting beside a revenue figure of $260M, both
+    # labelled FY2026, one of them describing a period three times as long.
+    if not variances.empty and "fiscal_year" in variances.columns:
+        variances = variances[variances["fiscal_year"] == latest_year]
 
     rows = [
         ("Pocket revenue", pocket_revenue, "currency",
@@ -1277,14 +1283,16 @@ def build_executive_summary(outputs: dict[str, pd.DataFrame], sales: pd.DataFram
          "Lines below floor, loss-making, or outside the index band."),
         ("Purchase price variance", float(variances["purchase_price_variance"].sum())
          if not variances.empty else 0.0, "currency",
-         "Actual input cost against frozen standard. Positive is unfavourable."),
+         f"FY{latest_year} input cost against the standard frozen that July. "
+         "Positive is unfavourable."),
         ("Yield variance", float(variances["yield_variance"].sum())
          if not variances.empty else 0.0, "currency",
-         "Material used beyond what standard recovery allows."),
+         f"FY{latest_year} units bought beyond what the standard sellable rate "
+         "allows for what shipped."),
         ("Average pass-through", float(passthrough["passthrough_to_pocket"].mean())
          if not passthrough.empty else 0.0, "ratio",
-         "Share of an input-cost move that reached the realised price. "
-         "Below 1 compresses margin."),
+         "Share of an input-cost move that reached the realised price, estimated "
+         "across all three years. Below 1 compresses margin."),
         ("Volume", float(recent["quantity_units"].sum()), "count",
          f"Units shipped in FY{latest_year}."),
     ]

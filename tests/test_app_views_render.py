@@ -119,3 +119,59 @@ class TestTheLoaderReadsDates:
         means reading the extract the rules ran against."""
         frame = self._load("erp_billing_items")
         assert len(frame) > 1000
+
+
+class TestGeneratedProseSurvivesTheRenderer:
+    """
+    Two ways a generated paragraph goes wrong on screen without raising.
+    """
+
+    def test_two_amounts_in_one_sentence_keep_their_dollar_signs(self):
+        """
+        Streamlit's markdown reads `$...$` as inline maths, so a sentence with
+        two amounts loses **both** dollar signs and sets the words between them
+        in a maths font. The executive note on the recommendations page carries
+        three amounts and was rendering exactly that way.
+        """
+        from app.shared import escape_money
+
+        sentence = "worth $2.6M of margin, of which $2.4M is the increase"
+        escaped = escape_money(sentence)
+        assert escaped.count(r"\$") == 2
+        assert "$" not in escaped.replace(r"\$", "")
+
+    def test_the_executive_note_counts_in_the_singular(self):
+        """
+        "1 small items lose money" tells the reader the paragraph was
+        generated, and they discount everything else in it.
+        """
+        from pricing.recommend import executive_note
+
+        one = executive_note([
+            {"product_id": "A", "action": "Discontinue", "margin_delta": 10.0,
+             "revenue_delta": -5.0, "volume_units": 3.0},
+        ])
+        assert "1 small item loses money" in one
+        assert "it holds a listing" in one
+
+        two = executive_note([
+            {"product_id": "A", "action": "Discontinue", "margin_delta": 10.0,
+             "revenue_delta": -5.0, "volume_units": 3.0},
+            {"product_id": "B", "action": "Discontinue", "margin_delta": 8.0,
+             "revenue_delta": -4.0, "volume_units": 2.0},
+        ])
+        assert "2 small items lose money" in two
+        assert "they hold a listing" in two
+
+
+class TestAmountsRead:
+    def test_a_negative_amount_puts_the_sign_before_the_currency(self):
+        """`$-32k` is what you get by formatting the number inside the string,
+        and it reads as a typo -- on a page of variances, most of the page."""
+        from app.shared import dollars, money
+
+        assert money(-2_290_000, 2) == "-$2.29M"
+        assert money(-32_000) == "-$32k"
+        assert dollars(-450.5) == "-$450.50"
+        assert money(2_650_000, 2) == "$2.65M"
+        assert money(0) == "$0"

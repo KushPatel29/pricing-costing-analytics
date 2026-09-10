@@ -289,19 +289,50 @@ def page(title: str = "") -> None:
           div[data-testid="stDecoration"] {{
             background: linear-gradient(90deg, {SERIES[0]}, {SERIES[6]}, {SERIES[2]});
           }}
+          /* Streamlit's own chrome. The deploy button only renders for the
+             account that owns the app, so it is invisible to a visitor and
+             present in every screenshot taken locally -- which is the one
+             place it does harm. */
           #MainMenu, footer {{ visibility: hidden; }}
+          [data-testid="stAppDeployButton"] {{ display: none; }}
         </style>
         """,
         unsafe_allow_html=True,
     )
 
 
+def escape_money(text: str) -> str:
+    r"""
+    Escape dollar signs so Streamlit does not read them as LaTeX.
+
+    Streamlit's markdown treats ``$...$`` as inline maths. A sentence carrying
+    two amounts -- "worth $2.6M of margin, of which $2.4M is the increase" --
+    therefore loses **both** dollar signs and renders the text between them in
+    a maths font. It is not an error and nothing logs it; the paragraph simply
+    reads as though somebody forgot the currency.
+
+    Escaping happens here, at the render boundary, rather than in the analysis:
+    a generated paragraph should be plain prose, and the escaping is a property
+    of the renderer it is going into.
+    """
+    return text.replace("$", r"\$")
+
+
 def lede(text: str) -> None:
-    st.markdown(f'<div class="lede">{text}</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="lede">{escape_money(text)}</div>',
+                unsafe_allow_html=True)
 
 
 def caption(text: str) -> None:
-    st.markdown(f'<div class="caption">{text}</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="caption">{escape_money(text)}</div>',
+                unsafe_allow_html=True)
+
+
+def note(text: str, *, kind: str = "info") -> None:
+    """A callout carrying generated prose. Use this rather than `st.info` and
+    friends directly whenever the text can contain an amount."""
+    {"info": st.info, "success": st.success,
+     "warning": st.warning, "error": st.error}[kind](escape_money(text))
 
 
 # --- Data ----------------------------------------------------------------
@@ -413,17 +444,30 @@ def sales() -> pd.DataFrame:
 # --- Formatting ----------------------------------------------------------
 
 def money(value: float, decimals: int = 0) -> str:
+    """
+    An amount, abbreviated, with the sign in front of the currency.
+
+    `-$32k`, not `$-32k`. The second is what you get by formatting the number
+    inside the string and it reads as a typo every time -- which on a page full
+    of negative variances is most of the page.
+    """
     if pd.isna(value):
         return "n/a"
-    if abs(value) >= 1_000_000:
-        return f"${value / 1_000_000:,.{max(decimals, 1)}f}M"
-    if abs(value) >= 10_000:
-        return f"${value / 1_000:,.0f}k"
-    return f"${value:,.{decimals}f}"
+    sign = "-" if value < 0 else ""
+    size = abs(value)
+    if size >= 1_000_000:
+        return f"{sign}${size / 1_000_000:,.{max(decimals, 1)}f}M"
+    if size >= 10_000:
+        return f"{sign}${size / 1_000:,.0f}k"
+    return f"{sign}${size:,.{decimals}f}"
 
 
 def dollars(value: float, decimals: int = 2) -> str:
-    return "n/a" if pd.isna(value) else f"${value:,.{decimals}f}"
+    """An exact amount, sign before the currency for the same reason."""
+    if pd.isna(value):
+        return "n/a"
+    sign = "-" if value < 0 else ""
+    return f"{sign}${abs(value):,.{decimals}f}"
 
 
 def pct(value: float, decimals: int = 1) -> str:
@@ -533,11 +577,24 @@ def waterfall(steps: pd.DataFrame, *, label: str = "step", amount: str = "amount
 def bar(frame: pd.DataFrame, x: str, y: str, *, colour: str = SERIES[0],
         horizontal: bool = False, text: str | None = None,
         colours: list[str] | None = None):
-    """A single-series bar with rounded data-ends and optional direct labels."""
+    """
+    A single-series bar with rounded data-ends and optional direct labels.
+
+    Labels sit *outside* the bar, and Plotly does not widen the axis to make
+    room for them: the longest bar is the one whose label runs off the plot,
+    which is reliably the one the reader most wants to read. So the value axis
+    gets a headroom pad whenever there are labels -- 18% of the range, which
+    holds a "$12.96M" beside the longest bar at the sizes used here.
+    """
     import plotly.graph_objects as go
 
     marker = dict(color=colours if colours else colour,
                   line=dict(width=2, color=SURFACE), cornerradius=4)
+    values = pd.to_numeric(frame[y], errors="coerce")
+    low = float(min(0.0, values.min())) if len(values) else 0.0
+    high = float(max(0.0, values.max())) if len(values) else 1.0
+    pad = (high - low) * 0.18 if text and high > low else 0.0
+
     if horizontal:
         fig = go.Figure(go.Bar(y=frame[x], x=frame[y], orientation="h", marker=marker,
                                text=frame[text] if text else None,
@@ -546,12 +603,16 @@ def bar(frame: pd.DataFrame, x: str, y: str, *, colour: str = SERIES[0],
                                hovertemplate="%{y}: %{x:,.2f}<extra></extra>"))
         fig.update_yaxes(showgrid=False, autorange="reversed")
         fig.update_xaxes(showgrid=True, gridcolor=GRID)
+        if pad:
+            fig.update_xaxes(range=[low - (pad if low < 0 else 0), high + pad])
     else:
         fig = go.Figure(go.Bar(x=frame[x], y=frame[y], marker=marker,
                                text=frame[text] if text else None,
                                textposition="outside",
                                textfont=dict(color=INK_SECONDARY, size=11),
                                hovertemplate="%{x}: %{y:,.2f}<extra></extra>"))
+        if pad:
+            fig.update_yaxes(range=[low - (pad if low < 0 else 0), high + pad])
     return fig
 
 

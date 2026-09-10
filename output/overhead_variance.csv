@@ -1,181 +1,181 @@
 month,cost_pool,budgeted_rate_unit,actual_overhead,absorbed_overhead,spending_variance,spending_verdict,volume_variance,volume_verdict,total_variance
-2023-07-01,Warehouse operations,0.212,103472.08,92254.05,11218.03,Unfavourable,15903.58,Unfavourable,27121.62
-2023-07-01,Inventory carrying,0.086,42961.76,37423.81,5537.95,Unfavourable,6451.45,Unfavourable,11989.4
-2023-07-01,Returns processing,0.041,20828.89,17841.58,2987.31,Unfavourable,3075.69,Unfavourable,6063.0
-2023-07-01,Outbound logistics,0.129,69937.73,56135.72,13802.01,Unfavourable,9677.18,Unfavourable,23479.19
-2023-07-01,Selling and admin,0.164,78445.13,71366.34,7078.79,Unfavourable,12302.77,Unfavourable,19381.56
-2023-08-01,Warehouse operations,0.212,110513.09,91414.51,19098.58,Unfavourable,16743.12,Unfavourable,35841.71
-2023-08-01,Inventory carrying,0.086,47766.15,37083.24,10682.91,Unfavourable,6792.02,Unfavourable,17474.93
-2023-08-01,Returns processing,0.041,20298.63,17679.22,2619.41,Unfavourable,3238.06,Unfavourable,5857.47
-2023-08-01,Outbound logistics,0.129,64921.72,55624.86,9296.86,Unfavourable,10188.03,Unfavourable,19484.89
-2023-08-01,Selling and admin,0.164,80397.32,70716.88,9680.44,Unfavourable,12952.23,Unfavourable,22632.67
-2023-09-01,Warehouse operations,0.212,109139.88,89906.49,19233.39,Unfavourable,18251.14,Unfavourable,37484.54
-2023-09-01,Inventory carrying,0.086,44989.67,36471.5,8518.17,Unfavourable,7403.77,Unfavourable,15921.94
-2023-09-01,Returns processing,0.041,19561.09,17387.58,2173.51,Unfavourable,3529.7,Unfavourable,5703.22
-2023-09-01,Outbound logistics,0.129,64197.35,54707.25,9490.1,Unfavourable,11105.65,Unfavourable,20595.75
-2023-09-01,Selling and admin,0.164,83351.23,69550.3,13800.93,Unfavourable,14118.81,Unfavourable,27919.74
-2023-10-01,Warehouse operations,0.212,115851.48,88560.92,27290.56,Unfavourable,19596.71,Unfavourable,46887.27
-2023-10-01,Inventory carrying,0.086,46863.13,35925.66,10937.47,Unfavourable,7949.61,Unfavourable,18887.08
-2023-10-01,Returns processing,0.041,20107.0,17127.35,2979.65,Unfavourable,3789.93,Unfavourable,6769.58
-2023-10-01,Outbound logistics,0.129,71899.19,53888.49,18010.7,Unfavourable,11924.41,Unfavourable,29935.12
-2023-10-01,Selling and admin,0.164,85247.36,68509.39,16737.97,Unfavourable,15159.72,Unfavourable,31897.68
-2023-11-01,Warehouse operations,0.212,118290.27,112295.3,5994.97,Unfavourable,-4137.67,Favourable,1857.3
-2023-11-01,Inventory carrying,0.086,42657.69,45553.75,-2896.06,Favourable,-1678.49,Favourable,-4574.55
-2023-11-01,Returns processing,0.041,21644.58,21717.49,-72.91,Favourable,-800.21,Favourable,-873.12
-2023-11-01,Outbound logistics,0.129,64173.33,68330.63,-4157.3,Favourable,-2517.73,Favourable,-6675.03
-2023-11-01,Selling and admin,0.164,88617.51,86869.95,1747.56,Unfavourable,-3200.84,Favourable,-1453.27
-2023-12-01,Warehouse operations,0.212,96706.82,104051.49,-7344.67,Favourable,4106.14,Unfavourable,-3238.52
-2023-12-01,Inventory carrying,0.086,45391.31,42209.57,3181.74,Unfavourable,1665.7,Unfavourable,4847.44
-2023-12-01,Returns processing,0.041,22658.43,20123.16,2535.27,Unfavourable,794.11,Unfavourable,3329.38
-2023-12-01,Outbound logistics,0.129,72230.64,63314.35,8916.29,Unfavourable,2498.55,Unfavourable,11414.84
-2023-12-01,Selling and admin,0.164,86639.42,80492.66,6146.76,Unfavourable,3176.45,Unfavourable,9323.21
-2024-01-01,Warehouse operations,0.212,95299.85,96843.42,-1543.57,Favourable,11314.21,Unfavourable,9770.63
-2024-01-01,Inventory carrying,0.086,39788.52,39285.54,502.98,Unfavourable,4589.73,Unfavourable,5092.71
-2024-01-01,Returns processing,0.041,20960.46,18729.15,2231.31,Unfavourable,2188.12,Unfavourable,4419.43
-2024-01-01,Outbound logistics,0.129,68056.22,58928.31,9127.91,Unfavourable,6884.59,Unfavourable,16012.5
-2024-01-01,Selling and admin,0.164,81310.5,74916.61,6393.89,Unfavourable,8752.5,Unfavourable,15146.39
-2024-02-01,Warehouse operations,0.212,102930.11,90634.28,12295.83,Unfavourable,17523.35,Unfavourable,29819.18
-2024-02-01,Inventory carrying,0.086,44939.36,36766.74,8172.62,Unfavourable,7108.53,Unfavourable,15281.15
-2024-02-01,Returns processing,0.041,20600.48,17528.33,3072.15,Unfavourable,3388.95,Unfavourable,6461.1
-2024-02-01,Outbound logistics,0.129,68805.03,55150.11,13654.92,Unfavourable,10662.79,Unfavourable,24317.72
-2024-02-01,Selling and admin,0.164,95567.65,70113.31,25454.34,Unfavourable,13555.8,Unfavourable,39010.13
-2024-03-01,Warehouse operations,0.212,114696.06,98339.49,16356.57,Unfavourable,9818.14,Unfavourable,26174.72
-2024-03-01,Inventory carrying,0.086,44932.4,39892.43,5039.97,Unfavourable,3982.83,Unfavourable,9022.8
-2024-03-01,Returns processing,0.041,22300.51,19018.49,3282.02,Unfavourable,1898.79,Unfavourable,5180.82
-2024-03-01,Outbound logistics,0.129,69550.45,59838.65,9711.8,Unfavourable,5974.25,Unfavourable,15686.05
-2024-03-01,Selling and admin,0.164,86993.9,76073.94,10919.96,Unfavourable,7595.17,Unfavourable,18515.13
-2024-04-01,Warehouse operations,0.212,103314.72,99432.64,3882.08,Unfavourable,8724.99,Unfavourable,12607.06
-2024-04-01,Inventory carrying,0.086,44035.75,40335.88,3699.87,Unfavourable,3539.38,Unfavourable,7239.25
-2024-04-01,Returns processing,0.041,22874.26,19229.9,3644.36,Unfavourable,1687.38,Unfavourable,5331.74
-2024-04-01,Outbound logistics,0.129,69541.75,60503.83,9037.92,Unfavourable,5309.07,Unfavourable,14347.0
-2024-04-01,Selling and admin,0.164,81576.41,76919.59,4656.82,Unfavourable,6749.52,Unfavourable,11406.34
-2024-05-01,Warehouse operations,0.212,116429.7,113320.34,3109.36,Unfavourable,-5162.71,Favourable,-2053.35
-2024-05-01,Inventory carrying,0.086,44065.46,45969.57,-1904.11,Favourable,-2094.31,Favourable,-3998.42
-2024-05-01,Returns processing,0.041,19114.17,21915.73,-2801.56,Favourable,-998.45,Favourable,-3800.0
-2024-05-01,Outbound logistics,0.129,75627.89,68954.36,6673.53,Unfavourable,-3141.46,Favourable,3532.07
-2024-05-01,Selling and admin,0.164,89087.38,87662.9,1424.48,Unfavourable,-3993.79,Favourable,-2569.32
-2024-06-01,Warehouse operations,0.212,112183.99,106491.03,5692.96,Unfavourable,1666.6,Unfavourable,7359.55
-2024-06-01,Inventory carrying,0.086,43139.41,43199.19,-59.78,Favourable,676.07,Unfavourable,616.29
-2024-06-01,Returns processing,0.041,21165.67,20594.96,570.71,Unfavourable,322.31,Unfavourable,893.02
-2024-06-01,Outbound logistics,0.129,64124.51,64798.79,-674.28,Favourable,1014.11,Unfavourable,339.83
-2024-06-01,Selling and admin,0.164,86257.34,82379.86,3877.48,Unfavourable,1289.25,Unfavourable,5166.74
-2024-07-01,Warehouse operations,0.212,112678.05,116181.66,-3503.61,Favourable,-8024.03,Favourable,-11527.64
-2024-07-01,Inventory carrying,0.086,40826.52,47130.3,-6303.78,Favourable,-3255.03,Favourable,-9558.81
-2024-07-01,Returns processing,0.041,20961.92,22469.09,-1507.17,Favourable,-1551.82,Favourable,-3058.99
-2024-07-01,Outbound logistics,0.129,63859.96,70695.44,-6835.48,Favourable,-4882.55,Favourable,-11718.03
-2024-07-01,Selling and admin,0.164,84153.49,89876.38,-5722.89,Favourable,-6207.27,Favourable,-11930.16
-2024-08-01,Warehouse operations,0.212,118480.93,111545.94,6934.99,Unfavourable,-3388.31,Favourable,3546.68
-2024-08-01,Inventory carrying,0.086,43975.03,45249.77,-1274.74,Favourable,-1374.5,Favourable,-2649.24
-2024-08-01,Returns processing,0.041,22264.67,21572.56,692.11,Unfavourable,-655.29,Favourable,36.82
-2024-08-01,Outbound logistics,0.129,68387.13,67874.65,512.48,Unfavourable,-2061.76,Favourable,-1549.28
-2024-08-01,Selling and admin,0.164,88039.81,86290.26,1749.55,Unfavourable,-2621.15,Favourable,-871.59
-2024-09-01,Warehouse operations,0.212,106082.01,108873.05,-2791.04,Favourable,-715.42,Favourable,-3506.45
-2024-09-01,Inventory carrying,0.086,44876.38,44165.48,710.9,Unfavourable,-290.22,Favourable,420.68
-2024-09-01,Returns processing,0.041,20327.35,21055.64,-728.29,Favourable,-138.36,Favourable,-866.64
-2024-09-01,Outbound logistics,0.129,67334.28,66248.22,1086.06,Unfavourable,-435.32,Favourable,650.74
-2024-09-01,Selling and admin,0.164,87853.31,84222.54,3630.77,Unfavourable,-553.43,Favourable,3077.33
-2024-10-01,Warehouse operations,0.212,113084.1,99872.52,13211.58,Unfavourable,8285.11,Unfavourable,21496.69
-2024-10-01,Inventory carrying,0.086,45845.85,40514.32,5331.53,Unfavourable,3360.94,Unfavourable,8692.47
-2024-10-01,Returns processing,0.041,21264.93,19314.97,1949.96,Unfavourable,1602.31,Unfavourable,3552.27
-2024-10-01,Outbound logistics,0.129,68464.29,60771.49,7692.8,Unfavourable,5041.41,Unfavourable,12734.21
-2024-10-01,Selling and admin,0.164,88049.33,77259.88,10789.45,Unfavourable,6409.23,Unfavourable,17198.69
-2024-11-01,Warehouse operations,0.212,112696.64,132022.22,-19325.58,Favourable,-23864.59,Favourable,-43190.16
-2024-11-01,Inventory carrying,0.086,44525.13,53556.18,-9031.05,Favourable,-9680.92,Favourable,-18711.97
-2024-11-01,Returns processing,0.041,22231.74,25532.6,-3300.86,Favourable,-4615.32,Favourable,-7916.18
-2024-11-01,Outbound logistics,0.129,65936.95,80334.27,-14397.32,Favourable,-14521.38,Favourable,-28918.7
-2024-11-01,Selling and admin,0.164,87313.98,102130.39,-14816.41,Favourable,-18461.28,Favourable,-33277.7
-2024-12-01,Warehouse operations,0.212,106111.13,114043.2,-7932.07,Favourable,-5885.57,Favourable,-13817.63
-2024-12-01,Inventory carrying,0.086,44282.56,46262.81,-1980.25,Favourable,-2387.54,Favourable,-4367.79
-2024-12-01,Returns processing,0.041,20164.35,22055.52,-1891.17,Favourable,-1138.25,Favourable,-3029.42
-2024-12-01,Outbound logistics,0.129,66882.0,69394.21,-2512.21,Favourable,-3581.31,Favourable,-6093.52
-2024-12-01,Selling and admin,0.164,94525.24,88222.09,6303.15,Unfavourable,-4552.98,Favourable,1750.16
-2025-01-01,Warehouse operations,0.212,104834.66,101342.49,3492.17,Unfavourable,6815.14,Unfavourable,10307.32
-2025-01-01,Inventory carrying,0.086,46605.11,41110.63,5494.48,Unfavourable,2764.63,Unfavourable,8259.11
-2025-01-01,Returns processing,0.041,20306.79,19599.25,707.54,Unfavourable,1318.02,Unfavourable,2025.56
-2025-01-01,Outbound logistics,0.129,69767.62,61665.95,8101.67,Unfavourable,4146.95,Unfavourable,12248.62
-2025-01-01,Selling and admin,0.164,84757.44,78397.02,6360.42,Unfavourable,5272.09,Unfavourable,11632.51
-2025-02-01,Warehouse operations,0.212,111521.98,94563.49,16958.49,Unfavourable,13594.14,Unfavourable,30552.63
-2025-02-01,Inventory carrying,0.086,44282.81,38360.66,5922.15,Unfavourable,5514.6,Unfavourable,11436.75
-2025-02-01,Returns processing,0.041,22257.83,18288.22,3969.61,Unfavourable,2629.06,Unfavourable,6598.66
-2025-02-01,Outbound logistics,0.129,63160.69,57540.99,5619.7,Unfavourable,8271.91,Unfavourable,13891.6
-2025-02-01,Selling and admin,0.164,86592.46,73152.89,13439.57,Unfavourable,10516.22,Unfavourable,23955.79
-2025-03-01,Warehouse operations,0.212,101798.79,108473.98,-6675.19,Favourable,-316.35,Favourable,-6991.53
-2025-03-01,Inventory carrying,0.086,42977.3,44003.59,-1026.29,Favourable,-128.33,Favourable,-1154.62
-2025-03-01,Returns processing,0.041,22207.37,20978.46,1228.91,Unfavourable,-61.18,Favourable,1167.73
-2025-03-01,Outbound logistics,0.129,61890.34,66005.39,-4115.05,Favourable,-192.49,Favourable,-4307.55
-2025-03-01,Selling and admin,0.164,80105.97,83913.83,-3807.86,Favourable,-244.72,Favourable,-4052.58
-2025-04-01,Warehouse operations,0.212,116257.42,106303.01,9954.41,Unfavourable,1854.62,Unfavourable,11809.03
-2025-04-01,Inventory carrying,0.086,43953.25,43122.92,830.33,Unfavourable,752.35,Unfavourable,1582.68
-2025-04-01,Returns processing,0.041,21170.72,20558.6,612.12,Unfavourable,358.68,Unfavourable,970.79
-2025-04-01,Outbound logistics,0.129,69223.76,64684.38,4539.38,Unfavourable,1128.52,Unfavourable,5667.9
-2025-04-01,Selling and admin,0.164,85671.83,82234.41,3437.42,Unfavourable,1434.7,Unfavourable,4872.13
-2025-05-01,Warehouse operations,0.212,106139.46,119062.13,-12922.67,Favourable,-10904.5,Favourable,-23827.16
-2025-05-01,Inventory carrying,0.086,45245.85,48298.79,-3052.94,Favourable,-4423.52,Favourable,-7476.46
-2025-05-01,Returns processing,0.041,22698.19,23026.17,-327.98,Favourable,-2108.89,Favourable,-2436.86
-2025-05-01,Outbound logistics,0.129,62583.44,72448.18,-9864.74,Favourable,-6635.28,Favourable,-16500.02
-2025-05-01,Selling and admin,0.164,84066.27,92104.66,-8038.39,Favourable,-8435.55,Favourable,-16473.95
-2025-06-01,Warehouse operations,0.212,112062.1,110191.39,1870.71,Unfavourable,-2033.76,Favourable,-163.05
-2025-06-01,Inventory carrying,0.086,41704.65,44700.28,-2995.63,Favourable,-825.02,Favourable,-3820.65
-2025-06-01,Returns processing,0.041,21458.42,21310.6,147.82,Unfavourable,-393.32,Favourable,-245.5
-2025-06-01,Outbound logistics,0.129,64833.83,67050.42,-2216.59,Favourable,-1237.52,Favourable,-3454.11
-2025-06-01,Selling and admin,0.164,93598.39,85242.39,8356.0,Unfavourable,-1573.28,Favourable,6782.71
-2025-07-01,Warehouse operations,0.212,103568.48,120679.35,-17110.87,Favourable,-12521.72,Favourable,-29632.58
-2025-07-01,Inventory carrying,0.086,46940.56,48954.83,-2014.27,Favourable,-5079.56,Favourable,-7093.83
-2025-07-01,Returns processing,0.041,20707.13,23338.93,-2631.8,Favourable,-2421.65,Favourable,-5053.45
-2025-07-01,Outbound logistics,0.129,65993.03,73432.24,-7439.21,Favourable,-7619.35,Favourable,-15058.56
-2025-07-01,Selling and admin,0.164,78079.91,93355.72,-15275.81,Favourable,-9686.61,Favourable,-24962.42
-2025-08-01,Warehouse operations,0.212,105425.78,108952.71,-3526.93,Favourable,-795.08,Favourable,-4322.02
-2025-08-01,Inventory carrying,0.086,46916.9,44197.8,2719.1,Unfavourable,-322.53,Favourable,2396.57
-2025-08-01,Returns processing,0.041,20707.36,21071.04,-363.68,Favourable,-153.77,Favourable,-517.45
-2025-08-01,Outbound logistics,0.129,64859.75,66296.7,-1436.95,Favourable,-483.8,Favourable,-1920.75
-2025-08-01,Selling and admin,0.164,91975.92,84284.18,7691.74,Unfavourable,-615.07,Favourable,7076.68
-2025-09-01,Warehouse operations,0.212,108744.4,119012.86,-10268.46,Favourable,-10855.23,Favourable,-21123.68
-2025-09-01,Inventory carrying,0.086,42133.21,48278.8,-6145.59,Favourable,-4403.54,Favourable,-10549.13
-2025-09-01,Returns processing,0.041,22054.95,23016.64,-961.69,Favourable,-2099.36,Favourable,-3061.05
-2025-09-01,Outbound logistics,0.129,66590.27,72418.2,-5827.93,Favourable,-6605.3,Favourable,-12433.23
-2025-09-01,Selling and admin,0.164,87829.67,92066.55,-4236.88,Favourable,-8397.44,Favourable,-12634.32
-2025-10-01,Warehouse operations,0.212,112080.65,105051.09,7029.56,Unfavourable,3106.54,Unfavourable,10136.1
-2025-10-01,Inventory carrying,0.086,39902.34,42615.06,-2712.72,Favourable,1260.2,Unfavourable,-1452.52
-2025-10-01,Returns processing,0.041,19521.86,20316.48,-794.62,Favourable,600.79,Unfavourable,-193.83
-2025-10-01,Outbound logistics,0.129,62061.28,63922.6,-1861.32,Favourable,1890.3,Unfavourable,28.99
-2025-10-01,Selling and admin,0.164,89108.87,81265.94,7842.93,Unfavourable,2403.17,Unfavourable,10246.11
-2025-11-01,Warehouse operations,0.212,108360.41,140565.2,-32204.79,Favourable,-32407.57,Favourable,-64612.36
-2025-11-01,Inventory carrying,0.086,41469.12,57021.73,-15552.61,Favourable,-13146.47,Favourable,-28699.08
-2025-11-01,Returns processing,0.041,18872.06,27184.78,-8312.72,Favourable,-6267.5,Favourable,-14580.22
-2025-11-01,Outbound logistics,0.129,61469.18,85532.6,-24063.42,Favourable,-19719.7,Favourable,-43783.12
-2025-11-01,Selling and admin,0.164,80803.89,108739.12,-27935.23,Favourable,-25070.01,Favourable,-53005.24
-2025-12-01,Warehouse operations,0.212,103445.48,118458.73,-15013.25,Favourable,-10301.1,Favourable,-25314.35
-2025-12-01,Inventory carrying,0.086,48073.7,48054.01,19.69,Unfavourable,-4178.75,Favourable,-4159.06
-2025-12-01,Returns processing,0.041,18938.21,22909.47,-3971.26,Favourable,-1992.19,Favourable,-5963.46
-2025-12-01,Outbound logistics,0.129,72412.99,72081.02,331.97,Unfavourable,-6268.12,Favourable,-5936.15
-2025-12-01,Selling and admin,0.164,80857.86,91637.89,-10780.03,Favourable,-7968.78,Favourable,-18748.8
-2026-01-01,Warehouse operations,0.212,105818.47,110806.12,-4987.65,Favourable,-2648.49,Favourable,-7636.15
-2026-01-01,Inventory carrying,0.086,45704.9,44949.65,755.25,Unfavourable,-1074.39,Favourable,-319.14
-2026-01-01,Returns processing,0.041,19736.31,21429.49,-1693.18,Favourable,-512.21,Favourable,-2205.39
-2026-01-01,Outbound logistics,0.129,64132.88,67424.48,-3291.6,Favourable,-1611.58,Favourable,-4903.19
-2026-01-01,Selling and admin,0.164,89799.63,85717.95,4081.68,Unfavourable,-2048.84,Favourable,2032.85
-2026-02-01,Warehouse operations,0.212,117613.34,98077.79,19535.55,Unfavourable,10079.84,Unfavourable,29615.38
-2026-02-01,Inventory carrying,0.086,46832.29,39786.27,7046.02,Unfavourable,4088.99,Unfavourable,11135.01
-2026-02-01,Returns processing,0.041,20331.69,18967.88,1363.81,Unfavourable,1949.4,Unfavourable,3313.22
-2026-02-01,Outbound logistics,0.129,62189.92,59679.41,2510.51,Unfavourable,6133.49,Unfavourable,8643.99
-2026-02-01,Selling and admin,0.164,78927.01,75871.5,3055.51,Unfavourable,7797.61,Unfavourable,10853.12
-2026-03-01,Warehouse operations,0.212,107586.68,107081.58,505.1,Unfavourable,1076.05,Unfavourable,1581.15
-2026-03-01,Inventory carrying,0.086,48586.66,43438.75,5147.91,Unfavourable,436.51,Unfavourable,5584.42
-2026-03-01,Returns processing,0.041,21193.09,20709.17,483.92,Unfavourable,208.1,Unfavourable,692.02
-2026-03-01,Outbound logistics,0.129,64987.65,65158.13,-170.48,Favourable,654.77,Unfavourable,484.28
-2026-03-01,Selling and admin,0.164,83235.03,82836.7,398.33,Unfavourable,832.41,Unfavourable,1230.75
-2026-04-01,Warehouse operations,0.212,109538.48,107137.55,2400.93,Unfavourable,1020.08,Unfavourable,3421.01
-2026-04-01,Inventory carrying,0.086,39897.63,43461.46,-3563.83,Favourable,413.81,Unfavourable,-3150.02
-2026-04-01,Returns processing,0.041,22959.35,20720.0,2239.35,Unfavourable,197.28,Unfavourable,2436.63
-2026-04-01,Outbound logistics,0.129,67677.31,65192.19,2485.12,Unfavourable,620.71,Unfavourable,3105.83
-2026-04-01,Selling and admin,0.164,90812.53,82879.99,7932.54,Unfavourable,789.12,Unfavourable,8721.66
-2026-05-01,Warehouse operations,0.212,118486.65,136509.45,-18022.8,Favourable,-28351.82,Favourable,-46374.62
-2026-05-01,Inventory carrying,0.086,45592.43,55376.47,-9784.04,Favourable,-11501.21,Favourable,-21285.25
-2026-05-01,Returns processing,0.041,21728.04,26400.41,-4672.37,Favourable,-5483.14,Favourable,-10155.51
-2026-05-01,Outbound logistics,0.129,71501.32,83064.71,-11563.39,Favourable,-17251.81,Favourable,-28815.21
-2026-05-01,Selling and admin,0.164,92451.39,105601.65,-13150.26,Favourable,-21932.54,Favourable,-35082.8
-2026-06-01,Warehouse operations,0.212,106981.14,115323.19,-8342.05,Favourable,-7165.56,Favourable,-15507.61
-2026-06-01,Inventory carrying,0.086,42313.34,46782.05,-4468.71,Favourable,-2906.78,Favourable,-7375.49
-2026-06-01,Returns processing,0.041,21496.97,22303.07,-806.1,Favourable,-1385.79,Favourable,-2191.89
-2026-06-01,Outbound logistics,0.129,67282.88,70173.07,-2890.19,Favourable,-4360.17,Favourable,-7250.37
-2026-06-01,Selling and admin,0.164,79011.24,89212.28,-10201.04,Favourable,-5543.17,Favourable,-15744.2
+2023-07-01,Warehouse operations,0.212,101194.74,83031.09,18163.65,Unfavourable,10437.86,Unfavourable,28601.51
+2023-07-01,Inventory carrying,0.086,39532.14,33682.42,5849.72,Unfavourable,4234.23,Unfavourable,10083.94
+2023-07-01,Returns processing,0.041,18014.08,16057.9,1956.18,Unfavourable,2018.64,Unfavourable,3974.82
+2023-07-01,Outbound logistics,0.129,56432.3,50523.64,5908.66,Unfavourable,6351.34,Unfavourable,12260.0
+2023-07-01,Selling and admin,0.164,78181.49,64231.6,13949.89,Unfavourable,8074.57,Unfavourable,22024.46
+2023-08-01,Warehouse operations,0.212,97806.57,81511.03,16295.54,Unfavourable,11957.92,Unfavourable,28253.46
+2023-08-01,Inventory carrying,0.086,37859.43,33065.8,4793.63,Unfavourable,4850.86,Unfavourable,9644.49
+2023-08-01,Returns processing,0.041,17865.0,15763.93,2101.07,Unfavourable,2312.62,Unfavourable,4413.69
+2023-08-01,Outbound logistics,0.129,55382.98,49598.69,5784.29,Unfavourable,7276.28,Unfavourable,13060.57
+2023-08-01,Selling and admin,0.164,70110.11,63055.7,7054.41,Unfavourable,9250.47,Unfavourable,16304.88
+2023-09-01,Warehouse operations,0.212,88608.3,80843.8,7764.5,Unfavourable,12625.15,Unfavourable,20389.65
+2023-09-01,Inventory carrying,0.086,34723.63,32795.13,1928.5,Unfavourable,5121.52,Unfavourable,7050.03
+2023-09-01,Returns processing,0.041,18271.72,15634.89,2636.83,Unfavourable,2441.66,Unfavourable,5078.49
+2023-09-01,Outbound logistics,0.129,59312.47,49192.69,10119.78,Unfavourable,7682.29,Unfavourable,17802.06
+2023-09-01,Selling and admin,0.164,70914.79,62539.55,8375.24,Unfavourable,9766.63,Unfavourable,18141.87
+2023-10-01,Warehouse operations,0.212,92317.72,78221.26,14096.46,Unfavourable,15247.7,Unfavourable,29344.16
+2023-10-01,Inventory carrying,0.086,42103.22,31731.27,10371.95,Unfavourable,6185.39,Unfavourable,16557.34
+2023-10-01,Returns processing,0.041,17883.65,15127.7,2755.95,Unfavourable,2948.85,Unfavourable,5704.8
+2023-10-01,Outbound logistics,0.129,63174.34,47596.9,15577.44,Unfavourable,9278.08,Unfavourable,24855.52
+2023-10-01,Selling and admin,0.164,73482.84,60510.78,12972.06,Unfavourable,11795.39,Unfavourable,24767.44
+2023-11-01,Warehouse operations,0.212,95901.78,97664.44,-1762.66,Favourable,-4195.48,Favourable,-5958.14
+2023-11-01,Inventory carrying,0.086,38936.3,39618.59,-682.29,Favourable,-1701.94,Favourable,-2384.23
+2023-11-01,Returns processing,0.041,17819.78,18887.93,-1068.15,Favourable,-811.39,Favourable,-1879.54
+2023-11-01,Outbound logistics,0.129,55803.42,59427.89,-3624.47,Favourable,-2552.91,Favourable,-6177.38
+2023-11-01,Selling and admin,0.164,71486.44,75551.73,-4065.29,Favourable,-3245.56,Favourable,-7310.85
+2023-12-01,Warehouse operations,0.212,91847.56,93704.51,-1856.95,Favourable,-235.55,Favourable,-2092.5
+2023-12-01,Inventory carrying,0.086,35621.0,38012.21,-2391.21,Favourable,-95.55,Favourable,-2486.76
+2023-12-01,Returns processing,0.041,19039.77,18122.1,917.67,Unfavourable,-45.56,Favourable,872.12
+2023-12-01,Outbound logistics,0.129,59814.54,57018.31,2796.23,Unfavourable,-143.33,Favourable,2652.9
+2023-12-01,Selling and admin,0.164,75844.53,72488.39,3356.14,Unfavourable,-182.22,Favourable,3173.92
+2024-01-01,Warehouse operations,0.212,86519.22,93562.38,-7043.16,Favourable,-93.43,Favourable,-7136.59
+2024-01-01,Inventory carrying,0.086,38082.92,37954.55,128.37,Unfavourable,-37.9,Favourable,90.47
+2024-01-01,Returns processing,0.041,17573.94,18094.61,-520.67,Favourable,-18.07,Favourable,-538.74
+2024-01-01,Outbound logistics,0.129,58050.33,56931.83,1118.5,Unfavourable,-56.85,Favourable,1061.65
+2024-01-01,Selling and admin,0.164,74924.63,72378.45,2546.18,Unfavourable,-72.27,Favourable,2473.91
+2024-02-01,Warehouse operations,0.212,90140.28,80670.81,9469.47,Unfavourable,12798.14,Unfavourable,22267.61
+2024-02-01,Inventory carrying,0.086,37557.48,32724.95,4832.53,Unfavourable,5191.7,Unfavourable,10024.23
+2024-02-01,Returns processing,0.041,16554.18,15601.43,952.75,Unfavourable,2475.11,Unfavourable,3427.86
+2024-02-01,Outbound logistics,0.129,53782.18,49087.43,4694.75,Unfavourable,7787.55,Unfavourable,12482.3
+2024-02-01,Selling and admin,0.164,71721.05,62405.72,9315.33,Unfavourable,9900.45,Unfavourable,19215.78
+2024-03-01,Warehouse operations,0.212,94821.63,92957.89,1863.74,Unfavourable,511.07,Unfavourable,2374.81
+2024-03-01,Inventory carrying,0.086,44503.94,37709.33,6794.61,Unfavourable,207.32,Unfavourable,7001.93
+2024-03-01,Returns processing,0.041,18494.82,17977.7,517.12,Unfavourable,98.84,Unfavourable,615.95
+2024-03-01,Outbound logistics,0.129,60589.51,56564.0,4025.51,Unfavourable,310.98,Unfavourable,4336.49
+2024-03-01,Selling and admin,0.164,77975.28,71910.82,6064.46,Unfavourable,395.35,Unfavourable,6459.82
+2024-04-01,Warehouse operations,0.212,97615.8,88122.72,9493.08,Unfavourable,5346.24,Unfavourable,14839.32
+2024-04-01,Inventory carrying,0.086,36806.79,35747.9,1058.89,Unfavourable,2168.76,Unfavourable,3227.65
+2024-04-01,Returns processing,0.041,18845.75,17042.6,1803.15,Unfavourable,1033.94,Unfavourable,2837.09
+2024-04-01,Outbound logistics,0.129,61135.14,53621.84,7513.3,Unfavourable,3253.13,Unfavourable,10766.43
+2024-04-01,Selling and admin,0.164,66615.36,68170.4,-1555.04,Favourable,4135.77,Unfavourable,2580.72
+2024-05-01,Warehouse operations,0.212,95804.73,99629.32,-3824.59,Favourable,-6160.36,Favourable,-9984.94
+2024-05-01,Inventory carrying,0.086,34532.7,40415.67,-5882.97,Favourable,-2499.01,Favourable,-8381.98
+2024-05-01,Returns processing,0.041,18254.8,19267.93,-1013.13,Favourable,-1191.39,Favourable,-2204.52
+2024-05-01,Outbound logistics,0.129,64019.42,60623.5,3395.92,Unfavourable,-3748.52,Favourable,-352.6
+2024-05-01,Selling and admin,0.164,76873.86,77071.73,-197.87,Favourable,-4765.56,Favourable,-4963.44
+2024-06-01,Warehouse operations,0.212,94172.63,95128.0,-955.37,Favourable,-1659.05,Favourable,-2614.42
+2024-06-01,Inventory carrying,0.086,40946.57,38589.66,2356.91,Unfavourable,-673.01,Favourable,1683.9
+2024-06-01,Returns processing,0.041,19381.76,18397.4,984.36,Unfavourable,-320.85,Favourable,663.51
+2024-06-01,Outbound logistics,0.129,56142.15,57884.49,-1742.34,Favourable,-1009.52,Favourable,-2751.86
+2024-06-01,Selling and admin,0.164,72805.24,73589.59,-784.35,Favourable,-1283.41,Favourable,-2067.76
+2024-07-01,Warehouse operations,0.212,89917.23,98335.48,-8418.25,Favourable,-4866.52,Favourable,-13284.77
+2024-07-01,Inventory carrying,0.086,36823.43,39890.81,-3067.38,Favourable,-1974.16,Favourable,-5041.53
+2024-07-01,Returns processing,0.041,17780.13,19017.71,-1237.58,Favourable,-941.17,Favourable,-2178.75
+2024-07-01,Outbound logistics,0.129,56190.46,59836.21,-3645.75,Favourable,-2961.23,Favourable,-6606.99
+2024-07-01,Selling and admin,0.164,70617.77,76070.84,-5453.07,Favourable,-3764.67,Favourable,-9217.74
+2024-08-01,Warehouse operations,0.212,93488.12,92588.5,899.62,Unfavourable,880.46,Unfavourable,1780.08
+2024-08-01,Inventory carrying,0.086,35791.05,37559.49,-1768.44,Favourable,357.17,Unfavourable,-1411.27
+2024-08-01,Returns processing,0.041,18948.3,17906.27,1042.03,Unfavourable,170.28,Unfavourable,1212.31
+2024-08-01,Outbound logistics,0.129,51644.67,56339.23,-4694.56,Favourable,535.75,Unfavourable,-4158.81
+2024-08-01,Selling and admin,0.164,67441.86,71625.06,-4183.2,Favourable,681.11,Unfavourable,-3502.1
+2024-09-01,Warehouse operations,0.212,98053.62,89366.52,8687.1,Unfavourable,4102.43,Unfavourable,12789.53
+2024-09-01,Inventory carrying,0.086,38545.69,36252.46,2293.23,Unfavourable,1664.19,Unfavourable,3957.43
+2024-09-01,Returns processing,0.041,20201.34,17283.15,2918.19,Unfavourable,793.4,Unfavourable,3711.59
+2024-09-01,Outbound logistics,0.129,54853.14,54378.69,474.45,Unfavourable,2496.29,Unfavourable,2970.75
+2024-09-01,Selling and admin,0.164,68271.72,69132.59,-860.87,Favourable,3173.58,Unfavourable,2312.71
+2024-10-01,Warehouse operations,0.212,89988.21,84005.08,5983.13,Unfavourable,9463.87,Unfavourable,15447.0
+2024-10-01,Inventory carrying,0.086,39522.97,34077.53,5445.44,Unfavourable,3839.12,Unfavourable,9284.55
+2024-10-01,Returns processing,0.041,18029.42,16246.27,1783.15,Unfavourable,1830.28,Unfavourable,3613.43
+2024-10-01,Outbound logistics,0.129,60078.36,51116.3,8962.06,Unfavourable,5758.68,Unfavourable,14720.73
+2024-10-01,Selling and admin,0.164,65479.17,64985.07,494.1,Unfavourable,7321.11,Unfavourable,7815.21
+2024-11-01,Warehouse operations,0.212,82863.87,104975.85,-22111.98,Favourable,-11506.89,Favourable,-33618.87
+2024-11-01,Inventory carrying,0.086,36660.57,42584.54,-5923.97,Favourable,-4667.89,Favourable,-10591.86
+2024-11-01,Returns processing,0.041,18185.75,20301.93,-2116.18,Favourable,-2225.39,Favourable,-4341.57
+2024-11-01,Outbound logistics,0.129,59830.5,63876.81,-4046.31,Favourable,-7001.84,Favourable,-11048.15
+2024-11-01,Selling and admin,0.164,65194.06,81207.73,-16013.67,Favourable,-8901.56,Favourable,-24915.23
+2024-12-01,Warehouse operations,0.212,98715.99,100076.19,-1360.2,Favourable,-6607.23,Favourable,-7967.43
+2024-12-01,Inventory carrying,0.086,37675.54,40596.94,-2921.4,Favourable,-2680.29,Favourable,-5601.7
+2024-12-01,Returns processing,0.041,16810.48,19354.36,-2543.88,Favourable,-1277.81,Favourable,-3821.69
+2024-12-01,Outbound logistics,0.129,59363.2,60895.42,-1532.22,Favourable,-4020.44,Favourable,-5552.66
+2024-12-01,Selling and admin,0.164,69794.68,77417.43,-7622.75,Favourable,-5111.26,Favourable,-12734.01
+2025-01-01,Warehouse operations,0.212,91208.41,92488.9,-1280.49,Favourable,980.05,Unfavourable,-300.44
+2025-01-01,Inventory carrying,0.086,32976.21,37519.08,-4542.87,Favourable,397.57,Unfavourable,-4145.3
+2025-01-01,Returns processing,0.041,18321.01,17887.0,434.01,Unfavourable,189.54,Unfavourable,623.54
+2025-01-01,Outbound logistics,0.129,55542.52,56278.62,-736.1,Favourable,596.35,Unfavourable,-139.75
+2025-01-01,Selling and admin,0.164,72325.75,71548.02,777.73,Unfavourable,758.16,Unfavourable,1535.89
+2025-02-01,Warehouse operations,0.212,103324.21,87418.88,15905.33,Unfavourable,6050.08,Unfavourable,21955.41
+2025-02-01,Inventory carrying,0.086,37147.53,35462.38,1685.15,Unfavourable,2454.28,Unfavourable,4139.43
+2025-02-01,Returns processing,0.041,17376.18,16906.48,469.7,Unfavourable,1170.06,Unfavourable,1639.76
+2025-02-01,Outbound logistics,0.129,58090.4,53193.56,4896.84,Unfavourable,3681.41,Unfavourable,8578.25
+2025-02-01,Selling and admin,0.164,79952.19,67625.92,12326.27,Unfavourable,4680.25,Unfavourable,17006.51
+2025-03-01,Warehouse operations,0.212,90500.37,89440.43,1059.94,Unfavourable,4028.53,Unfavourable,5088.47
+2025-03-01,Inventory carrying,0.086,37872.4,36282.44,1589.96,Unfavourable,1634.21,Unfavourable,3224.18
+2025-03-01,Returns processing,0.041,18240.32,17297.44,942.88,Unfavourable,779.1,Unfavourable,1721.98
+2025-03-01,Outbound logistics,0.129,53382.98,54423.66,-1040.68,Favourable,2451.32,Unfavourable,1410.65
+2025-03-01,Selling and admin,0.164,66831.92,69189.76,-2357.84,Favourable,3116.41,Unfavourable,758.57
+2025-04-01,Warehouse operations,0.212,83796.3,87207.98,-3411.68,Favourable,6260.97,Unfavourable,2849.29
+2025-04-01,Inventory carrying,0.086,37004.68,35376.82,1627.86,Unfavourable,2539.83,Unfavourable,4167.69
+2025-04-01,Returns processing,0.041,18846.59,16865.69,1980.9,Unfavourable,1210.85,Unfavourable,3191.74
+2025-04-01,Outbound logistics,0.129,55392.27,53065.23,2327.04,Unfavourable,3809.74,Unfavourable,6136.78
+2025-04-01,Selling and admin,0.164,72929.62,67462.78,5466.84,Unfavourable,4843.4,Unfavourable,10310.24
+2025-05-01,Warehouse operations,0.212,89268.62,99517.93,-10249.31,Favourable,-6048.97,Favourable,-16298.29
+2025-05-01,Inventory carrying,0.086,39287.8,40370.48,-1082.68,Favourable,-2453.83,Favourable,-3536.51
+2025-05-01,Returns processing,0.041,18492.65,19246.39,-753.74,Favourable,-1169.85,Favourable,-1923.59
+2025-05-01,Outbound logistics,0.129,56242.92,60555.72,-4312.8,Favourable,-3680.74,Favourable,-7993.55
+2025-05-01,Selling and admin,0.164,69623.71,76985.57,-7361.86,Favourable,-4679.4,Favourable,-12041.25
+2025-06-01,Warehouse operations,0.212,96545.38,95204.81,1340.57,Unfavourable,-1735.86,Favourable,-395.29
+2025-06-01,Inventory carrying,0.086,38401.48,38620.82,-219.34,Favourable,-704.17,Favourable,-923.51
+2025-06-01,Returns processing,0.041,18827.04,18412.25,414.79,Unfavourable,-335.71,Favourable,79.08
+2025-06-01,Outbound logistics,0.129,58195.13,57931.23,263.9,Unfavourable,-1056.25,Favourable,-792.35
+2025-06-01,Selling and admin,0.164,73407.07,73649.01,-241.94,Favourable,-1342.83,Favourable,-1584.77
+2025-07-01,Warehouse operations,0.212,91129.95,96359.91,-5229.96,Favourable,-2890.96,Favourable,-8120.92
+2025-07-01,Inventory carrying,0.086,40348.13,39089.4,1258.73,Unfavourable,-1172.75,Favourable,85.98
+2025-07-01,Returns processing,0.041,17814.94,18635.64,-820.7,Favourable,-559.1,Favourable,-1379.8
+2025-07-01,Outbound logistics,0.129,54257.66,58634.1,-4376.44,Favourable,-1759.12,Favourable,-6135.56
+2025-07-01,Selling and admin,0.164,75398.66,74542.58,856.08,Unfavourable,-2236.4,Favourable,-1380.32
+2025-08-01,Warehouse operations,0.212,96978.71,93712.67,3266.04,Unfavourable,-243.72,Favourable,3022.32
+2025-08-01,Inventory carrying,0.086,40597.75,38015.52,2582.23,Unfavourable,-98.87,Favourable,2483.37
+2025-08-01,Returns processing,0.041,19049.83,18123.68,926.15,Unfavourable,-47.13,Favourable,879.02
+2025-08-01,Outbound logistics,0.129,55675.11,57023.28,-1348.17,Favourable,-148.3,Favourable,-1496.46
+2025-08-01,Selling and admin,0.164,71324.64,72494.71,-1170.07,Favourable,-188.53,Favourable,-1358.6
+2025-09-01,Warehouse operations,0.212,101530.17,100798.9,731.27,Unfavourable,-7329.94,Favourable,-6598.67
+2025-09-01,Inventory carrying,0.086,35651.33,40890.12,-5238.79,Favourable,-2973.47,Favourable,-8212.26
+2025-09-01,Returns processing,0.041,19393.84,19494.13,-100.29,Favourable,-1417.58,Favourable,-1517.87
+2025-09-01,Outbound logistics,0.129,56806.77,61335.18,-4528.41,Favourable,-4460.2,Favourable,-8988.61
+2025-09-01,Selling and admin,0.164,78339.28,77976.51,362.77,Unfavourable,-5670.33,Favourable,-5307.56
+2025-10-01,Warehouse operations,0.212,105886.08,86808.98,19077.1,Unfavourable,6659.98,Unfavourable,25737.08
+2025-10-01,Inventory carrying,0.086,37165.07,35214.96,1950.11,Unfavourable,2701.69,Unfavourable,4651.8
+2025-10-01,Returns processing,0.041,18727.81,16788.53,1939.28,Unfavourable,1288.02,Unfavourable,3227.3
+2025-10-01,Outbound logistics,0.129,50920.22,52822.44,-1902.22,Favourable,4052.54,Unfavourable,2150.31
+2025-10-01,Selling and admin,0.164,71556.39,67154.11,4402.28,Unfavourable,5152.06,Unfavourable,9554.34
+2025-11-01,Warehouse operations,0.212,91192.3,115735.76,-24543.46,Favourable,-22266.81,Favourable,-46810.27
+2025-11-01,Inventory carrying,0.086,37849.24,46949.41,-9100.17,Favourable,-9032.76,Favourable,-18132.93
+2025-11-01,Returns processing,0.041,18156.48,22382.86,-4226.38,Favourable,-4306.32,Favourable,-8532.7
+2025-11-01,Outbound logistics,0.129,60084.19,70424.12,-10339.93,Favourable,-13549.14,Favourable,-23889.07
+2025-11-01,Selling and admin,0.164,78448.27,89531.44,-11083.17,Favourable,-17225.26,Favourable,-28308.43
+2025-12-01,Warehouse operations,0.212,90814.74,101708.38,-10893.64,Favourable,-8239.42,Favourable,-19133.06
+2025-12-01,Inventory carrying,0.086,39827.45,41259.06,-1431.61,Favourable,-3342.41,Favourable,-4774.02
+2025-12-01,Returns processing,0.041,18720.78,19670.02,-949.24,Favourable,-1593.47,Favourable,-2542.71
+2025-12-01,Outbound logistics,0.129,60679.52,61888.59,-1209.07,Favourable,-5013.61,Favourable,-6222.68
+2025-12-01,Selling and admin,0.164,76290.98,78680.07,-2389.09,Favourable,-6373.89,Favourable,-8762.98
+2026-01-01,Warehouse operations,0.212,90926.72,97430.3,-6503.58,Favourable,-3961.35,Favourable,-10464.93
+2026-01-01,Inventory carrying,0.086,39115.33,39523.61,-408.28,Favourable,-1606.96,Favourable,-2015.25
+2026-01-01,Returns processing,0.041,19782.03,18842.65,939.38,Unfavourable,-766.11,Favourable,173.27
+2026-01-01,Outbound logistics,0.129,57029.15,59285.42,-2256.27,Favourable,-2410.44,Favourable,-4666.71
+2026-01-01,Selling and admin,0.164,83223.02,75370.61,7852.41,Unfavourable,-3064.44,Favourable,4787.97
+2026-02-01,Warehouse operations,0.212,96017.44,89688.91,6328.53,Unfavourable,3780.04,Unfavourable,10108.57
+2026-02-01,Inventory carrying,0.086,38468.73,36383.24,2085.49,Unfavourable,1533.41,Unfavourable,3618.91
+2026-02-01,Returns processing,0.041,17430.4,17345.5,84.9,Unfavourable,731.05,Unfavourable,815.95
+2026-02-01,Outbound logistics,0.129,53837.22,54574.86,-737.64,Favourable,2300.12,Unfavourable,1562.49
+2026-02-01,Selling and admin,0.164,75289.16,69381.99,5907.17,Unfavourable,2924.19,Unfavourable,8831.36
+2026-03-01,Warehouse operations,0.212,102715.36,89168.22,13547.14,Unfavourable,4300.74,Unfavourable,17847.88
+2026-03-01,Inventory carrying,0.086,42538.21,36172.01,6366.2,Unfavourable,1744.64,Unfavourable,8110.84
+2026-03-01,Returns processing,0.041,20071.59,17244.8,2826.79,Unfavourable,831.75,Unfavourable,3658.54
+2026-03-01,Outbound logistics,0.129,54898.69,54258.02,640.67,Unfavourable,2616.96,Unfavourable,3257.63
+2026-03-01,Selling and admin,0.164,72722.28,68979.19,3743.09,Unfavourable,3326.99,Unfavourable,7070.08
+2026-04-01,Warehouse operations,0.212,93189.92,93992.15,-802.23,Favourable,-523.19,Favourable,-1325.43
+2026-04-01,Inventory carrying,0.086,35329.95,38128.89,-2798.94,Favourable,-212.24,Favourable,-3011.18
+2026-04-01,Returns processing,0.041,21226.27,18177.73,3048.54,Unfavourable,-101.18,Favourable,2947.36
+2026-04-01,Outbound logistics,0.129,56202.88,57193.34,-990.46,Favourable,-318.36,Favourable,-1308.82
+2026-04-01,Selling and admin,0.164,72311.23,72710.91,-399.68,Favourable,-404.74,Favourable,-804.41
+2026-05-01,Warehouse operations,0.212,97930.77,114720.81,-16790.04,Favourable,-21251.86,Favourable,-38041.9
+2026-05-01,Inventory carrying,0.086,41481.72,46537.69,-5055.97,Favourable,-8621.04,Favourable,-13677.0
+2026-05-01,Returns processing,0.041,17614.42,22186.57,-4572.15,Favourable,-4110.03,Favourable,-8682.18
+2026-05-01,Outbound logistics,0.129,54535.48,69806.53,-15271.05,Favourable,-12931.55,Favourable,-28202.6
+2026-05-01,Selling and admin,0.164,71932.28,88746.29,-16814.01,Favourable,-16440.11,Favourable,-33254.12
+2026-06-01,Warehouse operations,0.212,88611.51,99083.56,-10472.05,Favourable,-5614.61,Favourable,-16086.66
+2026-06-01,Inventory carrying,0.086,38379.51,40194.28,-1814.77,Favourable,-2277.62,Favourable,-4092.39
+2026-06-01,Returns processing,0.041,17152.86,19162.39,-2009.53,Favourable,-1085.84,Favourable,-3095.37
+2026-06-01,Outbound logistics,0.129,61701.69,60291.41,1410.28,Unfavourable,-3416.44,Favourable,-2006.16
+2026-06-01,Selling and admin,0.164,67765.13,76649.55,-8884.42,Favourable,-4343.38,Favourable,-13227.8

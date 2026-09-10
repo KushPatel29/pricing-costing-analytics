@@ -1,6 +1,6 @@
 mechanic,promotions,volume_units,incremental_volume_units,incremental_margin,discount_on_baseline,net_promo_margin,roi,paid
-Rebate accelerator,175,456867.17,133813.6,786854.26,416286.66,370567.6,0.8902,Paid for itself
-Volume bracket,219,580909.27,107166.5,447219.99,941330.2,-494110.21,-0.5249,Bought its own volume
-Bundle offer,148,352859.5,122392.3,584531.16,1085622.21,-501091.05,-0.4616,Bought its own volume
-Temporary price reduction,331,891958.2,254521.2,988908.35,2221671.93,-1232763.58,-0.5549,Bought its own volume
-Marketplace deal event,153,879515.9,521251.7,1977394.9,3445111.78,-1467716.88,-0.426,Bought its own volume
+Rebate accelerator,170,344585.09,93896.3,737190.97,398913.59,338277.38,0.848,Paid for itself
+Bundle offer,146,409256.5,130841.9,782157.39,997430.79,-215273.4,-0.2158,Bought its own volume
+Volume bracket,218,497249.42,112570.1,585976.16,846898.98,-260922.82,-0.3081,Bought its own volume
+Marketplace deal event,155,719782.23,412795.3,968786.55,1648704.16,-679917.61,-0.4124,Bought its own volume
+Temporary price reduction,333,841095.39,232965.3,862224.97,1849638.66,-987413.69,-0.5338,Bought its own volume

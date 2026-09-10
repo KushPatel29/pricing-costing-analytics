@@ -6,7 +6,7 @@
     "y": 442,
     "z": 1207,
     "height": 258,
-    "width": 1030,
+    "width": 320,
     "tabOrder": 1207
   },
   "visual": {
@@ -20,98 +20,56 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_product"
+                      "Entity": "dim_competitor"
                     }
                   },
-                  "Property": "description"
+                  "Property": "competitor_name"
                 }
               },
-              "queryRef": "dim_product.description",
-              "nativeQueryRef": "description"
+              "queryRef": "dim_competitor.competitor_name",
+              "nativeQueryRef": "competitor_name"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_product"
+                      "Entity": "dim_competitor"
                     }
                   },
-                  "Property": "category"
+                  "Property": "positioning"
                 }
               },
-              "queryRef": "dim_product.category",
-              "nativeQueryRef": "category"
+              "queryRef": "dim_competitor.positioning",
+              "nativeQueryRef": "positioning"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Measures"
+                      "Entity": "dim_competitor"
                     }
                   },
-                  "Property": "Pocket price per unit"
+                  "Property": "price_multiplier"
                 }
               },
-              "queryRef": "_Measures.Pocket price per unit",
-              "nativeQueryRef": "Pocket price per unit"
+              "queryRef": "dim_competitor.price_multiplier",
+              "nativeQueryRef": "price_multiplier"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Measures"
+                      "Entity": "dim_competitor"
                     }
                   },
-                  "Property": "Market price"
+                  "Property": "catalogue_coverage"
                 }
               },
-              "queryRef": "_Measures.Market price",
-              "nativeQueryRef": "Market price"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Price index"
-                }
-              },
-              "queryRef": "_Measures.Price index",
-              "nativeQueryRef": "Price index"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Pocket margin %"
-                }
-              },
-              "queryRef": "_Measures.Pocket margin %",
-              "nativeQueryRef": "Pocket margin %"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Pocket revenue"
-                }
-              },
-              "queryRef": "_Measures.Pocket revenue",
-              "nativeQueryRef": "Pocket revenue"
+              "queryRef": "dim_competitor.catalogue_coverage",
+              "nativeQueryRef": "catalogue_coverage"
             }
           ]
         }
@@ -125,7 +83,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Every product, ranked by revenue'"
+                  "Value": "'Who the index is measured against'"
                 }
               }
             },
@@ -145,7 +103,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Table titled Every product ranked by revenue. Lists description, category, pocket price, market price, price index, margin and revenue.'"
+                  "Value": "'Table titled Who the index is measured against. Each competitor name with its positioning, price multiplier and catalogue coverage -- an index is only as meaningful as the set it compares to, and this table was in the model without a visual that said so.'"
                 }
               }
             }

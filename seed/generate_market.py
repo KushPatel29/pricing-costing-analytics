@@ -290,11 +290,24 @@ def build_products(rng: np.random.Generator, n: int) -> pd.DataFrame:
     """The catalogue: identity, cost drivers and the elasticity it will obey."""
     months = month_range()
     rows = []
+    # No two SKUs share a sub-category, brand tier and pack format. Without
+    # this, 240 products collapsed to 137 distinct descriptions: four separate
+    # items all called "27in Monitor - Value", two of them identical in every
+    # attribute. A duplicate label is not cosmetic -- it merges rows in any cut
+    # keyed on the product, puts two identical entries in a dropdown, and
+    # labels two points on a scatter with the same name. 55 sub-categories x 4
+    # tiers x 6 packs is 1,320 combinations for 240 draws, so rejection costs
+    # almost nothing and stays deterministic under a fixed seed.
+    taken: set[tuple[str, str, str]] = set()
     for i in range(n):
-        category = pick(rng, CATEGORIES, CATEGORY_WEIGHTS)
-        subcategory = pick(rng, SUBCATEGORIES[category])
-        tier = pick(rng, BRAND_TIERS, BRAND_TIER_WEIGHTS)
-        pack_name, units_per_case = PACK_FORMATS[int(rng.integers(len(PACK_FORMATS)))]
+        for _ in range(200):
+            category = pick(rng, CATEGORIES, CATEGORY_WEIGHTS)
+            subcategory = pick(rng, SUBCATEGORIES[category])
+            tier = pick(rng, BRAND_TIERS, BRAND_TIER_WEIGHTS)
+            pack_name, units_per_case = PACK_FORMATS[int(rng.integers(len(PACK_FORMATS)))]
+            if (subcategory, tier, pack_name) not in taken:
+                break
+        taken.add((subcategory, tier, pack_name))
         lifecycle = pick(rng, LIFECYCLE, LIFECYCLE_WEIGHTS)
 
         units_per_uom = float(units_per_case)
@@ -316,7 +329,10 @@ def build_products(rng: np.random.Generator, n: int) -> pd.DataFrame:
         rows.append(
             {
                 "product_id": str(20000 + i),
-                "description": f"{subcategory} - {tier}",
+                # The pack format is part of the name because it is part of
+                # the product: the same monitor as a single unit and as a
+                # 48-carton are different lines with different costs.
+                "description": f"{subcategory} - {tier}, {pack_name}",
                 "category": category,
                 "sub_category": subcategory,
                 "brand_tier": tier,
@@ -968,7 +984,7 @@ def build_cost_ledger(
     Purchases and production yields, for the standard-costing variances.
 
     Two variances are seeded here on purpose and they are seeded independently:
-    a buying result (actual price against the frozen standard) and a cutting
+    a buying result (actual price against the frozen standard) and a handling
     result (actual recovery against the standard yield). Keeping them separate
     in the data is what lets the analysis attribute a bad month to purchasing
     or to the floor rather than to "cost".

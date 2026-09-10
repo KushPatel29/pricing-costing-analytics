@@ -1,13 +1,13 @@
 reason,direction,changes,median_pct,median_days
-Annual review,Decrease,118,-0.03375,1.0
-Annual review,Increase,277,0.03832,2.0
-Competitive response,Decrease,158,-0.03752,2.0
-Competitive response,Increase,80,0.03754,2.0
-Cost pass-through,Decrease,72,-0.0387,2.0
-Cost pass-through,Increase,446,0.037,2.0
-Customer negotiation,Decrease,357,-0.03921,3.0
-Customer negotiation,Increase,74,0.04136,2.0
-Market correction,Decrease,313,-0.03542,2.0
-Market correction,Increase,154,0.04614,2.0
-Promotional reset,Decrease,150,-0.03485,2.0
-Promotional reset,Increase,78,0.03858,2.0
+Annual review,Decrease,109,-0.03874,2.0
+Annual review,Increase,280,0.04222,1.0
+Competitive response,Decrease,154,-0.04022,2.0
+Competitive response,Increase,114,0.03689,2.0
+Cost pass-through,Decrease,66,-0.03809,2.0
+Cost pass-through,Increase,512,0.03436,1.5
+Customer negotiation,Decrease,349,-0.03832,2.0
+Customer negotiation,Increase,74,0.04682,2.0
+Market correction,Decrease,309,-0.03582,2.0
+Market correction,Increase,150,0.03981,3.0
+Promotional reset,Decrease,142,-0.03646,3.0
+Promotional reset,Increase,55,0.03428,3.0

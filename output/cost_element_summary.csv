@@ -1,25 +1,25 @@
 fiscal_year,cost_element,behaviour,standard_cost,actual_cost,volume_units,variance,variance_pct,verdict
-2024,Goods,Variable,137548851.38,135794844.81,5582754.46,-1754006.57,-0.01,Favourable
-2024,Inbound freight and duty,Variable,3580519.54,3580519.54,5582754.46,0.0,0.0,Favourable
-2024,Packaging and labelling,Variable,692248.16,692248.16,5582754.46,0.0,0.0,Favourable
-2024,"Pick, pack and handling",Variable,2278467.68,2278467.68,5582754.46,0.0,0.0,Favourable
-2024,Shrink and damage,Variable,13284699.39,13094134.14,5582754.46,-190565.25,-0.01,Favourable
-2024,Variable warehouse overhead,Variable,809499.35,809499.35,5582754.46,0.0,0.0,Favourable
-2025,Goods,Variable,164058598.93,163267473.74,6238089.85,-791125.19,-0.0,Favourable
-2025,Inbound freight and duty,Variable,4079047.71,4079047.71,6238089.85,0.0,0.0,Favourable
-2025,Packaging and labelling,Variable,769622.72,769622.72,6238089.85,0.0,0.0,Favourable
-2025,"Pick, pack and handling",Variable,2581656.67,2581656.67,6238089.85,0.0,0.0,Favourable
-2025,Shrink and damage,Variable,15979998.31,15937027.06,6238089.85,-42971.25,-0.0,Favourable
-2025,Variable warehouse overhead,Variable,904522.95,904522.95,6238089.85,0.0,0.0,Favourable
-2026,Goods,Variable,187514000.9,177081512.26,6545545.42,-10432488.64,-0.06,Favourable
-2026,Inbound freight and duty,Variable,4307265.96,4307265.96,6545545.42,0.0,0.0,Favourable
-2026,Packaging and labelling,Variable,811022.88,811022.88,6545545.42,0.0,0.0,Favourable
-2026,"Pick, pack and handling",Variable,2706287.04,2706287.04,6545545.42,0.0,0.0,Favourable
-2026,Shrink and damage,Variable,18549562.28,17337802.5,6545545.42,-1211759.78,-0.07,Favourable
-2026,Variable warehouse overhead,Variable,949104.1,949104.1,6545545.42,0.0,0.0,Favourable
-2024,Fixed warehouse overhead,Fixed,2477620.8,2467214.73,0.0,-10406.07,-0.0,Favourable
-2024,Selling and admin,Fixed,1724618.4,1755650.09,0.0,31031.69,0.02,Unfavourable
-2025,Fixed warehouse overhead,Fixed,2775781.08,2795694.34,0.0,19913.26,0.01,Unfavourable
-2025,Selling and admin,Fixed,1932161.34,1949242.75,0.0,17081.41,0.01,Unfavourable
-2026,Fixed warehouse overhead,Fixed,2893631.47,2915337.0,0.0,21705.53,0.01,Unfavourable
-2026,Selling and admin,Fixed,2014194.46,2027205.87,0.0,13011.41,0.01,Unfavourable
+2024,Goods,Variable,108468320.58,107441301.69,5023807.73,-1027018.89,-0.01,Favourable
+2024,Inbound freight and duty,Variable,3290319.51,3290319.51,5023807.73,0.0,0.0,Favourable
+2024,Packaging and labelling,Variable,629558.65,629558.65,5023807.73,0.0,0.0,Favourable
+2024,"Pick, pack and handling",Variable,2168225.25,2168225.25,5023807.73,0.0,0.0,Favourable
+2024,Shrink and damage,Variable,9250193.11,9203476.05,5023807.73,-46717.06,-0.01,Favourable
+2024,Variable warehouse overhead,Variable,728451.86,728451.86,5023807.73,0.0,0.0,Favourable
+2025,Goods,Variable,117351726.19,115704236.42,5285974.38,-1647489.77,-0.01,Favourable
+2025,Inbound freight and duty,Variable,3371007.44,3371007.44,5285974.38,0.0,0.0,Favourable
+2025,Packaging and labelling,Variable,664632.6,664632.6,5285974.38,0.0,0.0,Favourable
+2025,"Pick, pack and handling",Variable,2294580.9,2294580.9,5285974.38,0.0,0.0,Favourable
+2025,Shrink and damage,Variable,10375118.43,10196949.99,5285974.38,-178168.44,-0.02,Favourable
+2025,Variable warehouse overhead,Variable,766466.13,766466.13,5285974.38,0.0,0.0,Favourable
+2026,Goods,Variable,122311575.41,120795709.79,5562304.51,-1515865.62,-0.01,Favourable
+2026,Inbound freight and duty,Variable,3473593.75,3473593.75,5562304.51,0.0,0.0,Favourable
+2026,Packaging and labelling,Variable,699900.33,699900.33,5562304.51,0.0,0.0,Favourable
+2026,"Pick, pack and handling",Variable,2419331.64,2419331.64,5562304.51,0.0,0.0,Favourable
+2026,Shrink and damage,Variable,11041500.45,10752247.71,5562304.51,-289252.74,-0.03,Favourable
+2026,Variable warehouse overhead,Variable,806534.07,806534.07,5562304.51,0.0,0.0,Favourable
+2024,Fixed warehouse overhead,Fixed,2477620.8,2509239.37,0.0,31618.57,0.01,Unfavourable
+2024,Selling and admin,Fixed,1724618.4,1745531.84,0.0,20913.44,0.01,Unfavourable
+2025,Fixed warehouse overhead,Fixed,2775781.08,2788784.45,0.0,13003.37,0.0,Unfavourable
+2025,Selling and admin,Fixed,1932161.34,1958626.23,0.0,26464.89,0.01,Unfavourable
+2026,Fixed warehouse overhead,Fixed,2893631.47,2888239.92,0.0,-5391.55,-0.0,Favourable
+2026,Selling and admin,Fixed,2014194.46,1981443.4,0.0,-32751.06,-0.02,Favourable

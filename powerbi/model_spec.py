@@ -36,7 +36,6 @@ TABLES: dict[str, dict] = {
     # Analysis tables the Python engine writes
     "price_waterfall": {"source": "output", "kind": "analysis"},
     "leakage_by_dimension": {"source": "output", "kind": "analysis"},
-    "waterfall_monthly": {"source": "output", "kind": "analysis"},
     "elasticity_estimates": {"source": "output", "kind": "analysis"},
     "price_change_hurdles": {"source": "output", "kind": "analysis"},
     "price_response_curve": {"source": "output", "kind": "analysis"},
@@ -54,7 +53,6 @@ TABLES: dict[str, dict] = {
     "deal_scores": {"source": "output", "kind": "analysis"},
     "guardrail_summary": {"source": "output", "kind": "analysis"},
     "bundle_candidates": {"source": "output", "kind": "analysis"},
-    "executive_summary": {"source": "output", "kind": "analysis"},
 
     # Unit economics and break-even
     "unit_economics": {"source": "output", "kind": "analysis"},
@@ -119,7 +117,6 @@ RELATIONSHIPS: list[tuple[str, str, str, str]] = [
     ("deal_scores", "customer_id", "dim_customer", "customer_id"),
     ("price_bands", "product_id", "dim_product", "product_id"),
     ("customer_profitability", "customer_id", "dim_customer", "customer_id"),
-    ("waterfall_monthly", "month", "dim_month", "month"),
     ("budget_variance", "month", "dim_month", "month"),
     ("overhead_variance", "month", "dim_month", "month"),
     ("unit_economics", "product_id", "dim_product", "product_id"),
@@ -136,6 +133,13 @@ RELATIONSHIPS: list[tuple[str, str, str, str]] = [
 # Tables intentionally left unrelated, with the reason. A disconnected table is
 # usually a modelling mistake; these are not, and saying so here stops the next
 # person "fixing" them.
+#
+# Two tables the app uses are deliberately *not* in this model at all:
+# `executive_summary` and `waterfall_monthly`. Both are pre-aggregated, and a
+# pre-aggregated row does not respond to a slicer -- put one beside a card that
+# does and the page carries two numbers for one thing, differing by whatever
+# the reader last clicked. Every card here reads a measure over the fact
+# instead, which is the same definition and filters correctly.
 UNRELATED: dict[str, str] = {
     "price_waterfall": "One row per waterfall step at the book total. Slicing it "
                        "by product would be meaningless -- the steps are already "
@@ -158,8 +162,6 @@ UNRELATED: dict[str, str] = {
     "guardrail_summary": "One row per guardrail rule.",
     "bundle_candidates": "A pair of products per row; a single-column relationship "
                          "cannot express that.",
-    "executive_summary": "One row per KPI, deliberately pre-aggregated so a card "
-                         "and a page heading cannot disagree.",
     "dim_competitor": "Competitor observations are summarised into "
                       "`competitive_index` before the model sees them, so there is "
                       "no fact at competitor grain to relate to.",
@@ -459,6 +461,15 @@ MEASURES: list[tuple[str, str, str, str]] = [
      "\\$#,0", "11 Bundles"),
     ("Break-even cannibalisation",
      "AVERAGE(bundle_candidates[break_even_cannibalisation])", "0.0%", "11 Bundles"),
+    ("Cannibalisation headroom", "AVERAGE(bundle_candidates[headroom])",
+     "0.0%", "11 Bundles"),
+    ("Bundle margin %", "AVERAGE(bundle_candidates[bundle_margin_pct])",
+     "0.0%", "11 Bundles"),
+    ("Standalone margin %", "AVERAGE(bundle_candidates[standalone_margin_pct])",
+     "0.0%", "11 Bundles"),
+    ("Bundle price", "AVERAGE(bundle_candidates[bundle_price])",
+     "\\$#,0.00", "11 Bundles"),
+    ("Bundles considered", "COUNTROWS(bundle_candidates)", "#,0", "11 Bundles"),
 
     # --- What-if ------------------------------------------------------------
     #

@@ -1,10 +1,10 @@
 step,action,rows,value,note
-Extract as received,Opening,17643,261314697.02,"17,643 billing lines from the ERP."
-Duplicate billing lines,Dropped,63,884314.14,Same document and item posted twice. Kept the first.
-Unit of measure converted,Repaired,0,310953.56,52 lines billed in cases against a material mastered in eaches. Converted rather than dropped.
-Extended value recomputed,Repaired,0,326464.41,121 lines where net value did not equal quantity times price. Recomputed from the two source fields.
-Zero or negative quantity,Dropped,41,0.0,Divides by zero in every per-unit measure. Not a credit note.
-Posted after the extract date,Dropped,13,39178.03,"A future posting is a test document or a keying error, and it lands in a period already reported."
-Customer not in the master,Dropped,24,205628.19,"Cannot be segmented, so its margin would land in no cut of the book."
-Held back: no usable standard cost,Flagged,0,5399893.75,"873 lines whose material has no standard cost, and 345 whose recovery is outside anything a distribution centre produces. Kept in the staged data and excluded from repricing until master data is fixed."
-Staged and usable,Closing,17502,259859112.25,"16,284 of 17,502 lines are priceable."
+Extract as received,Opening,17458,183875376.15,"17,458 billing lines from the ERP."
+Duplicate billing lines,Dropped,59,571281.52,Same document and item posted twice. Kept the first.
+Unit of measure converted,Repaired,0,341910.12,47 lines billed in cases against a material mastered in eaches. Converted rather than dropped.
+Extended value recomputed,Repaired,0,511815.98,114 lines where net value did not equal quantity times price. Recomputed from the two source fields.
+Zero or negative quantity,Dropped,37,0.0,Divides by zero in every per-unit measure. Not a credit note.
+Posted after the extract date,Dropped,13,123922.62,"A future posting is a test document or a keying error, and it lands in a period already reported."
+Customer not in the master,Dropped,27,191888.88,"Cannot be segmented, so its margin would land in no cut of the book."
+Held back: no usable standard cost,Flagged,0,8279462.78,"804 lines whose material has no standard cost, and 332 whose recovery is outside anything a distribution centre produces. Kept in the staged data and excluded from repricing until master data is fixed."
+Staged and usable,Closing,17322,182476467.15,"16,186 of 17,322 lines are priceable."

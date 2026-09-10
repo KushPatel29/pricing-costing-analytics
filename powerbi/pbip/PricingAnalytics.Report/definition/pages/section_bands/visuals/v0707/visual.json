@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "v0707",
   "position": {
-    "x": 20,
-    "y": 442,
+    "x": 848,
+    "y": 152,
     "z": 1606,
-    "height": 258,
-    "width": 620,
+    "height": 272,
+    "width": 412,
     "tabOrder": 1606
   },
   "visual": {
-    "visualType": "scatterChart",
+    "visualType": "lineChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,33 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_customer"
+                      "Entity": "wtp_curve"
                     }
                   },
-                  "Property": "customer_name"
+                  "Property": "price_ratio"
                 }
               },
-              "queryRef": "dim_customer.customer_name",
-              "nativeQueryRef": "customer_name",
+              "queryRef": "wtp_curve.price_ratio",
+              "nativeQueryRef": "price_ratio",
               "active": true
-            }
-          ]
-        },
-        "X": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Customer volume (units)"
-                }
-              },
-              "queryRef": "_Measures.Customer volume (units)",
-              "nativeQueryRef": "Customer volume (units)"
             }
           ]
         },
@@ -60,29 +42,30 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Customer pocket margin %"
+                  "Property": "Win rate"
                 }
               },
-              "queryRef": "_Measures.Customer pocket margin %",
-              "nativeQueryRef": "Customer pocket margin %"
+              "queryRef": "_Measures.Win rate",
+              "nativeQueryRef": "Win rate"
             }
           ]
         },
-        "Size": {
+        "Series": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Measures"
+                      "Entity": "wtp_curve"
                     }
                   },
-                  "Property": "Pocket revenue"
+                  "Property": "segment"
                 }
               },
-              "queryRef": "_Measures.Pocket revenue",
-              "nativeQueryRef": "Pocket revenue"
+              "queryRef": "wtp_curve.segment",
+              "nativeQueryRef": "segment",
+              "active": true
             }
           ]
         }
@@ -96,7 +79,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Customers: margin against volume'"
+                  "Value": "'Probability of winning against the price we ask'"
                 }
               }
             },
@@ -116,7 +99,35 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Scatter chart titled Customers margin against volume. Plots Customer pocket margin percent against Customer volume, sized by revenue.'"
+                  "Value": "'Line chart titled Probability of winning against the price we ask. Plots Win rate by price ratio, one line per segment.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

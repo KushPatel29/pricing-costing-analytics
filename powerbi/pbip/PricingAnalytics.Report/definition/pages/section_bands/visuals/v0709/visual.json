@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "v0709",
   "position": {
-    "x": 1068,
+    "x": 654,
     "y": 442,
     "z": 1608,
-    "height": 76,
-    "width": 192,
+    "height": 258,
+    "width": 400,
     "tabOrder": 1608
   },
   "visual": {
-    "visualType": "slicer",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
         "Values": {
@@ -23,12 +23,67 @@
                       "Entity": "segment_profile"
                     }
                   },
-                  "Property": "dimension"
+                  "Property": "member"
                 }
               },
-              "queryRef": "segment_profile.dimension",
-              "nativeQueryRef": "dimension",
-              "active": true
+              "queryRef": "segment_profile.member",
+              "nativeQueryRef": "member"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "segment_profile"
+                    }
+                  },
+                  "Property": "revenue"
+                }
+              },
+              "queryRef": "segment_profile.revenue",
+              "nativeQueryRef": "revenue"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "segment_profile"
+                    }
+                  },
+                  "Property": "margin_pct"
+                }
+              },
+              "queryRef": "segment_profile.margin_pct",
+              "nativeQueryRef": "margin_pct"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "segment_profile"
+                    }
+                  },
+                  "Property": "band_width_pct"
+                }
+              },
+              "queryRef": "segment_profile.band_width_pct",
+              "nativeQueryRef": "band_width_pct"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "segment_profile"
+                    }
+                  },
+                  "Property": "realisation_opportunity"
+                }
+              },
+              "queryRef": "segment_profile.realisation_opportunity",
+              "nativeQueryRef": "realisation_opportunity"
             }
           ]
         }
@@ -42,7 +97,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Cut by'"
+                  "Value": "'Level, and consistency'"
                 }
               }
             },
@@ -62,35 +117,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Slicer. Chooses which dimension the segment table is cut by.'"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    "objects": {
-      "data": [
-        {
-          "properties": {
-            "mode": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Dropdown'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "items": [
-        {
-          "properties": {
-            "textSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
+                  "Value": "'Table titled Level and consistency. Lists each segment with its revenue, margin, band width and realisation opportunity.'"
                 }
               }
             }

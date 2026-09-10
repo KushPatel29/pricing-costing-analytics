@@ -18,6 +18,7 @@
     "section_operations",
     "section_quality",
     "section_exceptions",
+    "section_bundles",
     "section_recommendations"
   ],
   "activePageName": "section_summary"

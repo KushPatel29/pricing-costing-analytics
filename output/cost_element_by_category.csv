@@ -1,49 +1,49 @@
 category,cost_element,standard_cost,actual_cost,variance
-Apparel & Accessories,Goods,6496405.04,6409560.14,-86844.9
-Apparel & Accessories,Inbound freight and duty,373349.84,373349.84,0.0
-Apparel & Accessories,Packaging and labelling,60126.04,60126.04,0.0
-Apparel & Accessories,"Pick, pack and handling",166425.37,166425.37,0.0
-Apparel & Accessories,Shrink and damage,1132432.26,1114607.17,-17825.09
-Apparel & Accessories,Variable warehouse overhead,64373.78,64373.78,0.0
-Consumer Electronics,Goods,111254625.48,99191374.37,-12063251.11
-Consumer Electronics,Inbound freight and duty,1473176.19,1473176.19,0.0
-Consumer Electronics,Packaging and labelling,246160.77,246160.77,0.0
-Consumer Electronics,"Pick, pack and handling",832381.75,832381.75,0.0
-Consumer Electronics,Shrink and damage,12864794.49,11501215.33,-1363579.16
-Consumer Electronics,Variable warehouse overhead,285034.34,285034.34,0.0
-Health & Beauty,Goods,8295089.68,8638944.46,343854.78
-Health & Beauty,Inbound freight and duty,655082.07,655082.07,0.0
-Health & Beauty,Packaging and labelling,125927.93,125927.93,0.0
-Health & Beauty,"Pick, pack and handling",362347.52,362347.52,0.0
-Health & Beauty,Shrink and damage,606698.77,633093.01,26394.24
-Health & Beauty,Variable warehouse overhead,138664.43,138664.43,0.0
-Home & Kitchen,Goods,19070032.52,17958189.65,-1111842.87
-Home & Kitchen,Inbound freight and duty,591983.8,591983.8,0.0
-Home & Kitchen,Packaging and labelling,98717.45,98717.45,0.0
-Home & Kitchen,"Pick, pack and handling",302672.24,302672.24,0.0
-Home & Kitchen,Shrink and damage,1130909.12,1072753.6,-58155.52
-Home & Kitchen,Variable warehouse overhead,117241.29,117241.29,0.0
-Office & Stationery,Goods,3795493.69,3932091.86,136598.17
-Office & Stationery,Inbound freight and duty,314165.33,314165.33,0.0
-Office & Stationery,Packaging and labelling,53040.24,53040.24,0.0
-Office & Stationery,"Pick, pack and handling",164970.27,164970.27,0.0
-Office & Stationery,Shrink and damage,163118.58,168797.53,5678.95
-Office & Stationery,Variable warehouse overhead,60750.91,60750.91,0.0
-Pet Supplies,Goods,8187569.46,7706565.93,-481003.53
-Pet Supplies,Inbound freight and duty,198973.55,198973.55,0.0
-Pet Supplies,Packaging and labelling,61704.82,61704.82,0.0
-Pet Supplies,"Pick, pack and handling",251414.04,251414.04,0.0
-Pet Supplies,Shrink and damage,305646.76,292428.72,-13218.04
-Pet Supplies,Variable warehouse overhead,74936.48,74936.48,0.0
-Sporting Goods,Goods,16521434.45,17092367.27,570932.82
-Sporting Goods,Inbound freight and duty,313215.28,313215.28,0.0
-Sporting Goods,Packaging and labelling,70432.49,70432.49,0.0
-Sporting Goods,"Pick, pack and handling",228285.31,228285.31,0.0
-Sporting Goods,Shrink and damage,1446957.44,1505620.1,58662.66
-Sporting Goods,Variable warehouse overhead,80975.66,80975.66,0.0
-Tools & Hardware,Goods,13893350.58,16152418.58,2259068.0
-Tools & Hardware,Inbound freight and duty,387319.9,387319.9,0.0
-Tools & Hardware,Packaging and labelling,94913.14,94913.14,0.0
-Tools & Hardware,"Pick, pack and handling",397790.54,397790.54,0.0
-Tools & Hardware,Shrink and damage,899004.86,1049287.04,150282.18
-Tools & Hardware,Variable warehouse overhead,127127.21,127127.21,0.0
+Apparel & Accessories,Goods,5142331.51,5165023.99,22692.48
+Apparel & Accessories,Inbound freight and duty,162128.26,162128.26,0.0
+Apparel & Accessories,Packaging and labelling,32634.07,32634.07,0.0
+Apparel & Accessories,"Pick, pack and handling",103080.92,103080.92,0.0
+Apparel & Accessories,Shrink and damage,998832.85,1000967.56,2134.71
+Apparel & Accessories,Variable warehouse overhead,37618.32,37618.32,0.0
+Consumer Electronics,Goods,40468318.64,37072997.97,-3395320.67
+Consumer Electronics,Inbound freight and duty,484521.03,484521.03,0.0
+Consumer Electronics,Packaging and labelling,165465.77,165465.77,0.0
+Consumer Electronics,"Pick, pack and handling",490222.6,490222.6,0.0
+Consumer Electronics,Shrink and damage,5497625.94,5049686.81,-447939.13
+Consumer Electronics,Variable warehouse overhead,182003.09,182003.09,0.0
+Health & Beauty,Goods,7059806.87,7421228.42,361421.55
+Health & Beauty,Inbound freight and duty,609034.66,609034.66,0.0
+Health & Beauty,Packaging and labelling,94310.38,94310.38,0.0
+Health & Beauty,"Pick, pack and handling",371605.71,371605.71,0.0
+Health & Beauty,Shrink and damage,507061.11,532822.32,25761.21
+Health & Beauty,Variable warehouse overhead,112566.02,112566.02,0.0
+Home & Kitchen,Goods,20577825.66,19895766.47,-682059.19
+Home & Kitchen,Inbound freight and duty,834227.11,834227.11,0.0
+Home & Kitchen,Packaging and labelling,112439.3,112439.3,0.0
+Home & Kitchen,"Pick, pack and handling",370300.5,370300.5,0.0
+Home & Kitchen,Shrink and damage,932870.62,896851.8,-36018.82
+Home & Kitchen,Variable warehouse overhead,137152.52,137152.52,0.0
+Office & Stationery,Goods,3069380.59,3042408.79,-26971.8
+Office & Stationery,Inbound freight and duty,274831.73,274831.73,0.0
+Office & Stationery,Packaging and labelling,43322.71,43322.71,0.0
+Office & Stationery,"Pick, pack and handling",141550.91,141550.91,0.0
+Office & Stationery,Shrink and damage,106400.76,104581.33,-1819.43
+Office & Stationery,Variable warehouse overhead,47959.29,47959.29,0.0
+Pet Supplies,Goods,8968828.38,8687721.86,-281106.52
+Pet Supplies,Inbound freight and duty,171790.57,171790.57,0.0
+Pet Supplies,Packaging and labelling,67478.08,67478.08,0.0
+Pet Supplies,"Pick, pack and handling",229230.84,229230.84,0.0
+Pet Supplies,Shrink and damage,225426.7,220053.62,-5373.08
+Pet Supplies,Variable warehouse overhead,71686.72,71686.72,0.0
+Sporting Goods,Goods,23363732.68,23708988.99,345256.31
+Sporting Goods,Inbound freight and duty,409309.22,409309.22,0.0
+Sporting Goods,Packaging and labelling,106846.84,106846.84,0.0
+Sporting Goods,"Pick, pack and handling",337588.19,337588.19,0.0
+Sporting Goods,Shrink and damage,2019356.74,2071891.53,52534.79
+Sporting Goods,Variable warehouse overhead,114527.37,114527.37,0.0
+Tools & Hardware,Goods,13661351.08,15801573.3,2140222.22
+Tools & Hardware,Inbound freight and duty,527751.17,527751.17,0.0
+Tools & Hardware,Packaging and labelling,77403.18,77403.18,0.0
+Tools & Hardware,"Pick, pack and handling",375751.97,375751.97,0.0
+Tools & Hardware,Shrink and damage,753925.73,875392.74,121467.01
+Tools & Hardware,Variable warehouse overhead,103020.74,103020.74,0.0

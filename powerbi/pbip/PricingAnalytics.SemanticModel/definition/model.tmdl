@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["dim_product", "dim_customer", "dim_competitor", "dim_month", "fact_sales", "price_waterfall", "leakage_by_dimension", "waterfall_monthly", "elasticity_estimates", "price_change_hurdles", "price_response_curve", "competitive_index", "passthrough", "cost_variance_long", "budget_variance", "overhead_variance", "margin_bridge_effects", "price_bands", "segment_profile", "wtp_curve", "wtp_fits", "customer_profitability", "deal_scores", "guardrail_summary", "bundle_candidates", "executive_summary", "unit_economics", "break_even_products", "break_even_portfolio", "break_even_curve", "markup_vs_margin", "scenario_three_point", "scenario_tornado", "scenario_thresholds", "forecast_series", "forecast_accuracy", "forecast_summary", "profitability", "profit_heatmap", "discount_margin_matrix", "promotion_summary", "price_vs_volume", "cost_element_summary", "cost_element_waterfall", "cost_element_by_category", "price_change_log", "price_list_coverage", "data_quality_checks", "data_quality_score", "reconciliation", "recommendations", "recommendation_summary", "guardrail_exceptions", "_Measures"]
+annotation PBI_QueryOrder = ["dim_product", "dim_customer", "dim_competitor", "dim_month", "fact_sales", "price_waterfall", "leakage_by_dimension", "elasticity_estimates", "price_change_hurdles", "price_response_curve", "competitive_index", "passthrough", "cost_variance_long", "budget_variance", "overhead_variance", "margin_bridge_effects", "price_bands", "segment_profile", "wtp_curve", "wtp_fits", "customer_profitability", "deal_scores", "guardrail_summary", "bundle_candidates", "unit_economics", "break_even_products", "break_even_portfolio", "break_even_curve", "markup_vs_margin", "scenario_three_point", "scenario_tornado", "scenario_thresholds", "forecast_series", "forecast_accuracy", "forecast_summary", "profitability", "profit_heatmap", "discount_margin_matrix", "promotion_summary", "price_vs_volume", "cost_element_summary", "cost_element_waterfall", "cost_element_by_category", "price_change_log", "price_list_coverage", "data_quality_checks", "data_quality_score", "reconciliation", "recommendations", "recommendation_summary", "guardrail_exceptions", "_Measures"]
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
@@ -19,7 +19,6 @@ ref table dim_month
 ref table fact_sales
 ref table price_waterfall
 ref table leakage_by_dimension
-ref table waterfall_monthly
 ref table elasticity_estimates
 ref table price_change_hurdles
 ref table price_response_curve
@@ -37,7 +36,6 @@ ref table customer_profitability
 ref table deal_scores
 ref table guardrail_summary
 ref table bundle_candidates
-ref table executive_summary
 ref table unit_economics
 ref table break_even_products
 ref table break_even_portfolio

@@ -1,11 +1,11 @@
 step,kind,amount,running,sort_order,delta
-Standard cost,total,219745069.09,219745069.09,0,219745069.09
-Fixed warehouse overhead,increase,21705.53,219766774.62,1,21705.53
-Selling and admin,increase,13011.41,219779786.03,2,13011.41
-Inbound freight and duty,increase,0.0,219779786.03,3,0.0
-Packaging and labelling,increase,0.0,219779786.03,4,0.0
-Variable warehouse overhead,increase,0.0,219779786.03,5,0.0
-"Pick, pack and handling",increase,0.0,219779786.03,6,0.0
-Shrink and damage,decrease,-1211759.78,218568026.25,7,-1211759.78
-Goods,decrease,-10432488.64,208135537.61,8,-10432488.64
-Actual cost,total,208135537.61,208135537.61,9,0.0
+Standard cost,total,145660261.58,145660261.58,0,145660261.58
+Inbound freight and duty,increase,0.0,145660261.58,1,0.0
+Packaging and labelling,increase,0.0,145660261.58,2,0.0
+"Pick, pack and handling",increase,0.0,145660261.58,3,0.0
+Variable warehouse overhead,increase,0.0,145660261.58,4,0.0
+Fixed warehouse overhead,decrease,-5391.55,145654870.03,5,-5391.55
+Selling and admin,decrease,-32751.06,145622118.97,6,-32751.06
+Shrink and damage,decrease,-289252.74,145332866.23,7,-289252.74
+Goods,decrease,-1515865.62,143817000.61,8,-1515865.62
+Actual cost,total,143817000.61,143817000.61,9,0.0

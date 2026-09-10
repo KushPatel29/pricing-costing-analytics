@@ -496,3 +496,35 @@ def test_every_file_validates_against_the_schema_it_names(path):
         f"  {'/'.join(str(p) for p in e.path) or '<root>'}: {e.message}"
         for e in errors[:5]
     )
+
+
+def test_every_table_in_the_model_is_reached_by_a_visual():
+    """
+    A table in the model that no page binds is dead weight: it refreshes, it
+    takes memory, it appears in the field list, and nothing on the report
+    depends on it being right.
+
+    Following measure references is what makes this meaningful -- most tables
+    are reached through a measure rather than a bound column, so a check on
+    bound columns alone would flag almost everything.
+    """
+    behind = _tables_behind_measures()
+    reached = set()
+    for page in PAGES:
+        for spec in page["visuals"]:
+            fields = [spec[k] for k in ("x", "category", "series", "size", "field",
+                                        "rows", "columns_by", "subtitle")
+                      if spec.get(k)]
+            fields += (list(spec.get("y", [])) + list(spec.get("values", []))
+                       + list(spec.get("columns", [])))
+            for field in fields:
+                if field.startswith("["):
+                    reached |= behind.get(field.strip("[]"), set())
+                elif "[" in field:
+                    reached.add(field.split("[")[0])
+
+    orphans = sorted(set(TABLES) - reached)
+    assert not orphans, (
+        "tables in the model that no visual reaches -- either bind them or drop "
+        f"them from model_spec: {orphans}"
+    )

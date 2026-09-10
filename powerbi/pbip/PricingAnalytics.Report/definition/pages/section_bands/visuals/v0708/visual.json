@@ -2,88 +2,87 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "v0708",
   "position": {
-    "x": 654,
+    "x": 20,
     "y": 442,
     "z": 1607,
     "height": 258,
-    "width": 400,
+    "width": 620,
     "tabOrder": 1607
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "scatterChart",
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "segment_profile"
+                      "Entity": "dim_customer"
                     }
                   },
-                  "Property": "member"
+                  "Property": "customer_name"
                 }
               },
-              "queryRef": "segment_profile.member",
-              "nativeQueryRef": "member"
-            },
+              "queryRef": "dim_customer.customer_name",
+              "nativeQueryRef": "customer_name",
+              "active": true
+            }
+          ]
+        },
+        "X": {
+          "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "segment_profile"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "revenue"
+                  "Property": "Customer volume (units)"
                 }
               },
-              "queryRef": "segment_profile.revenue",
-              "nativeQueryRef": "revenue"
-            },
+              "queryRef": "_Measures.Customer volume (units)",
+              "nativeQueryRef": "Customer volume (units)"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "segment_profile"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "margin_pct"
+                  "Property": "Customer pocket margin %"
                 }
               },
-              "queryRef": "segment_profile.margin_pct",
-              "nativeQueryRef": "margin_pct"
-            },
+              "queryRef": "_Measures.Customer pocket margin %",
+              "nativeQueryRef": "Customer pocket margin %"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "segment_profile"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "band_width_pct"
+                  "Property": "Pocket revenue"
                 }
               },
-              "queryRef": "segment_profile.band_width_pct",
-              "nativeQueryRef": "band_width_pct"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "segment_profile"
-                    }
-                  },
-                  "Property": "realisation_opportunity"
-                }
-              },
-              "queryRef": "segment_profile.realisation_opportunity",
-              "nativeQueryRef": "realisation_opportunity"
+              "queryRef": "_Measures.Pocket revenue",
+              "nativeQueryRef": "Pocket revenue"
             }
           ]
         }
@@ -97,7 +96,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Level, and consistency'"
+                  "Value": "'Customers: margin against volume'"
                 }
               }
             },
@@ -117,7 +116,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Table titled Level and consistency. Lists each segment with its revenue, margin, band width and realisation opportunity.'"
+                  "Value": "'Scatter chart titled Customers margin against volume. Plots Customer pocket margin percent against Customer volume, sized by revenue.'"
                 }
               }
             }

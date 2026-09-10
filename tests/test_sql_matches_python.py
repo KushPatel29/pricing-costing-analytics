@@ -202,20 +202,34 @@ def test_the_sql_exceptions_overlap_the_python_ones(marts):
 
 def test_price_bands_agree_on_the_median_they_both_compute(marts, sales):
     """
-    The two use different weighting on purpose -- SQL takes the unweighted
-    customer median, Python the volume-weighted one -- so this checks the SQL
-    against its own definition rather than pretending they should match.
+    Both are volume-weighted, and both have to land on the same price.
+
+    This test used to compare the SQL against its own definition and say the
+    divergence was deliberate: SQL took the unweighted customer median, Python
+    the volume-weighted one. That is two tables with the same column names
+    holding two definitions five percent apart, in a layer whose whole claim is
+    that the two implementations are checked against each other. DuckDB has no
+    weighted percentile so the SQL builds one; this asserts it arrives at the
+    same number, which is the only thing that makes the second implementation
+    worth having.
     """
     sql = marts["mart_price_bands"].copy()
     # DuckDB infers a numeric product_id from the CSV; the pandas side reads it
     # as text so a code with a leading zero survives. Compare on one type.
     sql["product_id"] = sql["product_id"].astype(str)
     sql = sql.set_index("product_id")
-    recent = sales[sales["fiscal_year"] == sales["fiscal_year"].max()]
-    for product_id in list(sql.index)[:25]:
-        lines = recent[recent["product_id"] == product_id]["pocket_price"]
-        assert close(sql.loc[product_id, "median_price"], float(lines.median()),
-                     tolerance=1e-6)
+    python = pd.read_csv(OUT / "price_bands.csv", dtype={"product_id": str})
+    python = python.set_index("product_id")
+    common = sql.index.intersection(python.index)
+    assert len(common) > 200, f"only {len(common)} products in both"
+    for column in ("p10_price", "median_price", "p90_price"):
+        for product_id in common:
+            assert close(sql.loc[product_id, column],
+                         python.loc[product_id, column], tolerance=1e-6), (
+                f"{column} disagrees on {product_id}: "
+                f"SQL {sql.loc[product_id, column]} vs "
+                f"Python {python.loc[product_id, column]}"
+            )
 
 
 # --------------------------------------------------------------------------

@@ -1,330 +1,330 @@
 segment,kind,price_ratio,win_rate,quotes
-All,Fitted,0.8,0.8546,
-All,Fitted,0.82,0.8269,
-All,Fitted,0.84,0.7952,
-All,Fitted,0.86,0.7593,
-All,Fitted,0.88,0.7194,
-All,Fitted,0.9,0.6757,
-All,Fitted,0.92,0.6287,
-All,Fitted,0.94,0.5791,
-All,Fitted,0.96,0.5279,
-All,Fitted,0.98,0.4761,
-All,Fitted,1.0,0.4248,
-All,Fitted,1.02,0.375,
-All,Fitted,1.04,0.3278,
-All,Fitted,1.06,0.2838,
-All,Fitted,1.08,0.2436,
-All,Fitted,1.1,0.2074,
-All,Fitted,1.12,0.1754,
-All,Fitted,1.14,0.1474,
-All,Fitted,1.16,0.1231,
-All,Fitted,1.18,0.1024,
-All,Fitted,1.2,0.0849,
-All,Fitted,1.22,0.0701,
-All,Fitted,1.24,0.0577,
-All,Fitted,1.26,0.0474,
-All,Fitted,1.28,0.0389,
-All,Fitted,1.3,0.0318,
+All,Fitted,0.8,0.8549,
+All,Fitted,0.82,0.8272,
+All,Fitted,0.84,0.7956,
+All,Fitted,0.86,0.7599,
+All,Fitted,0.88,0.7201,
+All,Fitted,0.9,0.6765,
+All,Fitted,0.92,0.6296,
+All,Fitted,0.94,0.5801,
+All,Fitted,0.96,0.529,
+All,Fitted,0.98,0.4772,
+All,Fitted,1.0,0.426,
+All,Fitted,1.02,0.3763,
+All,Fitted,1.04,0.329,
+All,Fitted,1.06,0.285,
+All,Fitted,1.08,0.2447,
+All,Fitted,1.1,0.2085,
+All,Fitted,1.12,0.1764,
+All,Fitted,1.14,0.1482,
+All,Fitted,1.16,0.1239,
+All,Fitted,1.18,0.1031,
+All,Fitted,1.2,0.0855,
+All,Fitted,1.22,0.0706,
+All,Fitted,1.24,0.0582,
+All,Fitted,1.26,0.0478,
+All,Fitted,1.28,0.0392,
+All,Fitted,1.3,0.0321,
 All,Observed,0.675,1.0,7.0
-All,Observed,0.725,0.875,56.0
-All,Observed,0.775,0.8779,213.0
-All,Observed,0.825,0.8145,512.0
-All,Observed,0.875,0.7313,830.0
-All,Observed,0.925,0.6251,1003.0
-All,Observed,0.975,0.473,945.0
-All,Observed,1.025,0.3649,803.0
-All,Observed,1.075,0.2788,617.0
-All,Observed,1.125,0.1508,358.0
-All,Observed,1.175,0.0884,181.0
-All,Observed,1.225,0.1207,58.0
-All,Observed,1.275,0.0588,17.0
-Corporate & B2B Buyer,Fitted,0.8,0.6957,
-Corporate & B2B Buyer,Fitted,0.82,0.669,
-Corporate & B2B Buyer,Fitted,0.84,0.6412,
-Corporate & B2B Buyer,Fitted,0.86,0.6124,
-Corporate & B2B Buyer,Fitted,0.88,0.5828,
-Corporate & B2B Buyer,Fitted,0.9,0.5525,
-Corporate & B2B Buyer,Fitted,0.92,0.5219,
-Corporate & B2B Buyer,Fitted,0.94,0.4912,
-Corporate & B2B Buyer,Fitted,0.96,0.4604,
-Corporate & B2B Buyer,Fitted,0.98,0.43,
-Corporate & B2B Buyer,Fitted,1.0,0.4001,
-Corporate & B2B Buyer,Fitted,1.02,0.371,
-Corporate & B2B Buyer,Fitted,1.04,0.3427,
-Corporate & B2B Buyer,Fitted,1.06,0.3155,
-Corporate & B2B Buyer,Fitted,1.08,0.2895,
-Corporate & B2B Buyer,Fitted,1.1,0.2649,
-Corporate & B2B Buyer,Fitted,1.12,0.2416,
-Corporate & B2B Buyer,Fitted,1.14,0.2197,
-Corporate & B2B Buyer,Fitted,1.16,0.1994,
-Corporate & B2B Buyer,Fitted,1.18,0.1804,
-Corporate & B2B Buyer,Fitted,1.2,0.1629,
-Corporate & B2B Buyer,Fitted,1.22,0.1468,
-Corporate & B2B Buyer,Fitted,1.24,0.132,
-Corporate & B2B Buyer,Fitted,1.26,0.1186,
-Corporate & B2B Buyer,Fitted,1.28,0.1063,
-Corporate & B2B Buyer,Fitted,1.3,0.0951,
-Corporate & B2B Buyer,Observed,0.775,0.7407,27.0
-Corporate & B2B Buyer,Observed,0.825,0.623,61.0
-Corporate & B2B Buyer,Observed,0.875,0.6239,117.0
-Corporate & B2B Buyer,Observed,0.925,0.48,125.0
-Corporate & B2B Buyer,Observed,0.975,0.4113,124.0
-Corporate & B2B Buyer,Observed,1.025,0.395,119.0
-Corporate & B2B Buyer,Observed,1.075,0.34,100.0
-Corporate & B2B Buyer,Observed,1.125,0.2308,65.0
-Corporate & B2B Buyer,Observed,1.175,0.12,25.0
-Corporate & B2B Buyer,Observed,1.225,0.1538,13.0
-E-commerce Pure-Play,Fitted,0.8,0.9267,
-E-commerce Pure-Play,Fitted,0.82,0.9065,
-E-commerce Pure-Play,Fitted,0.84,0.8814,
-E-commerce Pure-Play,Fitted,0.86,0.8507,
-E-commerce Pure-Play,Fitted,0.88,0.8138,
-E-commerce Pure-Play,Fitted,0.9,0.7702,
-E-commerce Pure-Play,Fitted,0.92,0.7199,
-E-commerce Pure-Play,Fitted,0.94,0.6633,
-E-commerce Pure-Play,Fitted,0.96,0.6017,
-E-commerce Pure-Play,Fitted,0.98,0.5367,
-E-commerce Pure-Play,Fitted,1.0,0.4704,
-E-commerce Pure-Play,Fitted,1.02,0.4052,
-E-commerce Pure-Play,Fitted,1.04,0.3431,
-E-commerce Pure-Play,Fitted,1.06,0.2859,
-E-commerce Pure-Play,Fitted,1.08,0.2349,
-E-commerce Pure-Play,Fitted,1.1,0.1906,
-E-commerce Pure-Play,Fitted,1.12,0.1529,
-E-commerce Pure-Play,Fitted,1.14,0.1216,
-E-commerce Pure-Play,Fitted,1.16,0.096,
-E-commerce Pure-Play,Fitted,1.18,0.0753,
-E-commerce Pure-Play,Fitted,1.2,0.0587,
-E-commerce Pure-Play,Fitted,1.22,0.0457,
-E-commerce Pure-Play,Fitted,1.24,0.0354,
-E-commerce Pure-Play,Fitted,1.26,0.0274,
-E-commerce Pure-Play,Fitted,1.28,0.0211,
-E-commerce Pure-Play,Fitted,1.3,0.0163,
+All,Observed,0.725,0.8772,57.0
+All,Observed,0.775,0.875,216.0
+All,Observed,0.825,0.8129,513.0
+All,Observed,0.875,0.7326,834.0
+All,Observed,0.925,0.6265,1004.0
+All,Observed,0.975,0.472,945.0
+All,Observed,1.025,0.3663,800.0
+All,Observed,1.075,0.2862,615.0
+All,Observed,1.125,0.1538,351.0
+All,Observed,1.175,0.0824,182.0
+All,Observed,1.225,0.1,60.0
+All,Observed,1.275,0.0625,16.0
+Corporate & B2B Buyer,Fitted,0.8,0.6873,
+Corporate & B2B Buyer,Fitted,0.82,0.6608,
+Corporate & B2B Buyer,Fitted,0.84,0.6333,
+Corporate & B2B Buyer,Fitted,0.86,0.6048,
+Corporate & B2B Buyer,Fitted,0.88,0.5756,
+Corporate & B2B Buyer,Fitted,0.9,0.5459,
+Corporate & B2B Buyer,Fitted,0.92,0.5159,
+Corporate & B2B Buyer,Fitted,0.94,0.4857,
+Corporate & B2B Buyer,Fitted,0.96,0.4556,
+Corporate & B2B Buyer,Fitted,0.98,0.4259,
+Corporate & B2B Buyer,Fitted,1.0,0.3967,
+Corporate & B2B Buyer,Fitted,1.02,0.3682,
+Corporate & B2B Buyer,Fitted,1.04,0.3406,
+Corporate & B2B Buyer,Fitted,1.06,0.314,
+Corporate & B2B Buyer,Fitted,1.08,0.2886,
+Corporate & B2B Buyer,Fitted,1.1,0.2645,
+Corporate & B2B Buyer,Fitted,1.12,0.2417,
+Corporate & B2B Buyer,Fitted,1.14,0.2203,
+Corporate & B2B Buyer,Fitted,1.16,0.2002,
+Corporate & B2B Buyer,Fitted,1.18,0.1816,
+Corporate & B2B Buyer,Fitted,1.2,0.1643,
+Corporate & B2B Buyer,Fitted,1.22,0.1484,
+Corporate & B2B Buyer,Fitted,1.24,0.1338,
+Corporate & B2B Buyer,Fitted,1.26,0.1204,
+Corporate & B2B Buyer,Fitted,1.28,0.1082,
+Corporate & B2B Buyer,Fitted,1.3,0.0971,
+Corporate & B2B Buyer,Observed,0.775,0.7143,28.0
+Corporate & B2B Buyer,Observed,0.825,0.6129,62.0
+Corporate & B2B Buyer,Observed,0.875,0.6068,117.0
+Corporate & B2B Buyer,Observed,0.925,0.488,125.0
+Corporate & B2B Buyer,Observed,0.975,0.4016,122.0
+Corporate & B2B Buyer,Observed,1.025,0.4,120.0
+Corporate & B2B Buyer,Observed,1.075,0.3434,99.0
+Corporate & B2B Buyer,Observed,1.125,0.2344,64.0
+Corporate & B2B Buyer,Observed,1.175,0.0833,24.0
+Corporate & B2B Buyer,Observed,1.225,0.1429,14.0
+E-commerce Pure-Play,Fitted,0.8,0.9303,
+E-commerce Pure-Play,Fitted,0.82,0.9105,
+E-commerce Pure-Play,Fitted,0.84,0.8858,
+E-commerce Pure-Play,Fitted,0.86,0.8553,
+E-commerce Pure-Play,Fitted,0.88,0.8183,
+E-commerce Pure-Play,Fitted,0.9,0.7744,
+E-commerce Pure-Play,Fitted,0.92,0.7234,
+E-commerce Pure-Play,Fitted,0.94,0.6659,
+E-commerce Pure-Play,Fitted,0.96,0.6031,
+E-commerce Pure-Play,Fitted,0.98,0.5366,
+E-commerce Pure-Play,Fitted,1.0,0.4688,
+E-commerce Pure-Play,Fitted,1.02,0.4021,
+E-commerce Pure-Play,Fitted,1.04,0.3389,
+E-commerce Pure-Play,Fitted,1.06,0.2809,
+E-commerce Pure-Play,Fitted,1.08,0.2294,
+E-commerce Pure-Play,Fitted,1.1,0.1849,
+E-commerce Pure-Play,Fitted,1.12,0.1474,
+E-commerce Pure-Play,Fitted,1.14,0.1164,
+E-commerce Pure-Play,Fitted,1.16,0.0913,
+E-commerce Pure-Play,Fitted,1.18,0.0711,
+E-commerce Pure-Play,Fitted,1.2,0.0551,
+E-commerce Pure-Play,Fitted,1.22,0.0426,
+E-commerce Pure-Play,Fitted,1.24,0.0328,
+E-commerce Pure-Play,Fitted,1.26,0.0252,
+E-commerce Pure-Play,Fitted,1.28,0.0193,
+E-commerce Pure-Play,Fitted,1.3,0.0148,
 E-commerce Pure-Play,Observed,0.725,1.0,8.0
-E-commerce Pure-Play,Observed,0.775,0.95,20.0
-E-commerce Pure-Play,Observed,0.825,0.9111,45.0
+E-commerce Pure-Play,Observed,0.775,0.9474,19.0
+E-commerce Pure-Play,Observed,0.825,0.9091,44.0
 E-commerce Pure-Play,Observed,0.875,0.7917,72.0
-E-commerce Pure-Play,Observed,0.925,0.7708,96.0
-E-commerce Pure-Play,Observed,0.975,0.5211,71.0
-E-commerce Pure-Play,Observed,1.025,0.3506,77.0
-E-commerce Pure-Play,Observed,1.075,0.25,52.0
-E-commerce Pure-Play,Observed,1.125,0.1154,26.0
+E-commerce Pure-Play,Observed,0.925,0.7812,96.0
+E-commerce Pure-Play,Observed,0.975,0.5068,73.0
+E-commerce Pure-Play,Observed,1.025,0.3636,77.0
+E-commerce Pure-Play,Observed,1.075,0.2549,51.0
+E-commerce Pure-Play,Observed,1.125,0.12,25.0
 E-commerce Pure-Play,Observed,1.175,0.1333,15.0
-E-commerce Pure-Play,Observed,1.225,0.2857,7.0
-Government & Education,Fitted,0.8,0.6985,
-Government & Education,Fitted,0.82,0.672,
-Government & Education,Fitted,0.84,0.6443,
-Government & Education,Fitted,0.86,0.6156,
-Government & Education,Fitted,0.88,0.5861,
-Government & Education,Fitted,0.9,0.556,
-Government & Education,Fitted,0.92,0.5254,
-Government & Education,Fitted,0.94,0.4947,
-Government & Education,Fitted,0.96,0.464,
-Government & Education,Fitted,0.98,0.4335,
-Government & Education,Fitted,1.0,0.4036,
-Government & Education,Fitted,1.02,0.3744,
-Government & Education,Fitted,1.04,0.346,
-Government & Education,Fitted,1.06,0.3187,
-Government & Education,Fitted,1.08,0.2926,
-Government & Education,Fitted,1.1,0.2678,
-Government & Education,Fitted,1.12,0.2444,
-Government & Education,Fitted,1.14,0.2224,
-Government & Education,Fitted,1.16,0.2018,
-Government & Education,Fitted,1.18,0.1827,
-Government & Education,Fitted,1.2,0.1651,
-Government & Education,Fitted,1.22,0.1488,
-Government & Education,Fitted,1.24,0.1339,
-Government & Education,Fitted,1.26,0.1202,
-Government & Education,Fitted,1.28,0.1078,
-Government & Education,Fitted,1.3,0.0965,
+E-commerce Pure-Play,Observed,1.225,0.1429,7.0
+Government & Education,Fitted,0.8,0.7053,
+Government & Education,Fitted,0.82,0.6786,
+Government & Education,Fitted,0.84,0.6507,
+Government & Education,Fitted,0.86,0.6217,
+Government & Education,Fitted,0.88,0.5919,
+Government & Education,Fitted,0.9,0.5613,
+Government & Education,Fitted,0.92,0.5302,
+Government & Education,Fitted,0.94,0.499,
+Government & Education,Fitted,0.96,0.4677,
+Government & Education,Fitted,0.98,0.4367,
+Government & Education,Fitted,1.0,0.4061,
+Government & Education,Fitted,1.02,0.3763,
+Government & Education,Fitted,1.04,0.3474,
+Government & Education,Fitted,1.06,0.3195,
+Government & Education,Fitted,1.08,0.2929,
+Government & Education,Fitted,1.1,0.2677,
+Government & Education,Fitted,1.12,0.2438,
+Government & Education,Fitted,1.14,0.2215,
+Government & Education,Fitted,1.16,0.2006,
+Government & Education,Fitted,1.18,0.1813,
+Government & Education,Fitted,1.2,0.1634,
+Government & Education,Fitted,1.22,0.147,
+Government & Education,Fitted,1.24,0.132,
+Government & Education,Fitted,1.26,0.1183,
+Government & Education,Fitted,1.28,0.1058,
+Government & Education,Fitted,1.3,0.0945,
 Government & Education,Observed,0.775,0.7273,11.0
-Government & Education,Observed,0.825,0.6452,31.0
-Government & Education,Observed,0.875,0.6977,43.0
-Government & Education,Observed,0.925,0.4237,59.0
-Government & Education,Observed,0.975,0.5156,64.0
+Government & Education,Observed,0.825,0.6667,33.0
+Government & Education,Observed,0.875,0.7143,42.0
+Government & Education,Observed,0.925,0.4138,58.0
+Government & Education,Observed,0.975,0.5077,65.0
 Government & Education,Observed,1.025,0.3958,48.0
-Government & Education,Observed,1.075,0.2105,38.0
-Government & Education,Observed,1.125,0.2778,18.0
-Government & Education,Observed,1.175,0.0833,12.0
-Independent Retailer,Fitted,0.8,0.8066,
-Independent Retailer,Fitted,0.82,0.7798,
-Independent Retailer,Fitted,0.84,0.7504,
-Independent Retailer,Fitted,0.86,0.7186,
-Independent Retailer,Fitted,0.88,0.6843,
-Independent Retailer,Fitted,0.9,0.648,
-Independent Retailer,Fitted,0.92,0.6098,
-Independent Retailer,Fitted,0.94,0.5703,
-Independent Retailer,Fitted,0.96,0.5298,
-Independent Retailer,Fitted,0.98,0.489,
-Independent Retailer,Fitted,1.0,0.4483,
-Independent Retailer,Fitted,1.02,0.4082,
-Independent Retailer,Fitted,1.04,0.3694,
-Independent Retailer,Fitted,1.06,0.3322,
-Independent Retailer,Fitted,1.08,0.2969,
-Independent Retailer,Fitted,1.1,0.264,
+Government & Education,Observed,1.075,0.2308,39.0
+Government & Education,Observed,1.125,0.2941,17.0
+Government & Education,Observed,1.175,0.0769,13.0
+Independent Retailer,Fitted,0.8,0.8115,
+Independent Retailer,Fitted,0.82,0.7848,
+Independent Retailer,Fitted,0.84,0.7556,
+Independent Retailer,Fitted,0.86,0.7237,
+Independent Retailer,Fitted,0.88,0.6894,
+Independent Retailer,Fitted,0.9,0.6529,
+Independent Retailer,Fitted,0.92,0.6145,
+Independent Retailer,Fitted,0.94,0.5746,
+Independent Retailer,Fitted,0.96,0.5337,
+Independent Retailer,Fitted,0.98,0.4924,
+Independent Retailer,Fitted,1.0,0.4512,
+Independent Retailer,Fitted,1.02,0.4106,
+Independent Retailer,Fitted,1.04,0.3712,
+Independent Retailer,Fitted,1.06,0.3335,
+Independent Retailer,Fitted,1.08,0.2977,
+Independent Retailer,Fitted,1.1,0.2643,
 Independent Retailer,Fitted,1.12,0.2334,
-Independent Retailer,Fitted,1.14,0.2054,
-Independent Retailer,Fitted,1.16,0.18,
-Independent Retailer,Fitted,1.18,0.1571,
-Independent Retailer,Fitted,1.2,0.1367,
-Independent Retailer,Fitted,1.22,0.1185,
-Independent Retailer,Fitted,1.24,0.1024,
-Independent Retailer,Fitted,1.26,0.0883,
-Independent Retailer,Fitted,1.28,0.076,
-Independent Retailer,Fitted,1.3,0.0653,
+Independent Retailer,Fitted,1.14,0.2051,
+Independent Retailer,Fitted,1.16,0.1794,
+Independent Retailer,Fitted,1.18,0.1563,
+Independent Retailer,Fitted,1.2,0.1357,
+Independent Retailer,Fitted,1.22,0.1174,
+Independent Retailer,Fitted,1.24,0.1013,
+Independent Retailer,Fitted,1.26,0.0872,
+Independent Retailer,Fitted,1.28,0.0749,
+Independent Retailer,Fitted,1.3,0.0642,
 Independent Retailer,Observed,0.725,0.75,8.0
 Independent Retailer,Observed,0.775,0.871,31.0
 Independent Retailer,Observed,0.825,0.7582,91.0
-Independent Retailer,Observed,0.875,0.7133,143.0
-Independent Retailer,Observed,0.925,0.5765,196.0
-Independent Retailer,Observed,0.975,0.4815,162.0
-Independent Retailer,Observed,1.025,0.4236,144.0
-Independent Retailer,Observed,1.075,0.3619,105.0
-Independent Retailer,Observed,1.125,0.2,60.0
-Independent Retailer,Observed,1.175,0.1304,46.0
+Independent Retailer,Observed,0.875,0.7211,147.0
+Independent Retailer,Observed,0.925,0.5833,192.0
+Independent Retailer,Observed,0.975,0.4907,161.0
+Independent Retailer,Observed,1.025,0.4126,143.0
+Independent Retailer,Observed,1.075,0.3645,107.0
+Independent Retailer,Observed,1.125,0.2034,59.0
+Independent Retailer,Observed,1.175,0.1277,47.0
 Independent Retailer,Observed,1.225,0.0909,11.0
-Marketplace Seller,Fitted,0.8,0.9329,
-Marketplace Seller,Fitted,0.82,0.911,
-Marketplace Seller,Fitted,0.84,0.8829,
-Marketplace Seller,Fitted,0.86,0.8475,
-Marketplace Seller,Fitted,0.88,0.8036,
-Marketplace Seller,Fitted,0.9,0.7509,
-Marketplace Seller,Fitted,0.92,0.6896,
-Marketplace Seller,Fitted,0.94,0.6207,
-Marketplace Seller,Fitted,0.96,0.5466,
-Marketplace Seller,Fitted,0.98,0.4704,
-Marketplace Seller,Fitted,1.0,0.3955,
-Marketplace Seller,Fitted,1.02,0.3252,
-Marketplace Seller,Fitted,1.04,0.262,
-Marketplace Seller,Fitted,1.06,0.2073,
-Marketplace Seller,Fitted,1.08,0.1616,
-Marketplace Seller,Fitted,1.1,0.1243,
-Marketplace Seller,Fitted,1.12,0.0947,
-Marketplace Seller,Fitted,1.14,0.0715,
-Marketplace Seller,Fitted,1.16,0.0537,
-Marketplace Seller,Fitted,1.18,0.0401,
-Marketplace Seller,Fitted,1.2,0.0299,
-Marketplace Seller,Fitted,1.22,0.0222,
-Marketplace Seller,Fitted,1.24,0.0164,
-Marketplace Seller,Fitted,1.26,0.0122,
-Marketplace Seller,Fitted,1.28,0.009,
-Marketplace Seller,Fitted,1.3,0.0066,
-Marketplace Seller,Observed,0.725,1.0,15.0
-Marketplace Seller,Observed,0.775,0.9091,66.0
-Marketplace Seller,Observed,0.825,0.9161,155.0
-Marketplace Seller,Observed,0.875,0.7835,231.0
-Marketplace Seller,Observed,0.925,0.705,261.0
-Marketplace Seller,Observed,0.975,0.5074,272.0
-Marketplace Seller,Observed,1.025,0.2731,216.0
-Marketplace Seller,Observed,1.075,0.2,180.0
-Marketplace Seller,Observed,1.125,0.0556,108.0
+Marketplace Seller,Fitted,0.8,0.9321,
+Marketplace Seller,Fitted,0.82,0.9101,
+Marketplace Seller,Fitted,0.84,0.882,
+Marketplace Seller,Fitted,0.86,0.8465,
+Marketplace Seller,Fitted,0.88,0.8028,
+Marketplace Seller,Fitted,0.9,0.7502,
+Marketplace Seller,Fitted,0.92,0.6891,
+Marketplace Seller,Fitted,0.94,0.6206,
+Marketplace Seller,Fitted,0.96,0.5469,
+Marketplace Seller,Fitted,0.98,0.4711,
+Marketplace Seller,Fitted,1.0,0.3966,
+Marketplace Seller,Fitted,1.02,0.3266,
+Marketplace Seller,Fitted,1.04,0.2636,
+Marketplace Seller,Fitted,1.06,0.209,
+Marketplace Seller,Fitted,1.08,0.1631,
+Marketplace Seller,Fitted,1.1,0.1258,
+Marketplace Seller,Fitted,1.12,0.096,
+Marketplace Seller,Fitted,1.14,0.0727,
+Marketplace Seller,Fitted,1.16,0.0547,
+Marketplace Seller,Fitted,1.18,0.0409,
+Marketplace Seller,Fitted,1.2,0.0305,
+Marketplace Seller,Fitted,1.22,0.0227,
+Marketplace Seller,Fitted,1.24,0.0169,
+Marketplace Seller,Fitted,1.26,0.0125,
+Marketplace Seller,Fitted,1.28,0.0093,
+Marketplace Seller,Fitted,1.3,0.0068,
+Marketplace Seller,Observed,0.725,1.0,16.0
+Marketplace Seller,Observed,0.775,0.913,69.0
+Marketplace Seller,Observed,0.825,0.9145,152.0
+Marketplace Seller,Observed,0.875,0.7863,234.0
+Marketplace Seller,Observed,0.925,0.703,266.0
+Marketplace Seller,Observed,0.975,0.5037,270.0
+Marketplace Seller,Observed,1.025,0.2723,213.0
+Marketplace Seller,Observed,1.075,0.2079,178.0
+Marketplace Seller,Observed,1.125,0.0571,105.0
 Marketplace Seller,Observed,1.175,0.0208,48.0
-Marketplace Seller,Observed,1.225,0.2,10.0
-Regional Retail Chain,Fitted,0.8,0.8524,
-Regional Retail Chain,Fitted,0.82,0.8233,
-Regional Retail Chain,Fitted,0.84,0.7899,
-Regional Retail Chain,Fitted,0.86,0.7521,
-Regional Retail Chain,Fitted,0.88,0.7099,
-Regional Retail Chain,Fitted,0.9,0.6638,
-Regional Retail Chain,Fitted,0.92,0.6143,
-Regional Retail Chain,Fitted,0.94,0.5624,
-Regional Retail Chain,Fitted,0.96,0.509,
-Regional Retail Chain,Fitted,0.98,0.4555,
-Regional Retail Chain,Fitted,1.0,0.4029,
-Regional Retail Chain,Fitted,1.02,0.3525,
-Regional Retail Chain,Fitted,1.04,0.3052,
-Regional Retail Chain,Fitted,1.06,0.2616,
-Regional Retail Chain,Fitted,1.08,0.2223,
-Regional Retail Chain,Fitted,1.1,0.1874,
-Regional Retail Chain,Fitted,1.12,0.1569,
-Regional Retail Chain,Fitted,1.14,0.1305,
-Regional Retail Chain,Fitted,1.16,0.108,
+Marketplace Seller,Observed,1.225,0.1818,11.0
+Regional Retail Chain,Fitted,0.8,0.849,
+Regional Retail Chain,Fitted,0.82,0.8196,
+Regional Retail Chain,Fitted,0.84,0.7858,
+Regional Retail Chain,Fitted,0.86,0.7478,
+Regional Retail Chain,Fitted,0.88,0.7055,
+Regional Retail Chain,Fitted,0.9,0.6593,
+Regional Retail Chain,Fitted,0.92,0.6099,
+Regional Retail Chain,Fitted,0.94,0.5582,
+Regional Retail Chain,Fitted,0.96,0.5051,
+Regional Retail Chain,Fitted,0.98,0.4519,
+Regional Retail Chain,Fitted,1.0,0.3998,
+Regional Retail Chain,Fitted,1.02,0.3499,
+Regional Retail Chain,Fitted,1.04,0.3031,
+Regional Retail Chain,Fitted,1.06,0.26,
+Regional Retail Chain,Fitted,1.08,0.2211,
+Regional Retail Chain,Fitted,1.1,0.1865,
+Regional Retail Chain,Fitted,1.12,0.1563,
+Regional Retail Chain,Fitted,1.14,0.1302,
+Regional Retail Chain,Fitted,1.16,0.1079,
 Regional Retail Chain,Fitted,1.18,0.089,
-Regional Retail Chain,Fitted,1.2,0.0731,
-Regional Retail Chain,Fitted,1.22,0.0598,
-Regional Retail Chain,Fitted,1.24,0.0488,
-Regional Retail Chain,Fitted,1.26,0.0398,
-Regional Retail Chain,Fitted,1.28,0.0323,
-Regional Retail Chain,Fitted,1.3,0.0262,
+Regional Retail Chain,Fitted,1.2,0.0732,
+Regional Retail Chain,Fitted,1.22,0.06,
+Regional Retail Chain,Fitted,1.24,0.049,
+Regional Retail Chain,Fitted,1.26,0.04,
+Regional Retail Chain,Fitted,1.28,0.0325,
+Regional Retail Chain,Fitted,1.3,0.0265,
 Regional Retail Chain,Observed,0.725,0.7778,9.0
 Regional Retail Chain,Observed,0.775,0.9048,21.0
-Regional Retail Chain,Observed,0.825,0.7857,42.0
-Regional Retail Chain,Observed,0.875,0.7013,77.0
-Regional Retail Chain,Observed,0.925,0.6786,84.0
-Regional Retail Chain,Observed,0.975,0.3889,90.0
+Regional Retail Chain,Observed,0.825,0.7727,44.0
+Regional Retail Chain,Observed,0.875,0.7143,77.0
+Regional Retail Chain,Observed,0.925,0.6512,86.0
+Regional Retail Chain,Observed,0.975,0.3913,92.0
 Regional Retail Chain,Observed,1.025,0.3636,77.0
-Regional Retail Chain,Observed,1.075,0.2917,48.0
+Regional Retail Chain,Observed,1.075,0.2979,47.0
 Regional Retail Chain,Observed,1.125,0.16,25.0
 Regional Retail Chain,Observed,1.175,0.0,8.0
-Sub-Distributor,Fitted,0.8,0.9298,
-Sub-Distributor,Fitted,0.82,0.9089,
-Sub-Distributor,Fitted,0.84,0.8824,
-Sub-Distributor,Fitted,0.86,0.8496,
-Sub-Distributor,Fitted,0.88,0.8096,
-Sub-Distributor,Fitted,0.9,0.7619,
-Sub-Distributor,Fitted,0.92,0.7066,
-Sub-Distributor,Fitted,0.94,0.6444,
-Sub-Distributor,Fitted,0.96,0.577,
-Sub-Distributor,Fitted,0.98,0.5066,
-Sub-Distributor,Fitted,1.0,0.4359,
-Sub-Distributor,Fitted,1.02,0.3677,
-Sub-Distributor,Fitted,1.04,0.3044,
-Sub-Distributor,Fitted,1.06,0.2478,
-Sub-Distributor,Fitted,1.08,0.1987,
-Sub-Distributor,Fitted,1.1,0.1573,
-Sub-Distributor,Fitted,1.12,0.1231,
-Sub-Distributor,Fitted,1.14,0.0956,
-Sub-Distributor,Fitted,1.16,0.0737,
-Sub-Distributor,Fitted,1.18,0.0565,
-Sub-Distributor,Fitted,1.2,0.0431,
-Sub-Distributor,Fitted,1.22,0.0328,
-Sub-Distributor,Fitted,1.24,0.0249,
-Sub-Distributor,Fitted,1.26,0.0189,
-Sub-Distributor,Fitted,1.28,0.0143,
-Sub-Distributor,Fitted,1.3,0.0108,
+Sub-Distributor,Fitted,0.8,0.9279,
+Sub-Distributor,Fitted,0.82,0.9071,
+Sub-Distributor,Fitted,0.84,0.881,
+Sub-Distributor,Fitted,0.86,0.8488,
+Sub-Distributor,Fitted,0.88,0.8098,
+Sub-Distributor,Fitted,0.9,0.7635,
+Sub-Distributor,Fitted,0.92,0.7099,
+Sub-Distributor,Fitted,0.94,0.6498,
+Sub-Distributor,Fitted,0.96,0.5845,
+Sub-Distributor,Fitted,0.98,0.5162,
+Sub-Distributor,Fitted,1.0,0.4472,
+Sub-Distributor,Fitted,1.02,0.3802,
+Sub-Distributor,Fitted,1.04,0.3174,
+Sub-Distributor,Fitted,1.06,0.2607,
+Sub-Distributor,Fitted,1.08,0.211,
+Sub-Distributor,Fitted,1.1,0.1686,
+Sub-Distributor,Fitted,1.12,0.1332,
+Sub-Distributor,Fitted,1.14,0.1044,
+Sub-Distributor,Fitted,1.16,0.0812,
+Sub-Distributor,Fitted,1.18,0.0628,
+Sub-Distributor,Fitted,1.2,0.0484,
+Sub-Distributor,Fitted,1.22,0.0371,
+Sub-Distributor,Fitted,1.24,0.0284,
+Sub-Distributor,Fitted,1.26,0.0217,
+Sub-Distributor,Fitted,1.28,0.0165,
+Sub-Distributor,Fitted,1.3,0.0126,
 Sub-Distributor,Observed,0.775,0.9167,24.0
-Sub-Distributor,Observed,0.825,0.9074,54.0
-Sub-Distributor,Observed,0.875,0.8659,82.0
+Sub-Distributor,Observed,0.825,0.9091,55.0
+Sub-Distributor,Observed,0.875,0.8625,80.0
 Sub-Distributor,Observed,0.925,0.6701,97.0
-Sub-Distributor,Observed,0.975,0.4694,98.0
-Sub-Distributor,Observed,1.025,0.4051,79.0
-Sub-Distributor,Observed,1.075,0.24,50.0
+Sub-Distributor,Observed,0.975,0.4796,98.0
+Sub-Distributor,Observed,1.025,0.4177,79.0
+Sub-Distributor,Observed,1.075,0.2653,49.0
 Sub-Distributor,Observed,1.125,0.0303,33.0
 Sub-Distributor,Observed,1.175,0.125,16.0
 Sub-Distributor,Observed,1.225,0.0,9.0
-Subscription Box Operator,Fitted,0.8,0.775,
-Subscription Box Operator,Fitted,0.82,0.7494,
-Subscription Box Operator,Fitted,0.84,0.722,
-Subscription Box Operator,Fitted,0.86,0.6929,
-Subscription Box Operator,Fitted,0.88,0.6621,
-Subscription Box Operator,Fitted,0.9,0.6299,
-Subscription Box Operator,Fitted,0.92,0.5964,
-Subscription Box Operator,Fitted,0.94,0.5621,
-Subscription Box Operator,Fitted,0.96,0.5271,
-Subscription Box Operator,Fitted,0.98,0.4919,
-Subscription Box Operator,Fitted,1.0,0.4568,
-Subscription Box Operator,Fitted,1.02,0.4221,
-Subscription Box Operator,Fitted,1.04,0.3881,
-Subscription Box Operator,Fitted,1.06,0.3552,
-Subscription Box Operator,Fitted,1.08,0.3236,
-Subscription Box Operator,Fitted,1.1,0.2935,
-Subscription Box Operator,Fitted,1.12,0.2652,
-Subscription Box Operator,Fitted,1.14,0.2386,
-Subscription Box Operator,Fitted,1.16,0.214,
-Subscription Box Operator,Fitted,1.18,0.1912,
-Subscription Box Operator,Fitted,1.2,0.1703,
-Subscription Box Operator,Fitted,1.22,0.1513,
-Subscription Box Operator,Fitted,1.24,0.1341,
-Subscription Box Operator,Fitted,1.26,0.1186,
-Subscription Box Operator,Fitted,1.28,0.1046,
-Subscription Box Operator,Fitted,1.3,0.0921,
+Subscription Box Operator,Fitted,0.8,0.7834,
+Subscription Box Operator,Fitted,0.82,0.7577,
+Subscription Box Operator,Fitted,0.84,0.7299,
+Subscription Box Operator,Fitted,0.86,0.7003,
+Subscription Box Operator,Fitted,0.88,0.6688,
+Subscription Box Operator,Fitted,0.9,0.6358,
+Subscription Box Operator,Fitted,0.92,0.6014,
+Subscription Box Operator,Fitted,0.94,0.566,
+Subscription Box Operator,Fitted,0.96,0.53,
+Subscription Box Operator,Fitted,0.98,0.4936,
+Subscription Box Operator,Fitted,1.0,0.4572,
+Subscription Box Operator,Fitted,1.02,0.4214,
+Subscription Box Operator,Fitted,1.04,0.3863,
+Subscription Box Operator,Fitted,1.06,0.3524,
+Subscription Box Operator,Fitted,1.08,0.3199,
+Subscription Box Operator,Fitted,1.1,0.289,
+Subscription Box Operator,Fitted,1.12,0.26,
+Subscription Box Operator,Fitted,1.14,0.233,
+Subscription Box Operator,Fitted,1.16,0.208,
+Subscription Box Operator,Fitted,1.18,0.185,
+Subscription Box Operator,Fitted,1.2,0.164,
+Subscription Box Operator,Fitted,1.22,0.145,
+Subscription Box Operator,Fitted,1.24,0.1278,
+Subscription Box Operator,Fitted,1.26,0.1125,
+Subscription Box Operator,Fitted,1.28,0.0987,
+Subscription Box Operator,Fitted,1.3,0.0865,
 Subscription Box Operator,Observed,0.725,1.0,5.0
 Subscription Box Operator,Observed,0.775,0.9231,13.0
-Subscription Box Operator,Observed,0.825,0.7576,33.0
+Subscription Box Operator,Observed,0.825,0.7812,32.0
 Subscription Box Operator,Observed,0.875,0.6,65.0
-Subscription Box Operator,Observed,0.925,0.5765,85.0
+Subscription Box Operator,Observed,0.925,0.5833,84.0
 Subscription Box Operator,Observed,0.975,0.4531,64.0
 Subscription Box Operator,Observed,1.025,0.4651,43.0
-Subscription Box Operator,Observed,1.075,0.3864,44.0
+Subscription Box Operator,Observed,1.075,0.3778,45.0
 Subscription Box Operator,Observed,1.125,0.3478,23.0
 Subscription Box Operator,Observed,1.175,0.0909,11.0

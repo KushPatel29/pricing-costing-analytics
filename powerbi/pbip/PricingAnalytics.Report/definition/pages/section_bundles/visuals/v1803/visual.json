@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1803",
+  "position": {
+    "x": 634,
+    "y": 20,
+    "z": 2702,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 2702
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Break-even cannibalisation"
+                }
+              },
+              "queryRef": "_Measures.Break-even cannibalisation",
+              "nativeQueryRef": "Break-even cannibalisation"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Break-even cannibalisation: the share of bundle buyers who would have bought every component anyway, above which the bundle loses money.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

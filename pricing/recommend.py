@@ -345,6 +345,16 @@ def summarise(recommendations: Sequence[Mapping[str, Any]]) -> list[dict[str, An
     return sorted(buckets.values(), key=lambda r: order.get(r["action"], 99))
 
 
+def _items(count: int, adjective: str = "") -> str:
+    """
+    "1 item" and "2 items", because a generated paragraph that says "1 small
+    items lose money" tells the reader it was generated, and then they discount
+    everything else in it.
+    """
+    word = "item" if int(count) == 1 else "items"
+    return f"{int(count):,} {adjective} {word}".replace("  ", " ")
+
+
 def executive_note(recommendations: Sequence[Mapping[str, Any]]) -> str:
     """
     The paragraph that goes at the top of the pack.
@@ -368,24 +378,30 @@ def executive_note(recommendations: Sequence[Mapping[str, Any]]) -> str:
     ]
     if increases:
         parts.append(
-            f"{increases['products']} items carry a price increase worth "
+            f"{_items(increases['products'])} "
+            f"{'carries' if increases['products'] == 1 else 'carry'} a price "
+            "increase worth "
             f"{_money(increases['margin_delta'])}, concentrated where the item is "
             "under the market or has gone unmanaged while its input cost moved."
         )
     if discounts:
         parts.append(
-            f"{discounts['products']} items are priced far enough above the market, "
+            f"{_items(discounts['products'])} "
+            f"{'is' if discounts['products'] == 1 else 'are'} priced far enough "
+            "above the market, "
             "on demand elastic enough, that coming back toward it buys more volume "
             f"than it costs -- {_money(discounts['margin_delta'])}."
         )
     if fixes:
         parts.append(
-            f"{fixes['products']} items cannot be priced at all until costing "
+            f"{_items(fixes['products'])} cannot be priced at all until costing "
             "maintains a standard cost for them."
         )
     if exits:
         parts.append(
-            f"{exits['products']} small items lose money at any price the market "
-            "will bear and should be exited unless they hold a listing."
+            f"{_items(exits['products'], 'small')} "
+            f"{'loses' if exits['products'] == 1 else 'lose'} money at any price "
+            "the market will bear and should be exited unless "
+            f"{'it holds' if exits['products'] == 1 else 'they hold'} a listing."
         )
     return " ".join(parts)

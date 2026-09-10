@@ -3,7 +3,7 @@
   "name": "v0310",
   "position": {
     "x": 1064,
-    "y": 528,
+    "y": 442,
     "z": 1209,
     "height": 76,
     "width": 196,
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_product"
+                      "Entity": "competitive_index"
                     }
                   },
-                  "Property": "category"
+                  "Property": "position"
                 }
               },
-              "queryRef": "dim_product.category",
-              "nativeQueryRef": "category",
+              "queryRef": "competitive_index.position",
+              "nativeQueryRef": "position",
               "active": true
             }
           ]
@@ -42,7 +42,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Category'"
+                  "Value": "'Position'"
                 }
               }
             },
@@ -62,7 +62,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Slicer. Filters the page by product category.'"
+                  "Value": "'Slicer. Filters the page by market position band.'"
                 }
               }
             }

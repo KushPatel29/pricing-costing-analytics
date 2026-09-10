@@ -26,9 +26,16 @@ from pricing import waterfall
 
 # The dimensions profitability is cut by. Salesperson is on the list because a
 # rep's discounting habit moves realised price without moving anything a
-# product- or customer-level cut would show.
+# category- or channel-level cut would show.
+#
+# `description` and `customer_name` are the product and customer cuts. They
+# were missing while the README, the app and the dashboard slicer all said
+# "profit by product, customer, region, channel and salesperson" -- the two
+# named first were the two not there. They go last because they are the long
+# ones: 240 and 150 members against six to nine for everything else.
 PROFIT_CUTS = ("category", "sub_category", "brand_tier", "segment", "channel",
-               "region", "tier", "salesperson", "price_list")
+               "region", "tier", "salesperson", "price_list",
+               "description", "customer_name")
 
 # Bands for the discount-to-margin matrix. Wide enough to hold a useful count
 # per cell, narrow enough that the diagonal is visible.

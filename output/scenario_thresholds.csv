@@ -1,6 +1,6 @@
 exists,input,key,threshold,baseline,reason
-True,Input cost,unit_cost_change,0.22453,46832769.6711,ok
-False,Underlying volume,,,,operating profit does not cross zero between -90% and +90% of this input
-True,Discount depth,discount_change,0.14723,46832769.6711,ok
-True,List price,price_change,-0.18479,46832769.6711,ok
+True,Input cost,unit_cost_change,0.24393,34974021.4848,ok
+True,Underlying volume,volume_change,-0.87778,34974021.4848,ok
+True,Discount depth,discount_change,0.15607,34974021.4848,ok
+True,List price,price_change,-0.19805,34974021.4848,ok
 False,Fixed cost,,,,operating profit does not cross zero between -90% and +90% of this input

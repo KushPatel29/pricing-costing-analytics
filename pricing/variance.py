@@ -92,7 +92,7 @@ def yield_variance(
 
     Standard says a unit shipped needs ``1 / recovery`` pounds of raw
     material. Anything used beyond that is yield loss, valued at standard
-    price so a bad buying month does not show up here as a bad cutting month.
+    price so a bad buying month does not show up here as a bad receiving month.
 
     A 68% standard recovery on 1,000 lb of output allows 1,470 lb of input; if
     the floor consumed 1,540 the variance is 70 lb at standard cost, and the

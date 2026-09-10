@@ -1,15 +1,15 @@
 scope,dimension,member,step,kind,amount,running,bucket,sort_order,delta
-Total,Total,All,List value,total,878520371.22,878520371.22,List,0,878520371.22
-Total,Total,All,Volume discount,decrease,-84950948.56,793569422.66,On-invoice,1,-84950948.56
-Total,Total,All,Contract discount,decrease,-12596740.46,780972682.2,On-invoice,2,-12596740.46
-Total,Total,All,Promotional discount,decrease,-14254017.53,766718664.68,On-invoice,3,-14254017.53
-Total,Total,All,Rebate accrual,decrease,-16316393.3,750402271.37,Off-invoice,4,-16316393.3
-Total,Total,All,Co-op marketing,decrease,-1170005.11,749232266.26,Off-invoice,5,-1170005.11
-Total,Total,All,Payment terms,decrease,-5313262.13,743919004.13,Off-invoice,6,-5313262.13
-Total,Total,All,Freight allowance,decrease,-8580711.47,735338292.66,Off-invoice,7,-8580711.47
-Total,Total,All,Freight to customer,decrease,-9841378.65,725496914.01,Cost to serve,8,-9841378.65
-Total,Total,All,Order handling,decrease,-250604.64,725246309.37,Cost to serve,9,-250604.64
-Total,Total,All,Returns and credits,decrease,-4896109.21,720350200.16,Cost to serve,10,-4896109.21
-Total,Total,All,Pocket revenue,total,720350200.16,720350200.16,Pocket,11,0.0
-Total,Total,All,Cost of goods,decrease,-543425911.86,176924288.3,Cost,12,-543425911.86
-Total,Total,All,Pocket margin,total,176924288.3,176924288.3,Margin,13,0.0
+Total,Total,All,List value,total,631971904.18,631971904.18,List,0,631971904.18
+Total,Total,All,Volume discount,decrease,-60247980.58,571723923.6,On-invoice,1,-60247980.58
+Total,Total,All,Contract discount,decrease,-8014362.6,563709561.0,On-invoice,2,-8014362.6
+Total,Total,All,Promotional discount,decrease,-9505551.15,554204009.84,On-invoice,3,-9505551.15
+Total,Total,All,Rebate accrual,decrease,-11842985.78,542361024.06,Off-invoice,4,-11842985.78
+Total,Total,All,Co-op marketing,decrease,-1081604.82,541279419.25,Off-invoice,5,-1081604.82
+Total,Total,All,Payment terms,decrease,-3855433.49,537423985.75,Off-invoice,6,-3855433.49
+Total,Total,All,Freight allowance,decrease,-6115896.28,531308089.48,Off-invoice,7,-6115896.28
+Total,Total,All,Freight to customer,decrease,-8692485.53,522615603.95,Cost to serve,8,-8692485.53
+Total,Total,All,Order handling,decrease,-248865.69,522366738.26,Cost to serve,9,-248865.69
+Total,Total,All,Returns and credits,decrease,-3707644.39,518659093.87,Cost to serve,10,-3707644.39
+Total,Total,All,Pocket revenue,total,518659093.87,518659093.87,Pocket,11,0.0
+Total,Total,All,Cost of goods,decrease,-392432856.63,126226237.24,Cost,12,-392432856.63
+Total,Total,All,Pocket margin,total,126226237.24,126226237.24,Margin,13,0.0

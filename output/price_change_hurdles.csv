@@ -1,65 +1,65 @@
 category,price_change_pct,contribution_margin_pct,break_even_volume_pct,expected_volume_pct,expected_margin_change,expected_revenue_change,verdict
-Apparel & Accessories,-0.1,0.1618,1.6176,0.173,-1860905.38,1161468.2,Destroys margin
-Apparel & Accessories,-0.075,0.1618,0.8639,0.1254,-1336081.6,853341.58,Destroys margin
-Apparel & Accessories,-0.05,0.1618,0.4472,0.0808,-853642.16,557577.68,Destroys margin
-Apparel & Accessories,-0.025,0.1618,0.1827,0.0391,-409488.33,273374.25,Destroys margin
-Apparel & Accessories,0.025,0.1618,-0.1338,-0.0367,378029.92,-263213.32,Worth it
-Apparel & Accessories,0.05,0.1618,-0.2361,-0.0712,727450.78,-516877.7,Worth it
-Apparel & Accessories,0.075,0.1618,-0.3167,-0.1038,1050801.03,-761554.8,Worth it
-Apparel & Accessories,0.1,0.1618,-0.3819,-0.1344,1350348.04,-997761.17,Worth it
-Consumer Electronics,-0.1,0.2657,0.6034,0.2081,-21462634.28,28584202.67,Destroys margin
-Consumer Electronics,-0.075,0.2657,0.3932,0.1501,-15189500.83,20919308.51,Destroys margin
-Consumer Electronics,-0.05,0.2657,0.2318,0.0964,-9567544.48,13617273.97,Destroys margin
-Consumer Electronics,-0.025,0.2657,0.1038,0.0465,-4525198.32,6652033.39,Destroys margin
-Consumer Electronics,0.025,0.2657,-0.086,-0.0433,4062738.52,-6360224.75,Worth it
-Consumer Electronics,0.05,0.2657,-0.1584,-0.0838,7711041.64,-12448101.56,Worth it
-Consumer Electronics,0.075,0.2657,-0.2201,-0.1217,10987201.67,-18281369.85,Worth it
-Consumer Electronics,0.1,0.2657,-0.2734,-0.1572,13928563.28,-23876235.76,Worth it
-Health & Beauty,-0.1,0.3181,0.4586,0.1183,-2661570.51,230870.48,Destroys margin
-Health & Beauty,-0.075,0.3181,0.3085,0.0862,-1938194.51,170690.08,Destroys margin
-Health & Beauty,-0.05,0.3181,0.1865,0.0559,-1255578.22,112211.03,Destroys margin
-Health & Beauty,-0.025,0.3181,0.0853,0.0272,-610482.76,55342.33,Destroys margin
-Health & Beauty,0.025,0.3181,-0.0729,-0.0259,578488.4,-53893.58,Worth it
-Health & Beauty,0.05,0.3181,-0.1358,-0.0504,1127346.02,-106410.31,Worth it
-Health & Beauty,0.075,0.3181,-0.1908,-0.0739,1648711.79,-157616.91,Worth it
-Health & Beauty,0.1,0.3181,-0.2392,-0.0962,2144525.91,-207575.43,Worth it
-Home & Kitchen,-0.1,0.2829,0.5468,0.1584,-4698584.7,2813779.52,Destroys margin
-Home & Kitchen,-0.075,0.2829,0.3608,0.1149,-3380559.22,2070741.6,Destroys margin
-Home & Kitchen,-0.05,0.2829,0.2147,0.0742,-2164267.68,1355210.0,Destroys margin
-Home & Kitchen,-0.025,0.2829,0.0969,0.036,-1040218.93,665481.86,Destroys margin
-Home & Kitchen,0.025,0.2829,-0.0812,-0.0339,963868.39,-642662.82,Worth it
-Home & Kitchen,0.05,0.2829,-0.1502,-0.0658,1858054.15,-1263817.62,Worth it
-Home & Kitchen,0.075,0.2829,-0.2096,-0.096,2688517.66,-1864671.14,Worth it
-Home & Kitchen,0.1,0.2829,-0.2612,-0.1245,3460600.39,-2446336.36,Worth it
-Office & Stationery,-0.1,0.2206,0.8289,0.2336,-1079198.45,1656410.73,Destroys margin
-Office & Stationery,-0.075,0.2206,0.515,0.1681,-759213.5,1208860.14,Destroys margin
-Office & Stationery,-0.05,0.2206,0.293,0.1076,-475409.66,784778.85,Destroys margin
-Office & Stationery,-0.025,0.2206,0.1278,0.0517,-223559.82,382365.87,Destroys margin
-Office & Stationery,0.025,0.2206,-0.1018,-0.048,198455.98,-363782.1,Worth it
-Office & Stationery,0.05,0.2206,-0.1847,-0.0926,374587.36,-710304.65,Worth it
-Office & Stationery,0.075,0.2206,-0.2537,-0.1342,530825.45,-1040768.9,Worth it
-Office & Stationery,0.1,0.2206,-0.3119,-0.173,669303.13,-1356267.08,Worth it
-Pet Supplies,-0.1,0.237,0.7299,0.0872,-2365427.08,-578690.53,Destroys margin
-Pet Supplies,-0.075,0.237,0.4629,0.0638,-1737046.1,-429412.62,Destroys margin
-Pet Supplies,-0.05,0.237,0.2674,0.0415,-1134504.5,-283301.78,Destroys margin
-Pet Supplies,-0.025,0.237,0.1179,0.0203,-556026.1,-140210.06,Destroys margin
-Pet Supplies,0.025,0.237,-0.0954,-0.0194,535038.49,137456.34,Worth it
-Pet Supplies,0.05,0.237,-0.1742,-0.038,1050424.41,272278.27,Worth it
-Pet Supplies,0.075,0.237,-0.2404,-0.0558,1547377.42,404577.23,Worth it
-Pet Supplies,0.1,0.237,-0.2967,-0.0728,2027014.23,534457.52,Worth it
-Sporting Goods,-0.1,0.2276,0.7836,0.2034,-4518386.61,5067688.74,Destroys margin
-Sporting Goods,-0.075,0.2276,0.4914,0.1468,-3209337.89,3710695.42,Destroys margin
-Sporting Goods,-0.05,0.2276,0.2815,0.0943,-2028837.46,2416655.95,Destroys margin
-Sporting Goods,-0.025,0.2276,0.1234,0.0455,-963082.19,1181105.51,Destroys margin
-Sporting Goods,0.025,0.2276,-0.099,-0.0425,871000.49,-1130333.0,Worth it
-Sporting Goods,0.05,0.2276,-0.1801,-0.0822,1659239.33,-2213236.38,Worth it
-Sporting Goods,0.075,0.2276,-0.2478,-0.1193,2372941.05,-3251760.13,Worth it
-Sporting Goods,0.1,0.2276,-0.3052,-0.1542,3019383.05,-4248693.04,Worth it
-Tools & Hardware,-0.1,0.2745,0.5731,0.159,-4158871.52,2481419.3,Destroys margin
-Tools & Hardware,-0.075,0.2745,0.376,0.1154,-2992111.79,1826016.45,Destroys margin
-Tools & Hardware,-0.05,0.2745,0.2227,0.0745,-1915501.1,1194964.5,Destroys margin
-Tools & Hardware,-0.025,0.2745,0.1002,0.0361,-920618.32,586752.77,Destroys margin
-Tools & Hardware,0.025,0.2745,-0.0835,-0.034,852988.17,-566559.64,Worth it
-Tools & Hardware,0.05,0.2745,-0.1541,-0.0661,1644259.99,-1114088.73,Worth it
-Tools & Hardware,0.075,0.2745,-0.2146,-0.0963,2379101.09,-1643657.29,Worth it
-Tools & Hardware,0.1,0.2745,-0.267,-0.125,3062247.7,-2156252.03,Worth it
+Apparel & Accessories,-0.1,0.2429,0.6999,0.1718,-1710925.22,1239219.42,Destroys margin
+Apparel & Accessories,-0.075,0.2429,0.4468,0.1245,-1226810.04,910590.27,Destroys margin
+Apparel & Accessories,-0.05,0.2429,0.2592,0.0803,-782810.88,595062.87,Destroys margin
+Apparel & Accessories,-0.025,0.2429,0.1147,0.0388,-375023.33,291790.21,Destroys margin
+Apparel & Accessories,0.025,0.2429,-0.0933,-0.0365,345312.21,-281013.65,Worth it
+Apparel & Accessories,0.05,0.2429,-0.1707,-0.0708,663624.91,-551897.33,Worth it
+Apparel & Accessories,0.075,0.2429,-0.2359,-0.1031,957353.01,-813244.66,Worth it
+Apparel & Accessories,0.1,0.2429,-0.2917,-0.1336,1228652.74,-1065601.65,Worth it
+Consumer Electronics,-0.1,0.2408,0.71,0.2488,-8342129.64,15918063.76,Destroys margin
+Consumer Electronics,-0.075,0.2408,0.4522,0.1787,-5825892.68,11597994.13,Destroys margin
+Consumer Electronics,-0.05,0.2408,0.262,0.1142,-3621366.88,7517340.19,Destroys margin
+Consumer Electronics,-0.025,0.2408,0.1158,0.0548,-1690376.91,3657043.33,Destroys margin
+Consumer Electronics,0.025,0.2408,-0.094,-0.0507,1478249.97,-3469181.54,Worth it
+Consumer Electronics,0.05,0.2408,-0.1719,-0.0978,2769096.83,-6764389.21,Worth it
+Consumer Electronics,0.075,0.2408,-0.2375,-0.1415,3894062.0,-9898185.55,Worth it
+Consumer Electronics,0.1,0.2408,-0.2934,-0.1821,4871931.44,-12881961.39,Worth it
+Health & Beauty,-0.1,0.2694,0.5904,0.1353,-2115655.42,596255.48,Destroys margin
+Health & Beauty,-0.075,0.2694,0.3858,0.0984,-1533289.24,439964.27,Destroys margin
+Health & Beauty,-0.05,0.2694,0.2279,0.0637,-988643.94,288677.97,Destroys margin
+Health & Beauty,-0.025,0.2694,0.1023,0.031,-478504.57,142110.77,Destroys margin
+Health & Beauty,0.025,0.2694,-0.0849,-0.0293,449441.09,-137896.28,Worth it
+Health & Beauty,0.05,0.2694,-0.1565,-0.0571,872127.79,-271801.37,Worth it
+Health & Beauty,0.075,0.2694,-0.2178,-0.0834,1270138.96,-401921.78,Worth it
+Health & Beauty,0.1,0.2694,-0.2707,-0.1084,1645350.84,-528448.84,Worth it
+Home & Kitchen,-0.1,0.2744,0.5733,0.1821,-5146605.86,4820860.79,Destroys margin
+Home & Kitchen,-0.075,0.2744,0.376,0.1318,-3674583.29,3538321.78,Destroys margin
+Home & Kitchen,-0.05,0.2744,0.2228,0.0849,-2334805.27,2309674.96,Destroys margin
+Home & Kitchen,-0.025,0.2744,0.1002,0.041,-1113873.49,1131324.8,Destroys margin
+Home & Kitchen,0.025,0.2744,-0.0835,-0.0385,1017217.99,-1087282.99,Worth it
+Home & Kitchen,0.05,0.2744,-0.1541,-0.0746,1946987.55,-2133251.55,Worth it
+Home & Kitchen,0.075,0.2744,-0.2146,-0.1085,2797479.89,-3140404.39,Worth it
+Home & Kitchen,0.1,0.2744,-0.2671,-0.1405,3575965.94,-4111035.46,Worth it
+Office & Stationery,-0.1,0.2558,0.6418,0.2024,-858875.63,1030127.91,Destroys margin
+Office & Stationery,-0.075,0.2558,0.4148,0.1461,-609428.17,754372.47,Destroys margin
+Office & Stationery,-0.05,0.2558,0.2429,0.0939,-384864.02,491352.32,Destroys margin
+Office & Stationery,-0.025,0.2558,0.1083,0.0453,-182502.66,240166.82,Destroys margin
+Office & Stationery,0.025,0.2558,-0.089,-0.0423,164700.24,-229889.27,Worth it
+Office & Stationery,0.05,0.2558,-0.1635,-0.0818,313407.26,-450175.73,Worth it
+Office & Stationery,0.075,0.2558,-0.2267,-0.1188,447717.34,-661475.16,Worth it
+Office & Stationery,0.1,0.2558,-0.2811,-0.1536,569042.69,-864350.68,Worth it
+Pet Supplies,-0.1,0.2901,0.526,0.0822,-2591709.92,-798001.66,Destroys margin
+Pet Supplies,-0.075,0.2901,0.3486,0.0602,-1906027.34,-592497.97,Destroys margin
+Pet Supplies,-0.05,0.2901,0.2082,0.0392,-1246660.09,-391119.73,Destroys margin
+Pet Supplies,-0.025,0.2901,0.0943,0.0192,-611850.07,-193678.76,Destroys margin
+Pet Supplies,0.025,0.2901,-0.0793,-0.0184,590344.97,190079.65,Worth it
+Pet Supplies,0.05,0.2901,-0.147,-0.0359,1160513.18,376712.47,Worth it
+Pet Supplies,0.075,0.2901,-0.2054,-0.0528,1711720.18,560040.84,Worth it
+Pet Supplies,0.1,0.2901,-0.2563,-0.069,2245080.78,740198.12,Worth it
+Sporting Goods,-0.1,0.2666,0.6001,0.1476,-6260253.45,2725636.48,Destroys margin
+Sporting Goods,-0.075,0.2666,0.3914,0.1072,-4520478.07,2008342.45,Destroys margin
+Sporting Goods,-0.05,0.2666,0.2308,0.0693,-2904345.59,1315941.49,Destroys margin
+Sporting Goods,-0.025,0.2666,0.1035,0.0336,-1400798.35,646947.92,Destroys margin
+Sporting Goods,0.025,0.2666,-0.0857,-0.0317,1306824.83,-626153.27,Worth it
+Sporting Goods,0.05,0.2666,-0.1579,-0.0618,2527526.58,-1232663.53,Worth it
+Sporting Goods,0.075,0.2666,-0.2195,-0.0902,3669146.66,-1820593.17,Worth it
+Sporting Goods,0.1,0.2666,-0.2728,-0.1171,4738016.59,-2390924.06,Worth it
+Tools & Hardware,-0.1,0.2419,0.7046,0.132,-4481162.19,1035560.92,Destroys margin
+Tools & Hardware,-0.075,0.2419,0.4493,0.0961,-3251259.17,764406.99,Destroys margin
+Tools & Hardware,-0.05,0.2419,0.2605,0.0622,-2098644.29,501741.7,Destroys margin
+Tools & Hardware,-0.025,0.2419,0.1153,0.0302,-1016825.87,247086.19,Destroys margin
+Tools & Hardware,0.025,0.2419,-0.0937,-0.0286,957037.01,-239922.83,Worth it
+Tools & Hardware,0.05,0.2419,-0.1713,-0.0558,1858963.21,-473057.27,Worth it
+Tools & Hardware,0.075,0.2419,-0.2367,-0.0816,2709994.86,-699750.29,Worth it
+Tools & Hardware,0.1,0.2419,-0.2925,-0.1061,3513941.25,-920323.59,Worth it

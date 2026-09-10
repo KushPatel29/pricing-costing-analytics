@@ -27,7 +27,7 @@ recommendations = sh.load("recommendations")
 summary = sh.load("recommendation_summary")
 note = sh.load("recommendation_note").iloc[0]
 
-st.success(note["note"])
+sh.note(note["note"], kind="success")
 
 sh.kpis(
     [

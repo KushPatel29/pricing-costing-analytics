@@ -18,7 +18,7 @@ sh.page()
 
 st.title("Profitability and segmentation")
 sh.lede(
-    "Nine cuts of the same book, down to operating profit after allocated fixed cost. "
+    "Eleven cuts of the same book, down to operating profit after allocated fixed cost. "
     "The allocation is by revenue share and the column says so: every allocation is "
     "arbitrary, and the argument is always about which arbitrary one was used rather "
     "than about the arithmetic."

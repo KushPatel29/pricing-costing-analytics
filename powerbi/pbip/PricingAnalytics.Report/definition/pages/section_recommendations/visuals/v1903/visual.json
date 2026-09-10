@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "v1903",
+  "position": {
+    "x": 634,
+    "y": 20,
+    "z": 2802,
+    "height": 118,
+    "width": 300,
+    "tabOrder": 2802
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Revenue delta"
+                }
+              },
+              "queryRef": "_Measures.Revenue delta",
+              "nativeQueryRef": "Revenue delta"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Revenue delta. It can be negative while margin rises, which is the point of a price increase on elastic demand.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

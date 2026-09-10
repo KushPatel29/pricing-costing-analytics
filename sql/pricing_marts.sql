@@ -193,32 +193,73 @@ ORDER BY dimension, member;
 -- ===========================================================================
 -- Percentiles across the customers who bought one product. The width of that
 -- band is the most reliable margin opportunity in any book of business, and
--- `PERCENTILE_CONT` says it in one line where the pandas version needs a
--- weighted-quantile helper.
+-- The percentiles are **volume-weighted**, which is the whole point of the
+-- measure: a band computed over four hundred small accounts and one large one
+-- describes the four hundred, and the realisation gap built on it then values
+-- moving lines up to a price almost nothing actually pays.
 --
--- Deliberately *unweighted* here, unlike the Python version which weights by
--- volume. The two answer different questions -- "what do customers pay" versus
--- "what does volume pay" -- and the test compares each against its own
--- definition rather than pretending they should match.
+-- This used to be `PERCENTILE_CONT`, unweighted, with a comment calling the
+-- difference deliberate -- two tables with the same column names holding two
+-- definitions, five percent apart, in a project whose whole claim for having a
+-- SQL layer is that the two implementations are checked against each other.
+--
+-- DuckDB has no weighted percentile, so it is built: accumulate weight in
+-- price order, then take the lowest price whose running weight has reached the
+-- target. `MIN(...) FILTER (...)` is exact rather than approximate here --
+-- running weight is monotone in price order, so every row cheaper than the
+-- first qualifying one has already failed the filter.
 
-CREATE OR REPLACE VIEW mart_price_bands AS
+CREATE OR REPLACE VIEW price_lines AS
 SELECT
     product_id,
-    ANY_VALUE(description)                                   AS description,
-    ANY_VALUE(category)                                      AS category,
-    COUNT(DISTINCT customer_id)                              AS customers,
-    SUM(quantity_units)                                      AS volume_units,
-    PERCENTILE_CONT(0.10) WITHIN GROUP (ORDER BY pocket_price) AS p10_price,
-    PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY pocket_price) AS median_price,
-    PERCENTILE_CONT(0.90) WITHIN GROUP (ORDER BY pocket_price) AS p90_price,
-    (PERCENTILE_CONT(0.90) WITHIN GROUP (ORDER BY pocket_price)
-     - PERCENTILE_CONT(0.10) WITHIN GROUP (ORDER BY pocket_price))
-        / NULLIF(PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY pocket_price), 0)
-                                                             AS band_width_pct
+    description,
+    category,
+    customer_id,
+    pocket_price,
+    GREATEST(quantity_units, 0) AS weight
 FROM fct_sales
 WHERE fiscal_year = (SELECT MAX(fiscal_year) FROM fct_sales)
-GROUP BY product_id
-HAVING COUNT(*) >= 8
+  AND pocket_price > 0;
+
+CREATE OR REPLACE VIEW price_lines_running AS
+SELECT
+    *,
+    SUM(weight) OVER (
+        PARTITION BY product_id
+        ORDER BY pocket_price
+        ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS running_weight,
+    SUM(weight) OVER (PARTITION BY product_id)            AS total_weight
+FROM price_lines;
+
+CREATE OR REPLACE VIEW mart_price_bands AS
+WITH banded AS (
+    SELECT
+        product_id,
+        ANY_VALUE(description)                    AS description,
+        ANY_VALUE(category)                       AS category,
+        COUNT(DISTINCT customer_id)               AS customers,
+        SUM(weight)                               AS volume_units,
+        MIN(pocket_price) FILTER (
+            WHERE running_weight >= 0.10 * total_weight)  AS p10_price,
+        MIN(pocket_price) FILTER (
+            WHERE running_weight >= 0.50 * total_weight)  AS median_price,
+        MIN(pocket_price) FILTER (
+            WHERE running_weight >= 0.90 * total_weight)  AS p90_price
+    FROM price_lines_running
+    GROUP BY product_id
+    HAVING COUNT(*) >= 8
+)
+SELECT
+    product_id,
+    description,
+    category,
+    customers,
+    volume_units,
+    p10_price,
+    median_price,
+    p90_price,
+    (p90_price - p10_price) / NULLIF(median_price, 0) AS band_width_pct
+FROM banded
 ORDER BY product_id;
 
 -- ===========================================================================

@@ -387,6 +387,31 @@ table _Measures
 		lineageTag: 2f0dcf29-96a8-5030-8ff1-a0fafbb1c560
 		displayFolder: 11 Bundles
 
+	measure 'Cannibalisation headroom' = AVERAGE(bundle_candidates[headroom])
+		formatString: 0.0%
+		lineageTag: 6e3c6689-75c0-57ab-bf81-2ce8c8b49b05
+		displayFolder: 11 Bundles
+
+	measure 'Bundle margin %' = AVERAGE(bundle_candidates[bundle_margin_pct])
+		formatString: 0.0%
+		lineageTag: 46f4b801-9e7f-5118-8bf4-f6a8a96e267c
+		displayFolder: 11 Bundles
+
+	measure 'Standalone margin %' = AVERAGE(bundle_candidates[standalone_margin_pct])
+		formatString: 0.0%
+		lineageTag: 5d95dac2-55a8-51c8-8d88-6c503e10e149
+		displayFolder: 11 Bundles
+
+	measure 'Bundle price' = AVERAGE(bundle_candidates[bundle_price])
+		formatString: \$#,0.00
+		lineageTag: 7bc741c0-15da-59d7-9a44-62de7d2e3e66
+		displayFolder: 11 Bundles
+
+	measure 'Bundles considered' = COUNTROWS(bundle_candidates)
+		formatString: #,0
+		lineageTag: 8f584d38-fd6b-5f1c-a3f8-47432f812b25
+		displayFolder: 11 Bundles
+
 	measure 'Price change value' = SELECTEDVALUE(PriceChange[Price change %], 0)
 		formatString: 0.0%
 		lineageTag: 15197279-9ed1-5fc8-b1cb-90514fa10d87

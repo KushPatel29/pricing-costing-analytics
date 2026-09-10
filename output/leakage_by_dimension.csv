@@ -1,318 +1,318 @@
 dimension,member,deduction,bucket,amount,pct_of_list,list_value
-category,Apparel & Accessories,Volume discount,On-invoice,2969946.62,0.096094,30906812.76
-category,Apparel & Accessories,Contract discount,On-invoice,566695.07,0.018336,30906812.76
-category,Apparel & Accessories,Promotional discount,On-invoice,473816.27,0.01533,30906812.76
-category,Apparel & Accessories,Rebate accrual,Off-invoice,593276.85,0.019196,30906812.76
-category,Apparel & Accessories,Co-op marketing,Off-invoice,93252.19,0.003017,30906812.76
-category,Apparel & Accessories,Payment terms,Off-invoice,148669.81,0.00481,30906812.76
-category,Apparel & Accessories,Freight allowance,Off-invoice,323169.3,0.010456,30906812.76
-category,Apparel & Accessories,Freight to customer,Cost to serve,523152.68,0.016927,30906812.76
-category,Apparel & Accessories,Order handling,Cost to serve,14331.7,0.000464,30906812.76
-category,Apparel & Accessories,Returns and credits,Cost to serve,218045.83,0.007055,30906812.76
-category,Consumer Electronics,Volume discount,On-invoice,45574537.01,0.097483,467510674.73
-category,Consumer Electronics,Contract discount,On-invoice,7489736.72,0.01602,467510674.73
-category,Consumer Electronics,Promotional discount,On-invoice,8194951.99,0.017529,467510674.73
-category,Consumer Electronics,Rebate accrual,Off-invoice,8399409.49,0.017966,467510674.73
-category,Consumer Electronics,Co-op marketing,Off-invoice,628694.5,0.001345,467510674.73
-category,Consumer Electronics,Payment terms,Off-invoice,2752351.51,0.005887,467510674.73
-category,Consumer Electronics,Freight allowance,Off-invoice,4495108.3,0.009615,467510674.73
-category,Consumer Electronics,Freight to customer,Cost to serve,2937413.22,0.006283,467510674.73
-category,Consumer Electronics,Order handling,Cost to serve,51017.6,0.000109,467510674.73
-category,Consumer Electronics,Returns and credits,Cost to serve,2618812.1,0.005602,467510674.73
-category,Health & Beauty,Volume discount,On-invoice,4209992.98,0.082858,50809978.47
-category,Health & Beauty,Contract discount,On-invoice,805758.29,0.015858,50809978.47
-category,Health & Beauty,Promotional discount,On-invoice,656578.72,0.012922,50809978.47
-category,Health & Beauty,Rebate accrual,Off-invoice,897282.52,0.01766,50809978.47
-category,Health & Beauty,Co-op marketing,Off-invoice,66409.96,0.001307,50809978.47
-category,Health & Beauty,Payment terms,Off-invoice,330505.48,0.006505,50809978.47
-category,Health & Beauty,Freight allowance,Off-invoice,476395.71,0.009376,50809978.47
-category,Health & Beauty,Freight to customer,Cost to serve,1190767.7,0.023436,50809978.47
-category,Health & Beauty,Order handling,Cost to serve,33498.87,0.000659,50809978.47
-category,Health & Beauty,Returns and credits,Cost to serve,282654.36,0.005563,50809978.47
-category,Home & Kitchen,Volume discount,On-invoice,9882397.18,0.101416,97444193.15
-category,Home & Kitchen,Contract discount,On-invoice,1292807.39,0.013267,97444193.15
-category,Home & Kitchen,Promotional discount,On-invoice,1739750.96,0.017854,97444193.15
-category,Home & Kitchen,Rebate accrual,Off-invoice,2077281.86,0.021318,97444193.15
-category,Home & Kitchen,Co-op marketing,Off-invoice,149929.17,0.001539,97444193.15
-category,Home & Kitchen,Payment terms,Off-invoice,632495.32,0.006491,97444193.15
-category,Home & Kitchen,Freight allowance,Off-invoice,1034864.48,0.01062,97444193.15
-category,Home & Kitchen,Freight to customer,Cost to serve,1302481.31,0.013366,97444193.15
-category,Home & Kitchen,Order handling,Cost to serve,38619.47,0.000396,97444193.15
-category,Home & Kitchen,Returns and credits,Cost to serve,557044.84,0.005717,97444193.15
-category,Office & Stationery,Volume discount,On-invoice,2400171.99,0.105327,22787837.85
-category,Office & Stationery,Contract discount,On-invoice,312625.48,0.013719,22787837.85
-category,Office & Stationery,Promotional discount,On-invoice,371481.39,0.016302,22787837.85
-category,Office & Stationery,Rebate accrual,Off-invoice,441460.61,0.019373,22787837.85
-category,Office & Stationery,Co-op marketing,Off-invoice,50735.95,0.002226,22787837.85
-category,Office & Stationery,Payment terms,Off-invoice,88900.14,0.003901,22787837.85
-category,Office & Stationery,Freight allowance,Off-invoice,221337.09,0.009713,22787837.85
-category,Office & Stationery,Freight to customer,Cost to serve,754912.55,0.033128,22787837.85
-category,Office & Stationery,Order handling,Cost to serve,36951.31,0.001622,22787837.85
-category,Office & Stationery,Returns and credits,Cost to serve,141046.99,0.00619,22787837.85
-category,Pet Supplies,Volume discount,On-invoice,3931311.48,0.101791,38621364.74
-category,Pet Supplies,Contract discount,On-invoice,405612.76,0.010502,38621364.74
-category,Pet Supplies,Promotional discount,On-invoice,442020.33,0.011445,38621364.74
-category,Pet Supplies,Rebate accrual,Off-invoice,815297.41,0.02111,38621364.74
-category,Pet Supplies,Co-op marketing,Off-invoice,38428.17,0.000995,38621364.74
-category,Pet Supplies,Payment terms,Off-invoice,198785.44,0.005147,38621364.74
-category,Pet Supplies,Freight allowance,Off-invoice,411073.27,0.010644,38621364.74
-category,Pet Supplies,Freight to customer,Cost to serve,738994.59,0.019134,38621364.74
-category,Pet Supplies,Order handling,Cost to serve,22320.9,0.000578,38621364.74
-category,Pet Supplies,Returns and credits,Cost to serve,199879.43,0.005175,38621364.74
-category,Sporting Goods,Volume discount,On-invoice,8977776.67,0.101974,88039700.07
-category,Sporting Goods,Contract discount,On-invoice,733617.29,0.008333,88039700.07
-category,Sporting Goods,Promotional discount,On-invoice,1119997.97,0.012722,88039700.07
-category,Sporting Goods,Rebate accrual,Off-invoice,1849090.65,0.021003,88039700.07
-category,Sporting Goods,Co-op marketing,Off-invoice,57835.7,0.000657,88039700.07
-category,Sporting Goods,Payment terms,Off-invoice,668231.28,0.00759,88039700.07
-category,Sporting Goods,Freight allowance,Off-invoice,935008.95,0.01062,88039700.07
-category,Sporting Goods,Freight to customer,Cost to serve,850416.49,0.009659,88039700.07
-category,Sporting Goods,Order handling,Cost to serve,23091.08,0.000262,88039700.07
-category,Sporting Goods,Returns and credits,Cost to serve,440657.44,0.005005,88039700.07
-category,Tools & Hardware,Volume discount,On-invoice,7004814.64,0.08501,82399809.45
-category,Tools & Hardware,Contract discount,On-invoice,989887.47,0.012013,82399809.45
-category,Tools & Hardware,Promotional discount,On-invoice,1255419.88,0.015236,82399809.45
-category,Tools & Hardware,Rebate accrual,Off-invoice,1243293.92,0.015089,82399809.45
-category,Tools & Hardware,Co-op marketing,Off-invoice,84719.49,0.001028,82399809.45
-category,Tools & Hardware,Payment terms,Off-invoice,493323.16,0.005987,82399809.45
-category,Tools & Hardware,Freight allowance,Off-invoice,683754.38,0.008298,82399809.45
-category,Tools & Hardware,Freight to customer,Cost to serve,1543240.12,0.018729,82399809.45
-category,Tools & Hardware,Order handling,Cost to serve,30773.7,0.000373,82399809.45
-category,Tools & Hardware,Returns and credits,Cost to serve,437968.22,0.005315,82399809.45
-brand_tier,National brand,Volume discount,On-invoice,17580064.17,0.09449,186051133.25
-brand_tier,National brand,Contract discount,On-invoice,2222585.18,0.011946,186051133.25
-brand_tier,National brand,Promotional discount,On-invoice,2948413.37,0.015847,186051133.25
-brand_tier,National brand,Rebate accrual,Off-invoice,3393723.93,0.018241,186051133.25
-brand_tier,National brand,Co-op marketing,Off-invoice,264509.99,0.001422,186051133.25
-brand_tier,National brand,Payment terms,Off-invoice,1255199.03,0.006747,186051133.25
-brand_tier,National brand,Freight allowance,Off-invoice,1836953.46,0.009873,186051133.25
-brand_tier,National brand,Freight to customer,Cost to serve,3055473.79,0.016423,186051133.25
-brand_tier,National brand,Order handling,Cost to serve,92793.66,0.000499,186051133.25
-brand_tier,National brand,Returns and credits,Cost to serve,1053633.21,0.005663,186051133.25
-brand_tier,Premium brand,Volume discount,On-invoice,42162783.32,0.100389,419994933.67
-brand_tier,Premium brand,Contract discount,On-invoice,6897394.08,0.016423,419994933.67
-brand_tier,Premium brand,Promotional discount,On-invoice,7329238.05,0.017451,419994933.67
-brand_tier,Premium brand,Rebate accrual,Off-invoice,7956356.09,0.018944,419994933.67
-brand_tier,Premium brand,Co-op marketing,Off-invoice,381964.24,0.000909,419994933.67
-brand_tier,Premium brand,Payment terms,Off-invoice,2545462.7,0.006061,419994933.67
-brand_tier,Premium brand,Freight allowance,Off-invoice,4150207.47,0.009882,419994933.67
-brand_tier,Premium brand,Freight to customer,Cost to serve,2866978.61,0.006826,419994933.67
-brand_tier,Premium brand,Order handling,Cost to serve,49190.63,0.000117,419994933.67
-brand_tier,Premium brand,Returns and credits,Cost to serve,2212422.63,0.005268,419994933.67
-brand_tier,Private label,Volume discount,On-invoice,11102670.38,0.090084,123248203.42
-brand_tier,Private label,Contract discount,On-invoice,1593110.53,0.012926,123248203.42
-brand_tier,Private label,Promotional discount,On-invoice,1957329.0,0.015881,123248203.42
-brand_tier,Private label,Rebate accrual,Off-invoice,2122832.32,0.017224,123248203.42
-brand_tier,Private label,Co-op marketing,Off-invoice,239700.71,0.001945,123248203.42
-brand_tier,Private label,Payment terms,Off-invoice,576290.79,0.004676,123248203.42
-brand_tier,Private label,Freight allowance,Off-invoice,1135450.0,0.009213,123248203.42
-brand_tier,Private label,Freight to customer,Cost to serve,1596282.43,0.012952,123248203.42
-brand_tier,Private label,Order handling,Cost to serve,50353.33,0.000409,123248203.42
-brand_tier,Private label,Returns and credits,Cost to serve,741768.31,0.006018,123248203.42
-brand_tier,Value,Volume discount,On-invoice,14105430.69,0.094524,149226100.88
-brand_tier,Value,Contract discount,On-invoice,1883650.67,0.012623,149226100.88
-brand_tier,Value,Promotional discount,On-invoice,2019037.1,0.01353,149226100.88
-brand_tier,Value,Rebate accrual,Off-invoice,2843480.97,0.019055,149226100.88
-brand_tier,Value,Co-op marketing,Off-invoice,283830.18,0.001902,149226100.88
-brand_tier,Value,Payment terms,Off-invoice,936309.61,0.006274,149226100.88
-brand_tier,Value,Freight allowance,Off-invoice,1458100.54,0.009771,149226100.88
-brand_tier,Value,Freight to customer,Cost to serve,2322643.82,0.015565,149226100.88
-brand_tier,Value,Order handling,Cost to serve,58267.02,0.00039,149226100.88
-brand_tier,Value,Returns and credits,Cost to serve,888285.06,0.005953,149226100.88
-segment,Corporate & B2B Buyer,Volume discount,On-invoice,11637323.75,0.106037,109747793.98
-segment,Corporate & B2B Buyer,Contract discount,On-invoice,1054470.29,0.009608,109747793.98
-segment,Corporate & B2B Buyer,Promotional discount,On-invoice,1666318.96,0.015183,109747793.98
-segment,Corporate & B2B Buyer,Rebate accrual,Off-invoice,2129433.92,0.019403,109747793.98
-segment,Corporate & B2B Buyer,Payment terms,Off-invoice,317987.3,0.002897,109747793.98
-segment,Corporate & B2B Buyer,Freight allowance,Off-invoice,1169550.81,0.010657,109747793.98
-segment,Corporate & B2B Buyer,Freight to customer,Cost to serve,1360211.23,0.012394,109747793.98
-segment,Corporate & B2B Buyer,Order handling,Cost to serve,35739.37,0.000326,109747793.98
-segment,Corporate & B2B Buyer,Returns and credits,Cost to serve,483034.65,0.004401,109747793.98
-segment,E-commerce Pure-Play,Volume discount,On-invoice,15132106.7,0.099839,151564685.78
-segment,E-commerce Pure-Play,Contract discount,On-invoice,881040.47,0.005813,151564685.78
-segment,E-commerce Pure-Play,Promotional discount,On-invoice,1991245.86,0.013138,151564685.78
-segment,E-commerce Pure-Play,Rebate accrual,Off-invoice,3378817.09,0.022293,151564685.78
-segment,E-commerce Pure-Play,Payment terms,Off-invoice,2316791.59,0.015286,151564685.78
-segment,E-commerce Pure-Play,Freight allowance,Off-invoice,1556611.49,0.01027,151564685.78
-segment,E-commerce Pure-Play,Freight to customer,Cost to serve,1754789.88,0.011578,151564685.78
-segment,E-commerce Pure-Play,Order handling,Cost to serve,24619.94,0.000162,151564685.78
-segment,E-commerce Pure-Play,Returns and credits,Cost to serve,670079.76,0.004421,151564685.78
-segment,Government & Education,Volume discount,On-invoice,5616980.14,0.081517,68905561.64
-segment,Government & Education,Contract discount,On-invoice,1605598.09,0.023301,68905561.64
-segment,Government & Education,Promotional discount,On-invoice,1050844.13,0.01525,68905561.64
-segment,Government & Education,Rebate accrual,Off-invoice,1436987.2,0.020854,68905561.64
-segment,Government & Education,Payment terms,Off-invoice,498405.03,0.007233,68905561.64
-segment,Government & Education,Freight allowance,Off-invoice,683923.23,0.009926,68905561.64
-segment,Government & Education,Freight to customer,Cost to serve,640019.91,0.009288,68905561.64
-segment,Government & Education,Order handling,Cost to serve,19257.11,0.000279,68905561.64
-segment,Government & Education,Returns and credits,Cost to serve,306763.26,0.004452,68905561.64
-segment,Independent Retailer,Volume discount,On-invoice,5528537.1,0.06901,80112695.14
-segment,Independent Retailer,Contract discount,On-invoice,976128.34,0.012184,80112695.14
-segment,Independent Retailer,Promotional discount,On-invoice,960004.74,0.011983,80112695.14
-segment,Independent Retailer,Rebate accrual,Off-invoice,935080.66,0.011672,80112695.14
-segment,Independent Retailer,Co-op marketing,Off-invoice,721015.71,0.009,80112695.14
-segment,Independent Retailer,Payment terms,Off-invoice,318391.89,0.003974,80112695.14
-segment,Independent Retailer,Freight allowance,Off-invoice,530621.22,0.006623,80112695.14
-segment,Independent Retailer,Freight to customer,Cost to serve,921898.63,0.011508,80112695.14
-segment,Independent Retailer,Order handling,Cost to serve,39103.07,0.000488,80112695.14
-segment,Independent Retailer,Returns and credits,Cost to serve,964308.88,0.012037,80112695.14
-segment,Marketplace Seller,Volume discount,On-invoice,30360806.32,0.107517,282382204.27
-segment,Marketplace Seller,Contract discount,On-invoice,5077030.91,0.017979,282382204.27
-segment,Marketplace Seller,Promotional discount,On-invoice,5238166.33,0.01855,282382204.27
-segment,Marketplace Seller,Rebate accrual,Off-invoice,5420165.57,0.019194,282382204.27
-segment,Marketplace Seller,Payment terms,Off-invoice,912051.97,0.00323,282382204.27
-segment,Marketplace Seller,Freight allowance,Off-invoice,2880363.05,0.0102,282382204.27
-segment,Marketplace Seller,Freight to customer,Cost to serve,2988814.8,0.010584,282382204.27
-segment,Marketplace Seller,Order handling,Cost to serve,71949.05,0.000255,282382204.27
-segment,Marketplace Seller,Returns and credits,Cost to serve,1260512.51,0.004464,282382204.27
-segment,Regional Retail Chain,Volume discount,On-invoice,4195691.8,0.084104,49887040.05
-segment,Regional Retail Chain,Contract discount,On-invoice,551882.74,0.011063,49887040.05
-segment,Regional Retail Chain,Promotional discount,On-invoice,669058.54,0.013411,49887040.05
-segment,Regional Retail Chain,Rebate accrual,Off-invoice,677117.82,0.013573,49887040.05
-segment,Regional Retail Chain,Co-op marketing,Off-invoice,448989.4,0.009,49887040.05
-segment,Regional Retail Chain,Payment terms,Off-invoice,155657.77,0.00312,49887040.05
-segment,Regional Retail Chain,Freight allowance,Off-invoice,289138.57,0.005796,49887040.05
-segment,Regional Retail Chain,Freight to customer,Cost to serve,791904.78,0.015874,49887040.05
-segment,Regional Retail Chain,Order handling,Cost to serve,21717.4,0.000435,49887040.05
-segment,Regional Retail Chain,Returns and credits,Cost to serve,607294.49,0.012173,49887040.05
-segment,Sub-Distributor,Volume discount,On-invoice,11894585.34,0.094226,126234356.72
-segment,Sub-Distributor,Contract discount,On-invoice,2380942.63,0.018861,126234356.72
-segment,Sub-Distributor,Promotional discount,On-invoice,2530281.77,0.020044,126234356.72
-segment,Sub-Distributor,Rebate accrual,Off-invoice,2294115.32,0.018173,126234356.72
-segment,Sub-Distributor,Payment terms,Off-invoice,758572.5,0.006009,126234356.72
-segment,Sub-Distributor,Freight allowance,Off-invoice,1470503.1,0.011649,126234356.72
-segment,Sub-Distributor,Freight to customer,Cost to serve,1049122.68,0.008311,126234356.72
-segment,Sub-Distributor,Order handling,Cost to serve,25550.13,0.000202,126234356.72
-segment,Sub-Distributor,Returns and credits,Cost to serve,561904.26,0.004451,126234356.72
-segment,Subscription Box Operator,Volume discount,On-invoice,584917.42,0.060388,9686033.64
-segment,Subscription Box Operator,Contract discount,On-invoice,69646.99,0.00719,9686033.64
-segment,Subscription Box Operator,Promotional discount,On-invoice,148097.21,0.01529,9686033.64
-segment,Subscription Box Operator,Rebate accrual,Off-invoice,44675.71,0.004612,9686033.64
-segment,Subscription Box Operator,Payment terms,Off-invoice,35404.08,0.003655,9686033.64
-segment,Subscription Box Operator,Freight to customer,Cost to serve,334616.75,0.034546,9686033.64
-segment,Subscription Box Operator,Order handling,Cost to serve,12668.57,0.001308,9686033.64
-segment,Subscription Box Operator,Returns and credits,Cost to serve,42211.41,0.004358,9686033.64
-channel,B2B Direct,Volume discount,On-invoice,17254303.89,0.09658,178653355.62
-channel,B2B Direct,Contract discount,On-invoice,2660068.38,0.01489,178653355.62
-channel,B2B Direct,Promotional discount,On-invoice,2717163.09,0.015209,178653355.62
-channel,B2B Direct,Rebate accrual,Off-invoice,3566421.12,0.019963,178653355.62
-channel,B2B Direct,Payment terms,Off-invoice,816392.32,0.00457,178653355.62
-channel,B2B Direct,Freight allowance,Off-invoice,1853474.05,0.010375,178653355.62
-channel,B2B Direct,Freight to customer,Cost to serve,2000231.14,0.011196,178653355.62
-channel,B2B Direct,Order handling,Cost to serve,54996.48,0.000308,178653355.62
-channel,B2B Direct,Returns and credits,Cost to serve,789797.9,0.004421,178653355.62
-channel,Marketplace,Volume discount,On-invoice,45492913.02,0.104835,433946890.05
-channel,Marketplace,Contract discount,On-invoice,5958071.37,0.01373,433946890.05
-channel,Marketplace,Promotional discount,On-invoice,7229412.18,0.01666,433946890.05
-channel,Marketplace,Rebate accrual,Off-invoice,8798982.66,0.020277,433946890.05
-channel,Marketplace,Payment terms,Off-invoice,3228843.56,0.007441,433946890.05
-channel,Marketplace,Freight allowance,Off-invoice,4436974.54,0.010225,433946890.05
-channel,Marketplace,Freight to customer,Cost to serve,4743604.68,0.010931,433946890.05
-channel,Marketplace,Order handling,Cost to serve,96568.98,0.000223,433946890.05
-channel,Marketplace,Returns and credits,Cost to serve,1930592.27,0.004449,433946890.05
-channel,Retail,Volume discount,On-invoice,9724228.89,0.074802,129999735.19
-channel,Retail,Contract discount,On-invoice,1528011.08,0.011754,129999735.19
-channel,Retail,Promotional discount,On-invoice,1629063.28,0.012531,129999735.19
-channel,Retail,Rebate accrual,Off-invoice,1612198.48,0.012402,129999735.19
-channel,Retail,Co-op marketing,Off-invoice,1170005.11,0.009,129999735.19
-channel,Retail,Payment terms,Off-invoice,474049.66,0.003647,129999735.19
-channel,Retail,Freight allowance,Off-invoice,819759.79,0.006306,129999735.19
-channel,Retail,Freight to customer,Cost to serve,1713803.41,0.013183,129999735.19
-channel,Retail,Order handling,Cost to serve,60820.47,0.000468,129999735.19
-channel,Retail,Returns and credits,Cost to serve,1571603.38,0.012089,129999735.19
-channel,Wholesale,Volume discount,On-invoice,12479502.76,0.091815,135920390.36
-channel,Wholesale,Contract discount,On-invoice,2450589.62,0.01803,135920390.36
-channel,Wholesale,Promotional discount,On-invoice,2678378.98,0.019705,135920390.36
-channel,Wholesale,Rebate accrual,Off-invoice,2338791.03,0.017207,135920390.36
-channel,Wholesale,Payment terms,Off-invoice,793976.58,0.005841,135920390.36
-channel,Wholesale,Freight allowance,Off-invoice,1470503.1,0.010819,135920390.36
-channel,Wholesale,Freight to customer,Cost to serve,1383739.42,0.010181,135920390.36
-channel,Wholesale,Order handling,Cost to serve,38218.71,0.000281,135920390.36
-channel,Wholesale,Returns and credits,Cost to serve,604115.66,0.004445,135920390.36
-region,Midwest,Volume discount,On-invoice,20205172.52,0.093849,215295454.37
-region,Midwest,Contract discount,On-invoice,2012578.67,0.009348,215295454.37
-region,Midwest,Promotional discount,On-invoice,3200730.49,0.014867,215295454.37
-region,Midwest,Rebate accrual,Off-invoice,4655979.14,0.021626,215295454.37
-region,Midwest,Co-op marketing,Off-invoice,145060.83,0.000674,215295454.37
-region,Midwest,Payment terms,Off-invoice,1883934.19,0.00875,215295454.37
-region,Midwest,Freight allowance,Off-invoice,2195712.16,0.010199,215295454.37
-region,Midwest,Freight to customer,Cost to serve,1673542.35,0.007773,215295454.37
-region,Midwest,Order handling,Cost to serve,43786.19,0.000203,215295454.37
-region,Midwest,Returns and credits,Cost to serve,1073117.07,0.004984,215295454.37
-region,Northeast,Volume discount,On-invoice,11856832.83,0.087069,136177025.97
-region,Northeast,Contract discount,On-invoice,1982737.45,0.01456,136177025.97
-region,Northeast,Promotional discount,On-invoice,1718425.8,0.012619,136177025.97
-region,Northeast,Rebate accrual,Off-invoice,2286881.66,0.016793,136177025.97
-region,Northeast,Co-op marketing,Off-invoice,66603.31,0.000489,136177025.97
-region,Northeast,Payment terms,Off-invoice,1387000.41,0.010185,136177025.97
-region,Northeast,Freight allowance,Off-invoice,1336302.99,0.009813,136177025.97
-region,Northeast,Freight to customer,Cost to serve,2777547.36,0.020397,136177025.97
-region,Northeast,Order handling,Cost to serve,40662.89,0.000299,136177025.97
-region,Northeast,Returns and credits,Cost to serve,655520.05,0.004814,136177025.97
-region,Southeast,Volume discount,On-invoice,17162775.47,0.100208,171271330.45
-region,Southeast,Contract discount,On-invoice,1777565.68,0.010379,171271330.45
-region,Southeast,Promotional discount,On-invoice,2575570.33,0.015038,171271330.45
-region,Southeast,Rebate accrual,Off-invoice,2937057.65,0.017149,171271330.45
-region,Southeast,Co-op marketing,Off-invoice,220220.63,0.001286,171271330.45
-region,Southeast,Payment terms,Off-invoice,889335.22,0.005193,171271330.45
-region,Southeast,Freight allowance,Off-invoice,1948113.16,0.011374,171271330.45
-region,Southeast,Freight to customer,Cost to serve,2753229.25,0.016075,171271330.45
-region,Southeast,Order handling,Cost to serve,55549.42,0.000324,171271330.45
-region,Southeast,Returns and credits,Cost to serve,956413.83,0.005584,171271330.45
-region,Southwest,Volume discount,On-invoice,18228157.9,0.133595,136443182.54
-region,Southwest,Contract discount,On-invoice,3762858.86,0.027578,136443182.54
-region,Southwest,Promotional discount,On-invoice,3158940.47,0.023152,136443182.54
-region,Southwest,Rebate accrual,Off-invoice,3208186.6,0.023513,136443182.54
-region,Southwest,Co-op marketing,Off-invoice,4102.76,3e-05,136443182.54
-region,Southwest,Payment terms,Off-invoice,176794.28,0.001296,136443182.54
-region,Southwest,Freight allowance,Off-invoice,1440462.87,0.010557,136443182.54
-region,Southwest,Freight to customer,Cost to serve,1059906.64,0.007768,136443182.54
-region,Southwest,Order handling,Cost to serve,31410.48,0.00023,136443182.54
-region,Southwest,Returns and credits,Cost to serve,623147.24,0.004567,136443182.54
-region,West,Volume discount,On-invoice,17498009.84,0.079778,219333377.89
-region,West,Contract discount,On-invoice,3060999.8,0.013956,219333377.89
-region,West,Promotional discount,On-invoice,3600350.45,0.016415,219333377.89
-region,West,Rebate accrual,Off-invoice,3228288.25,0.014719,219333377.89
-region,West,Co-op marketing,Off-invoice,734017.58,0.003347,219333377.89
-region,West,Payment terms,Off-invoice,976198.03,0.004451,219333377.89
-region,West,Freight allowance,Off-invoice,1660120.29,0.007569,219333377.89
-region,West,Freight to customer,Cost to serve,1577153.04,0.007191,219333377.89
-region,West,Order handling,Cost to serve,79195.66,0.000361,219333377.89
-region,West,Returns and credits,Cost to serve,1587911.02,0.00724,219333377.89
-tier,A,Volume discount,On-invoice,50219681.37,0.124255,404165571.28
-tier,A,Contract discount,On-invoice,7408869.02,0.018331,404165571.28
-tier,A,Promotional discount,On-invoice,7433265.3,0.018392,404165571.28
-tier,A,Rebate accrual,Off-invoice,11316636.33,0.028,404165571.28
-tier,A,Co-op marketing,Off-invoice,261783.55,0.000648,404165571.28
-tier,A,Payment terms,Off-invoice,2711240.1,0.006708,404165571.28
-tier,A,Freight allowance,Off-invoice,5254138.73,0.013,404165571.28
-tier,A,Freight to customer,Cost to serve,3316247.29,0.008205,404165571.28
-tier,A,Order handling,Cost to serve,43704.94,0.000108,404165571.28
-tier,A,Returns and credits,Cost to serve,2018956.55,0.004995,404165571.28
-tier,B,Volume discount,On-invoice,24190124.85,0.094533,255890722.96
-tier,B,Contract discount,On-invoice,3671841.14,0.014349,255890722.96
-tier,B,Promotional discount,On-invoice,3503087.41,0.01369,255890722.96
-tier,B,Rebate accrual,Off-invoice,4094247.85,0.016,255890722.96
-tier,B,Co-op marketing,Off-invoice,305752.0,0.001195,255890722.96
-tier,B,Payment terms,Off-invoice,1686977.89,0.006593,255890722.96
-tier,B,Freight allowance,Off-invoice,3326572.74,0.013,255890722.96
-tier,B,Freight to customer,Cost to serve,2966633.16,0.011593,255890722.96
-tier,B,Order handling,Cost to serve,58021.04,0.000227,255890722.96
-tier,B,Returns and credits,Cost to serve,1401660.76,0.005478,255890722.96
-tier,C,Volume discount,On-invoice,9632039.98,0.053186,181102275.56
-tier,C,Contract discount,On-invoice,1166611.45,0.006442,181102275.56
-tier,C,Promotional discount,On-invoice,2768026.83,0.015284,181102275.56
-tier,C,Rebate accrual,Off-invoice,905509.12,0.005,181102275.56
-tier,C,Co-op marketing,Off-invoice,457592.27,0.002527,181102275.56
-tier,C,Payment terms,Off-invoice,805963.35,0.00445,181102275.56
-tier,C,Freight to customer,Cost to serve,2715823.72,0.014996,181102275.56
-tier,C,Order handling,Cost to serve,95020.39,0.000525,181102275.56
-tier,C,Returns and credits,Cost to serve,1188107.72,0.00656,181102275.56
-tier,D,Volume discount,On-invoice,909102.36,0.024332,37361801.42
-tier,D,Contract discount,On-invoice,349418.85,0.009352,37361801.42
-tier,D,Promotional discount,On-invoice,549637.99,0.014711,37361801.42
-tier,D,Co-op marketing,Off-invoice,144877.3,0.003878,37361801.42
-tier,D,Payment terms,Off-invoice,109080.8,0.00292,37361801.42
-tier,D,Freight to customer,Cost to serve,842674.48,0.022554,37361801.42
-tier,D,Order handling,Cost to serve,53858.27,0.001442,37361801.42
-tier,D,Returns and credits,Cost to serve,287384.18,0.007692,37361801.42
+category,Apparel & Accessories,Volume discount,On-invoice,2635666.87,0.082603,31907556.99
+category,Apparel & Accessories,Contract discount,On-invoice,338410.77,0.010606,31907556.99
+category,Apparel & Accessories,Promotional discount,On-invoice,468876.25,0.014695,31907556.99
+category,Apparel & Accessories,Rebate accrual,Off-invoice,434420.18,0.013615,31907556.99
+category,Apparel & Accessories,Co-op marketing,Off-invoice,122869.0,0.003851,31907556.99
+category,Apparel & Accessories,Payment terms,Off-invoice,122755.47,0.003847,31907556.99
+category,Apparel & Accessories,Freight allowance,Off-invoice,254657.47,0.007981,31907556.99
+category,Apparel & Accessories,Freight to customer,Cost to serve,577400.41,0.018096,31907556.99
+category,Apparel & Accessories,Order handling,Cost to serve,17497.54,0.000548,31907556.99
+category,Apparel & Accessories,Returns and credits,Cost to serve,239708.06,0.007513,31907556.99
+category,Consumer Electronics,Volume discount,On-invoice,16985497.93,0.092391,183844343.67
+category,Consumer Electronics,Contract discount,On-invoice,2292642.95,0.012471,183844343.67
+category,Consumer Electronics,Promotional discount,On-invoice,2488746.14,0.013537,183844343.67
+category,Consumer Electronics,Rebate accrual,Off-invoice,3139981.44,0.01708,183844343.67
+category,Consumer Electronics,Co-op marketing,Off-invoice,259022.06,0.001409,183844343.67
+category,Consumer Electronics,Payment terms,Off-invoice,1266018.27,0.006886,183844343.67
+category,Consumer Electronics,Freight allowance,Off-invoice,1700312.66,0.009249,183844343.67
+category,Consumer Electronics,Freight to customer,Cost to serve,1911920.98,0.0104,183844343.67
+category,Consumer Electronics,Order handling,Cost to serve,43981.66,0.000239,183844343.67
+category,Consumer Electronics,Returns and credits,Cost to serve,1036447.53,0.005638,183844343.67
+category,Health & Beauty,Volume discount,On-invoice,3815329.95,0.092138,41409026.67
+category,Health & Beauty,Contract discount,On-invoice,598902.29,0.014463,41409026.67
+category,Health & Beauty,Promotional discount,On-invoice,848820.34,0.020498,41409026.67
+category,Health & Beauty,Rebate accrual,Off-invoice,717359.01,0.017324,41409026.67
+category,Health & Beauty,Co-op marketing,Off-invoice,125774.18,0.003037,41409026.67
+category,Health & Beauty,Payment terms,Off-invoice,197083.21,0.004759,41409026.67
+category,Health & Beauty,Freight allowance,Off-invoice,366572.67,0.008852,41409026.67
+category,Health & Beauty,Freight to customer,Cost to serve,1075276.96,0.025967,41409026.67
+category,Health & Beauty,Order handling,Cost to serve,38992.21,0.000942,41409026.67
+category,Health & Beauty,Returns and credits,Cost to serve,290983.1,0.007027,41409026.67
+category,Home & Kitchen,Volume discount,On-invoice,10795482.24,0.099431,108573049.24
+category,Home & Kitchen,Contract discount,On-invoice,1494881.46,0.013768,108573049.24
+category,Home & Kitchen,Promotional discount,On-invoice,1450437.41,0.013359,108573049.24
+category,Home & Kitchen,Rebate accrual,Off-invoice,2257154.22,0.020789,108573049.24
+category,Home & Kitchen,Co-op marketing,Off-invoice,200576.79,0.001847,108573049.24
+category,Home & Kitchen,Payment terms,Off-invoice,625410.17,0.00576,108573049.24
+category,Home & Kitchen,Freight allowance,Off-invoice,1118246.91,0.010299,108573049.24
+category,Home & Kitchen,Freight to customer,Cost to serve,1489540.66,0.013719,108573049.24
+category,Home & Kitchen,Order handling,Cost to serve,43144.39,0.000397,108573049.24
+category,Home & Kitchen,Returns and credits,Cost to serve,643972.99,0.005931,108573049.24
+category,Office & Stationery,Volume discount,On-invoice,1654672.94,0.089848,18416330.61
+category,Office & Stationery,Contract discount,On-invoice,218817.57,0.011882,18416330.61
+category,Office & Stationery,Promotional discount,On-invoice,253517.03,0.013766,18416330.61
+category,Office & Stationery,Rebate accrual,Off-invoice,321319.93,0.017448,18416330.61
+category,Office & Stationery,Co-op marketing,Off-invoice,21741.12,0.001181,18416330.61
+category,Office & Stationery,Payment terms,Off-invoice,102380.8,0.005559,18416330.61
+category,Office & Stationery,Freight allowance,Off-invoice,177902.54,0.00966,18416330.61
+category,Office & Stationery,Freight to customer,Cost to serve,632826.97,0.034362,18416330.61
+category,Office & Stationery,Order handling,Cost to serve,24536.83,0.001332,18416330.61
+category,Office & Stationery,Returns and credits,Cost to serve,99680.71,0.005413,18416330.61
+category,Pet Supplies,Volume discount,On-invoice,4790291.12,0.104373,45895847.73
+category,Pet Supplies,Contract discount,On-invoice,613100.62,0.013359,45895847.73
+category,Pet Supplies,Promotional discount,On-invoice,799604.48,0.017422,45895847.73
+category,Pet Supplies,Rebate accrual,Off-invoice,903738.06,0.019691,45895847.73
+category,Pet Supplies,Co-op marketing,Off-invoice,101281.76,0.002207,45895847.73
+category,Pet Supplies,Payment terms,Off-invoice,177216.77,0.003861,45895847.73
+category,Pet Supplies,Freight allowance,Off-invoice,465847.41,0.01015,45895847.73
+category,Pet Supplies,Freight to customer,Cost to serve,813101.7,0.017716,45895847.73
+category,Pet Supplies,Order handling,Cost to serve,24186.34,0.000527,45895847.73
+category,Pet Supplies,Returns and credits,Cost to serve,285708.64,0.006225,45895847.73
+category,Sporting Goods,Volume discount,On-invoice,11089397.42,0.0923,120145261.25
+category,Sporting Goods,Contract discount,On-invoice,1572448.37,0.013088,120145261.25
+category,Sporting Goods,Promotional discount,On-invoice,1788510.82,0.014886,120145261.25
+category,Sporting Goods,Rebate accrual,Off-invoice,2293433.79,0.019089,120145261.25
+category,Sporting Goods,Co-op marketing,Off-invoice,114473.13,0.000953,120145261.25
+category,Sporting Goods,Payment terms,Off-invoice,789587.0,0.006572,120145261.25
+category,Sporting Goods,Freight allowance,Off-invoice,1141908.52,0.009504,120145261.25
+category,Sporting Goods,Freight to customer,Cost to serve,1226651.9,0.01021,120145261.25
+category,Sporting Goods,Order handling,Cost to serve,31708.4,0.000264,120145261.25
+category,Sporting Goods,Returns and credits,Cost to serve,626577.28,0.005215,120145261.25
+category,Tools & Hardware,Volume discount,On-invoice,8481642.11,0.103712,81780488.02
+category,Tools & Hardware,Contract discount,On-invoice,885158.58,0.010824,81780488.02
+category,Tools & Hardware,Promotional discount,On-invoice,1407038.67,0.017205,81780488.02
+category,Tools & Hardware,Rebate accrual,Off-invoice,1775579.16,0.021712,81780488.02
+category,Tools & Hardware,Co-op marketing,Off-invoice,135866.79,0.001661,81780488.02
+category,Tools & Hardware,Payment terms,Off-invoice,574981.8,0.007031,81780488.02
+category,Tools & Hardware,Freight allowance,Off-invoice,890448.1,0.010888,81780488.02
+category,Tools & Hardware,Freight to customer,Cost to serve,965765.95,0.011809,81780488.02
+category,Tools & Hardware,Order handling,Cost to serve,24818.33,0.000303,81780488.02
+category,Tools & Hardware,Returns and credits,Cost to serve,484566.08,0.005925,81780488.02
+brand_tier,National brand,Volume discount,On-invoice,21413874.15,0.09594,223199986.95
+brand_tier,National brand,Contract discount,On-invoice,2937264.63,0.01316,223199986.95
+brand_tier,National brand,Promotional discount,On-invoice,3531637.69,0.015823,223199986.95
+brand_tier,National brand,Rebate accrual,Off-invoice,4030661.1,0.018059,223199986.95
+brand_tier,National brand,Co-op marketing,Off-invoice,451957.98,0.002025,223199986.95
+brand_tier,National brand,Payment terms,Off-invoice,1352319.47,0.006059,223199986.95
+brand_tier,National brand,Freight allowance,Off-invoice,2169259.11,0.009719,223199986.95
+brand_tier,National brand,Freight to customer,Cost to serve,3267791.08,0.014641,223199986.95
+brand_tier,National brand,Order handling,Cost to serve,83309.25,0.000373,223199986.95
+brand_tier,National brand,Returns and credits,Cost to serve,1366891.05,0.006124,223199986.95
+brand_tier,Premium brand,Volume discount,On-invoice,12416389.14,0.096796,128273505.02
+brand_tier,Premium brand,Contract discount,On-invoice,1558258.02,0.012148,128273505.02
+brand_tier,Premium brand,Promotional discount,On-invoice,1849874.66,0.014421,128273505.02
+brand_tier,Premium brand,Rebate accrual,Off-invoice,2407242.25,0.018766,128273505.02
+brand_tier,Premium brand,Co-op marketing,Off-invoice,179458.12,0.001399,128273505.02
+brand_tier,Premium brand,Payment terms,Off-invoice,778523.96,0.006069,128273505.02
+brand_tier,Premium brand,Freight allowance,Off-invoice,1223666.31,0.00954,128273505.02
+brand_tier,Premium brand,Freight to customer,Cost to serve,1448112.73,0.011289,128273505.02
+brand_tier,Premium brand,Order handling,Cost to serve,39816.1,0.00031,128273505.02
+brand_tier,Premium brand,Returns and credits,Cost to serve,717897.21,0.005597,128273505.02
+brand_tier,Private label,Volume discount,On-invoice,10232600.06,0.093464,109481660.5
+brand_tier,Private label,Contract discount,On-invoice,1575836.72,0.014394,109481660.5
+brand_tier,Private label,Promotional discount,On-invoice,1402153.86,0.012807,109481660.5
+brand_tier,Private label,Rebate accrual,Off-invoice,2162423.29,0.019751,109481660.5
+brand_tier,Private label,Co-op marketing,Off-invoice,184900.24,0.001689,109481660.5
+brand_tier,Private label,Payment terms,Off-invoice,748068.76,0.006833,109481660.5
+brand_tier,Private label,Freight allowance,Off-invoice,1083016.81,0.009892,109481660.5
+brand_tier,Private label,Freight to customer,Cost to serve,1646269.99,0.015037,109481660.5
+brand_tier,Private label,Order handling,Cost to serve,54985.01,0.000502,109481660.5
+brand_tier,Private label,Returns and credits,Cost to serve,641279.42,0.005857,109481660.5
+brand_tier,Value,Volume discount,On-invoice,16185117.23,0.094641,171016751.71
+brand_tier,Value,Contract discount,On-invoice,1943003.23,0.011361,171016751.71
+brand_tier,Value,Promotional discount,On-invoice,2721884.94,0.015916,171016751.71
+brand_tier,Value,Rebate accrual,Off-invoice,3242659.15,0.018961,171016751.71
+brand_tier,Value,Co-op marketing,Off-invoice,265288.48,0.001551,171016751.71
+brand_tier,Value,Payment terms,Off-invoice,976521.31,0.00571,171016751.71
+brand_tier,Value,Freight allowance,Off-invoice,1639954.05,0.009589,171016751.71
+brand_tier,Value,Freight to customer,Cost to serve,2330311.72,0.013626,171016751.71
+brand_tier,Value,Order handling,Cost to serve,70755.33,0.000414,171016751.71
+brand_tier,Value,Returns and credits,Cost to serve,981576.71,0.00574,171016751.71
+segment,Corporate & B2B Buyer,Volume discount,On-invoice,10367044.33,0.105529,98238724.94
+segment,Corporate & B2B Buyer,Contract discount,On-invoice,458220.09,0.004664,98238724.94
+segment,Corporate & B2B Buyer,Promotional discount,On-invoice,1440042.54,0.014659,98238724.94
+segment,Corporate & B2B Buyer,Rebate accrual,Off-invoice,1991995.29,0.020277,98238724.94
+segment,Corporate & B2B Buyer,Payment terms,Off-invoice,331260.84,0.003372,98238724.94
+segment,Corporate & B2B Buyer,Freight allowance,Off-invoice,994564.9,0.010124,98238724.94
+segment,Corporate & B2B Buyer,Freight to customer,Cost to serve,1170762.02,0.011918,98238724.94
+segment,Corporate & B2B Buyer,Order handling,Cost to serve,34223.5,0.000348,98238724.94
+segment,Corporate & B2B Buyer,Returns and credits,Cost to serve,428820.77,0.004365,98238724.94
+segment,E-commerce Pure-Play,Volume discount,On-invoice,9553696.53,0.100709,94864367.21
+segment,E-commerce Pure-Play,Contract discount,On-invoice,646900.94,0.006819,94864367.21
+segment,E-commerce Pure-Play,Promotional discount,On-invoice,1250190.77,0.013179,94864367.21
+segment,E-commerce Pure-Play,Rebate accrual,Off-invoice,2296843.36,0.024212,94864367.21
+segment,E-commerce Pure-Play,Payment terms,Off-invoice,1499880.73,0.015811,94864367.21
+segment,E-commerce Pure-Play,Freight allowance,Off-invoice,1058175.68,0.011155,94864367.21
+segment,E-commerce Pure-Play,Freight to customer,Cost to serve,1392090.52,0.014675,94864367.21
+segment,E-commerce Pure-Play,Order handling,Cost to serve,21924.5,0.000231,94864367.21
+segment,E-commerce Pure-Play,Returns and credits,Cost to serve,419277.43,0.00442,94864367.21
+segment,Government & Education,Volume discount,On-invoice,5432468.97,0.084204,64515514.44
+segment,Government & Education,Contract discount,On-invoice,1706598.29,0.026453,64515514.44
+segment,Government & Education,Promotional discount,On-invoice,1181123.56,0.018308,64515514.44
+segment,Government & Education,Rebate accrual,Off-invoice,1511015.37,0.023421,64515514.44
+segment,Government & Education,Payment terms,Off-invoice,499617.96,0.007744,64515514.44
+segment,Government & Education,Freight allowance,Off-invoice,708794.62,0.010986,64515514.44
+segment,Government & Education,Freight to customer,Cost to serve,513355.34,0.007957,64515514.44
+segment,Government & Education,Order handling,Cost to serve,19134.67,0.000297,64515514.44
+segment,Government & Education,Returns and credits,Cost to serve,289181.42,0.004482,64515514.44
+segment,Independent Retailer,Volume discount,On-invoice,5330676.23,0.073074,72949316.01
+segment,Independent Retailer,Contract discount,On-invoice,1028067.18,0.014093,72949316.01
+segment,Independent Retailer,Promotional discount,On-invoice,1190084.4,0.016314,72949316.01
+segment,Independent Retailer,Rebate accrual,Off-invoice,988960.25,0.013557,72949316.01
+segment,Independent Retailer,Co-op marketing,Off-invoice,656540.59,0.009,72949316.01
+segment,Independent Retailer,Payment terms,Off-invoice,326476.5,0.004475,72949316.01
+segment,Independent Retailer,Freight allowance,Off-invoice,557122.11,0.007637,72949316.01
+segment,Independent Retailer,Freight to customer,Cost to serve,1225104.26,0.016794,72949316.01
+segment,Independent Retailer,Order handling,Cost to serve,39946.04,0.000548,72949316.01
+segment,Independent Retailer,Returns and credits,Cost to serve,885813.12,0.012143,72949316.01
+segment,Marketplace Seller,Volume discount,On-invoice,17146110.02,0.100405,170769491.64
+segment,Marketplace Seller,Contract discount,On-invoice,1926659.52,0.011282,170769491.64
+segment,Marketplace Seller,Promotional discount,On-invoice,2523268.17,0.014776,170769491.64
+segment,Marketplace Seller,Rebate accrual,Off-invoice,3049217.22,0.017856,170769491.64
+segment,Marketplace Seller,Payment terms,Off-invoice,590397.36,0.003457,170769491.64
+segment,Marketplace Seller,Freight allowance,Off-invoice,1671842.51,0.00979,170769491.64
+segment,Marketplace Seller,Freight to customer,Cost to serve,2664989.67,0.015606,170769491.64
+segment,Marketplace Seller,Order handling,Cost to serve,72260.68,0.000423,170769491.64
+segment,Marketplace Seller,Returns and credits,Cost to serve,750370.15,0.004394,170769491.64
+segment,Regional Retail Chain,Volume discount,On-invoice,5293526.96,0.11208,47229901.0
+segment,Regional Retail Chain,Contract discount,On-invoice,853896.57,0.01808,47229901.0
+segment,Regional Retail Chain,Promotional discount,On-invoice,758360.49,0.016057,47229901.0
+segment,Regional Retail Chain,Rebate accrual,Off-invoice,892481.85,0.018897,47229901.0
+segment,Regional Retail Chain,Co-op marketing,Off-invoice,425064.22,0.009,47229901.0
+segment,Regional Retail Chain,Payment terms,Off-invoice,151012.37,0.003197,47229901.0
+segment,Regional Retail Chain,Freight allowance,Off-invoice,420940.42,0.008913,47229901.0
+segment,Regional Retail Chain,Freight to customer,Cost to serve,583178.12,0.012348,47229901.0
+segment,Regional Retail Chain,Order handling,Cost to serve,21573.67,0.000457,47229901.0
+segment,Regional Retail Chain,Returns and credits,Cost to serve,567921.99,0.012025,47229901.0
+segment,Sub-Distributor,Volume discount,On-invoice,6206087.61,0.090872,68294619.49
+segment,Sub-Distributor,Contract discount,On-invoice,1250080.29,0.018304,68294619.49
+segment,Sub-Distributor,Promotional discount,On-invoice,929444.7,0.013609,68294619.49
+segment,Sub-Distributor,Rebate accrual,Off-invoice,1041852.1,0.015255,68294619.49
+segment,Sub-Distributor,Payment terms,Off-invoice,424997.49,0.006223,68294619.49
+segment,Sub-Distributor,Freight allowance,Off-invoice,704456.04,0.010315,68294619.49
+segment,Sub-Distributor,Freight to customer,Cost to serve,797635.17,0.011679,68294619.49
+segment,Sub-Distributor,Order handling,Cost to serve,26644.49,0.00039,68294619.49
+segment,Sub-Distributor,Returns and credits,Cost to serve,299048.67,0.004379,68294619.49
+segment,Subscription Box Operator,Volume discount,On-invoice,918369.92,0.060779,15109969.45
+segment,Subscription Box Operator,Contract discount,On-invoice,143939.73,0.009526,15109969.45
+segment,Subscription Box Operator,Promotional discount,On-invoice,233036.53,0.015423,15109969.45
+segment,Subscription Box Operator,Rebate accrual,Off-invoice,70620.34,0.004674,15109969.45
+segment,Subscription Box Operator,Payment terms,Off-invoice,31790.24,0.002104,15109969.45
+segment,Subscription Box Operator,Freight to customer,Cost to serve,345370.42,0.022857,15109969.45
+segment,Subscription Box Operator,Order handling,Cost to serve,13158.14,0.000871,15109969.45
+segment,Subscription Box Operator,Returns and credits,Cost to serve,67210.84,0.004448,15109969.45
+channel,B2B Direct,Volume discount,On-invoice,15799513.3,0.097076,162754239.38
+channel,B2B Direct,Contract discount,On-invoice,2164818.38,0.013301,162754239.38
+channel,B2B Direct,Promotional discount,On-invoice,2621166.11,0.016105,162754239.38
+channel,B2B Direct,Rebate accrual,Off-invoice,3503010.66,0.021523,162754239.38
+channel,B2B Direct,Payment terms,Off-invoice,830878.8,0.005105,162754239.38
+channel,B2B Direct,Freight allowance,Off-invoice,1703359.52,0.010466,162754239.38
+channel,B2B Direct,Freight to customer,Cost to serve,1684117.37,0.010348,162754239.38
+channel,B2B Direct,Order handling,Cost to serve,53358.17,0.000328,162754239.38
+channel,B2B Direct,Returns and credits,Cost to serve,718002.18,0.004412,162754239.38
+channel,Marketplace,Volume discount,On-invoice,26699806.55,0.100514,265633858.85
+channel,Marketplace,Contract discount,On-invoice,2573560.46,0.009688,265633858.85
+channel,Marketplace,Promotional discount,On-invoice,3773458.94,0.014205,265633858.85
+channel,Marketplace,Rebate accrual,Off-invoice,5346060.58,0.020126,265633858.85
+channel,Marketplace,Payment terms,Off-invoice,2090278.09,0.007869,265633858.85
+channel,Marketplace,Freight allowance,Off-invoice,2730018.19,0.010277,265633858.85
+channel,Marketplace,Freight to customer,Cost to serve,4057080.19,0.015273,265633858.85
+channel,Marketplace,Order handling,Cost to serve,94185.18,0.000355,265633858.85
+channel,Marketplace,Returns and credits,Cost to serve,1169647.59,0.004403,265633858.85
+channel,Retail,Volume discount,On-invoice,10624203.2,0.088403,120179217.01
+channel,Retail,Contract discount,On-invoice,1881963.75,0.01566,120179217.01
+channel,Retail,Promotional discount,On-invoice,1948444.88,0.016213,120179217.01
+channel,Retail,Rebate accrual,Off-invoice,1881442.11,0.015655,120179217.01
+channel,Retail,Co-op marketing,Off-invoice,1081604.82,0.009,120179217.01
+channel,Retail,Payment terms,Off-invoice,477488.87,0.003973,120179217.01
+channel,Retail,Freight allowance,Off-invoice,978062.53,0.008138,120179217.01
+channel,Retail,Freight to customer,Cost to serve,1808282.38,0.015047,120179217.01
+channel,Retail,Order handling,Cost to serve,61519.72,0.000512,120179217.01
+channel,Retail,Returns and credits,Cost to serve,1453735.11,0.012096,120179217.01
+channel,Wholesale,Volume discount,On-invoice,7124457.53,0.08542,83404588.94
+channel,Wholesale,Contract discount,On-invoice,1394020.01,0.016714,83404588.94
+channel,Wholesale,Promotional discount,On-invoice,1162481.23,0.013938,83404588.94
+channel,Wholesale,Rebate accrual,Off-invoice,1112472.44,0.013338,83404588.94
+channel,Wholesale,Payment terms,Off-invoice,456787.73,0.005477,83404588.94
+channel,Wholesale,Freight allowance,Off-invoice,704456.04,0.008446,83404588.94
+channel,Wholesale,Freight to customer,Cost to serve,1143005.59,0.013704,83404588.94
+channel,Wholesale,Order handling,Cost to serve,39802.63,0.000477,83404588.94
+channel,Wholesale,Returns and credits,Cost to serve,366259.51,0.004391,83404588.94
+region,Midwest,Volume discount,On-invoice,15749602.15,0.096589,163058344.06
+region,Midwest,Contract discount,On-invoice,1842876.46,0.011302,163058344.06
+region,Midwest,Promotional discount,On-invoice,2710548.95,0.016623,163058344.06
+region,Midwest,Rebate accrual,Off-invoice,3796971.62,0.023286,163058344.06
+region,Midwest,Co-op marketing,Off-invoice,87315.2,0.000535,163058344.06
+region,Midwest,Payment terms,Off-invoice,1429474.12,0.008767,163058344.06
+region,Midwest,Freight allowance,Off-invoice,1807826.92,0.011087,163058344.06
+region,Midwest,Freight to customer,Cost to serve,1289691.52,0.007909,163058344.06
+region,Midwest,Order handling,Cost to serve,42437.83,0.00026,163058344.06
+region,Midwest,Returns and credits,Cost to serve,799698.45,0.004904,163058344.06
+region,Northeast,Volume discount,On-invoice,8028562.26,0.088188,91039437.74
+region,Northeast,Contract discount,On-invoice,1156828.13,0.012707,91039437.74
+region,Northeast,Promotional discount,On-invoice,1100082.09,0.012084,91039437.74
+region,Northeast,Rebate accrual,Off-invoice,1673964.15,0.018387,91039437.74
+region,Northeast,Co-op marketing,Off-invoice,34461.48,0.000379,91039437.74
+region,Northeast,Payment terms,Off-invoice,979548.25,0.01076,91039437.74
+region,Northeast,Freight allowance,Off-invoice,896895.46,0.009852,91039437.74
+region,Northeast,Freight to customer,Cost to serve,2439659.78,0.026798,91039437.74
+region,Northeast,Order handling,Cost to serve,40321.0,0.000443,91039437.74
+region,Northeast,Returns and credits,Cost to serve,432190.42,0.004747,91039437.74
+region,Southeast,Volume discount,On-invoice,16243249.25,0.104292,155748089.06
+region,Southeast,Contract discount,On-invoice,1127855.33,0.007242,155748089.06
+region,Southeast,Promotional discount,On-invoice,2299646.01,0.014765,155748089.06
+region,Southeast,Rebate accrual,Off-invoice,2932902.44,0.018831,155748089.06
+region,Southeast,Co-op marketing,Off-invoice,216257.7,0.001389,155748089.06
+region,Southeast,Payment terms,Off-invoice,638688.18,0.004101,155748089.06
+region,Southeast,Freight allowance,Off-invoice,1738625.03,0.011163,155748089.06
+region,Southeast,Freight to customer,Cost to serve,2771100.14,0.017792,155748089.06
+region,Southeast,Order handling,Cost to serve,54168.87,0.000348,155748089.06
+region,Southeast,Returns and credits,Cost to serve,860091.57,0.005522,155748089.06
+region,Southwest,Volume discount,On-invoice,5908735.18,0.106419,55523152.45
+region,Southwest,Contract discount,On-invoice,1249487.03,0.022504,55523152.45
+region,Southwest,Promotional discount,On-invoice,837959.72,0.015092,55523152.45
+region,Southwest,Rebate accrual,Off-invoice,926483.22,0.016686,55523152.45
+region,Southwest,Co-op marketing,Off-invoice,6714.46,0.000121,55523152.45
+region,Southwest,Payment terms,Off-invoice,140175.86,0.002525,55523152.45
+region,Southwest,Freight allowance,Off-invoice,380316.3,0.00685,55523152.45
+region,Southwest,Freight to customer,Cost to serve,730939.69,0.013165,55523152.45
+region,Southwest,Order handling,Cost to serve,30539.85,0.00055,55523152.45
+region,Southwest,Returns and credits,Cost to serve,250294.8,0.004508,55523152.45
+region,West,Volume discount,On-invoice,14317831.74,0.08594,166602880.87
+region,West,Contract discount,On-invoice,2637315.66,0.01583,166602880.87
+region,West,Promotional discount,On-invoice,2557314.38,0.01535,166602880.87
+region,West,Rebate accrual,Off-invoice,2512664.36,0.015082,166602880.87
+region,West,Co-op marketing,Off-invoice,736855.98,0.004423,166602880.87
+region,West,Payment terms,Off-invoice,667547.08,0.004007,166602880.87
+region,West,Freight allowance,Off-invoice,1292232.57,0.007756,166602880.87
+region,West,Freight to customer,Cost to serve,1461094.39,0.00877,166602880.87
+region,West,Order handling,Cost to serve,81398.14,0.000489,166602880.87
+region,West,Returns and credits,Cost to serve,1365369.16,0.008195,166602880.87
+tier,A,Volume discount,On-invoice,37098927.61,0.121319,305795956.45
+tier,A,Contract discount,On-invoice,4608874.21,0.015072,305795956.45
+tier,A,Promotional discount,On-invoice,4733009.52,0.015478,305795956.45
+tier,A,Rebate accrual,Off-invoice,8562265.06,0.028,305795956.45
+tier,A,Co-op marketing,Off-invoice,379328.36,0.00124,305795956.45
+tier,A,Payment terms,Off-invoice,2108466.28,0.006895,305795956.45
+tier,A,Freight allowance,Off-invoice,3975342.45,0.013,305795956.45
+tier,A,Freight to customer,Cost to serve,2904270.18,0.009497,305795956.45
+tier,A,Order handling,Cost to serve,41569.9,0.000136,305795956.45
+tier,A,Returns and credits,Cost to serve,1670544.35,0.005463,305795956.45
+tier,B,Volume discount,On-invoice,15451270.69,0.093838,164658344.43
+tier,B,Contract discount,On-invoice,2167685.67,0.013165,164658344.43
+tier,B,Promotional discount,On-invoice,2334620.16,0.014179,164658344.43
+tier,B,Rebate accrual,Off-invoice,2634535.3,0.016,164658344.43
+tier,B,Co-op marketing,Off-invoice,297789.66,0.001809,164658344.43
+tier,B,Payment terms,Off-invoice,1095458.97,0.006653,164658344.43
+tier,B,Freight allowance,Off-invoice,2140553.83,0.013,164658344.43
+tier,B,Freight to customer,Cost to serve,2569059.63,0.015602,164658344.43
+tier,B,Order handling,Cost to serve,57496.2,0.000349,164658344.43
+tier,B,Returns and credits,Cost to serve,980313.35,0.005954,164658344.43
+tier,C,Volume discount,On-invoice,6940544.18,0.053704,129237150.5
+tier,C,Contract discount,On-invoice,1049220.06,0.008119,129237150.5
+tier,C,Promotional discount,On-invoice,1951093.48,0.015097,129237150.5
+tier,C,Rebate accrual,Off-invoice,646185.42,0.005,129237150.5
+tier,C,Co-op marketing,Off-invoice,309413.51,0.002394,129237150.5
+tier,C,Payment terms,Off-invoice,490491.02,0.003795,129237150.5
+tier,C,Freight to customer,Cost to serve,2197180.37,0.017001,129237150.5
+tier,C,Order handling,Cost to serve,94951.31,0.000735,129237150.5
+tier,C,Returns and credits,Cost to serve,832402.96,0.006441,129237150.5
+tier,D,Volume discount,On-invoice,757238.1,0.023458,32280452.8
+tier,D,Contract discount,On-invoice,188582.67,0.005842,32280452.8
+tier,D,Promotional discount,On-invoice,486827.99,0.015081,32280452.8
+tier,D,Co-op marketing,Off-invoice,95073.29,0.002945,32280452.8
+tier,D,Payment terms,Off-invoice,161017.22,0.004988,32280452.8
+tier,D,Freight to customer,Cost to serve,1021975.35,0.031659,32280452.8
+tier,D,Order handling,Cost to serve,54848.29,0.001699,32280452.8
+tier,D,Returns and credits,Cost to serve,224383.73,0.006951,32280452.8

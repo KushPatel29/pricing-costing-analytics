@@ -1,8 +1,8 @@
 code,count,margin_at_risk,severity,alert,action
-BELOW_FLOOR,256,991032.2200000004,2,Red,"Pocket margin is under the floor. Reprice, or get the exception signed."
-LOSS,89,920336.6899999998,1,Red,Selling below cost once every deduction is counted. Stop quoting this combination until the cost or the deductions change.
-UNDER_MARKET,402,801827.9300000004,4,Amber,Priced well under the market with margin to spare. A price rise here is the cheapest margin in the book.
-OVER_MARKET,83,390006.88999999996,5,Amber,Priced well over the market. Volume is exposed unless the premium is one the customer can name.
-LEAKAGE,112,362152.12,3,Amber,More than a quarter of list never reaches us. The off-invoice deductions are where to look first.
-STALE,155,315114.8799999999,6,Green,No price change in over a year while input costs moved. Review.
-COST_SPIKE,125,295509.73999999976,7,Green,Input cost up more than ten points since the price was last set.
+UNDER_MARKET,500,1320036.5600000008,4,Amber,Priced well under the market with margin to spare. A price rise here is the cheapest margin in the book.
+STALE,142,391204.80999999994,6,Green,No price change in over a year while input costs moved. Review.
+OVER_MARKET,94,368418.83,5,Amber,Priced well over the market. Volume is exposed unless the premium is one the customer can name.
+LEAKAGE,115,363523.0499999999,3,Amber,More than a quarter of list never reaches us. The off-invoice deductions are where to look first.
+BELOW_FLOOR,243,355002.4400000003,2,Red,"Pocket margin is under the floor. Reprice, or get the exception signed."
+LOSS,85,171117.5699999999,1,Red,Selling below cost once every deduction is counted. Stop quoting this combination until the cost or the deductions change.
+COST_SPIKE,122,74326.45999999996,7,Green,Input cost up more than ten points since the price was last set.

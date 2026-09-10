@@ -42,11 +42,25 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Tornado swing"
+                  "Property": "Tornado downside"
                 }
               },
-              "queryRef": "_Measures.Tornado swing",
-              "nativeQueryRef": "Tornado swing"
+              "queryRef": "_Measures.Tornado downside",
+              "nativeQueryRef": "Tornado downside"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Tornado upside"
+                }
+              },
+              "queryRef": "_Measures.Tornado upside",
+              "nativeQueryRef": "Tornado upside"
             }
           ]
         }
@@ -80,7 +94,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Bar chart titled What moves profit most. Plots Tornado swing by scenario input, ranked.'"
+                  "Value": "'Bar chart titled What moves profit most. Plots Tornado downside and Tornado upside for each scenario input. One bar of Tornado swing showed the size of the move without its direction, which is the half that decides what to do about it.'"
                 }
               }
             }

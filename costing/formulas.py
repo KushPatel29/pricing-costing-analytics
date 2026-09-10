@@ -159,7 +159,7 @@ def calculate_waste_output(raw_material_cost: float, recovery: Any) -> float:
 
 
 def calculate_trim_recovery(salvage_value_unit: float, trim_percent: Any, recovery: Any) -> float:
-    """Credit for trim that is sold on rather than thrown away."""
+    """Credit for damaged stock salvaged rather than written off."""
     rate = normalize_recovery(recovery)
     if rate == 0:
         return 0.0

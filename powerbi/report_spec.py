@@ -1,5 +1,5 @@
 """
-What the report contains: eighteen pages, and every visual on them.
+What the report contains: nineteen pages, and every visual on them.
 
 Declarative on purpose. A PBIR report is one JSON file per visual, and typing
 seventy of them by hand is how a report ends up with three different
@@ -161,11 +161,22 @@ PAGES: list[dict] = [
                     "Pass-through to list and Pass-through to pocket by commodity index."},
 
             {"type": "table",
+             "columns": ["dim_competitor[competitor_name]", "dim_competitor[positioning]",
+                         "dim_competitor[price_multiplier]",
+                         "dim_competitor[catalogue_coverage]"],
+             "title": "Who the index is measured against",
+             "pos": (20, ROW2_Y, 320, 258),
+             "alt": "Table titled Who the index is measured against. Each competitor "
+                    "name with its positioning, price multiplier and catalogue "
+                    "coverage -- an index is only as meaningful as the set it "
+                    "compares to, and this table was in the model without a visual "
+                    "that said so."},
+            {"type": "table",
              "columns": ["dim_product[description]", "dim_product[category]",
                          "[Pocket price per unit]", "[Market price]", "[Price index]",
                          "[Pocket margin %]", "[Pocket revenue]"],
              "title": "Every product, ranked by revenue",
-             "pos": (20, ROW2_Y, 1030, 258),
+             "pos": (354, ROW2_Y, 696, 258),
              "alt": "Table titled Every product ranked by revenue. Lists description, "
                     "category, pocket price, market price, price index, margin and "
                     "revenue."},
@@ -345,13 +356,23 @@ PAGES: list[dict] = [
             {"type": "bar", "x": "price_bands[description]",
              "y": ["[Realisation opportunity]"],
              "title": "Where closing the band is worth the most",
-             "pos": (20, ROW1_Y, 620, 272),
+             "pos": (20, ROW1_Y, 400, 272),
              "alt": "Bar chart titled Where closing the band is worth the most. Plots "
                     "Realisation opportunity by product."},
+            {"type": "line", "x": "price_bands[description]",
+             "y": ["[Band p10]", "[Band median]", "[Band p90]"],
+             "title": "The band itself",
+             "pos": (434, ROW1_Y, 400, 272),
+             "alt": "Line chart titled The band itself. Plots Band p10, Band median and "
+                    "Band p90 for each product: the spread of prices one product "
+                    "achieves across its customers. The page was named after this and "
+                    "did not draw it. Volume-weighted, because a band over four hundred "
+                    "small accounts and one large one otherwise describes the four "
+                    "hundred."},
             {"type": "line", "x": "wtp_curve[price_ratio]", "y": ["[Win rate]"],
              "series": "wtp_curve[segment]",
              "title": "Probability of winning against the price we ask",
-             "pos": (654, ROW1_Y, 606, 272),
+             "pos": (848, ROW1_Y, 412, 272),
              "alt": "Line chart titled Probability of winning against the price we ask. "
                     "Plots Win rate by price ratio, one line per segment."},
 
@@ -526,11 +547,14 @@ PAGES: list[dict] = [
              "alt": "Column chart titled Worst base and best. Plots Three-point "
                     "operating profit for each scenario. The ends are every assumption "
                     "at its own extreme at once, not a confidence interval."},
-            {"type": "bar", "x": "scenario_tornado[input]", "y": ["[Tornado swing]"],
+            {"type": "bar", "x": "scenario_tornado[input]",
+             "y": ["[Tornado downside]", "[Tornado upside]"],
              "title": "What moves profit most",
              "pos": (654, 244, 606, 214),
-             "alt": "Bar chart titled What moves profit most. Plots Tornado swing by "
-                    "scenario input, ranked."},
+             "alt": "Bar chart titled What moves profit most. Plots Tornado downside "
+                    "and Tornado upside for each scenario input. One bar of Tornado "
+                    "swing showed the size of the move without its direction, which is "
+                    "the half that decides what to do about it."},
 
             {"type": "table",
              "columns": ["scenario_three_point[scenario]", "[Three-point operating profit]",
@@ -936,6 +960,66 @@ PAGES: list[dict] = [
         ],
     },
     # ----------------------------------------------------------------- 18
+    {
+        "name": "section_bundles",
+        "display": "Bundles",
+        "visuals": [
+            {"type": "card", "field": "[Bundles considered]",
+             "pos": (20, CARD_Y, 300, CARD_H),
+             "alt": "Card. Bundles considered: pairs of products the same customers "
+                    "already buy together."},
+            {"type": "card", "field": "[Incremental margin]",
+             "pos": (330, CARD_Y, 296, CARD_H),
+             "alt": "Card. Incremental margin the bundle earns over selling the "
+                    "components separately."},
+            {"type": "card", "field": "[Break-even cannibalisation]",
+             "pos": (634, CARD_Y, 300, CARD_H),
+             "alt": "Card. Break-even cannibalisation: the share of bundle buyers who "
+                    "would have bought every component anyway, above which the bundle "
+                    "loses money."},
+            {"type": "card", "field": "[Cannibalisation headroom]",
+             "pos": (942, CARD_Y, 318, CARD_H),
+             "alt": "Card. Cannibalisation headroom: the break-even rate less the rate "
+                    "actually expected."},
+
+            {"type": "bar", "x": "bundle_candidates[bundle_id]",
+             "y": ["[Incremental margin]"],
+             "title": "What each candidate is worth",
+             "pos": (20, ROW1_Y, 620, 272),
+             "alt": "Bar chart titled What each candidate is worth. Plots Incremental "
+                    "margin for each bundle candidate, ranked."},
+            {"type": "scatter", "category": "bundle_candidates[bundle_id]",
+             "x": "[Break-even cannibalisation]", "y": ["[Cannibalisation headroom]"],
+             "size": "[Incremental margin]",
+             "title": "How much room each bundle has",
+             "pos": (654, ROW1_Y, 606, 272),
+             "alt": "Scatter chart titled How much room each bundle has. Plots "
+                    "Cannibalisation headroom against Break-even cannibalisation, sized "
+                    "by Incremental margin. Anything below the axis dies at the "
+                    "cannibalisation rate it is expected to face."},
+
+            {"type": "table",
+             "columns": ["bundle_candidates[name_a]", "bundle_candidates[name_b]",
+                         "[Standalone margin %]", "[Bundle margin %]",
+                         "[Break-even cannibalisation]", "[Incremental margin]",
+                         "bundle_candidates[verdict]"],
+             "title": "The candidates",
+             "pos": (20, ROW2_Y, 1030, 258),
+             "alt": "Table titled The candidates. Each pair with its Standalone margin "
+                    "percent, Bundle margin percent, Break-even cannibalisation, "
+                    "Incremental margin and the verdict."},
+            {"type": "slicer", "field": "bundle_candidates[verdict]", "title": "Verdict",
+             "pos": (1064, ROW2_Y, 196, 76),
+             "alt": "Slicer. Filters the page by the verdict: whether the bundle creates "
+                    "or destroys value."},
+            {"type": "slicer", "field": "bundle_candidates[category_a]",
+             "title": "Category",
+             "pos": (1064, ROW2_Y + 86, 196, 76),
+             "alt": "Slicer. Filters by category a, the category of the first "
+                    "component in the pair."},
+        ],
+    },
+    # ----------------------------------------------------------------- 19
     {
         "name": "section_recommendations",
         "display": "Recommendations",

@@ -3,7 +3,7 @@
   "name": "v0710",
   "position": {
     "x": 1068,
-    "y": 528,
+    "y": 442,
     "z": 1609,
     "height": 76,
     "width": 192,
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "wtp_curve"
+                      "Entity": "segment_profile"
                     }
                   },
-                  "Property": "kind"
+                  "Property": "dimension"
                 }
               },
-              "queryRef": "wtp_curve.kind",
-              "nativeQueryRef": "kind",
+              "queryRef": "segment_profile.dimension",
+              "nativeQueryRef": "dimension",
               "active": true
             }
           ]
@@ -42,7 +42,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Fitted or observed'"
+                  "Value": "'Cut by'"
                 }
               }
             },
@@ -62,7 +62,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Slicer. Filters the win curve by kind: the fitted curve, the observed win rates, or both.'"
+                  "Value": "'Slicer. Chooses which dimension the segment table is cut by.'"
                 }
               }
             }

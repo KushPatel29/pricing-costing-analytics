@@ -42,10 +42,6 @@ relationship f96334ff-3321-5e22-817f-3325c0aef06b
 	fromColumn: customer_profitability.customer_id
 	toColumn: dim_customer.customer_id
 
-relationship 0d5d251a-b2e3-5cc6-b730-4d815c3e45ff
-	fromColumn: waterfall_monthly.month
-	toColumn: dim_month.month
-
 relationship 11cd9ebb-be73-5541-83ef-d474f5a96fb7
 	fromColumn: budget_variance.month
 	toColumn: dim_month.month

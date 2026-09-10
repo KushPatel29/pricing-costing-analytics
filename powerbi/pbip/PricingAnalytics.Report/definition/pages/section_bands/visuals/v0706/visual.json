@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "v0706",
   "position": {
-    "x": 654,
+    "x": 434,
     "y": 152,
     "z": 1605,
     "height": 272,
-    "width": 606,
+    "width": 400,
     "tabOrder": 1605
   },
   "visual": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "wtp_curve"
+                      "Entity": "price_bands"
                     }
                   },
-                  "Property": "price_ratio"
+                  "Property": "description"
                 }
               },
-              "queryRef": "wtp_curve.price_ratio",
-              "nativeQueryRef": "price_ratio",
+              "queryRef": "price_bands.description",
+              "nativeQueryRef": "description",
               "active": true
             }
           ]
@@ -42,30 +42,39 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Win rate"
+                  "Property": "Band p10"
                 }
               },
-              "queryRef": "_Measures.Win rate",
-              "nativeQueryRef": "Win rate"
-            }
-          ]
-        },
-        "Series": {
-          "projections": [
+              "queryRef": "_Measures.Band p10",
+              "nativeQueryRef": "Band p10"
+            },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "wtp_curve"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "segment"
+                  "Property": "Band median"
                 }
               },
-              "queryRef": "wtp_curve.segment",
-              "nativeQueryRef": "segment",
-              "active": true
+              "queryRef": "_Measures.Band median",
+              "nativeQueryRef": "Band median"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Band p90"
+                }
+              },
+              "queryRef": "_Measures.Band p90",
+              "nativeQueryRef": "Band p90"
             }
           ]
         }
@@ -79,7 +88,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Probability of winning against the price we ask'"
+                  "Value": "'The band itself'"
                 }
               }
             },
@@ -99,7 +108,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Line chart titled Probability of winning against the price we ask. Plots Win rate by price ratio, one line per segment.'"
+                  "Value": "'Line chart titled The band itself. Plots Band p10, Band median and Band p90 for each product: the spread of prices one product achieves across its customers. The page was named after this and did not draw it. Volume-weighted, because a band over four hundred small accounts and one large one otherwise describes the four hundred.'"
                 }
               }
             }

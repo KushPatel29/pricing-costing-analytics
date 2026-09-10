@@ -108,9 +108,9 @@ with left:
 with right:
     st.markdown("### Yield: what the floor delivered against standard")
     sh.caption(
-        "Standard says a unit shipped needs one over recovery units received. "
+        "Standard says a unit shipped needs one over the sellable rate received. "
         "Anything used past that is yield loss, valued at standard price so a bad "
-        "buying month does not show up here as a bad cutting month."
+        "buying month does not show up here as a bad receiving month."
     )
     yields = (
         detail.groupby("category", as_index=False)
@@ -246,7 +246,7 @@ with st.expander("Work one variance by hand"):
     with columns[2]:
         purchased = st.number_input("Units received", 10.0, 500_000.0, 12_000.0, 100.0)
     with columns[3]:
-        std_recovery = st.slider("Standard recovery", 0.40, 0.99, 0.68, 0.01)
+        std_recovery = st.slider("Standard sellable rate", 0.40, 0.99, 0.92, 0.01)
 
     output_units = st.slider("Units sellable", 100.0, float(purchased), float(purchased) * 0.64,
                           100.0)
@@ -263,7 +263,7 @@ with st.expander("Work one variance by hand"):
              ppv_result["verdict"], "off"),
             ("Standard input allowed", f"{yv_result['standard_input_units']:,.0f} units",
              f"{yv_result['excess_units']:+,.0f} units used", "off"),
-            ("Actual recovery", sh.pct(yv_result["actual_recovery"]),
+            ("Actual sellable rate", sh.pct(yv_result["actual_recovery"]),
              f"standard {yv_result['standard_sellable_rate']:.1%}", "off"),
             ("Yield variance", sh.money(yv_result["variance"], 2),
              yv_result["verdict"], "off"),

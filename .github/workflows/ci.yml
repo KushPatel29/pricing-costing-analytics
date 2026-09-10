@@ -66,6 +66,14 @@ jobs:
             tail -120 pytest.log
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
+          # And as annotations. On a public repository the log needs sign-in and
+          # the job summary is not exposed by the API either; annotations are
+          # the one channel a reader without repository access can actually
+          # see, which is the difference between a red badge that says what
+          # broke and one that says "exit code 1".
+          grep -E "^(FAILED|ERROR)" pytest.log | head -n 20 | while IFS= read -r line; do
+            echo "::error::${line}"
+          done
 
       # The PBIP is generated from powerbi/model_spec.py and report_spec.py.
       # A hand-edit to the committed project has to fail here rather than

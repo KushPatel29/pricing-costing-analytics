@@ -1,7 +1,7 @@
 # Pricing & Costing Analytics
 
 [![CI](https://github.com/KushPatel29/pricing-costing-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/pricing-costing-analytics/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-2627%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-2638%20passing-3B8C6E)
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![Streamlit](https://img.shields.io/badge/streamlit-1.60-ff4b4b)
 ![Power BI](https://img.shields.io/badge/Power%20BI-PBIP%20%2F%20TMDL-F2C811)
@@ -585,6 +585,11 @@ things it does not report:
 - every visual carries alt text that names a field it actually binds;
 - every file validates against the published JSON schema it names, and those
   schemas set `additionalProperties: false`, which is what catches a typo.
+
+And the counts in this README are read out of the spec rather than typed —
+`tests/test_readme_counts.py` fails if the table above disagrees with the model,
+if a page has no screenshot, or if a committed screenshot is never shown. That
+table said 191 visuals for a week while the spec said 189.
 
 All of that passed before the project was first opened, and the report was
 still wrong in nine ways — a missing manifest that stopped it opening at all, a

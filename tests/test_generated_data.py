@@ -31,6 +31,19 @@ DATA = ROOT / "data"
 OUT = ROOT / "output"
 
 
+def spearman(left: pd.Series, right: pd.Series) -> float:
+    """
+    Rank correlation, without pulling in scipy for it.
+
+    `Series.corr(method="spearman")` delegates to scipy, which is a forty-megabyte
+    dependency this project has no other use for -- and which was installed here
+    as somebody else's transitive dependency, so three tests passed locally and
+    failed in CI with ModuleNotFoundError. Spearman *is* Pearson on the ranks;
+    the default method needs nothing extra.
+    """
+    return float(left.rank().corr(right.rank()))
+
+
 def read(directory: Path, name: str, **kwargs) -> pd.DataFrame:
     return pd.read_csv(directory / f"{name}.csv", **kwargs)
 
@@ -209,7 +222,7 @@ class TestRecoverability:
 
         ordering = categories["elasticity"].rank().reindex(seeded.index)
         truth = seeded.rank()
-        correlation = ordering.corr(truth, method="spearman")
+        correlation = spearman(ordering, truth)
         assert correlation > 0.7, (
             "the estimated elasticity ordering does not follow the seeded one "
             f"(Spearman {correlation:.2f}):\n"
@@ -343,7 +356,7 @@ class TestRecoverability:
         estimated = usable["passthrough_to_list"].reindex(seeded.index)
         detail = pd.DataFrame({"seeded": seeded,
                                "estimated": estimated}).sort_values("seeded")
-        correlation = seeded.rank().corr(estimated.rank(), method="spearman")
+        correlation = spearman(seeded, estimated)
         assert correlation > 0.5, (
             f"pass-through ordering does not follow the seeded one "
             f"(Spearman {correlation:.2f}):\n{detail.to_string()}"
@@ -378,7 +391,7 @@ class TestRecoverability:
         seeded = pd.Series(SEGMENT_PRICE_SENSITIVITY)
         estimated = -fits["slope"]
         common = seeded.index.intersection(estimated.index)
-        correlation = seeded[common].rank().corr(estimated[common].rank(), method="spearman")
+        correlation = spearman(seeded[common], estimated[common])
         assert correlation > 0.8, (
             f"segment sensitivity ordering does not follow the seeded one "
             f"(Spearman {correlation:.2f}):\n"

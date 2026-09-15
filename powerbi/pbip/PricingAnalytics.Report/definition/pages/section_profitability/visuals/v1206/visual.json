@@ -3,11 +3,11 @@
   "name": "v1206",
   "position": {
     "x": 434,
-    "y": 152,
-    "z": 2105,
-    "height": 272,
+    "y": 208,
+    "z": 2116,
+    "height": 246,
     "width": 826,
-    "tabOrder": 2105
+    "tabOrder": 2116
   },
   "visual": {
     "visualType": "pivotTable",

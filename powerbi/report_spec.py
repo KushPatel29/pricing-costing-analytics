@@ -1089,4 +1089,17 @@ VISUAL_TYPES: dict[str, str] = {
     "matrix": "pivotTable",
     "slicer": "slicer",
     "gauge": "gauge",
+    # The chrome report_chrome adds to every page. A card is still written
+    # "card" above and generated as an image tile; see build_pbip.visual_json.
+    "page_header": "image",
+    "nav": "actionButton",
+    "filters_button": "actionButton",
+    "panel_close": "actionButton",
+    "panel_clear": "actionButton",
+    "panel_background": "shape",
+    "panel_title": "textbox",
 }
+
+from powerbi.report_chrome import add_chrome  # noqa: E402 -- applied to the pages above
+
+PAGES = add_chrome(PAGES)

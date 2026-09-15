@@ -3,37 +3,48 @@
   "name": "v1803",
   "position": {
     "x": 634,
-    "y": 20,
-    "z": 2702,
-    "height": 118,
+    "y": 88,
+    "z": 2713,
+    "height": 107,
     "width": 300,
-    "tabOrder": 2702
+    "tabOrder": 2713
   },
   "visual": {
-    "visualType": "card",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
+    "visualType": "image",
+    "objects": {
+      "image": [
+        {
+          "properties": {
+            "sourceType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'imageUrl'"
+                }
+              }
+            },
+            "sourceUrl": {
+              "expr": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Break-even cannibalisation"
+                  "Property": "KPI SVG Break-even cannibalisation @314"
                 }
-              },
-              "queryRef": "_Measures.Break-even cannibalisation",
-              "nativeQueryRef": "Break-even cannibalisation"
+              }
+            },
+            "fit": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Fit'"
+                }
+              }
             }
-          ]
+          }
         }
-      }
+      ]
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "general": [
         {
@@ -41,7 +52,54 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Card. Break-even cannibalisation: the share of bundle buyers who would have bought every component anyway, above which the bundle loses money.'"
+                  "Value": "'KPI tile. Break-even cannibalisation: the share of bundle buyers who would have bought every component anyway, above which the bundle loses money.'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

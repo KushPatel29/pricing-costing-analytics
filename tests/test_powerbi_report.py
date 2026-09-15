@@ -32,6 +32,7 @@ from powerbi.model_spec import (
     TABLES,
     whatif_columns,
 )
+from powerbi.report_chrome import ui_measures
 from powerbi.report_spec import PAGES, VISUAL_TYPES
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -48,6 +49,9 @@ VERIFIED_VISUAL_TYPES = {
     "card", "clusteredBarChart", "clusteredColumnChart", "columnChart", "lineChart",
     "areaChart", "scatterChart", "donutChart", "treemap", "waterfallChart",
     "tableEx", "pivotTable", "slicer", "gauge", "funnel",
+    # The frame: SVG tiles and headers, page and bookmark buttons, the panel.
+    # Each was rendered and clicked in Desktop before it was generated here.
+    "image", "actionButton", "shape", "textbox",
 }
 
 
@@ -55,10 +59,39 @@ def visual_files() -> list[Path]:
     return sorted(REPORT.rglob("visual.json"))
 
 
+def _visual_type(path: Path) -> str | None:
+    """None for a visual group, which has no visual of its own."""
+    return json.loads(path.read_text(encoding="utf-8")).get("visual", {}).get("visualType")
+
+
+def _image_measure(body: dict) -> str:
+    return body["objects"]["image"][0]["properties"]["sourceUrl"]["expr"]["Measure"]["Property"]
+
+
+def _binds_a_model_field(path: Path) -> bool:
+    """A chart, table, slicer or KPI tile -- not the frame drawn around them."""
+    body = json.loads(path.read_text(encoding="utf-8")).get("visual")
+    if body is None or body["visualType"] in {"actionButton", "shape", "textbox"}:
+        return False
+    return body["visualType"] != "image" or _image_measure(body).startswith("KPI SVG ")
+
+
+def _drawn(name: str) -> str:
+    """The model measure a KPI tile draws, read out of its SVG measure's name."""
+    if not name.startswith("KPI SVG "):
+        return name
+    return name.removeprefix("KPI SVG ").split(" | ")[0].rsplit(" @", 1)[0]
+
+
 VISUALS = visual_files()
-VISUAL_CASES = [
+ALL_CASES = [
     pytest.param(p, id=f"{p.parents[2].name}/{p.parent.name}") for p in VISUALS
 ]
+VISUAL_CASES = [case for case in ALL_CASES if _binds_a_model_field(case.values[0])]
+CHROME_CASES = [case for case in ALL_CASES
+                if _visual_type(case.values[0]) and not _binds_a_model_field(case.values[0])]
+FORMATS = {name: fmt for name, _dax, fmt, _folder in MEASURES}
+UI_MEASURE_NAMES = {name for name, *_ in ui_measures(PAGES, FORMATS)}
 
 
 @pytest.fixture(scope="module")
@@ -84,7 +117,18 @@ def test_there_are_visuals_to_check():
 # --------------------------------------------------------------------------
 
 def _projections(visual: dict):
-    for role, well in visual["visual"]["query"]["queryState"].items():
+    body = visual["visual"]
+    if body["visualType"] == "image":
+        # A KPI tile binds through the SVG measure it draws, in objects.image
+        # rather than in a query -- so that is where its binding is read from.
+        name = _image_measure(body)
+        yield "image", {
+            "field": {"Measure": {"Expression": {"SourceRef": {"Entity": "_Measures"}},
+                                  "Property": name}},
+            "queryRef": f"_Measures.{name}", "nativeQueryRef": name,
+        }
+        return
+    for role, well in body["query"]["queryState"].items():
         for projection in well.get("projections", []):
             yield role, projection
 
@@ -97,7 +141,7 @@ def test_every_field_a_visual_binds_actually_exists(path, source_columns):
         field = projection["field"]
         if "Measure" in field:
             name = field["Measure"]["Property"]
-            if name not in MEASURE_NAMES:
+            if name not in MEASURE_NAMES | UI_MEASURE_NAMES:
                 problems.append(f"{role}: measure [{name}] does not exist")
         else:
             entity = field["Column"]["Expression"]["SourceRef"]["Entity"]
@@ -163,8 +207,7 @@ def test_every_visual_binds_something(path):
 
 
 def test_every_visual_type_is_one_that_renders():
-    used = {json.loads(p.read_text(encoding="utf-8"))["visual"]["visualType"]
-            for p in VISUALS}
+    used = {_visual_type(p) for p in VISUALS} - {None}
     unknown = sorted(used - VERIFIED_VISUAL_TYPES)
     assert not unknown, f"visual types not known to render from hand-authored PBIR: {unknown}"
     assert used <= set(VISUAL_TYPES.values())
@@ -178,7 +221,7 @@ def test_a_matrix_is_a_cross_tab_rather_than_a_long_table():
     """
     matrices = [
         json.loads(p.read_text(encoding="utf-8")) for p in VISUALS
-        if json.loads(p.read_text(encoding="utf-8"))["visual"]["visualType"] == "pivotTable"
+        if _visual_type(p) == "pivotTable"
     ]
     assert matrices, "no matrix visuals to check"
     for visual in matrices:
@@ -194,7 +237,7 @@ def test_a_scatter_puts_its_identity_field_in_the_category_role():
     """
     scatters = [
         json.loads(p.read_text(encoding="utf-8")) for p in VISUALS
-        if json.loads(p.read_text(encoding="utf-8"))["visual"]["visualType"] == "scatterChart"
+        if _visual_type(p) == "scatterChart"
     ]
     assert scatters, "no scatter charts to check"
     for visual in scatters:
@@ -221,7 +264,7 @@ def _literals(node, found=None):
     return found
 
 
-@pytest.mark.parametrize("path", VISUAL_CASES)
+@pytest.mark.parametrize("path", ALL_CASES)
 def test_numeric_literals_carry_their_type_suffix(path):
     """
     A property written as ``{"Value": "11"}`` is DROPPED by Desktop on the next
@@ -265,7 +308,7 @@ def test_every_visual_has_alt_text_naming_a_field_it_binds(path):
         return re.sub(r"[^a-z0-9 ]", " ", text.lower().replace("_", " ")).split()
 
     haystack = " ".join(normalise(alt))
-    bound = [projection["nativeQueryRef"] for _, projection in _projections(visual)]
+    bound = [_drawn(projection["nativeQueryRef"]) for _, projection in _projections(visual)]
     assert any(" ".join(normalise(name)) in haystack for name in bound), (
         f"{path.parent.name}: alt text names none of the fields it binds "
         f"({bound}); alt text was {alt!r}"
@@ -325,8 +368,11 @@ def test_no_two_visuals_overlap(page):
     Two visuals on the same rectangle look like one visual with the other
     hidden underneath, and the hidden one is never noticed again.
     """
+    # The filter panel is hidden until opened and floats over the page by
+    # design; test_the_filter_panel_holds_its_members covers it instead.
     boxes = [(spec["pos"], spec.get("title") or spec.get("field") or spec["type"])
-             for spec in page["visuals"]]
+             for spec in page["visuals"]
+             if not spec.get("group") and spec["type"] != "filter_panel"]
     collisions = []
     for i, ((x1, y1, w1, h1), name1) in enumerate(boxes):
         for (x2, y2, w2, h2), name2 in boxes[i + 1:]:
@@ -335,14 +381,102 @@ def test_no_two_visuals_overlap(page):
     assert not collisions, f"{page['name']}: overlapping visuals: {collisions}"
 
 
-def test_a_card_with_a_subtitle_is_tall_enough_for_it():
-    """A card carrying a reference subtitle needs 118px or the label is clipped."""
-    short = [
-        spec.get("field")
-        for page in PAGES for spec in page["visuals"]
-        if spec["type"] == "card" and spec.get("subtitle") and spec["pos"][3] < 118
-    ]
-    assert not short, f"cards with a subtitle and no room for it: {short}"
+def test_a_kpi_tile_is_tall_enough_to_read():
+    """
+    A legacy card with a reference subtitle needed 118px or its label clipped.
+    A tile is an SVG drawn at the tile's own aspect and scaled to fit, so what it
+    needs is height enough for its figure to stay legible once the page header
+    has taken the top of the canvas.
+    """
+    short = [spec["field"] for page in PAGES for spec in page["visuals"]
+             if spec["type"] == "card" and spec["pos"][3] < 96]
+    assert not short, f"KPI tiles too short to read: {short}"
+
+
+def test_every_tile_draws_a_measure_the_model_has():
+    tiles = {spec["field"].strip("[]") for page in PAGES for spec in page["visuals"]
+             if spec["type"] == "card"}
+    assert tiles, "no KPI tiles to check"
+    missing = sorted(tiles - MEASURE_NAMES)
+    assert not missing, f"tiles drawing measures that do not exist: {missing}"
+
+
+def test_every_svg_measure_encodes_percent_before_hash():
+    """
+    `%` first. A literal "73.6%" left in the data URI breaks its decoding, the
+    `%23` colours stay encoded, and every fill renders black while the shapes
+    and text still draw -- it looks like a colour bug and is an encoding one.
+    """
+    images = [(name, dax) for name, dax, image in ui_measures(PAGES, FORMATS) if image]
+    assert images, "no SVG measures to check"
+    order = 'SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")'
+    wrong = [name for name, dax in images if order not in dax]
+    assert not wrong, f"SVG measures that do not encode % before #: {wrong}"
+
+
+def test_every_page_opens_with_a_header_and_its_neighbours():
+    names = [page["name"] for page in PAGES]
+    problems = []
+    for i, page in enumerate(PAGES):
+        headers = sum(spec["type"] == "page_header" for spec in page["visuals"])
+        if headers != 1:
+            problems.append(f"{page['name']}: {headers} headers")
+        targets = {spec["target"] for spec in page["visuals"] if spec["type"] == "nav"}
+        expected = set(names[max(0, i - 1):i] + names[i + 1:i + 2])
+        if targets != expected:
+            problems.append(f"{page['name']}: buttons go to {sorted(targets)}, "
+                            f"expected {sorted(expected)}")
+    assert not problems, problems
+
+
+def test_the_filter_panel_holds_its_members():
+    problems = []
+    for page in PAGES:
+        panels = {spec["id"]: spec["pos"] for spec in page["visuals"]
+                  if spec["type"] == "filter_panel"}
+        for spec in page["visuals"]:
+            if not spec.get("group"):
+                continue
+            px, py, pw, ph = panels[spec["group"]]
+            x, y, w, h = spec["pos"]
+            if x < px or y < py or x + w > px + pw or y + h > py + ph:
+                problems.append(f"{page['name']}: {spec['id']} sits outside {spec['group']}")
+    assert not problems, problems
+
+
+def test_a_panel_bookmark_restores_visibility_not_filters():
+    """
+    A bookmark that also captures data puts back the slicer selections it was
+    saved with, so opening the panel would reset every filter the reader had
+    set. And a button naming a bookmark that does not exist does nothing at all.
+    """
+    folder = REPORT / "definition" / "bookmarks"
+    saved = {path.name.removesuffix(".bookmark.json"): json.loads(path.read_text(encoding="utf-8"))
+             for path in folder.glob("*.bookmark.json")}
+    buttons = [spec for page in PAGES for spec in page["visuals"]
+               if spec["type"] in ("filters_button", "panel_close")]
+    assert buttons, "no filter panel buttons to check"
+    problems = []
+    for spec in buttons:
+        bookmark = saved.get(spec["bookmark"])
+        if bookmark is None:
+            problems.append(f"{spec['id']} opens {spec['bookmark']}, which does not exist")
+            continue
+        options = bookmark["options"]
+        if not options.get("suppressData") or not options.get("applyOnlyToTargetVisuals"):
+            problems.append(f"{spec['bookmark']} restores more than the panel's visibility")
+        if not any(name.endswith("FilterPanel") for name in options["targetVisualNames"]):
+            problems.append(f"{spec['bookmark']} does not target a filter panel")
+    assert not problems, problems
+
+
+@pytest.mark.parametrize("path", CHROME_CASES)
+def test_the_frame_carries_alt_text_too(path):
+    visual = json.loads(path.read_text(encoding="utf-8"))
+    general = visual["visual"].get("visualContainerObjects", {}).get("general", [])
+    assert general, f"{path.parent.name} has no alt text"
+    alt = general[0]["properties"]["altText"]["expr"]["Literal"]["Value"].strip("'")
+    assert len(alt) > 12, f"{path.parent.name}: alt text {alt!r} says nothing"
 
 
 def test_every_page_carries_a_slicer():

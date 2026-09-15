@@ -117,7 +117,10 @@ def visual_svg(spec: dict) -> str:
 
 def page_svg(page: dict, number: int, total: int) -> str:
     header = 44
-    body = "\n  ".join(visual_svg(spec) for spec in page["visuals"])
+    # The filter panel is closed until a reader opens it; drawn here it would
+    # sit over the charts it is closed on top of.
+    body = "\n  ".join(visual_svg(spec) for spec in page["visuals"]
+                       if not spec.get("group") and spec["type"] != "filter_panel")
     kinds = sorted({spec["type"] for spec in page["visuals"]})
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {CANVAS_W} '

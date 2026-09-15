@@ -1,7 +1,7 @@
 # Pricing & Costing Analytics
 
 [![CI](https://github.com/KushPatel29/pricing-costing-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/pricing-costing-analytics/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-2638%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-3151%20passing-3B8C6E)
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![Streamlit](https://img.shields.io/badge/streamlit-1.60-ff4b4b)
 ![Power BI](https://img.shields.io/badge/Power%20BI-PBIP%20%2F%20TMDL-F2C811)
@@ -456,7 +456,7 @@ file per visual and the model is TMDL, both reviewable in a diff.
 | | |
 |---:|---|
 | **19** | report pages, **0** visuals that fail to render |
-| **189** | visuals |
+| **352** | visuals |
 | **51** | tables, plus a measures table |
 | **209** | measures across 21 display folders |
 | **22** | relationships, all single-direction many-to-one |
@@ -464,6 +464,29 @@ file per visual and the model is TMDL, both reviewable in a diff.
 | **34** | tables unrelated on purpose, each with the reason in the spec |
 
 See [`powerbi/pbip/OPEN_ME_FIRST.md`](powerbi/pbip/OPEN_ME_FIRST.md) to open it.
+
+### How the report is built
+
+The frame every page shares is applied by
+[`powerbi/report_chrome.py`](powerbi/report_chrome.py) rather than typed into
+nineteen page specs, so every layout test runs on what the report draws:
+
+- **76 KPI tiles are SVG drawn by DAX measures** (`dataCategory: ImageUrl`),
+  each from the measure its card showed and the reference line under it, at the
+  tile's own aspect. Rates carry a progress rail.
+- **Every page opens with a header** stating the page, its place in the report
+  and the filters in effect, with Previous and Next page buttons.
+- **Slicers sit in a filter panel** that two bookmarks open and close without
+  resetting a filter, and the Filters button counts the filters in effect. The
+  what-if sliders stay on the simulator page.
+- **Dark filter chrome:** the theme styles the filter pane, filter cards and
+  buttons, which opened white or as empty boxes.
+
+Microsoft's `powerbi-report-author validate` passes with no errors or warnings.
+[`tests/test_powerbi_report.py`](tests/test_powerbi_report.py) pins the ways
+these patterns fail silently: an unescaped `%` turns every SVG fill black, a
+bookmark that also captures data resets the filters, and a button pointing at a
+page or bookmark that does not exist does nothing.
 
 ### What it looks like
 

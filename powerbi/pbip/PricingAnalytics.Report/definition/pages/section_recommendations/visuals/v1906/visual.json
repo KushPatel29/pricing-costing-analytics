@@ -3,11 +3,11 @@
   "name": "v1906",
   "position": {
     "x": 534,
-    "y": 152,
-    "z": 2805,
-    "height": 272,
+    "y": 208,
+    "z": 2815,
+    "height": 246,
     "width": 726,
-    "tabOrder": 2805
+    "tabOrder": 2815
   },
   "visual": {
     "visualType": "tableEx",

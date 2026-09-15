@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Unit economics - filters open",
+  "name": "p09FiltersOpen",
+  "options": {
+    "targetVisualNames": [
+      "p09FilterPanel",
+      "p09PanelBg",
+      "p09PanelTitle",
+      "p09PanelClose",
+      "v0909",
+      "v0910",
+      "p09PanelClear"
+    ],
+    "applyOnlyToTargetVisuals": true,
+    "suppressData": true,
+    "suppressActiveSection": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "section_unit_economics",
+    "sections": {
+      "section_unit_economics": {
+        "visualContainers": {
+          "p09PanelBg": {},
+          "p09PanelTitle": {},
+          "p09PanelClose": {},
+          "v0909": {},
+          "v0910": {},
+          "p09PanelClear": {}
+        },
+        "visualContainerGroups": {
+          "p09FilterPanel": {
+            "isHidden": false
+          }
+        }
+      }
+    }
+  }
+}

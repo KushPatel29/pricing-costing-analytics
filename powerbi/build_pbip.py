@@ -46,6 +46,19 @@ from powerbi.model_spec import (
     TABLES,
     WHATIF_PARAMETERS,
 )
+from powerbi.report_chrome import (
+    ACCENT,
+    CHROME_KINDS,
+    EDGE,
+    PANEL,
+    PANEL_X,
+    PANEL_Y,
+    RAISED,
+    bookmarks,
+    theme_styles,
+    tile_measure,
+    ui_measures,
+)
 from powerbi.report_spec import PAGES, VISUAL_TYPES
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -73,6 +86,8 @@ SCHEMA = {
     "pages": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
     "page": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.4.0/schema.json",
     "visual": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "bookmark": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+    "bookmarks": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json",
 }
 
 # Stable ids: same name in, same GUID out, so a rebuild produces no diff.
@@ -221,6 +236,21 @@ def measures_tmdl() -> str:
             lines.append(f"\t\tformatString: {fmt}")
         lines.append(f"\t\tlineageTag: {tag('measure', name)}")
         lines.append(f"\t\tdisplayFolder: {folder}")
+        lines.append("")
+
+    # The report's own measures: SVG tiles and headers, filter context and the
+    # Filters button's label. Written from the page specs, kept out of MEASURES
+    # so the metric reference stays a list of business definitions.
+    formats = {name: fmt for name, _dax, fmt, _folder in MEASURES}
+    for name, dax, image in ui_measures(PAGES, formats):
+        lines.append(f"\tmeasure '{name}' =")
+        lines.extend(f"\t\t\t{line}" if line else "" for line in dax.split("\n"))
+        lines.append(f"\t\tlineageTag: {tag('measure', name)}")
+        if image:
+            # Without it the image visual shows nothing: the string is a data
+            # URI only once the column says it is one.
+            lines.append("\t\tdataCategory: ImageUrl")
+        lines.append("\t\tdisplayFolder: Report UI")
         lines.append("")
 
     # A measures table needs one hidden column or Desktop will not show it in
@@ -495,11 +525,164 @@ def projection(reference: str, *, active: bool = False) -> dict:
     return out
 
 
+def colour(hex_code: str) -> dict:
+    return {"solid": {"color": literal(hex_code)}}
+
+
+def raw(value: str) -> dict:
+    """A literal written exactly, for the integers (`8L`) some shape properties take."""
+    return {"expr": {"Literal": {"Value": value}}}
+
+
+def _off(*names: str) -> dict[str, list]:
+    return {name: [{"properties": {"show": literal(False)}}] for name in names}
+
+
+def _padding(size: int) -> list[dict]:
+    return [{"properties": {side: literal(size) for side in ("top", "bottom", "left", "right")}}]
+
+
+def _alt(text: str) -> list[dict]:
+    return [{"properties": {"altText": literal(text)}}]
+
+
+def _measure(name: str) -> dict:
+    return field_expr(f"[{name}]")[0]
+
+
+def _image(measure: str, alt: str, *, framed: bool) -> dict:
+    containers = {"general": _alt(alt), "padding": _padding(0), **_off("title")}
+    if not framed:
+        containers.update(_off("background", "border", "dropShadow"))
+    return {
+        "visualType": "image",
+        "objects": {"image": [{"properties": {
+            "sourceType": literal("imageUrl"),
+            "sourceUrl": {"expr": _measure(measure)},
+            "fit": literal("Fit"),
+        }}]},
+        "visualContainerObjects": containers,
+    }
+
+
+def _button(text: dict, alt: str, link: dict) -> dict:
+    return {
+        "visualType": "actionButton",
+        "objects": {
+            "icon": [{"properties": {"show": literal(False)}, "selector": {"id": "default"}}],
+            "text": [{"properties": {"show": literal(True), "text": text,
+                                     "fontColor": colour(INK), "fontSize": literal(10)},
+                      "selector": {"id": "default"}}],
+            "fill": [{"properties": {"show": literal(True), "fillColor": colour(RAISED),
+                                     "transparency": literal(0)},
+                      "selector": {"id": "default"}},
+                     {"properties": {"show": literal(True), "fillColor": colour(EDGE),
+                                     "transparency": literal(0)},
+                      "selector": {"id": "hover"}}],
+            "outline": [{"properties": {"show": literal(True), "lineColor": colour(EDGE),
+                                        "weight": literal(1)},
+                         "selector": {"id": "default"}},
+                        {"properties": {"show": literal(True), "lineColor": colour(ACCENT),
+                                        "weight": literal(1)},
+                         "selector": {"id": "hover"}}],
+            "shape": [{"properties": {"tileShape": literal("rectangleRounded"),
+                                      "roundEdge": raw("8L")}}],
+        },
+        "visualContainerObjects": {
+            # visualLink is how a button acts; in Desktop's edit mode it takes
+            # Ctrl+click, in reading view and the Service a plain click.
+            "visualLink": [{"properties": {"show": literal(True), **link}}],
+            "general": _alt(alt),
+            "padding": _padding(0),
+            **_off("background", "border", "dropShadow", "title"),
+        },
+    }
+
+
+def chrome_visual_json(spec: dict, index: int) -> dict:
+    """The frame report_chrome adds, and every card drawn as an SVG tile."""
+    kind = spec["type"]
+    x, y, width, height = spec["pos"]
+    z = 30000 + index if (spec.get("group") or kind == "filter_panel") else 1000 + index
+    if spec.get("group"):
+        # A group's children are positioned relative to the group. Absolute
+        # page coordinates put every one of them off the canvas.
+        x, y = x - PANEL_X, y - PANEL_Y
+    doc: dict = {
+        "$schema": SCHEMA["visual"],
+        "name": spec["id"],
+        "position": {"x": x, "y": y, "z": z, "height": height, "width": width, "tabOrder": z},
+    }
+    if kind == "filter_panel":
+        doc["visualGroup"] = {"displayName": "Filter panel", "groupMode": "ScaleMode",
+                              "objects": {"background": [{"properties": {"show": literal(False)}}]}}
+        doc["isHidden"] = True
+        return doc
+
+    if kind == "card":
+        alt = spec["alt"]
+        if alt.startswith("Card."):
+            alt = "KPI tile." + alt[len("Card."):]
+        visual = _image(tile_measure(spec), alt, framed=True)
+    elif kind == "page_header":
+        visual = _image(spec["measure"], spec["alt"], framed=False)
+    elif kind == "nav":
+        visual = _button(literal(spec["label"]), spec["alt"],
+                         {"type": literal("PageNavigation"),
+                          "navigationSection": literal(spec["target"])})
+    elif kind == "filters_button":
+        visual = _button({"expr": _measure(spec["measure"])}, spec["alt"],
+                         {"type": literal("Bookmark"), "bookmark": literal(spec["bookmark"])})
+    elif kind == "panel_close":
+        visual = _button(literal(spec["label"]), spec["alt"],
+                         {"type": literal("Bookmark"), "bookmark": literal(spec["bookmark"])})
+    elif kind == "panel_clear":
+        visual = _button(literal(spec["label"]), spec["alt"], {"type": literal("ClearAllSlicers")})
+    elif kind == "panel_background":
+        visual = {
+            "visualType": "shape",
+            "objects": {
+                "shape": [{"properties": {"tileShape": literal("rectangleRounded"),
+                                          "rectangleRoundedCurve": raw("12L")},
+                           "selector": {"id": "default"}}],
+                "fill": [{"properties": {"show": literal(True), "fillColor": colour(PANEL),
+                                         "transparency": literal(0)},
+                          "selector": {"id": "default"}}],
+                "outline": [{"properties": {"show": literal(True), "lineColor": colour(EDGE),
+                                            "weight": literal(1)},
+                             "selector": {"id": "default"}}],
+            },
+            "visualContainerObjects": {"general": _alt(spec["alt"]), **_off("title")},
+        }
+    elif kind == "panel_title":
+        visual = {
+            "visualType": "textbox",
+            "objects": {"general": [{"properties": {"paragraphs": [{"textRuns": [{
+                "value": spec["text"],
+                "textStyle": {"fontFamily": "Segoe UI Semibold", "fontSize": "13pt", "color": INK},
+            }]}]}}]},
+            "visualContainerObjects": {"general": _alt(spec["alt"]), "padding": _padding(0),
+                                       **_off("background", "border", "dropShadow", "title")},
+        }
+    else:
+        raise ValueError(f"no writer for a {kind!r} visual")
+    if spec.get("group"):
+        doc["parentGroupName"] = spec["group"]
+    doc["visual"] = visual
+    return doc
+
+
 def visual_json(spec: dict, index: int) -> dict:
     kind = spec["type"]
+    if kind == "card" or kind in CHROME_KINDS:
+        return chrome_visual_json(spec, index)
     visual_type = VISUAL_TYPES[kind]
     x, y, width, height = spec["pos"]
     z = 1000 + index
+    if spec.get("group"):
+        # A slicer in the filter panel: above the page, relative to its group.
+        z = 30000 + index
+        x, y = x - PANEL_X, y - PANEL_Y
 
     query_state: dict[str, dict] = {}
     if kind == "card":
@@ -566,6 +749,13 @@ def visual_json(spec: dict, index: int) -> dict:
         objects["data"] = [{"properties": {"mode": literal("Dropdown")}}]
         objects["items"] = [{"properties": {"textSize": literal(10)}}]
 
+    if kind == "slicer" and spec.get("group"):
+        objects["items"] = [{"properties": {"textSize": literal(10), "background": colour(PANEL),
+                                            "fontColor": colour(INK)}}]
+        container_objects["background"] = [{"properties": {
+            "show": literal(True), "color": colour(SURFACE), "transparency": literal(0)}}]
+        container_objects["padding"] = _padding(8)
+
     query: dict = {"queryState": query_state}
     if spec.get("sort"):
         # A waterfall, a traffic light and a banded cross-tab all mean their
@@ -592,13 +782,16 @@ def visual_json(spec: dict, index: int) -> dict:
     if objects:
         body["objects"] = objects
 
-    return {
+    doc = {
         "$schema": SCHEMA["visual"],
         "name": spec["id"],
         "position": {"x": x, "y": y, "z": z, "height": height, "width": width,
                      "tabOrder": z},
         "visual": body,
     }
+    if spec.get("group"):
+        doc["parentGroupName"] = spec["group"]
+    return doc
 
 
 # --------------------------------------------------------------------------
@@ -634,8 +827,11 @@ def theme_json() -> dict:
     light theme's order would put the *strongest* colour on the smallest
     number, which no reader would think to question.
     """
-    return {
-        "name": "PricingCanvasDark",
+    theme = {
+        # The theme's name has to be its file name, .json included: report.json
+        # refers to it that way, and Microsoft's validator reports the mismatch
+        # as one that stops the theme loading.
+        "name": THEME,
         "dataColors": list(SERIES),
         "background": PLANE,
         "foreground": INK,
@@ -717,17 +913,17 @@ def theme_json() -> dict:
                     # closed control from these instead, which is why every
                     # slicer came out white on a dark page.
                     "items": [{"fontColor": {"solid": {"color": INK}},
-                               "background": {"solid": {"color": "#1b1b20"}},
-                               "outlineColor": {"solid": {"color": HAIRLINE}}}],
+                               "background": {"solid": {"color": "#1b1b20"}}}],
                     # Off. It prints the *field* name under a visual title
                     # that already names the filter, and the two stacked leave
                     # a 76px slicer with its dropdown hanging off the bottom.
                     "header": [{"show": False}],
-                    "selection": [{"strokeColor": {"solid": {"color": SERIES[0]}}}],
                 }
             },
         },
     }
+    theme["visualStyles"].update(theme_styles())
+    return theme
 
 
 # --------------------------------------------------------------------------
@@ -815,7 +1011,7 @@ def build(out_dir: Path, data_root: Path) -> dict[str, int]:
         })
         for visual_index, spec in enumerate(page["visuals"]):
             spec = dict(spec)
-            spec["id"] = f"v{page_index + 1:02d}{visual_index + 1:02d}"
+            spec["id"] = spec.get("id") or f"v{page_index + 1:02d}{visual_index + 1:02d}"
             write_json(page_dir / "visuals" / spec["id"] / "visual.json",
                        visual_json(spec, page_index * 100 + visual_index))
             visual_count += 1
@@ -825,6 +1021,13 @@ def build(out_dir: Path, data_root: Path) -> dict[str, int]:
         "pageOrder": [p["name"] for p in PAGES],
         "activePageName": PAGES[0]["name"],
     })
+    saved = bookmarks(PAGES)
+    for bookmark in saved:
+        write_json(report_dir / "definition" / "bookmarks" / f"{bookmark['name']}.bookmark.json",
+                   {"$schema": SCHEMA["bookmark"], **bookmark})
+    if saved:
+        write_json(report_dir / "definition" / "bookmarks" / "bookmarks.json",
+                   {"$schema": SCHEMA["bookmarks"], "items": [{"name": b["name"]} for b in saved]})
     write_json(report_dir / "definition" / "version.json",
                {"$schema": SCHEMA["version"], "version": "2.0.0"})
     # `reportVersionAtImport` is required on every entry in themeCollection.

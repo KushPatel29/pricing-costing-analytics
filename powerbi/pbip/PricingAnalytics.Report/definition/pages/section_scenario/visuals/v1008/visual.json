@@ -3,11 +3,11 @@
   "name": "v1008",
   "position": {
     "x": 942,
-    "y": 152,
-    "z": 1907,
+    "y": 208,
+    "z": 1910,
     "height": 76,
     "width": 318,
-    "tabOrder": 1907
+    "tabOrder": 1910
   },
   "visual": {
     "visualType": "slicer",

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Pricing operations - filters closed",
+  "name": "p15FiltersClosed",
+  "options": {
+    "targetVisualNames": [
+      "p15FilterPanel",
+      "p15PanelBg",
+      "p15PanelTitle",
+      "p15PanelClose",
+      "v1507",
+      "v1508",
+      "p15PanelClear"
+    ],
+    "applyOnlyToTargetVisuals": true,
+    "suppressData": true,
+    "suppressActiveSection": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "section_operations",
+    "sections": {
+      "section_operations": {
+        "visualContainers": {
+          "p15PanelBg": {},
+          "p15PanelTitle": {},
+          "p15PanelClose": {},
+          "v1507": {},
+          "v1508": {},
+          "p15PanelClear": {}
+        },
+        "visualContainerGroups": {
+          "p15FilterPanel": {
+            "isHidden": true
+          }
+        }
+      }
+    }
+  }
+}

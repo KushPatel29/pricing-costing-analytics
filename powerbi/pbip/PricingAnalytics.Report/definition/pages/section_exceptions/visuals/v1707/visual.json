@@ -3,11 +3,11 @@
   "name": "v1707",
   "position": {
     "x": 848,
-    "y": 152,
-    "z": 2606,
-    "height": 272,
+    "y": 208,
+    "z": 2617,
+    "height": 246,
     "width": 412,
-    "tabOrder": 2606
+    "tabOrder": 2617
   },
   "visual": {
     "visualType": "donutChart",

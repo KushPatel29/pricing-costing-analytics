@@ -1,0 +1,113 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json",
+  "items": [
+    {
+      "name": "p01FiltersOpen"
+    },
+    {
+      "name": "p01FiltersClosed"
+    },
+    {
+      "name": "p02FiltersOpen"
+    },
+    {
+      "name": "p02FiltersClosed"
+    },
+    {
+      "name": "p03FiltersOpen"
+    },
+    {
+      "name": "p03FiltersClosed"
+    },
+    {
+      "name": "p04FiltersOpen"
+    },
+    {
+      "name": "p04FiltersClosed"
+    },
+    {
+      "name": "p05FiltersOpen"
+    },
+    {
+      "name": "p05FiltersClosed"
+    },
+    {
+      "name": "p06FiltersOpen"
+    },
+    {
+      "name": "p06FiltersClosed"
+    },
+    {
+      "name": "p07FiltersOpen"
+    },
+    {
+      "name": "p07FiltersClosed"
+    },
+    {
+      "name": "p08FiltersOpen"
+    },
+    {
+      "name": "p08FiltersClosed"
+    },
+    {
+      "name": "p09FiltersOpen"
+    },
+    {
+      "name": "p09FiltersClosed"
+    },
+    {
+      "name": "p11FiltersOpen"
+    },
+    {
+      "name": "p11FiltersClosed"
+    },
+    {
+      "name": "p12FiltersOpen"
+    },
+    {
+      "name": "p12FiltersClosed"
+    },
+    {
+      "name": "p13FiltersOpen"
+    },
+    {
+      "name": "p13FiltersClosed"
+    },
+    {
+      "name": "p14FiltersOpen"
+    },
+    {
+      "name": "p14FiltersClosed"
+    },
+    {
+      "name": "p15FiltersOpen"
+    },
+    {
+      "name": "p15FiltersClosed"
+    },
+    {
+      "name": "p16FiltersOpen"
+    },
+    {
+      "name": "p16FiltersClosed"
+    },
+    {
+      "name": "p17FiltersOpen"
+    },
+    {
+      "name": "p17FiltersClosed"
+    },
+    {
+      "name": "p18FiltersOpen"
+    },
+    {
+      "name": "p18FiltersClosed"
+    },
+    {
+      "name": "p19FiltersOpen"
+    },
+    {
+      "name": "p19FiltersClosed"
+    }
+  ]
+}

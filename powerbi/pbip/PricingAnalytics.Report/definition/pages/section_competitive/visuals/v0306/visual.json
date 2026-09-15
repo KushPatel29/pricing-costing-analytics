@@ -3,11 +3,11 @@
   "name": "v0306",
   "position": {
     "x": 434,
-    "y": 152,
-    "z": 1205,
-    "height": 272,
+    "y": 208,
+    "z": 1216,
+    "height": 246,
     "width": 400,
-    "tabOrder": 1205
+    "tabOrder": 1216
   },
   "visual": {
     "visualType": "scatterChart",

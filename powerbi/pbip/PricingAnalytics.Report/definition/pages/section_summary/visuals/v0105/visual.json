@@ -3,11 +3,11 @@
   "name": "v0105",
   "position": {
     "x": 20,
-    "y": 152,
-    "z": 1004,
-    "height": 272,
+    "y": 208,
+    "z": 1014,
+    "height": 246,
     "width": 620,
-    "tabOrder": 1004
+    "tabOrder": 1014
   },
   "visual": {
     "visualType": "lineChart",

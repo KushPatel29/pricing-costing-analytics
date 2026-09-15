@@ -1,5 +1,5 @@
 {
-  "name": "PricingCanvasDark",
+  "name": "PricingCanvasDark.json",
   "dataColors": [
     "#3987e5",
     "#d95926",
@@ -289,11 +289,6 @@
               "solid": {
                 "color": "#1b1b20"
               }
-            },
-            "outlineColor": {
-              "solid": {
-                "color": "#26262a"
-              }
             }
           }
         ],
@@ -301,14 +296,130 @@
           {
             "show": false
           }
-        ],
-        "selection": [
+        ]
+      }
+    },
+    "actionButton": {
+      "*": {
+        "fill": [
           {
-            "strokeColor": {
+            "show": true,
+            "fillColor": {
+              "solid": {
+                "color": "#1b1b20"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "outline": [
+          {
+            "show": true,
+            "lineColor": {
+              "solid": {
+                "color": "#3a3a41"
+              }
+            },
+            "weight": 1
+          }
+        ],
+        "text": [
+          {
+            "show": true,
+            "fontColor": {
+              "solid": {
+                "color": "#f2f2f4"
+              }
+            },
+            "fontSize": 10,
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "outspacePane": [
+          {
+            "backgroundColor": {
+              "solid": {
+                "color": "#101013"
+              }
+            },
+            "foregroundColor": {
+              "solid": {
+                "color": "#f2f2f4"
+              }
+            },
+            "border": true,
+            "borderColor": {
+              "solid": {
+                "color": "#3a3a41"
+              }
+            },
+            "checkboxAndApplyColor": {
               "solid": {
                 "color": "#3987e5"
               }
-            }
+            },
+            "inputBoxColor": {
+              "solid": {
+                "color": "#1b1b20"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "filterCard": [
+          {
+            "$id": "Available",
+            "backgroundColor": {
+              "solid": {
+                "color": "#141416"
+              }
+            },
+            "foregroundColor": {
+              "solid": {
+                "color": "#f2f2f4"
+              }
+            },
+            "border": true,
+            "borderColor": {
+              "solid": {
+                "color": "#3a3a41"
+              }
+            },
+            "inputBoxColor": {
+              "solid": {
+                "color": "#1b1b20"
+              }
+            },
+            "transparency": 0
+          },
+          {
+            "$id": "Applied",
+            "backgroundColor": {
+              "solid": {
+                "color": "#1b1b20"
+              }
+            },
+            "foregroundColor": {
+              "solid": {
+                "color": "#f2f2f4"
+              }
+            },
+            "border": true,
+            "borderColor": {
+              "solid": {
+                "color": "#3987e5"
+              }
+            },
+            "inputBoxColor": {
+              "solid": {
+                "color": "#1b1b20"
+              }
+            },
+            "transparency": 0
           }
         ]
       }

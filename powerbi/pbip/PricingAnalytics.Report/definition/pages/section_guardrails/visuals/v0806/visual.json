@@ -3,11 +3,11 @@
   "name": "v0806",
   "position": {
     "x": 534,
-    "y": 152,
-    "z": 1705,
-    "height": 272,
+    "y": 208,
+    "z": 1716,
+    "height": 246,
     "width": 400,
-    "tabOrder": 1705
+    "tabOrder": 1716
   },
   "visual": {
     "visualType": "clusteredBarChart",

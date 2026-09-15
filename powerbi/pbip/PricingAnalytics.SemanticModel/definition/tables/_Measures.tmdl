@@ -1082,6 +1082,1881 @@ table _Measures
 		lineageTag: 956d6dc8-ba19-51dc-899f-c5a59bb311cb
 		displayFolder: 12 Labels
 
+	measure 'Filter Context - Executive summary' =
+			VAR vText = IF(ISFILTERED('dim_month'[fiscal_year_label]), CONCATENATEX(VALUES('dim_month'[fiscal_year_label]), 'dim_month'[fiscal_year_label], ", "), "all fiscal years") & " · " & IF(ISFILTERED('dim_product'[category]), CONCATENATEX(VALUES('dim_product'[category]), 'dim_product'[category], ", "), "all category")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: 8d4b2dea-365d-545e-9c52-155f38dce1c1
+		displayFolder: Report UI
+
+	measure 'Header SVG - Executive summary' =
+			VAR vContext = "Page 1 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Executive summary], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Executive summary</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 66c82669-1ad4-5a2f-a424-0548cf63daa8
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Executive summary' =
+			VAR vOn = INT(ISFILTERED('dim_month'[fiscal_year_label])) + INT(ISFILTERED('dim_product'[category]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: 9c2b8e3d-8769-59aa-91c8-482e07b6eebc
+		displayFolder: Report UI
+
+	measure 'KPI SVG Pocket revenue | Margin reference @314' =
+			VAR vValue = [Pocket revenue]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = SUBSTITUTE(SUBSTITUTE(COALESCE([Margin reference], ""), "&", "&amp;"), "<", "&lt;")
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Pocket revenue</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: acf69294-abf5-512d-831a-eb14a1832b05
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Pocket margin % @310' =
+			VAR vValue = [Pocket margin %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vRail = ROUND(278 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Pocket margin %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='278' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: c3cd43e0-236c-55a2-8865-b7d9b12c03c8
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Leakage % | Leakage reference @314' =
+			VAR vValue = [Leakage %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = SUBSTITUTE(SUBSTITUTE(COALESCE([Leakage reference], ""), "&", "&amp;"), "<", "&lt;")
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vRail = ROUND(282 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Leakage %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='282' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 7c7a4539-9d57-54c5-aac8-500de8d19b69
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Margin at risk @333' =
+			VAR vValue = [Margin at risk]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Margin at risk</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: f179b397-5703-5811-b95b-92a1d73bce97
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Price waterfall' =
+			VAR vText = IF(ISFILTERED('leakage_by_dimension'[dimension]), CONCATENATEX(VALUES('leakage_by_dimension'[dimension]), 'leakage_by_dimension'[dimension], ", "), "all dimension") & " · " & IF(ISFILTERED('leakage_by_dimension'[bucket]), CONCATENATEX(VALUES('leakage_by_dimension'[bucket]), 'leakage_by_dimension'[bucket], ", "), "all bucket")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: 5ee8094a-00cf-54d1-bd98-baef0c9b6701
+		displayFolder: Report UI
+
+	measure 'Header SVG - Price waterfall' =
+			VAR vContext = "Page 2 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Price waterfall], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Price waterfall</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 5277145b-73f9-5c00-b066-a43d0cf87b57
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Price waterfall' =
+			VAR vOn = INT(ISFILTERED('leakage_by_dimension'[dimension])) + INT(ISFILTERED('leakage_by_dimension'[bucket]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: a8a7c10e-30c1-5649-ab9b-8edbdf14232e
+		displayFolder: Report UI
+
+	measure 'KPI SVG List value @314' =
+			VAR vValue = [List value]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>List value</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 2d34b8a4-9e87-520f-92a3-f896c1e243f6
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Invoice revenue @310' =
+			VAR vValue = [Invoice revenue]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Invoice revenue</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 23bdf74d-f503-517a-9f85-3b74d10423f3
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Pocket revenue @314' =
+			VAR vValue = [Pocket revenue]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Pocket revenue</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: ab4ee4b8-cb9e-5b4e-b27d-cf64866f117f
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Leakage % @333' =
+			VAR vValue = [Leakage %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vRail = ROUND(301 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Leakage %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='301' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 9438de49-054d-57e0-9953-87682f008476
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Competitive position' =
+			VAR vText = IF(ISFILTERED('competitive_index'[position]), CONCATENATEX(VALUES('competitive_index'[position]), 'competitive_index'[position], ", "), "all position") & " · " & IF(ISFILTERED('dim_product'[category]), CONCATENATEX(VALUES('dim_product'[category]), 'dim_product'[category], ", "), "all category")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: 7b0eadd5-d8fd-5b79-ad02-89d6d489d685
+		displayFolder: Report UI
+
+	measure 'Header SVG - Competitive position' =
+			VAR vContext = "Page 3 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Competitive position], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Competitive position</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: b3e0548e-6f0f-5686-b7c3-15d6746c6099
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Competitive position' =
+			VAR vOn = INT(ISFILTERED('competitive_index'[position])) + INT(ISFILTERED('dim_product'[category]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: 7a35f7d2-a84d-53bb-9cf4-cf345831bd2f
+		displayFolder: Report UI
+
+	measure 'KPI SVG Price index | Index reference @314' =
+			VAR vValue = [Price index]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "#,0.0"))
+			VAR vCaptionRaw = SUBSTITUTE(SUBSTITUTE(COALESCE([Index reference], ""), "&", "&amp;"), "<", "&lt;")
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Price index</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: ed40d746-2dca-538b-8a7a-5161e0a7d6d4
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Products under market @310' =
+			VAR vValue = [Products under market]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "#,0"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Products under market</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 557ee608-8113-5ba2-a9e0-ee7066026184
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Products over market @314' =
+			VAR vValue = [Products over market]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "#,0"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Products over market</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 28ebf5c2-1bf8-5747-aa08-61784291c5f7
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Pass-through to pocket @333' =
+			VAR vValue = [Pass-through to pocket]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.00"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Pass-through to pocket</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 2aa75770-da20-54c0-9039-195f1c6245ac
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Elasticity' =
+			VAR vText = IF(ISFILTERED('elasticity_estimates'[scope]), CONCATENATEX(VALUES('elasticity_estimates'[scope]), 'elasticity_estimates'[scope], ", "), "all scope") & " · " & IF(ISFILTERED('price_response_curve'[category]), CONCATENATEX(VALUES('price_response_curve'[category]), 'price_response_curve'[category], ", "), "all category")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: 7cbce0da-e3e9-5c20-aeed-355ef07b5c34
+		displayFolder: Report UI
+
+	measure 'Header SVG - Elasticity' =
+			VAR vContext = "Page 4 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Elasticity], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Elasticity</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: baf2e3b8-c7fb-5b14-961d-6e82b5580528
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Elasticity' =
+			VAR vOn = INT(ISFILTERED('elasticity_estimates'[scope])) + INT(ISFILTERED('price_response_curve'[category]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: eac193f2-79d5-5564-b180-4dc57b72afa8
+		displayFolder: Report UI
+
+	measure 'KPI SVG Elasticity @314' =
+			VAR vValue = [Elasticity]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.00"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Elasticity</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 988963ed-76f8-5cc8-a612-cd5fe1e82d98
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Elasticity fit @310' =
+			VAR vValue = [Elasticity fit]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.000"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Elasticity fit</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 9e7a4847-6a1b-577e-a73c-3a7cd123a41f
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Break-even volume % @314' =
+			VAR vValue = [Break-even volume %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vRail = ROUND(282 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Break-even volume %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='282' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: dd40ea5d-7d92-5741-b390-fa8673e89841
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Expected margin change @333' =
+			VAR vValue = [Expected margin change]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Expected margin change</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 32140158-10f9-5494-a6c3-ca247bb60cf5
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Cost variance' =
+			VAR vText = IF(ISFILTERED('cost_variance_long'[variance_type]), CONCATENATEX(VALUES('cost_variance_long'[variance_type]), 'cost_variance_long'[variance_type], ", "), "all variance type") & " · " & IF(ISFILTERED('dim_month'[fiscal_year_label]), CONCATENATEX(VALUES('dim_month'[fiscal_year_label]), 'dim_month'[fiscal_year_label], ", "), "all fiscal years")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: 76fc6245-ae8b-5b3c-8714-5470f079e6fa
+		displayFolder: Report UI
+
+	measure 'Header SVG - Cost variance' =
+			VAR vContext = "Page 5 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Cost variance], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Cost variance</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: a8790cd9-465d-557f-a8c7-bf444d4ca8bb
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Cost variance' =
+			VAR vOn = INT(ISFILTERED('cost_variance_long'[variance_type])) + INT(ISFILTERED('dim_month'[fiscal_year_label]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: b55e2839-418c-52d0-9502-019f278bcd6d
+		displayFolder: Report UI
+
+	measure 'KPI SVG Purchase price variance @314' =
+			VAR vValue = [Purchase price variance]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Purchase price variance</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 37dbf2d0-3f3c-5e5b-a547-05bb3dd2f7d7
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Yield variance @310' =
+			VAR vValue = [Yield variance]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Yield variance</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 8ba1b765-1fe5-5db9-bf18-f6b0239867e8
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Labour variance @314' =
+			VAR vValue = [Labour variance]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Labour variance</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: e6a46143-dae4-5959-abad-c04f453bb550
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Margin vs budget @333' =
+			VAR vValue = [Margin vs budget]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Margin vs budget</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: ccfe1cb5-bab8-5e96-b41e-b9183470e0b4
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Margin bridge' =
+			VAR vText = IF(ISFILTERED('margin_bridge_effects'[comparison]), CONCATENATEX(VALUES('margin_bridge_effects'[comparison]), 'margin_bridge_effects'[comparison], ", "), "all comparison") & " · " & IF(ISFILTERED('dim_product'[category]), CONCATENATEX(VALUES('dim_product'[category]), 'dim_product'[category], ", "), "all category")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: c0a0c0f4-36dc-5328-8a73-c242998c039a
+		displayFolder: Report UI
+
+	measure 'Header SVG - Margin bridge' =
+			VAR vContext = "Page 6 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Margin bridge], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Margin bridge</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 195396af-ec79-5afa-8962-afeec7cec69e
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Margin bridge' =
+			VAR vOn = INT(ISFILTERED('margin_bridge_effects'[comparison])) + INT(ISFILTERED('dim_product'[category]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: a58ea2e5-b0bb-5b90-b550-a92628582998
+		displayFolder: Report UI
+
+	measure 'KPI SVG Pocket margin $ | Margin reference @314' =
+			VAR vValue = [Pocket margin $]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = SUBSTITUTE(SUBSTITUTE(COALESCE([Margin reference], ""), "&", "&amp;"), "<", "&lt;")
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Pocket margin $</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: e3c3cf91-ceab-5ba4-a1e7-a3b08a0b1257
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Pocket margin $ LY @310' =
+			VAR vValue = [Pocket margin $ LY]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Pocket margin $ LY</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: da69f32a-71bc-553b-b034-412694ce2be5
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Pocket margin YoY pts @314' =
+			VAR vValue = [Pocket margin YoY pts]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vRail = ROUND(282 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Pocket margin YoY pts</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='282' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: daf51500-0a24-576e-a696-225efa301c9c
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Pocket revenue YoY % @333' =
+			VAR vValue = [Pocket revenue YoY %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vRail = ROUND(301 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Pocket revenue YoY %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='301' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 0ecc4ae7-0402-5332-8db5-91ee7904f58b
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Price bands and WTP' =
+			VAR vText = IF(ISFILTERED('segment_profile'[dimension]), CONCATENATEX(VALUES('segment_profile'[dimension]), 'segment_profile'[dimension], ", "), "all dimension") & " · " & IF(ISFILTERED('wtp_curve'[kind]), CONCATENATEX(VALUES('wtp_curve'[kind]), 'wtp_curve'[kind], ", "), "all kind")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: 53adb4a9-7eaa-5d0c-bb8f-8865b682b18c
+		displayFolder: Report UI
+
+	measure 'Header SVG - Price bands and WTP' =
+			VAR vContext = "Page 7 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Price bands and WTP], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Price bands and WTP</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 25f54126-728e-5d87-98e2-e88dcffe6d88
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Price bands and WTP' =
+			VAR vOn = INT(ISFILTERED('segment_profile'[dimension])) + INT(ISFILTERED('wtp_curve'[kind]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: 095ccac0-38f0-532a-bd29-6c0f14e7bcea
+		displayFolder: Report UI
+
+	measure 'KPI SVG Realisation opportunity @314' =
+			VAR vValue = [Realisation opportunity]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Realisation opportunity</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 9dd079a0-9c30-5be2-b69a-55b36141d747
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Band width % @310' =
+			VAR vValue = [Band width %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vRail = ROUND(278 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Band width %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='278' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: f1fe281e-1660-5c77-98be-c2103b0cd5e7
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Quote win rate @314' =
+			VAR vValue = [Quote win rate]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vRail = ROUND(282 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Quote win rate</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='282' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 0702a284-a6a7-56fb-9c16-b893b340448d
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Indifference price ratio @333' =
+			VAR vValue = [Indifference price ratio]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.000"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Indifference price ratio</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 78b3f5db-4d5e-5b03-a1b6-ee8bd211846d
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Deal guardrails' =
+			VAR vText = IF(ISFILTERED('deal_scores'[verdict]), CONCATENATEX(VALUES('deal_scores'[verdict]), 'deal_scores'[verdict], ", "), "all verdict") & " · " & IF(ISFILTERED('dim_customer'[segment]), CONCATENATEX(VALUES('dim_customer'[segment]), 'dim_customer'[segment], ", "), "all segment")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: 60cd8dd0-cfe9-596e-a2ec-859bafe1714e
+		displayFolder: Report UI
+
+	measure 'Header SVG - Deal guardrails' =
+			VAR vContext = "Page 8 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Deal guardrails], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Deal guardrails</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 6b7acb7b-95aa-5419-af13-83af4dbc0490
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Deal guardrails' =
+			VAR vOn = INT(ISFILTERED('deal_scores'[verdict])) + INT(ISFILTERED('dim_customer'[segment]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: 667575e5-3932-55f8-a707-92a055f79043
+		displayFolder: Report UI
+
+	measure 'KPI SVG Lines scored @314' =
+			VAR vValue = [Lines scored]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "#,0"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Lines scored</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 279920b1-f08c-527f-9df5-f03545817bf3
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Within guardrail % @310' =
+			VAR vValue = [Within guardrail %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vRail = ROUND(278 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Within guardrail %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='278' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 698f0965-4d3a-555c-99ce-4dbe3ba52137
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Guardrail breaches @314' =
+			VAR vValue = [Guardrail breaches]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "#,0"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Guardrail breaches</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: dd77f202-fa19-5c01-be86-c60edcc51357
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Unit economics' =
+			VAR vText = IF(ISFILTERED('dim_product'[category]), CONCATENATEX(VALUES('dim_product'[category]), 'dim_product'[category], ", "), "all category") & " · " & IF(ISFILTERED('break_even_portfolio'[member]), CONCATENATEX(VALUES('break_even_portfolio'[member]), 'break_even_portfolio'[member], ", "), "all member")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: 42cee72a-7cd9-501b-ba59-032b4a24d388
+		displayFolder: Report UI
+
+	measure 'Header SVG - Unit economics' =
+			VAR vContext = "Page 9 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Unit economics], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Unit economics</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 92c34db3-621d-5728-903f-dff034bf6a01
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Unit economics' =
+			VAR vOn = INT(ISFILTERED('dim_product'[category])) + INT(ISFILTERED('break_even_portfolio'[member]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: 279016a5-539d-52bd-a3da-ff7adbeb35a6
+		displayFolder: Report UI
+
+	measure 'KPI SVG Contribution per unit @314' =
+			VAR vValue = [Contribution per unit]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0.00")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Contribution per unit</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: b1e6e72f-f1fa-50a1-b017-86148b1a6c60
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Contribution % @310' =
+			VAR vValue = [Contribution %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vRail = ROUND(278 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Contribution %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='278' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 8ce6a0ea-3a5e-5b2c-b848-18af938abd9e
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Cost to serve % @314' =
+			VAR vValue = [Cost to serve %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vRail = ROUND(282 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Cost to serve %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='282' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 5b74c35a-d2c9-513c-8e03-d884bc0c6108
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Margin of safety @333' =
+			VAR vValue = [Margin of safety]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vRail = ROUND(301 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Margin of safety</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='301' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: aa0e3e11-2bfd-5f19-888c-524382b78175
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Header SVG - What-if simulator' =
+			VAR vContext = "Page 10 of 19"
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>What-if simulator</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: ba2b23ca-4e3e-5d8e-b94b-bdeafa93d652
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Scenario revenue | Scenario reference @314' =
+			VAR vValue = [Scenario revenue]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = SUBSTITUTE(SUBSTITUTE(COALESCE([Scenario reference], ""), "&", "&amp;"), "<", "&lt;")
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Scenario revenue</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 6e4d9bed-cb49-54c4-8787-f132e2ae2b99
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Scenario margin $ @310' =
+			VAR vValue = [Scenario margin $]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Scenario margin $</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 81a0d917-09b9-5487-8ebc-0ce6e98090dd
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Scenario margin % @314' =
+			VAR vValue = [Scenario margin %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vRail = ROUND(282 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Scenario margin %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='282' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: dbd51a4b-53b7-51d7-a5eb-2a07a634b292
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Scenario margin delta @333' =
+			VAR vValue = [Scenario margin delta]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Scenario margin delta</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: a2e19ac0-9bfb-5a01-89b8-8755d68c1e9b
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Forecast against actual' =
+			VAR vText = IF(ISFILTERED('forecast_accuracy'[measure]), CONCATENATEX(VALUES('forecast_accuracy'[measure]), 'forecast_accuracy'[measure], ", "), "all measure") & " · " & IF(ISFILTERED('forecast_series'[period]), CONCATENATEX(VALUES('forecast_series'[period]), 'forecast_series'[period], ", "), "all period")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: 689419ac-2fce-529e-b10b-7c93b0ccc906
+		displayFolder: Report UI
+
+	measure 'Header SVG - Forecast against actual' =
+			VAR vContext = "Page 11 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Forecast against actual], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Forecast against actual</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: e6c9580d-077b-5ba5-b2e8-3102dea3bb2f
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Forecast against actual' =
+			VAR vOn = INT(ISFILTERED('forecast_accuracy'[measure])) + INT(ISFILTERED('forecast_series'[period]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: 2444ee18-b955-55f1-be66-0a6b4b17ba62
+		displayFolder: Report UI
+
+	measure 'KPI SVG Revenue next six months @314' =
+			VAR vValue = [Revenue next six months]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Revenue next six months</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: ae27b537-9557-5fa4-97e3-81b8e4bcb670
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Revenue forecast change % @310' =
+			VAR vValue = [Revenue forecast change %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vRail = ROUND(278 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Revenue forecast change %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='278' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 9e5caa05-680c-5ecc-b1d0-c94de48c4b5b
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Revenue backtest WAPE @314' =
+			VAR vValue = [Revenue backtest WAPE]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vRail = ROUND(282 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Revenue backtest WAPE</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='282' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 32b75082-5a32-58d1-b625-6444497a4aff
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Revenue holdout WAPE @333' =
+			VAR vValue = [Revenue holdout WAPE]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vRail = ROUND(301 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Revenue holdout WAPE</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='301' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 6924af75-4e13-51cd-a4b4-db0b4be845be
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Profitability and segmentation' =
+			VAR vText = IF(ISFILTERED('profitability'[dimension]), CONCATENATEX(VALUES('profitability'[dimension]), 'profitability'[dimension], ", "), "all dimension") & " · " & IF(ISFILTERED('profit_heatmap'[segment]), CONCATENATEX(VALUES('profit_heatmap'[segment]), 'profit_heatmap'[segment], ", "), "all segment")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: 9c97a1ed-6d11-5571-8788-a661cb905e0e
+		displayFolder: Report UI
+
+	measure 'Header SVG - Profitability and segmentation' =
+			VAR vContext = "Page 12 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Profitability and segmentation], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Profitability and segmentation</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 97c59d5d-759a-540d-8089-e5a00fda574e
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Profitability and segmentation' =
+			VAR vOn = INT(ISFILTERED('profitability'[dimension])) + INT(ISFILTERED('profit_heatmap'[segment]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: 670a1cc7-2c26-5e4f-8e4a-b1a3a4a970ca
+		displayFolder: Report UI
+
+	measure 'KPI SVG Operating profit @314' =
+			VAR vValue = [Operating profit]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Operating profit</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 70bbe29f-db55-5615-b660-b6e83a8c7131
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Operating margin % @333' =
+			VAR vValue = [Operating margin %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vRail = ROUND(301 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Operating margin %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='301' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 22848e39-390c-51a6-ac53-6c1ccb80759b
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Discount and promotion' =
+			VAR vText = IF(ISFILTERED('price_vs_volume'[promoted]), CONCATENATEX(VALUES('price_vs_volume'[promoted]), 'price_vs_volume'[promoted], ", "), "all promoted") & " · " & IF(ISFILTERED('dim_product'[category]), CONCATENATEX(VALUES('dim_product'[category]), 'dim_product'[category], ", "), "all category")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: 21fd17bd-c7f7-5d53-9c6c-fb2f531d72a8
+		displayFolder: Report UI
+
+	measure 'Header SVG - Discount and promotion' =
+			VAR vContext = "Page 13 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Discount and promotion], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Discount and promotion</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 6cc2f2f4-e81a-565a-b0e7-c1c7eea1ec69
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Discount and promotion' =
+			VAR vOn = INT(ISFILTERED('price_vs_volume'[promoted])) + INT(ISFILTERED('dim_product'[category]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: 6920c979-e05d-50ad-bb52-0711ee0dd3cc
+		displayFolder: Report UI
+
+	measure 'KPI SVG Banded revenue @314' =
+			VAR vValue = [Banded revenue]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Banded revenue</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 5b0d1218-81ce-5e44-886e-9b3daddd44e8
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Banded margin % @310' =
+			VAR vValue = [Banded margin %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vRail = ROUND(278 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Banded margin %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='278' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 594d5ac0-c55b-57e2-8bfa-9479a8624d84
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Net promo margin @314' =
+			VAR vValue = [Net promo margin]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Net promo margin</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 5c731445-b8ba-5c75-9483-b8d8bf42f2c5
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Promo ROI @333' =
+			VAR vValue = [Promo ROI]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.00"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Promo ROI</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 961ad7e6-12b1-5c2a-a42d-b1e0d99984bd
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Cost elements' =
+			VAR vText = IF(ISFILTERED('cost_element_summary'[behaviour]), CONCATENATEX(VALUES('cost_element_summary'[behaviour]), 'cost_element_summary'[behaviour], ", "), "all behaviour") & " · " & IF(ISFILTERED('cost_element_by_category'[category]), CONCATENATEX(VALUES('cost_element_by_category'[category]), 'cost_element_by_category'[category], ", "), "all category")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: 792ad606-7f9e-512b-b1d7-972f2687be6a
+		displayFolder: Report UI
+
+	measure 'Header SVG - Cost elements' =
+			VAR vContext = "Page 14 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Cost elements], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Cost elements</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: c8188324-e193-58ed-aac1-d6e1a43ece8e
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Cost elements' =
+			VAR vOn = INT(ISFILTERED('cost_element_summary'[behaviour])) + INT(ISFILTERED('cost_element_by_category'[category]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: d0f8b51b-1463-5180-9c16-43b5c536b4e9
+		displayFolder: Report UI
+
+	measure 'KPI SVG Standard cost @314' =
+			VAR vValue = [Standard cost]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Standard cost</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 33507dbe-8071-5c97-9391-bd5607c0719a
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Actual cost @310' =
+			VAR vValue = [Actual cost]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Actual cost</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: f5190acc-2fc7-5711-a07e-4e3d3b5d0e33
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Cost element variance @314' =
+			VAR vValue = [Cost element variance]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Cost element variance</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 9ca23149-d930-59b6-aef6-0de1fb4c8c4a
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Cost element variance % @333' =
+			VAR vValue = [Cost element variance %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vRail = ROUND(301 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Cost element variance %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='301' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: b0696620-9885-5d22-921c-f7f906e9519c
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Pricing operations' =
+			VAR vText = IF(ISFILTERED('price_change_log'[direction]), CONCATENATEX(VALUES('price_change_log'[direction]), 'price_change_log'[direction], ", "), "all direction") & " · " & IF(ISFILTERED('dim_product'[category]), CONCATENATEX(VALUES('dim_product'[category]), 'dim_product'[category], ", "), "all category")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: de15c648-62c7-5d95-9222-93b3adb7d15a
+		displayFolder: Report UI
+
+	measure 'Header SVG - Pricing operations' =
+			VAR vContext = "Page 15 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Pricing operations], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Pricing operations</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: be56890b-b867-5f56-a746-a6354bd81a64
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Pricing operations' =
+			VAR vOn = INT(ISFILTERED('price_change_log'[direction])) + INT(ISFILTERED('dim_product'[category]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: 87b59e77-7a90-558d-844b-529768d65eca
+		displayFolder: Report UI
+
+	measure 'KPI SVG Price changes @314' =
+			VAR vValue = [Price changes]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "#,0"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Price changes</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: f7253648-cd4e-50fc-b75b-d9bf3a5fd250
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Median price change % @310' =
+			VAR vValue = [Median price change %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vRail = ROUND(278 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Median price change %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='278' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: efc8f854-1dc2-5e26-8790-fe4505bb9a8d
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Median days to approve @314' =
+			VAR vValue = [Median days to approve]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "#,0"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Median days to approve</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 415876a9-a88a-52ae-8572-d9e5fa4c444b
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Stale products @333' =
+			VAR vValue = [Stale products]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "#,0"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Stale products</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: ccc37d2f-0b3b-5081-8ced-c753508e6cdb
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Data quality' =
+			VAR vText = IF(ISFILTERED('data_quality_checks'[severity]), CONCATENATEX(VALUES('data_quality_checks'[severity]), 'data_quality_checks'[severity], ", "), "all severity") & " · " & IF(ISFILTERED('data_quality_checks'[dimension]), CONCATENATEX(VALUES('data_quality_checks'[dimension]), 'data_quality_checks'[dimension], ", "), "all dimension")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: fa7fdd46-e62e-5c41-b7fc-fc39e4fcfdae
+		displayFolder: Report UI
+
+	measure 'Header SVG - Data quality' =
+			VAR vContext = "Page 16 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Data quality], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Data quality</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: db1c260d-1997-59ed-8077-10cf4d3afdf6
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Data quality' =
+			VAR vOn = INT(ISFILTERED('data_quality_checks'[severity])) + INT(ISFILTERED('data_quality_checks'[dimension]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: 7f5eb015-e78c-5939-94f1-080afe943f63
+		displayFolder: Report UI
+
+	measure 'KPI SVG Quality score | Quality reference @314' =
+			VAR vValue = [Quality score]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.00%"))
+			VAR vCaptionRaw = SUBSTITUTE(SUBSTITUTE(COALESCE([Quality reference], ""), "&", "&amp;"), "<", "&lt;")
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vRail = ROUND(282 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Quality score</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='282' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 5f35b16f-4c24-5320-8eb4-f440c8bbc17f
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Rows checked @310' =
+			VAR vValue = [Rows checked]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "#,0"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Rows checked</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 373a2c89-03df-52a7-92c7-fb3549e2a7b4
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Rows failing @314' =
+			VAR vValue = [Rows failing]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "#,0"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Rows failing</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: d022f431-02fc-5ddf-8903-d97e5964c2fa
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Critical checks failing @333' =
+			VAR vValue = [Critical checks failing]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "#,0"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Critical checks failing</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 02831577-777b-58ef-a80a-84f1af5ebe63
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Exceptions and alerts' =
+			VAR vText = IF(ISFILTERED('guardrail_exceptions'[alert]), CONCATENATEX(VALUES('guardrail_exceptions'[alert]), 'guardrail_exceptions'[alert], ", "), "all alert") & " · " & IF(ISFILTERED('dim_product'[category]), CONCATENATEX(VALUES('dim_product'[category]), 'dim_product'[category], ", "), "all category")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: 3b0359db-c78d-5d4e-8fd8-285bc608ab85
+		displayFolder: Report UI
+
+	measure 'Header SVG - Exceptions and alerts' =
+			VAR vContext = "Page 17 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Exceptions and alerts], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Exceptions and alerts</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: ae78257b-cc95-5d70-8fea-e183332d06cf
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Exceptions and alerts' =
+			VAR vOn = INT(ISFILTERED('guardrail_exceptions'[alert])) + INT(ISFILTERED('dim_product'[category]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: c3f04681-a154-5da5-8ad6-c6db1ae17da2
+		displayFolder: Report UI
+
+	measure 'KPI SVG Exceptions @314' =
+			VAR vValue = [Exceptions]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "#,0"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Exceptions</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: f2d3dd9d-017f-5658-9b01-eb6bfb94d827
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Red exceptions @310' =
+			VAR vValue = [Red exceptions]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "#,0"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Red exceptions</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 32187f16-0982-5b5a-baa0-0b580b801d21
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Exception margin at risk @314' =
+			VAR vValue = [Exception margin at risk]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Exception margin at risk</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: d8167bc9-fe81-5957-81b4-701e67d2b74c
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Exception margin % @333' =
+			VAR vValue = [Exception margin %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vRail = ROUND(301 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Exception margin %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='301' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: abb9746f-a00a-5c9e-9f22-36e8803d293e
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Bundles' =
+			VAR vText = IF(ISFILTERED('bundle_candidates'[verdict]), CONCATENATEX(VALUES('bundle_candidates'[verdict]), 'bundle_candidates'[verdict], ", "), "all verdict") & " · " & IF(ISFILTERED('bundle_candidates'[category_a]), CONCATENATEX(VALUES('bundle_candidates'[category_a]), 'bundle_candidates'[category_a], ", "), "all category a")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: e91000d3-89eb-5f78-a23b-bf88bbe18b5f
+		displayFolder: Report UI
+
+	measure 'Header SVG - Bundles' =
+			VAR vContext = "Page 18 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Bundles], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Bundles</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 764a556d-2e35-5ae7-a0d6-739b9813ce80
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Bundles' =
+			VAR vOn = INT(ISFILTERED('bundle_candidates'[verdict])) + INT(ISFILTERED('bundle_candidates'[category_a]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: 3bc9ff95-690d-5c32-9b4d-48ce5ff2167b
+		displayFolder: Report UI
+
+	measure 'KPI SVG Bundles considered @314' =
+			VAR vValue = [Bundles considered]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "#,0"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Bundles considered</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 0ded4a11-0cdb-5284-91c9-d8d7cb94648c
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Incremental margin @310' =
+			VAR vValue = [Incremental margin]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Incremental margin</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 80053819-27a1-5381-8ee3-5d7814ffb068
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Break-even cannibalisation @314' =
+			VAR vValue = [Break-even cannibalisation]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vRail = ROUND(282 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Break-even cannibalisation</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='282' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: a971b612-0da5-5eb0-a5bf-b3c3a26e512d
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Cannibalisation headroom @333' =
+			VAR vValue = [Cannibalisation headroom]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vRail = ROUND(301 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Cannibalisation headroom</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='301' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 7a1debad-47c3-518a-9c92-543964becb51
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Context - Recommendations' =
+			VAR vText = IF(ISFILTERED('recommendations'[action]), CONCATENATEX(VALUES('recommendations'[action]), 'recommendations'[action], ", "), "all action") & " · " & IF(ISFILTERED('recommendations'[confidence]), CONCATENATEX(VALUES('recommendations'[confidence]), 'recommendations'[confidence], ", "), "all confidence")
+			RETURN IF(LEN(vText) > 72, LEFT(vText, 70) & "…", vText)
+		lineageTag: 8a68c295-08f8-516d-b602-a71721d6dd41
+		displayFolder: Report UI
+
+	measure 'Header SVG - Recommendations' =
+			VAR vContext = "Page 19 of 19 · " & SUBSTITUTE(SUBSTITUTE([Filter Context - Recommendations], "&", "&amp;"), "<", "&lt;")
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='56' viewBox='0 0 720 56'>"
+			        & "<text x='0' y='24' font-family='Segoe UI Semibold' font-size='18' fill='#f2f2f4'>Recommendations</text>"
+			        & "<text x='0' y='46' font-family='Segoe UI' font-size='11' fill='#7d7d85'>" & vContext & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 87bef4dd-7498-5a00-8bda-6f8512c23332
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'Filter Button Label - Recommendations' =
+			VAR vOn = INT(ISFILTERED('recommendations'[action])) + INT(ISFILTERED('recommendations'[confidence]))
+			RETURN IF(vOn = 0, "Filters", "Filters · " & vOn)
+		lineageTag: 95586c15-9de7-5674-9b33-9a8845383d4b
+		displayFolder: Report UI
+
+	measure 'KPI SVG Products reviewed @314' =
+			VAR vValue = [Products reviewed]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "#,0"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Products reviewed</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 4c0d449f-f3a0-5bfd-80c4-844db6dba2b2
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Margin delta @310' =
+			VAR vValue = [Margin delta]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='310' height='112' viewBox='0 0 310 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Margin delta</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: e53528fa-27fe-5551-b708-7639064dfb75
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Revenue delta @314' =
+			VAR vValue = [Revenue delta]
+			VAR vShown = IF(ISBLANK(vValue), "—", IF(ABS(vValue) >= 1000000, FORMAT(vValue / 1000000, "\$#,0.00") & "M", FORMAT(vValue, "\$#,0")))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 61, LEFT(vCaptionRaw, 59) & "…", vCaptionRaw)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='314' height='112' viewBox='0 0 314 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Revenue delta</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & ""
+			        & "<text x='16' y='90' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 6363ef93-5e13-5d2e-8b9e-65ac96b28eea
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
+	measure 'KPI SVG Recommended move % @333' =
+			VAR vValue = [Recommended move %]
+			VAR vShown = IF(ISBLANK(vValue), "—", FORMAT(vValue, "0.0%"))
+			VAR vCaptionRaw = ""
+			VAR vCaption = IF(LEN(vCaptionRaw) > 66, LEFT(vCaptionRaw, 64) & "…", vCaptionRaw)
+			VAR vRail = ROUND(301 * MAX(0, MIN(1, COALESCE(vValue, 0))), 0)
+			VAR vSvg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' width='333' height='112' viewBox='0 0 333 112'>"
+			        & "<rect x='0' y='18' width='3' height='76' rx='1.5' fill='#3987e5'/>"
+			        & "<text x='16' y='28' font-family='Segoe UI' font-size='11' fill='#a6a6ad'>Recommended move %</text>"
+			        & "<text x='16' y='64' font-family='Segoe UI Light' font-size='30' fill='#f2f2f4'>" & vShown & "</text>"
+			        & "<rect x='16' y='76' width='301' height='6' rx='3' fill='#26262a'/>" & "<rect x='16' y='76' width='" & vRail & "' height='6' rx='3' fill='#3987e5'/>"
+			        & "<text x='16' y='100' font-family='Segoe UI' font-size='10' fill='#7d7d85'>" & vCaption & "</text>"
+			        & "</svg>"
+			RETURN
+			    "data:image/svg+xml;utf8," & SUBSTITUTE(SUBSTITUTE(vSvg, "%", "%25"), "#", "%23")
+		lineageTag: 8e3aa1a1-3888-5fc2-934c-0c7e4d5c4ae6
+		dataCategory: ImageUrl
+		displayFolder: Report UI
+
 	column _placeholder
 		dataType: int64
 		isHidden

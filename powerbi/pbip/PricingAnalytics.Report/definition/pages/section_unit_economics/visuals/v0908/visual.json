@@ -3,11 +3,11 @@
   "name": "v0908",
   "position": {
     "x": 534,
-    "y": 442,
-    "z": 1807,
-    "height": 258,
-    "width": 530,
-    "tabOrder": 1807
+    "y": 470,
+    "z": 1818,
+    "height": 234,
+    "width": 726,
+    "tabOrder": 1818
   },
   "visual": {
     "visualType": "tableEx",

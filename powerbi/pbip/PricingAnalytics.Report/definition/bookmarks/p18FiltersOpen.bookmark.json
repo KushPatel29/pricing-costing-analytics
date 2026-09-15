@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Bundles - filters open",
+  "name": "p18FiltersOpen",
+  "options": {
+    "targetVisualNames": [
+      "p18FilterPanel",
+      "p18PanelBg",
+      "p18PanelTitle",
+      "p18PanelClose",
+      "v1808",
+      "v1809",
+      "p18PanelClear"
+    ],
+    "applyOnlyToTargetVisuals": true,
+    "suppressData": true,
+    "suppressActiveSection": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "section_bundles",
+    "sections": {
+      "section_bundles": {
+        "visualContainers": {
+          "p18PanelBg": {},
+          "p18PanelTitle": {},
+          "p18PanelClose": {},
+          "v1808": {},
+          "v1809": {},
+          "p18PanelClear": {}
+        },
+        "visualContainerGroups": {
+          "p18FilterPanel": {
+            "isHidden": false
+          }
+        }
+      }
+    }
+  }
+}

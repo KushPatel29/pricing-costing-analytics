@@ -36,8 +36,16 @@ the one line at the top.
 
 ## What is in it
 
-Eighteen pages, 180 visuals, 54 tables, 204 measures, 23 relationships, plus six
-parameter tables.
+Nineteen pages, 352 visuals, 51 tables plus a measures table, 209 measures (and
+128 more in a **Report UI** folder that draw the report itself), 22
+relationships, plus four what-if parameter tables.
+
+Every page opens with a header drawn by DAX -- its name, its place in the
+report and the filters in effect -- and Previous and Next buttons. The KPI
+cards are SVG tiles drawn by measures. The slicers sit in a filter panel that
+the **Filters** button opens; in Desktop's edit mode a button needs
+**Ctrl+click**. The what-if sliders stay on the simulator page, because moving
+them is what that page is for.
 
 | Page | What it answers |
 |---|---|
@@ -58,17 +66,17 @@ parameter tables.
 | Pricing operations | Why prices moved, how long approval took, what went stale |
 | Data quality | Twelve rules, and the reconciliation that balances |
 | Exceptions and alerts | Red, amber, green, ranked by margin at risk |
+| Bundles | Which pairs are worth bundling, and how much cannibalisation they survive |
 | Recommendations | Increase, maintain, discount, bundle, fix cost or exit |
 
 ### The parameter tables
 
 Four **what-if** parameters (price, cost, volume and discount change) are
-calculated tables over `GENERATESERIES`, read back by `SELECTEDVALUE`. Two
-**field** parameters are calculated tables of `NAMEOF()` references, so one
-chart answers five questions rather than the page carrying five charts that
-differ by one field.
+calculated tables over `GENERATESERIES`, read back by `SELECTEDVALUE`. There are
+no field parameters: Desktop would not bind the hand-generated ones, and
+`tests/test_powerbi_model.py` keeps them out until one has been shown to work.
 
-All six are related to nothing, deliberately. A parameter joined to a fact
+All four are related to nothing, deliberately. A parameter joined to a fact
 filters that fact to the rows matching the parameter's own value, which is the
 exact opposite of what a what-if is for -- and it fails quietly, by showing a
 smaller number rather than an error.
@@ -121,7 +129,7 @@ check every failure mode Power BI does not report:
   that way.
 
 **Verified.** This project has been opened in Power BI Desktop, refreshed, and
-every page exported and looked at: 19 pages, 189 visuals, **0 that failed to
+every page exported and looked at: 19 pages, 352 visuals, **0 that failed to
 render**. `docs/powerbi/screenshots/` is that export.
 
 Every check in the list above passed before the first open, and the report was

@@ -3,11 +3,11 @@
   "name": "v0605",
   "position": {
     "x": 20,
-    "y": 152,
-    "z": 1504,
-    "height": 288,
+    "y": 208,
+    "z": 1515,
+    "height": 260,
     "width": 1240,
-    "tabOrder": 1504
+    "tabOrder": 1515
   },
   "visual": {
     "visualType": "waterfallChart",

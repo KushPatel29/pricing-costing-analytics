@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Data quality - filters open",
+  "name": "p16FiltersOpen",
+  "options": {
+    "targetVisualNames": [
+      "p16FilterPanel",
+      "p16PanelBg",
+      "p16PanelTitle",
+      "p16PanelClose",
+      "v1609",
+      "v1610",
+      "p16PanelClear"
+    ],
+    "applyOnlyToTargetVisuals": true,
+    "suppressData": true,
+    "suppressActiveSection": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "section_quality",
+    "sections": {
+      "section_quality": {
+        "visualContainers": {
+          "p16PanelBg": {},
+          "p16PanelTitle": {},
+          "p16PanelClose": {},
+          "v1609": {},
+          "v1610": {},
+          "p16PanelClear": {}
+        },
+        "visualContainerGroups": {
+          "p16FilterPanel": {
+            "isHidden": false
+          }
+        }
+      }
+    }
+  }
+}

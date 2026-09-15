@@ -48,7 +48,7 @@ It opens on generated data, so there is nothing to prepare.
 | [The dashboard](#the-dashboard) | Nineteen pages, generated from spec, with layouts you can read |
 | [Metrics](#metrics) | Every number, with its definition |
 | [Running it](#running-it) | Five commands |
-| [What is checked](#what-is-checked) | 2,455 tests, and the defects they were written after |
+| [What is checked](#what-is-checked) | 3,151 tests, and the defects they were written after |
 
 ---
 
@@ -691,7 +691,7 @@ Each of those takes `--check`, and CI runs all of them that way.
 pytest -q
 ```
 
-**2,455 tests.** The ones worth reading are the convention tests — additive
+**3,151 tests.** The ones worth reading are the convention tests — additive
 versus compounding discounts, margin on pocket versus on list, which side of a
 variance is unfavourable, whether a subtotal bar moves a waterfall, whether a
 negative amount reads `-$32k` or `$-32k` — because those are where two

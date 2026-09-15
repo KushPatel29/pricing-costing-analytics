@@ -247,6 +247,13 @@
                   "Value": "'p01FiltersClosed'"
                 }
               }
+            },
+            "tooltip": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Closes the filter panel. Ctrl+click in Power BI Desktop · click in the Power BI service'"
+                }
+              }
             }
           }
         }

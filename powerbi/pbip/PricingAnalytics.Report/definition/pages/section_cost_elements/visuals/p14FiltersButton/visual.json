@@ -251,6 +251,13 @@
                   "Value": "'p14FiltersOpen'"
                 }
               }
+            },
+            "tooltip": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Opens the filter panel; its label counts the filters in effect on this page. Ctrl+click in Power BI Desktop · click in the Power BI service'"
+                }
+              }
             }
           }
         }

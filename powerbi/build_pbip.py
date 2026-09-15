@@ -565,6 +565,9 @@ def _image(measure: str, alt: str, *, framed: bool) -> dict:
     }
 
 
+BUTTON_HOW = "Ctrl+click in Power BI Desktop · click in the Power BI service"
+
+
 def _button(text: dict, alt: str, link: dict) -> dict:
     return {
         "visualType": "actionButton",
@@ -590,8 +593,12 @@ def _button(text: dict, alt: str, link: dict) -> dict:
         },
         "visualContainerObjects": {
             # visualLink is how a button acts; in Desktop's edit mode it takes
-            # Ctrl+click, in reading view and the Service a plain click.
-            "visualLink": [{"properties": {"show": literal(True), **link}}],
+            # Ctrl+click, in reading view and the Service a plain click. Desktop
+            # ignores a plain click on a button, so the tooltip says so.
+            "visualLink": [{"properties": {
+                "show": literal(True), **link,
+                "tooltip": literal(alt.removeprefix("Button. ").rstrip(".") + ". " + BUTTON_HOW),
+            }}],
             "general": _alt(alt),
             "padding": _padding(0),
             **_off("background", "border", "dropShadow", "title"),

@@ -240,6 +240,13 @@
                   "Value": "'ClearAllSlicers'"
                 }
               }
+            },
+            "tooltip": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Clears every slicer on this page. Ctrl+click in Power BI Desktop · click in the Power BI service'"
+                }
+              }
             }
           }
         }

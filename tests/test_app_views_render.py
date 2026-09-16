@@ -1,7 +1,7 @@
 """
 Run every view the way Streamlit runs it, and fail on the ones that raise.
 
-There are seventeen pages here, each reading a different set of generated
+There are eighteen pages here, each reading a different set of generated
 tables. A column renamed in the engine, a table dropped from ``output/``, an
 import moved -- none of that is caught by the maths tests, and none of it is
 visible in a diff. What it produces is a red exception box on one page of a
@@ -15,7 +15,7 @@ a gate.
 
 The generated data has to exist first. It is committed, so normally it does;
 when it is not, these skip with a message that says which command to run rather
-than reporting seventeen identical failures.
+than reporting eighteen identical failures.
 """
 
 from __future__ import annotations

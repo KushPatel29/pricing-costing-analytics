@@ -1,0 +1,35 @@
+{
+  "policy_id": "PRC-DEC-01",
+  "version": "1.0.0",
+  "snapshot_date": "2026-06-30",
+  "purpose": "Govern aggregate product and portfolio pricing proposals from evidence through human review and post-decision realization monitoring.",
+  "decision_owner": "Commercial Director",
+  "risk_owner": "Finance Controller",
+  "data_owner": "Pricing Analytics Lead",
+  "allowed": [
+    "Prioritize product-level price, cost-master and portfolio review work",
+    "Prepare evidence-backed pricing requests for named human reviewers",
+    "Monitor approved list-price changes against invoiced and pocket-price realization",
+    "Recommend rollback review when realized economics fall outside the approved case"
+  ],
+  "prohibited": [
+    "Automatically approve or publish a customer price",
+    "Represent observational elasticity as a causal price effect",
+    "Override contract terms, customer commitments or delegated approval limits",
+    "Treat forecast margin as realized financial benefit",
+    "Hide missing market coverage, unusable elasticity or master-data defects"
+  ],
+  "approval_tiers": [
+    {"tier": "Data return", "rule": "Cost master is missing or unsafe", "reviewer": "Pricing Data Steward"},
+    {"tier": "Sales manager", "rule": "Absolute proposed change is at most 5%", "reviewer": "Sales Manager"},
+    {"tier": "Commercial review", "rule": "Absolute proposed change is above 5% and at most 7%", "reviewer": "Commercial Director"},
+    {"tier": "Finance review", "rule": "Absolute proposed change exceeds 7% or the proposal is discontinuation", "reviewer": "Finance Controller"}
+  ],
+  "realization": {
+    "pre_window_months": 3,
+    "post_window_months": 3,
+    "minimum_directional_realization": 0.5,
+    "review_if_pocket_giveback_points_exceed": 0.03
+  },
+  "human_boundary": "Every material price, contract or discontinuation decision remains open until the named reviewer acts outside this public demonstration."
+}

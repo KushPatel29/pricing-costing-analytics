@@ -1,0 +1,18 @@
+{
+  "gates": {
+    "BLOCK": 0,
+    "PASS": 6,
+    "REVIEW": 2
+  },
+  "historical_changes_monitored": 2075,
+  "human_boundary": "Every material price, contract or discontinuation decision remains open until the named reviewer acts outside this public demonstration.",
+  "open_human_decisions": 161,
+  "policy_id": "PRC-DEC-01",
+  "policy_version": "1.0.0",
+  "proposal_count": 240,
+  "ready_for_review": 34,
+  "realization_reviews": 1132,
+  "release_posture": "REVIEW REQUIRED",
+  "returned_for_data": 16,
+  "snapshot_date": "2026-06-30"
+}

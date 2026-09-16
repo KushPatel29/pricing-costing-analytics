@@ -173,6 +173,15 @@ DESCRIPTIONS: dict[str, str] = {
     "price_change_approvals": "The log rolled up by approval state.",
     "price_list_coverage": "How much of the book each review cadence covers, how "
                            "stale it has gone, and what margin it holds.",
+    "pricing_decision_register": "One governed request per product, with the "
+                                 "evidence state, delegated reviewer, effective "
+                                 "period, monitoring window and rollback trigger.",
+    "price_realization_monitor": "Approved historical list-price changes matched "
+                                 "to fixed pre/post invoice and pocket-price "
+                                 "windows for observational follow-up.",
+    "pricing_release_gates": "The eight controls that decide whether the evidence "
+                             "packet can enter human review, with a state and "
+                             "supporting evidence for each control.",
 
     # output/ -- recommendations
     "recommendations": "One row per product: the action, the price it implies, "

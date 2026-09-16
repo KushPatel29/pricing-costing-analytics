@@ -1283,6 +1283,36 @@ How much of the book each review cadence covers, how stale it has gone, and what
 | `median_margin_pct` | decimal | 0.347 |
 | `stale` | integer | 0 |
 
+### `price_realization_monitor`
+
+Approved historical list-price changes matched to fixed pre/post invoice and pocket-price windows for observational follow-up.
+
+2,075 rows × 21 columns.
+
+| Column | Type | Example |
+|---|---|---|
+| `change_id` | text | PC20035 |
+| `effective_month` | text | 2026-06-01 |
+| `product_id` | integer | 20003 |
+| `description` | text | Storage Bins - National b... |
+| `category` | text | Home & Kitchen |
+| `approval_state` | text | Approved |
+| `approver` | text | Sales manager |
+| `approved_change_pct` | decimal | 0.05987 |
+| `pre_list_price` | decimal | 29.2913 |
+| `pre_pocket_price` | decimal | 24.2085 |
+| `post_list_price` | decimal | 31.045 |
+| `post_invoice_price` | decimal | 28.0369 |
+| `post_pocket_price` | decimal | 26.2528 |
+| `list_change_pct` | decimal | 0.059871 |
+| `pocket_change_pct` | decimal | 0.084444 |
+| `directional_realization` | decimal | 1.4105 |
+| `list_to_pocket_giveback_pct` | decimal | -0.024573 |
+| `pre_months` | integer | 3 |
+| `post_months` | integer | 1 |
+| `realization_state` | text | REVIEW |
+| `review_reason` | text | Fewer than two pre or pos... |
+
 ### `price_response_curve`
 
 Volume, revenue and profit across a band of prices either side of today's.
@@ -1338,6 +1368,51 @@ The list-to-pocket-margin waterfall at the book total, one row per step.
 | `bucket` | text | List |
 | `sort_order` | integer | 0 |
 | `delta` | decimal | 631971904.18 |
+
+### `pricing_decision_register`
+
+One governed request per product, with the evidence state, delegated reviewer, effective period, monitoring window and rollback trigger.
+
+240 rows × 23 columns.
+
+| Column | Type | Example |
+|---|---|---|
+| `request_id` | text | PRC-REQ-0001 |
+| `product_id` | integer | 20235 |
+| `description` | text | Wireless Earbuds - Value,... |
+| `category` | text | Consumer Electronics |
+| `action` | text | Fix cost |
+| `decision_state` | text | RETURN_FOR_DATA |
+| `human_decision` | text | OPEN |
+| `required_reviewer` | text | Pricing Data Steward |
+| `requested_by` | text | Pricing Analytics Lead |
+| `confidence` | text | Medium |
+| `evidence` | text | only 2 competitor observa... |
+| `current_price` | decimal | 26.7252 |
+| `recommended_price` | decimal | 26.7252 |
+| `price_change_pct` | decimal | 0.0 |
+| `volume_change_pct` | decimal | 0.0 |
+| `revenue_delta` | decimal | 0.0 |
+| `margin_delta` | decimal | 0.0 |
+| `effective_period` | text | Next controlled price-lis... |
+| `monitoring_window` | text | First three complete mont... |
+| `rollback_trigger` | text | Stop the workflow until t... |
+| `evidence_refs` | text | recommendations.csv; deal... |
+| `rationale` | text | No usable standard cost o... |
+| `snapshot_date` | text | 2026-06-30 |
+
+### `pricing_release_gates`
+
+The eight controls that decide whether the evidence packet can enter human review, with a state and supporting evidence for each control.
+
+8 rows × 4 columns.
+
+| Column | Type | Example |
+|---|---|---|
+| `control_id` | text | PRC-GOV-01 |
+| `decision_test` | text | Source-to-stage reconcili... |
+| `state` | text | PASS |
+| `evidence` | text | Every reconciliation line... |
 
 ### `product_co_purchase`
 

@@ -1,0 +1,9 @@
+control_id,decision_test,state,evidence
+PRC-GOV-01,Source-to-stage reconciliation,PASS,Every reconciliation line balances with zero unexplained variance.
+PRC-GOV-02,Proposal evidence completeness,PASS,"240 proposals carry rationale, confidence, reviewer and evidence references."
+PRC-GOV-03,Approval authority,REVIEW,161 material proposals remain OPEN; this demo stores no human approval.
+PRC-GOV-04,Observational claim boundary,PASS,Elasticity is labelled observational and separated from causal effect.
+PRC-GOV-05,Price-realization coverage,PASS,"1,868 approved changes have at least two pre and post months."
+PRC-GOV-06,Realization exception review,REVIEW,"1,132 historical changes require explanation before benefit is claimed."
+PRC-GOV-07,Rollback design,PASS,Every material proposal names a monitoring window and rollback trigger.
+PRC-GOV-08,Synthetic demonstration boundary,PASS,"No public result is represented as a customer price, approval or realized production benefit."

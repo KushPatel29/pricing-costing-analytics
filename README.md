@@ -1,7 +1,7 @@
 # Pricing & Costing Analytics
 
 [![CI](https://github.com/KushPatel29/pricing-costing-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/pricing-costing-analytics/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-3151%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-3182%20passing-3B8C6E)
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![Streamlit](https://img.shields.io/badge/streamlit-1.60-ff4b4b)
 ![Power BI](https://img.shields.io/badge/Power%20BI-PBIP%20%2F%20TMDL-F2C811)
@@ -9,11 +9,13 @@
 **Live app:** [cost-to-price-calculator.streamlit.app](https://cost-to-price-calculator.streamlit.app/)
 · **[Metric reference](docs/METRICS.md)**
 · **[Data dictionary](docs/DATA_DICTIONARY.md)**
+· **[Pricing decision packet](output/pricing_decision_packet.md)**
+· **[Decision governance](governance/PRICING_DECISION_GOVERNANCE.md)**
 · **[Dashboard screenshots](docs/powerbi/screenshots/)**
 
 A pricing analyst's whole job for a multi-category B2B wholesale distributor,
 from a vendor invoice to a decision somebody has to defend on Monday.
-**Seventeen Streamlit pages**, a **generated nineteen-page Power BI project**,
+**Eighteen Streamlit pages**, a **generated nineteen-page Power BI project**,
 **six SQL marts** that check the Python, and three complete fiscal years of
 market, transaction, cost and ERP data underneath all of it.
 
@@ -44,11 +46,11 @@ It opens on generated data, so there is nothing to prepare.
 | [The pricing stack](#the-pricing-stack) | Twelve tested modules, and what each decides |
 | [The data](#the-data) | Generated to be *recoverable*, plus an ERP extract with real defects |
 | [The SQL layer](#the-sql-layer) | Six marts, computed twice, held to 1e-8 |
-| [The app](#the-app) | Seventeen pages, dark, validated palette |
+| [The app](#the-app) | Eighteen pages, including a governed pricing decision room |
 | [The dashboard](#the-dashboard) | Nineteen pages, generated from spec, with layouts you can read |
 | [Metrics](#metrics) | Every number, with its definition |
 | [Running it](#running-it) | Five commands |
-| [What is checked](#what-is-checked) | 3,151 tests, and the defects they were written after |
+| [What is checked](#what-is-checked) | 3,182 tests, and the defects they were written after |
 
 ---
 
@@ -394,11 +396,12 @@ the build was green. The two places a grand total is a divisor now round at
 
 ## The app
 
-Seventeen pages behind `st.navigation`, grouped the way the work is.
+Eighteen pages behind `st.navigation`, grouped the way the work is.
 
 | Group | Page | What it answers |
 |---|---|---|
 | Overview | Executive summary | Where the business stands, and what moved the margin |
+| | Pricing decision room | Whether proposals can enter review, who owns each decision, and whether approved historical changes reached pocket price |
 | | Recommendations | Increase, maintain, discount, bundle, fix cost or exit |
 | Data | Data quality and reconciliation | Whether any of the rest can be trusted |
 | Cost | Cost and variance analysis | Purchase price, yield, labour and overhead against standard |
@@ -415,6 +418,29 @@ Seventeen pages behind `st.navigation`, grouped the way the work is.
 | | Bundles and ladders | Bundle economics judged on incremental margin |
 | Execution | Deal guardrails | Floor, target and stretch, and who signs for the gap |
 | | Promotions and price-list operations | Which mechanic paid, and what has gone stale |
+
+### A recommendation is not an approval
+
+The **Pricing decision room** closes the gap between an analytical answer and
+an executable commercial decision. It packages one governed request per
+product, routes material changes to named authority, and keeps every public
+demonstration decision open until a human acts outside the app. The current
+evidence release contains **240 proposals**, **161 open human decisions** and a
+**6 pass / 2 review / 0 block** gate posture. “Ready for review” never means
+approved, communicated to a customer, or published to an ERP.
+
+After approval, the same room monitors **2,075 historical price changes** over
+fixed three-month pre/post windows. **1,132** are returned for explanation
+because the move did not reach pocket price cleanly or list-to-pocket giveback
+was material. That monitor is explicitly observational: customer mix,
+contracts, discounts, competitor moves and seasonality can all move the result,
+so it identifies investigation work rather than claiming causal impact.
+
+The release is reproducible, not just downloadable. CI rebuilds the register,
+realization monitor, release gates and executive packet twice, compares their
+bytes, then verifies the five governed artifacts against a SHA-256 manifest.
+See the [decision packet](output/pricing_decision_packet.md) and the
+[governance contract](governance/PRICING_DECISION_GOVERNANCE.md).
 
 ![Profitability and segmentation](docs/screenshots/05-profitability.png)
 
@@ -691,7 +717,7 @@ Each of those takes `--check`, and CI runs all of them that way.
 pytest -q
 ```
 
-**3,151 tests.** The ones worth reading are the convention tests — additive
+**3,182 tests.** The ones worth reading are the convention tests — additive
 versus compounding discounts, margin on pocket versus on list, which side of a
 variance is unfavourable, whether a subtotal bar moves a waterfall, whether a
 negative amount reads `-$32k` or `$-32k` — because those are where two

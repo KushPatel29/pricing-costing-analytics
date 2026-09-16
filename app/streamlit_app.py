@@ -40,6 +40,7 @@ navigation = st.navigation(
         "Overview": [
             _page("overview.py", "Executive summary", ":material/dashboard:",
                   default=True),
+            _page("decision_room.py", "Pricing decision room", ":material/fact_check:"),
             _page("recommendations.py", "Recommendations", ":material/task_alt:"),
         ],
         "Data": [

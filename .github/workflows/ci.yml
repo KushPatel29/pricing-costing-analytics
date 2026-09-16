@@ -21,7 +21,7 @@ jobs:
       - run: pip install -r requirements.txt -r requirements-dev.txt
 
       - name: ruff
-        run: ruff check app costing docs engine powerbi pricing seed tests
+        run: ruff check app costing docs engine governance powerbi pricing seed tests
 
       # Regenerate everything before testing. The committed data and analysis
       # outputs are convenience, not source: if the generator has drifted from
@@ -37,6 +37,24 @@ jobs:
         run: python -m engine.build_pricing_analytics
       - name: Stage the ERP extract and run the quality rules
         run: python -m engine.stage_erp
+      - name: Build the governed pricing decision evidence
+        run: python -m governance.build_pricing_decision_evidence
+      - name: Pricing evidence is byte-reproducible
+        run: |
+          sha256sum output/pricing_decision_register.csv \
+            output/price_realization_monitor.csv \
+            output/pricing_release_gates.csv \
+            output/pricing_decision_summary.json \
+            output/pricing_decision_manifest.json \
+            output/pricing_decision_packet.md > /tmp/pricing-evidence.before
+          python -m governance.build_pricing_decision_evidence
+          sha256sum output/pricing_decision_register.csv \
+            output/price_realization_monitor.csv \
+            output/pricing_release_gates.csv \
+            output/pricing_decision_summary.json \
+            output/pricing_decision_manifest.json \
+            output/pricing_decision_packet.md > /tmp/pricing-evidence.after
+          diff -u /tmp/pricing-evidence.before /tmp/pricing-evidence.after
       # The same six marts in SQL and in pandas. The test holds them to 1e-8 of
       # each other; this step is what makes sure the SQL still runs at all.
       - name: SQL marts agree with the Python

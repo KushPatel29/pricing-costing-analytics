@@ -1,0 +1,27 @@
+{
+  "artifacts": [
+    {
+      "path": "governance/pricing_decision_policy.json",
+      "sha256": "bed2d8d026603b80cf3950a86021645c7668560a385ccac5cea67bd9e32ef0d6"
+    },
+    {
+      "path": "output/pricing_decision_register.csv",
+      "sha256": "f2204211dd648d1e5edab93dd775e742df6dcc86be18c0873780d55592b7a2de"
+    },
+    {
+      "path": "output/price_realization_monitor.csv",
+      "sha256": "be869ab526ad995e5c17e3c90c8b4d3fa0afebebfa7112de4aa3abdeb133c27b"
+    },
+    {
+      "path": "output/pricing_release_gates.csv",
+      "sha256": "6f96975279f33f2954a3e5af41998751b6a50b9a89fb412f752c2c25eb7e3ead"
+    },
+    {
+      "path": "output/pricing_decision_summary.json",
+      "sha256": "e93f46b700265d0645e150092fc4513c7cf7b3e60e13b49ea1b4d8896ab9ec23"
+    }
+  ],
+  "hash_algorithm": "sha256",
+  "policy_id": "PRC-DEC-01",
+  "snapshot_date": "2026-06-30"
+}

@@ -700,9 +700,15 @@ def reference_line(fig, *, y: float | None = None, x: float | None = None,
                       annotation_text=label, annotation_position="top left",
                       annotation_font=dict(color=colour, size=11))
     if x is not None:
-        fig.add_vline(x=x, line=dict(color=colour, width=1, dash="dot"),
-                      annotation_text=label, annotation_position="top",
-                      annotation_font=dict(color=colour, size=11))
+        # The label is its own annotation. add_vline(annotation_text=...) places
+        # it by averaging x, and a Timestamp cannot be averaged: plotly 6.3.1
+        # raised TypeError on the forecast page's date axis, so the page only
+        # rendered on the plotly this repository happens to pin.
+        fig.add_vline(x=x, line=dict(color=colour, width=1, dash="dot"))
+        if label:
+            fig.add_annotation(x=x, y=1, xref="x", yref="paper", yanchor="bottom",
+                               text=label, showarrow=False,
+                               font=dict(color=colour, size=11))
     return fig
 
 

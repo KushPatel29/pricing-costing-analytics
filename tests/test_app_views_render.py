@@ -77,6 +77,57 @@ def test_the_view_puts_something_on_the_page(view):
     assert drawn > 3, f"{view.name} rendered almost nothing ({drawn} elements)"
 
 
+@pytest.mark.parametrize("view", VIEW_FILES, ids=[p.stem for p in VIEW_FILES])
+def test_every_choice_on_the_view_runs_without_raising(view):
+    """
+    The two tests above run each page with its widgets at their defaults, which
+    is the one state a visitor leaves first. The profitability heatmap ran clean
+    on "Gross margin %" and raised ValueError the moment anyone picked
+    "Gross margin $" -- a Python f-string had been given Plotly's "$,.0f".
+
+    So every radio option, and the first few options of every select box, gets
+    a run of its own. Each widget is moved from the page's default state, one at
+    a time, so a failure names the single choice that caused it.
+    """
+    if not _data_is_built():
+        pytest.skip("generated data is not built")
+    from streamlit.testing.v1 import AppTest
+
+    def fresh():
+        app = AppTest.from_file(str(view), default_timeout=TIMEOUT)
+        app.run()
+        return app
+
+    base = fresh()
+    choices = [("radio", i, option) for i, widget in enumerate(base.radio)
+               for option in widget.options]
+    choices += [("selectbox", i, position) for i, widget in enumerate(base.selectbox)
+                for position in range(min(len(widget.options), 4))]
+    failures, driven = [], 0
+    for kind, index, option in choices:
+        app = fresh()
+        widgets = getattr(app, kind)
+        if index >= len(widgets):
+            continue
+        widget = widgets[index]
+        try:
+            if kind == "selectbox":
+                widget.select_index(option).run()
+            else:
+                widget.set_value(option).run()
+        except (TypeError, ValueError, KeyError):
+            # The harness lists a radio's options by display label; one with a
+            # format_func cannot be set from that label. A page error is never
+            # raised here -- AppTest records it in app.exception below.
+            continue
+        driven += 1
+        if app.exception:
+            failures.append(f"{kind} {widget.label!r} = {option!r}: "
+                            + " | ".join(f"{e.type}: {e.message}" for e in app.exception))
+    assert not failures, f"{view.name}: " + "; ".join(failures)
+    assert driven or not choices, f"{view.name}: none of its {len(choices)} choices could be set"
+
+
 # --------------------------------------------------------------------------
 # The loader underneath them
 # --------------------------------------------------------------------------

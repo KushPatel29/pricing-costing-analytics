@@ -285,6 +285,20 @@ def page(title: str = "") -> None:
             border-radius: 12px;
           }}
 
+          /* KPI tiles wrap their text instead of ending in an ellipsis at laptop width. */
+          :is([data-testid="stMetricLabel"], [data-testid="stMetricValue"],
+              [data-testid="stMetricDelta"]),
+          :is([data-testid="stMetricLabel"], [data-testid="stMetricValue"],
+              [data-testid="stMetricDelta"]) :is(div, p, span, label) {{
+            white-space: normal !important; overflow: visible !important;
+            text-overflow: clip !important; overflow-wrap: anywhere;
+            height: auto !important; max-height: none !important;
+            -webkit-line-clamp: unset !important; line-height: 1.25;
+          }}
+          div[data-testid="stMetric"] div:has(> [data-testid="stMetricDelta"]) {{
+            overflow: visible; height: auto;
+          }}
+
           /* Streamlit's own running indicator and footer. */
           div[data-testid="stDecoration"] {{
             background: linear-gradient(90deg, {SERIES[0]}, {SERIES[6]}, {SERIES[2]});

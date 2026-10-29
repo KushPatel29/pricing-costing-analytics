@@ -1,9 +1,9 @@
 # Pricing & Costing Analytics
 
 [![CI](https://github.com/KushPatel29/pricing-costing-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/pricing-costing-analytics/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-3182%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-3200%20passing-3B8C6E)
 ![Python](https://img.shields.io/badge/python-3.12-blue)
-![Streamlit](https://img.shields.io/badge/streamlit-1.60-ff4b4b)
+![Streamlit](https://img.shields.io/badge/streamlit-1.66-ff4b4b)
 ![Power BI](https://img.shields.io/badge/Power%20BI-PBIP%20%2F%20TMDL-F2C811)
 
 **Live app:** [cost-to-price-calculator.streamlit.app](https://cost-to-price-calculator.streamlit.app/)
@@ -50,7 +50,7 @@ It opens on generated data, so there is nothing to prepare.
 | [The dashboard](#the-dashboard) | Nineteen pages, generated from spec, with layouts you can read |
 | [Metrics](#metrics) | Every number, with its definition |
 | [Running it](#running-it) | Five commands |
-| [What is checked](#what-is-checked) | 3,182 tests, and the defects they were written after |
+| [What is checked](#what-is-checked) | 3,200 tests, and the defects they were written after |
 
 ---
 
@@ -717,7 +717,7 @@ Each of those takes `--check`, and CI runs all of them that way.
 pytest -q
 ```
 
-**3,182 tests.** The ones worth reading are the convention tests — additive
+**3,200 tests.** The ones worth reading are the convention tests — additive
 versus compounding discounts, margin on pocket versus on list, which side of a
 variance is unfavourable, whether a subtotal bar moves a waterfall, whether a
 negative amount reads `-$32k` or `$-32k` — because those are where two
@@ -739,7 +739,9 @@ project found ten more, and not one of them raised:
 | Charts | Direct labels ran off the plot, reliably clipping the longest bar |
 | Dashboard | Four model tables no visual reached, and a page named "Price bands" that never drew a band |
 
-Earlier gates caught eight Streamlit pages that raised on load, two Power BI
+Earlier gates caught eight Streamlit pages that raised on load, a profitability
+heatmap that raised the moment "Gross margin $" was picked (every radio and
+select-box choice on every page now gets its own run), two Power BI
 slicers eight pixels tall, two SQL marts with no deterministic row order, a
 `DataPath` that made the drift gate pass only on the machine that generated it,
 and pinned dependency versions that nothing here had ever run on.

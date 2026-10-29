@@ -118,12 +118,21 @@ column = {"Gross margin %": "gross_margin_pct", "Leakage %": "leakage_pct",
           "Gross margin $": "gross_margin"}[measure]
 
 pivot = heat.pivot(index="segment", columns="category", values=column)
-fmt = "$,.0f" if column == "gross_margin" else ".1%"
+
+
+def _cell(value: float) -> str:
+    # Python's format spec has no currency sign ("$,.0f" is Plotly's d3 syntax and
+    # raised ValueError here), so dollars go through the shared money formatter.
+    if pd.isna(value):
+        return ""
+    return sh.money(value) if column == "gross_margin" else f"{value:.1%}"
+
+
 fig = go.Figure(go.Heatmap(
     z=pivot.values, x=list(pivot.columns), y=list(pivot.index),
     colorscale=[[i / (len(sh.SEQUENTIAL) - 1), c] for i, c in enumerate(sh.SEQUENTIAL)],
     reversescale=(column == "leakage_pct"),
-    text=[[f"{v:{fmt}}" if pd.notna(v) else "" for v in row] for row in pivot.values],
+    text=[[_cell(v) for v in row] for row in pivot.values],
     texttemplate="%{text}", textfont=dict(size=10),
     hovertemplate="%{y} / %{x}<br>" + measure + ": %{text}<extra></extra>",
     colorbar=dict(title="", thickness=12, outlinewidth=0),

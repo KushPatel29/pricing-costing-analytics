@@ -426,9 +426,9 @@ if df_cost is not None and df_export is not None:
     st.markdown("## Preview Sheets")
     c1, c2 = st.columns(2)
     with c1:
-        st.dataframe(df_cost.head(8), use_container_width=True)
+        st.dataframe(df_cost.head(8), width="stretch")
     with c2:
-        st.dataframe(df_export.head(8), use_container_width=True)
+        st.dataframe(df_export.head(8), width="stretch")
 
     # --- Cost Update Section ---
     st.markdown("## Step 2: bulk update product costs")
@@ -437,7 +437,7 @@ if df_cost is not None and df_export is not None:
     edit_df = st.data_editor(
         sample_data,
         num_rows="dynamic",
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
         key="bulk_cost_editor",
         column_order=["Item Code", "New Cost Price"]
@@ -491,7 +491,7 @@ if df_cost is not None and df_export is not None:
                     "Updated?": "Yes" if cost_updated or export_updated else "No"
                 })
             st.markdown("## Summary of Updates")
-            st.dataframe(pd.DataFrame(summary_rows), use_container_width=True)
+            st.dataframe(pd.DataFrame(summary_rows), width="stretch")
             if all_updated_codes:
                 st.success(f"Updated pricing for {len(all_updated_codes)} Item Code(s).")
                 col1, col2 = st.columns(2)

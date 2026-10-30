@@ -24,7 +24,13 @@ if str(ROOT) not in sys.path:
 
 import streamlit as st
 
-from app import shared as sh
+from app.freshness import refresh
+
+# A push that changes only app/shared.py or the pricing package must reach this
+# running app: reload the repo's own modules when their files change.
+refresh(ROOT)
+
+from app import shared as sh  # noqa: E402
 
 sh.configure()
 
@@ -91,3 +97,5 @@ with st.sidebar:
     )
 
 navigation.run()
+# Record what this run imported, so the next run can tell when it changed.
+refresh(ROOT)

@@ -1,7 +1,7 @@
 # Pricing & Costing Analytics
 
 [![CI](https://github.com/KushPatel29/pricing-costing-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/pricing-costing-analytics/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-3200%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-3205%20passing-3B8C6E)
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![Streamlit](https://img.shields.io/badge/streamlit-1.66-ff4b4b)
 ![Power BI](https://img.shields.io/badge/Power%20BI-PBIP%20%2F%20TMDL-F2C811)
@@ -50,7 +50,7 @@ It opens on generated data, so there is nothing to prepare.
 | [The dashboard](#the-dashboard) | Nineteen pages, generated from spec, with layouts you can read |
 | [Metrics](#metrics) | Every number, with its definition |
 | [Running it](#running-it) | Five commands |
-| [What is checked](#what-is-checked) | 3,200 tests, and the defects they were written after |
+| [What is checked](#what-is-checked) | 3,205 tests, and the defects they were written after |
 
 ---
 
@@ -717,7 +717,7 @@ Each of those takes `--check`, and CI runs all of them that way.
 pytest -q
 ```
 
-**3,200 tests.** The ones worth reading are the convention tests — additive
+**3,205 tests.** The ones worth reading are the convention tests — additive
 versus compounding discounts, margin on pocket versus on list, which side of a
 variance is unfavourable, whether a subtotal bar moves a waterfall, whether a
 negative amount reads `-$32k` or `$-32k` — because those are where two
